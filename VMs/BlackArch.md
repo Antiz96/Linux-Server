@@ -73,7 +73,7 @@ ssh-keygen
 ## Install my personal config files
 
 ```
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_BlackArch.txt -o ~/.bashrc
+curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Dotfiles/General/bashrc_BlackArch.txt -o ~/.bashrc
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 ```
 

@@ -4,7 +4,7 @@ https://nextcloud.com/
 
 ## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Docker.md
+https://github.com/Antiz96/Server-Configuration/blob/main/Server/Docker.md
 
 ## Installing Nextcloud on Docker
 

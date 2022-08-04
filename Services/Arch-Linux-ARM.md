@@ -198,7 +198,7 @@ yay -S wakeonlan
 ## Download my .bashrc
 
 ```
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch-Server.txt -o ~/.bashrc
+curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Dotfiles/General/bashrc_Arch-Server.txt -o ~/.bashrc
 source ~/.bashrc
 ```
 
