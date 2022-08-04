@@ -3,11 +3,11 @@
 https://www.portainer.io/
 
 **This is the procedure to install and connect an agent to an already existing Portainer server**   
-**To install a Portainer server, see :** https://github.com/Antiz96/Server-Configuration/blob/main/Server/Portainer-Server.md
+**To install a Portainer server, see :** https://github.com/Antiz96/Server-Configuration/blob/main/Services/Portainer-Server.md
 
 ## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Server-Configuration/blob/main/Server/Docker.md
+https://github.com/Antiz96/Server-Configuration/blob/main/Services/Docker.md
 
 ## Installing Portainer agent on Docker
 

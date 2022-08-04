@@ -4,7 +4,7 @@ https://github.com/lissy93/dashy
 
 ## Install docker on my Server (if not done already)
 
-https://github.com/Antiz96/Server-Configuration/blob/main/Server/Docker.md
+https://github.com/Antiz96/Server-Configuration/blob/main/Services/Docker.md
 
 ## Create a dedicated dashy directory
 
@@ -17,7 +17,7 @@ sudo mkdir /opt/dashy
 (Remember to fill in the "username" and "password" fields for the monitoring sections)
 
 ```
-sudo curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Server/Dashy-conf.yml -o /opt/dashy/conf.yml
+sudo curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Services/Dashy-conf.yml -o /opt/dashy/conf.yml
 ```
 
 ## Pull and run the container 
