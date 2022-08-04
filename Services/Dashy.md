@@ -17,7 +17,7 @@ sudo mkdir /opt/dashy
 (Remember to fill in the "username" and "password" fields for the monitoring sections)
 
 ```
-sudo curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Services/Dashy-conf.yml -o /opt/dashy/conf.yml
+sudo curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Dotfiles/Dashy-conf.yml -o /opt/dashy/conf.yml
 ```
 
 ## Pull and run the container 
