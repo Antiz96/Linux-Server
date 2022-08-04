@@ -183,6 +183,6 @@ wakeonlan 7c:10:c9:8c:88:9d
 ## Download my .bashrc
 
 ```
-curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Dotfiles/General/bashrc_Debian-Ubuntu-Server.txt -o ~/.bashrc
+curl https://raw.githubusercontent.com/Antiz96/Server-Configuration/main/Dotfiles/bashrc_Debian-Ubuntu-Server.txt -o ~/.bashrc
 source ~/.bashrc
 ```
