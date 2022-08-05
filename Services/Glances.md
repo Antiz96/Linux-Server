@@ -19,8 +19,10 @@ sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLAN
 
 ### Set a username and password for the web interface (optionnal but recommended)
 
+I create env files to store the username and password so I won't need to pass them in plain text in the docker run command (which is a bit more secure). It also makes those parameters more flexible as they can be changed by editing the files without having to change the docker run command itself. Those files will obviously be only viewable and editable by the root account for security reasons.  
+
 ```
-sudo mkdir /data/glances
+sudo mkdir -p /opt/glances/env
 sudo docker exec -it glances bash
 ```
 
@@ -29,21 +31,36 @@ Inside the container :
 ```
 glances -s --username --password
 ```
-> Define the Glances server username: rcandau #Replace **rcandau** by the username you want to use  
-> Define the Glances server password (rcandau username): #Type the password you want to use   
+> Define the Glances server username: #Type the username you want to use  
+> Define the Glances server password (username): #Type the password you want to use   
 > Password (confirm): #Confirm it  
 > Do you want to save the password? [Yes/No]: **Yes**  
 > Glances XML-RPC server is running on 0.0.0.0:61209  
 > Announce the Glances server on the LAN (using 172.17.0.5 IP address)  
   
 Then press `ctrl+\` to interupt the proccess and `exit` the container.    
-Finally, copy the password file locally and re-run the container mapping it (replace **rcandau** by the username you've set earlier).    
+Then, copy the password file locally in the env directory and create the "user" env file that will contains your username.    
+
+*Replace "your_username" by your username :)*  
+  
+```
+sudo docker cp glances:/root/.config/glances/your_username.pwd /opt/glances/env/password
+sudo vim /opt/glances/env/user
+```
+> your_username 
+
+Set secure permissions to the env files :  
+  
+```
+sudo chmod 600 /opt/glances/env/*
+```
+  
+Finally, stop and re-run the container by mapping the content of those files.  
 
 ```
-sudo docker cp glances:/root/.config/glances/rcandau.pwd /data/glances/rcandau.pwd
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u $(sudo cat /opt/glances/env/user) --password" -v /opt/glances/env/password:/root/.config/glances/$(sudo cat /opt/glances/env/user).pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Access
@@ -74,7 +91,7 @@ sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLAN
 Or, if you set a username and password (Replace **rcandau** by the username you've set earlier) :
 
 ```
-sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u $(sudo cat /opt/glances/env/user) --password" -v /opt/glances/env/password:/root/.config/glances/$(sudo cat /opt/glances/env/user).pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### After an update 
