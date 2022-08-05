@@ -52,7 +52,7 @@ sudo vim /opt/glances/env/user
 Set secure permissions to the env files :  
   
 ```
-sudo chmod 600 /opt/glances/env/*
+sudo chmod 600 /opt/glances/env/* && sudo chmod 750 /opt/glances/env
 ```
   
 Finally, stop and re-run the container by mapping the content of those files.  
