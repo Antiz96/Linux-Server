@@ -44,7 +44,7 @@ https://github.com/Antiz96/Server-Configuration/blob/main/Services/Docker.md
 ### Create a local folder to store the clients configuration and make data persistent for update/upgrade
 
 ```
-sudo mkdir /opt/wireguard
+sudo mkdir -p /opt/wireguard/config
 ```
 
 ### Run the container
@@ -73,7 +73,27 @@ sudo docker run -d \
   linuxserver/wireguard
 ```
 
-This is my personal docker run command for wireguard (I masked the SERVERURL for obvious privacy and security reasons) :  
+Personally, I put the the SERVERURL and PEERS parameters inside env files so I don't have to type them in plain text in the docker run command which is a bit more secure. Also it makes them more flexible and easy to change by modifying the file instead of modifying the docker run command directly. Obviously, those files are only viewable and editable by the root account for security reasons.  
+
+```
+sudo mkdir /opt/wireguard/env
+```
+  
+```
+sudo vim /opt/wireguard/env/server_url
+```
+> your_server_url  
+  
+```
+sudo vim /opt/wireguard/env/peers
+```
+> peer1,peer2,peer3,etc...  
+  
+```
+sudo chmod 600 /opt/wireguard/env/* && sudo chmod 750 /opt/wireguard/env
+```
+  
+This is my personal docker run command for wireguard :  
 
 ```
 sudo docker run -d \
@@ -83,14 +103,14 @@ sudo docker run -d \
   -e PUID=$(id -u) \
   -e PGID=$(id -g) \
   -e TZ=Europe/Paris \
-  -e SERVERURL=XXXX \
+  -e SERVERURL=$(sudo cat /opt/wireguard/env/server_url) \
   -e SERVERPORT=51820 \
-  -e PEERS=ArchLinux,ArchLaptop,RPhone \
+  -e PEERS=$(sudo cat /opt/wireguard/env/peers) \
   -e PEERDNS=192.168.1.1 \
   -e INTERNAL_SUBNET=10.10.10.0 \
   -e ALLOWEDIPS=0.0.0.0/0 \
   -p 51820:51820/udp \
-  -v /opt/wireguard:/config \
+  -v /opt/wireguard/config:/config \
   -v /lib/modules:/lib/modules \
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
   --restart unless-stopped \
@@ -99,7 +119,7 @@ sudo docker run -d \
 
 ## Connect your clients to the VPN
 
-You can retrieve the configuration files for the client you've created with the docker run command in the directory you mapped (/opt/wireguard in my case).  
+You can retrieve the configuration files for the client you've created with the docker run command in the directory you mapped (/opt/wireguard/config in my case).  
 They are available in two formats : Text file or PNG file (QR Code - Those are also chown in the docker log output of the container).  
 Copy the configuration files to their associated clients. 
 
@@ -142,14 +162,14 @@ sudo docker run -d \
   -e PUID=$(id -u) \
   -e PGID=$(id -g) \
   -e TZ=Europe/Paris \
-  -e SERVERURL=XXXX \
+  -e SERVERURL=$(sudo cat /opt/wireguard/env/server_url) \
   -e SERVERPORT=51820 \
-  -e PEERS=ArchLinux,ArchLaptop,RPhone \
+  -e PEERS=$(sudo cat /opt/wireguard/env/peers) \
   -e PEERDNS=192.168.1.1 \
   -e INTERNAL_SUBNET=10.10.10.0 \
   -e ALLOWEDIPS=0.0.0.0/0 \
   -p 51820:51820/udp \
-  -v /opt/wireguard:/config \
+  -v /opt/wireguard/config:/config \
   -v /lib/modules:/lib/modules \
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
   --restart unless-stopped \
