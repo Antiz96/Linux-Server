@@ -1,4 +1,4 @@
-# Portainer
+# Portainer Agent
 
 https://www.portainer.io/
 

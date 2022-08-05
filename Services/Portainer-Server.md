@@ -1,4 +1,4 @@
-# Portainer
+# Portainer Server
 
 https://www.portainer.io/ 
 
