@@ -17,25 +17,25 @@
 - name: List packages - Debian
   shell:
     cmd: apt list --upgradable
-  register: apt_packages_out
+  register: apt_packages
   when: ansible_facts['distribution'] == "Debian"
 
 - name: List packages - Debian out
   debug:
-    msg: "{{apt_packages_out.stdout_lines}}"
+    msg: "{{apt_packages.stdout_lines}}"
   when: ansible_facts['distribution'] == "Debian"
 
 # If the server is an Arch Server, print the list of package(s) marked for update via "pacman-contrib" (checkupdates)
 - name: List packages - Arch
   shell:
     cmd: checkupdates
-  register: pacman_packages_out
+  register: pacman_packages
   ignore_errors: yes
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: List packages - Arch out
   debug:
-    msg: "{{pacman_packages_out.stdout_lines}}"
+    msg: "{{pacman_packages.stdout_lines}}"
   when: ansible_facts['distribution'] == "Archlinux"
 
 # If the server is a Debian Server, update it via "apt" (apt full-upgrade && apt autoremove)

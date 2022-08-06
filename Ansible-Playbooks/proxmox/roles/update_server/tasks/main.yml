@@ -10,11 +10,11 @@
 - name: List packages
   shell:
     cmd: apt list --upgradable
-  register: apt_packages_out
+  register: apt_packages
 
 - name: List packages out
   debug:
-    msg: "{{apt_packages_out.stdout_lines}}"
+    msg: "{{apt_packages.stdout_lines}}"
 
 # Update the server via "apt" (apt full-upgrade && apt autoremove)
 - name: Update

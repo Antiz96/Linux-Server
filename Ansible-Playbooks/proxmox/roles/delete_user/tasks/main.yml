@@ -11,16 +11,16 @@
 - name: List files
   shell:
     cmd: for i in $(find / -user "{{username}}" -o -group "{{username}}" -name "*" | grep -v "/home/{{username}}"); do ls -ld $i; done
-  register: find_out
+  register: list_files
 
 - name: List files stdout
   debug:
-    msg: "{{find_out.stdout_lines}}"
-  when: find_out.stdout
+    msg: "{{list_files.stdout_lines}}"
+  when: list_files.stdout
 - name: List files stderr
   debug:
-    msg: "{{find_out.stderr_lines}}"
-  when: find_out.stderr.find(username) != -1
+    msg: "{{list_files.stderr_lines}}"
+  when: list_files.stderr.find(username) != -1
 
 # Delete the user and its home directory
 - name: Delete user
