@@ -16,7 +16,7 @@ https://hub.docker.com/_/postgres/
 
 ### Creating the directories to store the PostgreSQL data and the PostgreSQL environment variables
 
-*Unless you're okay using the default values, you'll need to specify the database name, database user and database user's password in the docker run command. Needless to say that those information are sensitive... The recommanded way to treat sensitive information in a docker run command are [Docker Secrets](https://docs.docker.com/engine/swarm/secrets/) but, unfortunately, Docker Secrets can only be used with [Docker Swarm](https://www.sumologic.com/glossary/docker-swarm/) (which I don't use myself).*   
+*Unless you're okay using the default values, you'll need to specify the database name, database user and database user's password in the docker run command. Needless to say that those information are sensitive... The recommended way to treat sensitive information in a docker run command are [Docker Secrets](https://docs.docker.com/engine/swarm/secrets/) but, unfortunately, Docker Secrets can only be used with [Docker Swarm](https://www.sumologic.com/glossary/docker-swarm/) (which I don't use myself).*   
 *So, in order to avoid typing those information as plain text in the docker run command, I'm going to create my own (kind of) secret files inside the 'env' directory that contains those information. For security reasons, those files will only be viewable and editable by the root account, obviously.*  
 
 ```
