@@ -93,7 +93,7 @@ Installing Zabbix-Server is not enough on its own.
 You also need to install the Zabbix Web interface to be able to access and configure the Zabbix Server through it.  
   
 There are several docker images for Zabbix Web Interface, using either Apache or Nginx and MySQL or PostgreSQL.  
-Use the one according to your database, Nginx or Apache is just a matter of preferences : 
+Use the one according to your database, Nginx or Apache is just a matter of preferences :   
 https://hub.docker.com/r/zabbix/zabbix-web-apache-pgsql  
 https://hub.docker.com/r/zabbix/zabbix-web-nginx-pgsql  
 https://hub.docker.com/r/zabbix/zabbix-web-apache-mysql  
