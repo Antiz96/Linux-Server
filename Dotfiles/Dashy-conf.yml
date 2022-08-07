@@ -93,6 +93,13 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
+  - title: Zabbix
+    description: Monitoring Server
+    icon: hl-zabbix
+    url: https://zabbix.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
 # Monitoring Servers section
 - name: Monitoring pmx01
   icon: fas fa-chart-line
@@ -101,21 +108,21 @@ sections:
   - type: gl-current-cpu
     options:
       hostname: http://pmx01.rc:61208
-      username:
+      username: 
       password:
       useProxy: true
 
   - type: gl-current-mem
     options:
       hostname: http://pmx01.rc:61208
-      username:
-      password:
+      username: 
+      password: 
       useProxy: true
 
   - type: gl-alerts
     options:
       hostname: http://pmx01.rc:61208
-      username:
+      username: 
       password: 
       useProxy: true
 
