@@ -12,7 +12,7 @@ Zabbix needs a database to store its data on.
 Zabbix is compatible with both MySQL and PostgreSQL.  
   
 I personally use PostreSQL inside a docker container.
-https://hub.docker.com/\_/postgres/
+https://hub.docker.com/_/postgres/
 
 ### Creating the directories to store the PostgreSQL data and the PostgreSQL environment variables
 
