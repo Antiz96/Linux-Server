@@ -138,6 +138,7 @@ sections:
         repos:
           - Antiz96/arch-update
           - Antiz96/malias
+          - Antiz96/zaman
 
 # Vulnerability Feed section
 - name: Vulnerability Feed (Debian)
