@@ -84,7 +84,7 @@ I'm personally using the "latest" tag that points to the latest stable Zabbix-Se
 ### Pull and run the container 
 
 ```
-sudo docker run --name zabbix-server -p 10051:10051 -e DB_SERVER_HOST=$(hostname) -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
+sudo docker run --name zabbix-server -p 10051:10051 --hostname=$(hostname) -e DB_SERVER_HOST=localhost -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 ## Installing Zabbix Web Frontend/Interface
@@ -109,7 +109,7 @@ I'm personally using the NGINX/PGSQL docker image with "latest" tag that points 
 Change the "PHP_TZ" env variable's value according to your location/environment.
 
 ```
-sudo docker run --name zabbix-web -p 8080:8080 -e DB_SERVER_HOST=$(hostname) -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -e ZBX_SERVER_HOST=$(hostname) -e PHP_TZ="Europe/Paris" --restart=unless-stopped -d zabbix/zabbix-web-nginx-pgsql:latest
+sudo docker run --name zabbix-web -p 8080:8080 -e DB_SERVER_HOST=locahost -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -e ZBX_SERVER_HOST=localhost -e PHP_TZ="Europe/Paris" --restart=unless-stopped -d zabbix/zabbix-web-nginx-pgsql:latest
 ```
 
 ### Access
