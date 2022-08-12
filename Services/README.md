@@ -27,5 +27,6 @@ This is the list of installation and configuration procedures of services that I
 * [Wireguard - VPN](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Wireguard.md)
 * [Portainer Server - Web interface to manage Docker](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Portainer-Server.md)
 * [Portainer Agent - Web interface to manage Docker](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Portainer-Agent.md)
+* [PostgreSQL - Database](https://github.com/Antiz96/Server-Configuration/blob/main/Services/PostgreSQL.md)
 * [Zabbix - Monitoring Server](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Zabbix.md)
 * [Watchtower - Automating docker containers updates](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Watchtower.md)
