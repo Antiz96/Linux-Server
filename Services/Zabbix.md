@@ -84,7 +84,7 @@ I'm personally using the "latest" tag that points to the latest stable Zabbix-Se
 ### Pull and run the container 
 
 ```
-sudo docker run --name zabbix-server -p 10051:10051 -e DB_SERVER_HOST=$(hostname) -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest
+sudo docker run --name zabbix-server -p 10051:10051 -e DB_SERVER_HOST=$(hostname) -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 ## Installing Zabbix Web Frontend/Interface
