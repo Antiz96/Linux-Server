@@ -61,10 +61,26 @@ sudo vim /opt/zabbix/env/db_name
 sudo chmod 600 /opt/zabbix/env/* && sudo chmod 750 /opt/zabbix/env
 ```
 
+### Create a docker network for the Zabbix Agent of the Zabbix Server itself
+
+This is needed for the Zabbix Agent that will run on the server that host the Zabbix Server container itself.  
+Indeed, as the Zabbix Server is hosted on the same host as the Zabbix Agent, it will communicate with its internal docker IP and not the host's hostname.  
+  
+So instead of setting the host's hostname as `Server` and `ServerActive` in the Zabbix-Agent configuration file of the server that hosts the Zabbix Server container, we will set the Zabbix Server docker container IP.  
+In order to do that, we need to set a static IP to the container and thus creating a docker network like so :  
+  
+```
+sudo docker network create --subnet 172.18.0.0/16 zabbix_net
+```
+
+The static IP will be declared in the docker run command below.  
+This IP will need to be set as `Server` and `ServerActive` in the Zabbix Agent configuration file *(only for the Server that also host the Zabbix-Server container. Other servers need to use the Zabbix Server's host hostname)*
+
+
 ### Pull and run the container 
 
 ```
-sudo docker run --name zabbix-server -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
+sudo docker run --name zabbix-server --net zabbix_net --ip 172.18.0.1 -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 ## Installing Zabbix Web Frontend/Interface
@@ -119,7 +135,7 @@ sudo docker pull zabbix/zabbix-web-nginx-pgsql:latest
 ```
 sudo docker stop zabbix-server
 sudo docker rm zabbix-server
-sudo docker run --name zabbix-server -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest
+sudo docker run --name zabbix-server --net zabbix_net --ip 172.18.0.1 -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 #### Zabbix-Web-Interface
