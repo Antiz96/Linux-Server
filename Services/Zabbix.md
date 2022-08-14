@@ -79,8 +79,10 @@ This IP will need to be set as `Server` and `ServerActive` in the Zabbix Agent c
 
 ### Pull and run the container 
 
+Change the "TZ" env variable's value according to your location/environment.
+
 ```
-sudo docker run --name zabbix-server --net zabbix_net --ip 172.18.0.20 -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
+sudo docker run --name zabbix-server --net zabbix_net --ip 172.18.0.20 -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) -e TZ=Europe/Paris --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 ## Installing Zabbix Web Frontend/Interface
