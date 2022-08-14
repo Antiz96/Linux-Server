@@ -48,11 +48,24 @@
     line: "127.0.1.1       {{hostname}}.rc {{hostname}}"
 
 # Change the root password
-- name : Modify root password
+- name: Modify root password
   user:
     name: root
     password: "{{root_passwd|password_hash('sha256')}}"
     update_password: always
+
+# Configure the Zabbix Agent configuration file with the hostname of the server
+- name: Modify Zabbix Agent configuration
+  replace:
+    path: /etc/zabbix/zabbix_agentd.conf
+    regexp: "template.rc"
+    replace: "{{hostname}}.rc"
+
+# Restart Zabbix Agent to apply changes
+- name: Restart Zabbix Agent
+  service:
+    name: zabbix-agent
+    state: restarted
 
 # If the server is a Debian Server, update it via "apt" (apt update && apt full-upgrade && apt autoremove)
 - name: Update - Debian
