@@ -49,7 +49,7 @@ sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt
 ### Set an automatic backup of the database (optional) 
 
 ```
-sudo mkdir /opt/postgres/backup #Creating the directory to store backup in
+sudo mkdir /opt/postgres/backup && sudo chmod 750 /opt/postgres/backup #Creating the directory to store backup in
 sudo docker exec -t postgres pg_dumpall -c -U $(sudo cat /opt/postgres/env/user) -l $(sudo cat /opt/postgres/env/database) | sudo tee /opt/postgres/backup/dump_$(date +%d-%m-%Y).sql > /dev/null #Performing a dump manually
 ```
 
