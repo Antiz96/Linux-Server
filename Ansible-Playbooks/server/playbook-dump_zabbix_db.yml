@@ -1,5 +1,0 @@
----
-- name: "Automatic dump for the Zabbix Database"
-  hosts: mnprd01.rc
-  roles:
-    - role: "dump_zabbix_db"

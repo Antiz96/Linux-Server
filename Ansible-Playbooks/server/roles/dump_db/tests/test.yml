@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - dump_zabbix_db
+    - dump_db
