@@ -87,6 +87,25 @@ pacman -S qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 ```
 
+#### Install and configure Zabbix Agent
+
+```
+firewall-cmd --add-port=10050/tcp --permanent
+firewall-cmd --reload
+pacman -S --noconfirm zabbix-agent
+vim /etc/zabbix/zabbix_agentd.conf
+```
+> [...]    
+> Server=hostname_of_zabbix_server  
+> [...]  
+> ServerActive=hostname_of_zabbix_server  
+> [...]  
+> Hostname=template.rc 
+
+```
+systemctl enable --now zabbix-agent
+``` 
+
 #### Configure the inactivity timeout
 
 ```
