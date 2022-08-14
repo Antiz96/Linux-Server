@@ -126,7 +126,6 @@ Since we use Docker, the update and upgrade procedure is actually the same as it
 ```
 sudo docker pull zabbix/zabbix-server-pgsql:latest
 sudo docker pull zabbix/zabbix-web-nginx-pgsql:latest 
-sudo docker run --name zabbix-server --net zabbix_net --ip 172.18.0.1 -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 ### Apply the update
@@ -136,6 +135,7 @@ sudo docker run --name zabbix-server --net zabbix_net --ip 172.18.0.1 -p 10051:1
 ```
 sudo docker stop zabbix-server
 sudo docker rm zabbix-server
+sudo docker run --name zabbix-server --net zabbix_net --ip 172.18.0.1 -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 #### Zabbix-Web-Interface
