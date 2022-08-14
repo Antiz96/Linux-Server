@@ -73,7 +73,7 @@ In order to do that, we need to set a static IP to the container and thus creati
 sudo docker network create --subnet 172.18.0.0/16 zabbix_net
 ```
 
-The static IP will be declared in the docker run below.  
+The static IP will be declared in the docker run command below.  
 This IP will need to be set as `Server` and `ServerActive` in the Zabbix Agent configuration file *(only for the Server that also host the Zabbix-Server container. Other servers need to use the Zabbix Server's host hostname)*
 
 
