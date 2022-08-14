@@ -64,7 +64,7 @@ sudo chmod 600 /opt/zabbix/env/* && sudo chmod 750 /opt/zabbix/env
 ### Pull and run the container 
 
 ```
-sudo docker run --name zabbix-server -p 10051:10051 --hostname=$(hostname) -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
+sudo docker run --name zabbix-server -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest 
 ```
 
 ## Installing Zabbix Web Frontend/Interface
@@ -119,7 +119,7 @@ sudo docker pull zabbix/zabbix-web-nginx-pgsql:latest
 ```
 sudo docker stop zabbix-server
 sudo docker rm zabbix-server
-sudo docker run --name zabbix-server -p 10051:10051 --hostname=$(hostname) -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest
+sudo docker run --name zabbix-server -p 10051:10051 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) --restart=unless-stopped -d zabbix/zabbix-server-pgsql:latest
 ```
 
 #### Zabbix-Web-Interface
