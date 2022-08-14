@@ -82,6 +82,29 @@ apt install qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 ```
 
+#### Install and configure Zabbix Agent
+
+```
+firewall-cmd --add-port=10050/tcp --permanent
+firewall-cmd --reload
+wget https://repo.zabbix.com/zabbix/6.2/debian/pool/main/z/zabbix-release/zabbix-release_6.2-1+debian11_all.deb
+dpkg -i zabbix-release_6.2-1+debian11_all.deb
+rm zabbix-release_6.2-1+debian11_all.deb
+apt update
+apt install -y zabbix-agent
+vim /etc/zabbix/zabbix_agentd.conf
+```
+> [...]  
+> Server=hostname_of_zabbix_server  
+> [...]  
+> ServerActive=hostname_of_zabbix_server  
+> [...]  
+> Hostname=template.rc 
+
+```
+systemctl enable --now zabbix-agent
+``` 
+
 #### Configure the inactivity timeout
 
 ```
