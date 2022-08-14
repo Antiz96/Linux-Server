@@ -127,7 +127,7 @@ sudo docker run --name zabbix-server -p 10051:10051 --hostname=$(hostname) -e DB
 ```
 sudo docker stop zabbix-web
 sudo docker rm zabbix-web
-sudo docker run --name zabbix-web -p 8080:8080 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/dn_name) -e ZBX_SERVER_HOST=$(hostname) -e PHP_TZ="Europe/Paris" --restart=unless-stopped -d zabbix/zabbix-web-nginx-pgsql:latest
+sudo docker run --name zabbix-web -p 8080:8080 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) -e ZBX_SERVER_HOST=$(hostname) -e PHP_TZ="Europe/Paris" --restart=unless-stopped -d zabbix/zabbix-web-nginx-pgsql:latest
 ```
 
 ### After an update 
