@@ -1,16 +1,16 @@
 ---
-# tasks file for dump_zabbix_db
+# tasks file for dump_db
 
 # Perform a dump of the Zabbix's database
 - name: Dump Zabbix database
   shell:
-    cmd: docker exec -t postgres pg_dumpall -c -U $(cat /opt/postgres/env/user) -l $(cat /opt/postgres/env/database) | sudo tee /opt/postgres/backup/dump_$(date +%d-%m-%Y).sql
+    cmd: docker exec -t postgres-zabbix pg_dumpall -c -U $(cat /opt/postgres/zabbix/env/user) -l $(cat /opt/postgres/zabbix/env/database) | tee /opt/postgres/zabbix/backup/$(date +%d-%m-%Y).dump
 
 # Find dumps that are equal to or older than a week
 - name: List old dumps
   find:
-    paths: /opt/postgres/backup
-    patterns: '*.sql'
+    paths: /opt/postgres
+    patterns: '*.dump'
     age: 1w
   register: list_old_dumps
 

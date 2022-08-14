@@ -50,14 +50,14 @@ sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt
 
 ```
 sudo mkdir /opt/postgres/backup && sudo chmod 750 /opt/postgres/backup #Creating the directory to store backup in with secure permissions
-sudo docker exec -t postgres pg_dumpall -c -U $(sudo cat /opt/postgres/env/user) -l $(sudo cat /opt/postgres/env/database) | sudo tee /opt/postgres/backup/dump_$(date +%d-%m-%Y).sql > /dev/null #Performing a dump manually
+sudo docker exec -t postgres pg_dumpall -c -U $(sudo cat /opt/postgres/env/user) -l $(sudo cat /opt/postgres/env/database) | sudo tee /opt/postgres/backup/$(date +%d-%m-%Y).dump > /dev/null #Performing a dump manually
 ```
 
 There's multiple ways to automate that backup process. You can simply put the above command in a script and/or a cronjob for instance (*be careful with the use of sudo in cronjob. Either use the root account crontab or set sudo on NOPASSWD for that script **with secure permissions**, otherwise the cronjob won't be able to execute as it will wait for you to type your password*).  
   
 Personally, I use an Ansible Playbook that does the dump and delete every dump older than 7 days.  
 This Ansible Playbook is launched automatically each day by my Jenkins instance so it performs one dump a day and keep 7 days of dump.  
-You can see that Ansible Playbook [here](https://github.com/Antiz96/Server-Configuration/blob/main/Ansible-Playbooks/server/roles/dump_zabbix_db/tasks/main.yml)  
+You can see that Ansible Playbook [here](https://github.com/Antiz96/Server-Configuration/blob/main/Ansible-Playbooks/server/roles/dump_db/tasks/main.yml)  
   
 To restore a dump, you can use the following command :
 
