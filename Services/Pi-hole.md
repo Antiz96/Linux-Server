@@ -31,6 +31,7 @@ sudo docker run -d \
     -p 80:80 \
     -e TZ="Europe/Paris" \
     -v "/opt/pihole/etc-pihole:/etc/pihole" \
+    -v "/opt/pihole/log-pihole:/var/log/pihole" \
     -v "/opt/pihole/etc-dnsmasq.d:/etc/dnsmasq.d" \
     --dns=127.0.0.1 --dns=1.1.1.1 \
     --restart=unless-stopped \
@@ -70,6 +71,7 @@ sudo docker run -d \
     --net=host \
     -e TZ="Europe/Paris" \
     -v "/opt/pihole/etc-pihole:/etc/pihole" \
+    -v "/opt/pihole/log-pihole:/var/log/pihole" \
     -v "/opt/pihole/etc-dnsmasq.d:/etc/dnsmasq.d" \
     --dns=127.0.0.1 --dns=1.1.1.1 \
     --restart=unless-stopped \
@@ -122,6 +124,7 @@ sudo docker run -d \
     --net=host \
     -e TZ="Europe/Paris" \
     -v "/opt/pihole/etc-pihole:/etc/pihole" \
+    -v "/opt/pihole/log-pihole:/var/log/pihole" \
     -v "/opt/pihole/etc-dnsmasq.d:/etc/dnsmasq.d" \
     --dns=127.0.0.1 --dns=1.1.1.1 \
     --restart=unless-stopped \
