@@ -9,7 +9,7 @@
 # Find dumps that are equal to or older than a week
 - name: List old dumps
   find:
-    paths: /opt/postgres
+    paths: /opt/postgres/zabbix/backup
     patterns: '*.dump'
     age: 1w
   register: list_old_dumps
