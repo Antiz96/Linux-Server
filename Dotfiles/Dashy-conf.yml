@@ -36,10 +36,10 @@ sections:
   icon: fas fa-server
   items:
 
-  - title: Nginx - KeepAlived
-    description: Reverse proxy - VIP manager
-    icon: hl-nginx
-    url: https://vip-clprd01.home-infra.rc
+  - title: Zabbix
+    description: Monitoring Server
+    icon: hl-zabbix
+    url: https://zabbix.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
@@ -90,13 +90,6 @@ sections:
     icon: hl-glances
     url: https://glances-pmx01.home-infra.rc
     statusCheckAcceptCodes: '401'
-    statusCheckAllowInsecure: true
-    target: newtab
-
-  - title: Zabbix
-    description: Monitoring Server
-    icon: hl-zabbix
-    url: https://zabbix.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
