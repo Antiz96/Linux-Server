@@ -91,7 +91,7 @@ sudo vim /opt/keepalived/keepalived_notify.sh
 > > ;;  
 > > "FAULT")  
 > > > systemctl stop nginx  
-> > > exit 0  
+> > > exit 1  
 > >
 > > ;;  
 > > \*)  
