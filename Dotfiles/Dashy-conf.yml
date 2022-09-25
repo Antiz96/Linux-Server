@@ -112,13 +112,6 @@ sections:
       password: 
       useProxy: true
 
-  - type: gl-alerts
-    options:
-      hostname: http://pmx01.rc:61208
-      username: 
-      password: 
-      useProxy: true
-
 # Github stats section
 - name: GitHub Stats
   icon: fab fa-github
