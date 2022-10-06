@@ -1,8 +1,8 @@
 ---
 # tasks file for add_package
 
-# Stop the playbook if both the "package_debian" and the "package_arch" variables are empty
-- name: Check the "package_debian" and the "package_arch" variables
+# Stop the playbook if both the "package_debian" and the "package_arch" variables are empty or undefined
+- name: Fail if the "package_debian" and the "package_arch" variables are empty or undefined
   fail:
     msg: The 'package_debian' and the 'package_arch' variables are both empty
   when: not package_debian and not package_arch
