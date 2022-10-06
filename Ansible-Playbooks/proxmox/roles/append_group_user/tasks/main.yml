@@ -1,8 +1,8 @@
 ---
 # tasks file for append_group_user
 
-# Stop the playbook if the "username" var is empty
-- name: Check the "username" variable
+# Stop the playbook if the "username" var is empty or undefined
+- name: Fail if the "username" variable is empty or undefined
   fail:
     msg: The 'username' variable is empty
   when: not username

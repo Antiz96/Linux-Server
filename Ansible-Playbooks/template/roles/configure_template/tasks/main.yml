@@ -1,20 +1,20 @@
 ---
 # tasks file for template
 
-# Stop the playbook if the "ip" var is empty
-- name: Check the "ip" variable
+# Stop the playbook if the "ip" var is empty or undefined
+- name: Fail if the "ip" variable is empty or undefined
   fail:
     msg: The 'ip' variable is empty
   when: not ip
 
-# Stop the playbook if the "hostname" var is empty
-- name: Check the "hostname" variable
+# Stop the playbook if the "hostname" var is empty or undefined
+- name: Fail if the "hostname" variable is empty or undefined
   fail:
     msg: The 'hostname' variable is empty
   when: not hostname
 
-# Stop the playbook if the "root_passwd" var is empty
-- name: Check the "root_passwd" variable
+# Stop the playbook if the "root_passwd" var is empty or undefined
+- name: Fail if the "root_passwd" variable is empty or undefined
   fail:
     msg: The 'root_passwd' variable is empty
   when: not root_passwd
