@@ -59,11 +59,12 @@ Personally, I use an Ansible Playbook that does the dump and delete every dump o
 This Ansible Playbook is launched automatically each day by my Jenkins instance so it performs one dump a day and keep 7 days of dump.  
 You can see that Ansible Playbook [here](https://github.com/Antiz96/Server-Configuration/blob/main/Ansible-Playbooks/server/roles/dump_db/tasks/main.yml)  
   
-To restore a dump, you can use the following command :
+To restore a dump, you can use the following command:
 
 ```
-cat "path_to_the_dump" | sudo docker exec -i postgres psql -U "username" -l "database"
+cat "path_to_the_dump" | sudo docker exec -i postgres psql -U "username" -l postgres
 ```
+
 ## Update/Upgrade and reinstall procedure
 
 Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.
