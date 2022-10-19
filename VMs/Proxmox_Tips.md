@@ -28,31 +28,31 @@
 
 ## Install the Qemu guest agent (for a better VM management by Proxmox)
 
-- Arch-Linux :  
+- Arch-Linux:  
 
 ```
 sudo pacman -S qemu-guest-agent
 ```
 
-- Debian/Ubuntu :  
+- Debian/Ubuntu:  
 
 ```
 sudo apt install qemu-guest-agent
 ```
 
-- Fedora/RHEL :  
+- Fedora/RHEL:  
 
 ```
 sudo dnf install qemu-guest-agent
 ```
 
-- Gentoo :  
+- Gentoo:  
 
 ```
 sudo emerge --ask qemu-guest-agent
 ```
 
-Then, start and enable it :  
+Then, start and enable it:  
 
 ```
 sudo systemctl enable --now qemu-guest-agent
@@ -62,25 +62,25 @@ sudo systemctl enable --now qemu-guest-agent
 
 ### Install the Spice agent package
 
-- Arch-Linux :  
+- Arch-Linux:  
 
 ```
 sudo pacman -S spice-vdagent
 ```
 
-- Debian/Ubuntu : 
+- Debian/Ubuntu: 
 
 ```
 sudo apt install spice-vdagent
 ```
 
-- Fedora/RHEL :  
+- Fedora/RHEL:  
 
 ```
 sudo dnf install spice-vdagent
 ```
 
-- Gentoo :  
+- Gentoo:  
 
 ```
 sudo emerge --ask spice-vdagent
