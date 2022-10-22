@@ -1,26 +1,26 @@
-# Arch-Linux Server Template
+# Gentoo Server Template
 
-Just a quick reminder on how I install a minimal Arch Server environment to work with.  
+Just a quick reminder on how I install a minimal Gentoo Server environment to work with.  
 It aims to be turned as a Template.  
 
 ## Base Install
 
-I basically follow my [Arch-Linux base installation guide](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md) with the following exceptions:  
+I basically follow my [Gentoo base installation guide](https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md) with the following exceptions:  
   
-- I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md#partition-scheme))
-- I add some packages that are suited for servers to the list of "useful packages to install" (see [Install useful packages](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md#install-useful-packages))
-- I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md#create-and-configure-the-ansible-user)).  
+- I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Gentoo_Server_Template.md#partition-scheme))
+- I add some packages that are suited for servers to the list of "useful packages to install" (see [Install useful packages](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Gentoo_Server_Template.md#install-useful-packages))
+- I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Gentoo_Server_Template.md#create-and-configure-the-ansible-user)).  
 **Remember to set a password for the root account during the installation process, otherwise you won't be able to log in to the server after reboot !**
 
 ## Partition scheme
 
-Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#preparing-the-disk
+Replaces the fdisk part in: https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#partitioning-the-disk-create-filesystem-and-mount-the-root-and-boot-partitions
 
 - Personal context:  
   
 > EFI partition mounted on /boot/EFI --> 550M - ESP  
 > Swap partition --> 4G - SWAP  
-> Root partition mounted on / --> Left free space - EXT4    
+> Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)  
   
 - Professional context:  
   
@@ -37,11 +37,10 @@ Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Ba
 
 ### Install useful packages
 
-Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages
+Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#install-additional-useful-packages  
 
 ```
-pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils wget traceroute rsync zip unzip cronie diffutils mlocate htop parted postfix pacman-contrib
-sudo grub-mkconfig -o /boot/grub/grub.cfg 
+emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop parted postfix
 ```
 
 ### Configure various things
@@ -76,7 +75,7 @@ systemctl restart sshd #Restart the SSH daemon to apply changes
 #### Install qemu-guest-agent (for proxmox)
 
 ```
-pacman -S qemu-guest-agent
+emerge -a qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 ```
 
@@ -85,7 +84,7 @@ systemctl enable --now qemu-guest-agent
 ```
 firewall-cmd --add-port=10050/tcp --permanent
 firewall-cmd --reload
-pacman -S zabbix-agent
+emerge -a net-analyzer/zabbix
 vim /etc/zabbix/zabbix_agentd.conf
 ```
 
@@ -103,7 +102,7 @@ systemctl enable --now zabbix-agent
 #### Configure the inactivity timeout
 
 ```
-sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
+sudo vim /etc/bash/bashrc #Set the inactivity timeout to 15 min
 ```
 
 > [...]  
@@ -114,7 +113,7 @@ sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 
 ### Create and configure the ansible user
 
-Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#user-configuration
+Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#create-a-regular-user
 
 ```
 useradd -m -u 1000 ansible #Create the ansible user

@@ -3,7 +3,8 @@
 This is the list of installation and configuration procedures of my various VMs and templates.   
 This repo also contains some tips about both Virtual Box and Proxmox.   
 
-* [Arch Linux Server Template - Installation and configuration procedures for my Arch-Linux Server Template (according to my preferences)](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md)
+* [Arch-Linux Server Template - Installation and configuration procedures for my Arch-Linux Server Template (according to my preferences)](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md)
+* [Gentoo Server Template - Installation and configuration procedures for my Gentoo Server Template (according to my preferences)](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Gentoo_Server_Template.md)
 * [Debian Server Template - Installation and configuration procedures for my Debian Server Template (according to my preferences)](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Debian_Server_Template.md)
 * [RHEL Server Template - Installation and configuration procedures for my RHEL Server Template (according to my preferences)](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/RHEL_Server_Template.md)
 * [Ubuntu Server Template - Installation and configuration procedures for my Ubuntu Server Template (according to my preferences)](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Ubuntu_Server_Template.md)

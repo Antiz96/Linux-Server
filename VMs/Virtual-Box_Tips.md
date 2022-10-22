@@ -1,6 +1,5 @@
 # Virtual Box Tips
 
-
 ## Video memory
 
 You can actually go up to 256MB video memory from the sum up of your VM compared to only 128MB in the actual settings of the VM.  
@@ -9,19 +8,19 @@ You can actually go up to 256MB video memory from the sum up of your VM compared
 
 ### Install the VBox utilities
 
-- Arch :  
+- Arch:  
 
 ```
 sudo pacman -S virtualbox-guest-utils
 ```
 
-- Debian/Ubuntu :  
+- Debian/Ubuntu:  
 
 ```  
 sudo apt install virtualbox-guest-utils
 ```
 
-- Fedora/RHEL :  
+- Fedora/RHEL:  
 
 ```
 sudo dnf install virtualbox-guest-utils
