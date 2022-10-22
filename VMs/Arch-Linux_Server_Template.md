@@ -20,7 +20,7 @@ Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Ba
   
 > EFI partition mounted on /boot/EFI --> 550M - ESP  
 > Swap partition --> 4G - SWAP  
-> Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)  
+> Root partition mounted on / --> Left free space - EXT4    
   
 - Professional context:  
   
@@ -37,10 +37,10 @@ Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Ba
 
 ### Install useful packages
 
-Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-my-regular-user-and-install-other-useful-packages  
+Replaces: https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages
 
 ```
-pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils wget traceroute rsync zip unzip cronie diffutils mlocate htop parted postfix pacman-contrib 
+pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils wget traceroute rsync zip unzip cronie diffutils mlocate htop parted postfix pacman-contribsudo grub-mkconfig -o /boot/grub/grub.cfg 
 ```
 
 ### Configure various things
@@ -70,16 +70,6 @@ vi /etc/ssh/sshd_config
 systemctl restart sshd #Restart the SSH daemon to apply changes
 ```
 
-#### Configure the firewall
-
-```
-systemctl enable firewalld #Autostart the firewall at boot. Normally already done during the base installation.  
-firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server. Normally already done during the base installation.  
-firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it. Normally already done during the base installation.  
-firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (replace "X" by the port)
-firewall-cmd --reload #Apply changes
-```
-
 #### Install qemu-guest-agent (for proxmox)
 
 ```
@@ -92,7 +82,7 @@ systemctl enable --now qemu-guest-agent
 ```
 firewall-cmd --add-port=10050/tcp --permanent
 firewall-cmd --reload
-pacman -S --noconfirm zabbix-agent
+pacman -S zabbix-agent
 vim /etc/zabbix/zabbix_agentd.conf
 ```
 
