@@ -67,6 +67,8 @@ vi /etc/ssh/sshd_config
 > [...]  
 
 ```
+firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (replace "X" by the port)
+firewall-cmd --reload #Apply changes
 systemctl restart sshd #Restart the SSH daemon to apply changes
 ```
 
