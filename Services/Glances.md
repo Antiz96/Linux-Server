@@ -13,8 +13,8 @@ https://github.com/nicolargo/glances#docker-the-fun-way
 ### Pull and run the container
 
 ```
-sudo docker pull nicolargo/glances:alpine-latest-full 
-sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:alpine-latest-full
+sudo docker pull nicolargo/glances:latest-full 
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Set a username and password for the web interface (optionnal but recommended)
@@ -61,7 +61,7 @@ Finally, stop and re-run the container by mapping the content of those files.
 ```
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u $(sudo cat /opt/glances/env/user) --password" -v /opt/glances/env/password:/root/.config/glances/$(sudo cat /opt/glances/env/user).pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:alpine-latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u $(sudo cat /opt/glances/env/user) --password" -v /opt/glances/env/password:/root/.config/glances/$(sudo cat /opt/glances/env/user).pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Access
@@ -78,7 +78,7 @@ Since we use Docker, the update and upgrade procedure is actually the same as it
 *(... to check if there's available updates)*  
 
 ```
-sudo docker pull nicolargo/glances:alpine-latest-full
+sudo docker pull nicolargo/glances:latest-full
 ```
 
 ### Apply the update
@@ -86,13 +86,13 @@ sudo docker pull nicolargo/glances:alpine-latest-full
 ```
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:alpine-latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 Or, if you set a username and password:
 
 ```
-sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u $(sudo cat /opt/glances/env/user) --password" -v /opt/glances/env/password:/root/.config/glances/$(sudo cat /opt/glances/env/user).pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:alpine-latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u $(sudo cat /opt/glances/env/user) --password" -v /opt/glances/env/password:/root/.config/glances/$(sudo cat /opt/glances/env/user).pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### After an update 
