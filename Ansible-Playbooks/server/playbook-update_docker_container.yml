@@ -1,5 +1,5 @@
 ---
 - name: "Update docker containers on hosts"
-  hosts: "{{hosts}}"
+  hosts: docker
   roles:
     - role: "update_docker_container"
