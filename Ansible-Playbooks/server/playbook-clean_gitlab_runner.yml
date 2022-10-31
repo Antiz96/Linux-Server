@@ -2,4 +2,4 @@
 - name: "Clean Docker resources on Gitlab runners"
   hosts: gitlab_runner 
   roles:
-    - role: "clean_gitlab_runners"
+    - role: "clean_gitlab_runner"

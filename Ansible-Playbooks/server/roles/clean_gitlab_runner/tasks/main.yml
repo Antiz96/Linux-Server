@@ -1,5 +1,5 @@
 ---
-# tasks file for clean_gitlab_runners
+# tasks file for clean_gitlab_runner
 
 # Clean orphaned docker volumes and unused docker resources on gitlab-runners
 - name: Clean unused docker resources
