@@ -7,8 +7,8 @@
     msg: The 'package' variable is empty
   when: not package
 
-# If the "package" var is not empty, install the package(s) listed in the "package" variable via "apt" (apt update && apt install xxx).
-- name: Install package
+# Install package(s)
+- name: Install package(s)
   apt:
     update_cache: yes
     name: "{{package}}"
