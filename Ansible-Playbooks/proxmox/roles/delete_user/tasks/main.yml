@@ -7,25 +7,9 @@
     msg: The 'username' variable is empty
   when: not username
 
-# List all files that either belong to the user or the user's primary group (and print the output through a debug message)
-- name: List files
-  shell:
-    cmd: for i in $(find / -user "{{username}}" -o -group "{{username}}" -name "*" | grep -v "/home/{{username}}"); do ls -ld $i; done
-  register: list_files
-
-- name: List files stdout
-  debug:
-    msg: "{{list_files.stdout_lines}}"
-  when: list_files.stdout
-- name: List files stderr
-  debug:
-    msg: "{{list_files.stderr_lines}}"
-  when: list_files.stderr.find(username) != -1
-
 # Delete the user and its home directory
 - name: Delete user
   user:
     name: "{{username}}"
     state: absent
     remove: yes
-    force: yes

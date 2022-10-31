@@ -1,77 +1,92 @@
 ---
 # tasks file for update_server
 
-# If the server is a Debian Server, update the repositories with "apt" (apt update)
-- name : Update repos - Debian
+# Update repositories on Debian servers
+- name: Update repos - Debian
   apt:
     update_cache: yes
   when: ansible_facts['distribution'] == "Debian"
 
-# If the server is an Arch Server, update the repositories with "pacman" (pacman -Sy)
-- name : Update repos - Arch
+# Update repositories on Arch servers
+- name: Update repos - Arch
   pacman:
     update_cache: yes
   when: ansible_facts['distribution'] == "Archlinux"
 
-# If the server is a Debian Server, print the list of package(s) marked for update via "apt" (apt list --upgradable)
-- name: List packages - Debian
+# Check the list of packages to update on Debian servers
+- name: Check packages to update - Debian
   shell:
-    cmd: apt list --upgradable
-  register: apt_packages
+    cmd: apt list --upgradable | grep -v "En train de lister"
+  ignore_errors: yes
+  register: debian_packages_update
   when: ansible_facts['distribution'] == "Debian"
 
-- name: List packages - Debian out
-  debug:
-    msg: "{{apt_packages.stdout_lines}}"
-  when: ansible_facts['distribution'] == "Debian"
-
-# If the server is an Arch Server, print the list of package(s) marked for update via "pacman-contrib" (checkupdates)
-- name: List packages - Arch
+# Check the list of packages to update on Arch servers (requires the "pacman-contrib" package)
+- name: Check packages to update - Arch
   shell:
     cmd: checkupdates
-  register: pacman_packages
   ignore_errors: yes
+  register: arch_packages_update
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: List packages - Arch out
+# Print the list of packages to update on Debian servers
+- name: List packages to update - Debian
   debug:
-    msg: "{{pacman_packages.stdout_lines}}"
-  when: ansible_facts['distribution'] == "Archlinux"
+    msg: "{{debian_packages_update.stdout_lines}}"
+  when: ansible_facts['distribution'] == "Debian" and debian_packages_update.stdout_lines
 
-# If the server is a Debian Server, update it via "apt" (apt full-upgrade && apt autoremove)
+# Print the list of packages to update on Arch servers
+- name: List packages to update - Arch
+  debug:
+    msg: "{{arch_packages_update.stdout_lines}}"
+  when: ansible_facts['distribution'] == "Archlinux" and arch_packages_update.stdout_lines
+
+# Update packages on Debian servers
 - name: Update - Debian
   apt:
     upgrade: full
     autoremove: yes
   when: ansible_facts['distribution'] == "Debian"
 
-# If the server is an Arch Server, check that the "archlinux-keyring" package is up to date (and udpate it if needed)
-
+# Update the Arch Linux keyring (if necessary) on Arch servers
 - name: Check archlinux-keyring - Arch
   pacman:
     name: archlinux-keyring
     state: latest
   when: ansible_facts['distribution'] == "Archlinux"
 
-# If the server is an Arch Server, update it via "pacman" (pacman -Su)
+# Update packages on Arch servers
 - name: Update - Arch
   pacman:
     upgrade: yes
   when: ansible_facts['distribution'] == "Archlinux"
 
-# Reboot to apply changes on the LAN (the "net" variable is defined in the inventory file)
+# Check for pacnew files on Arch servers
+- name: Check pacnew files - Arch
+  shell:
+    cmd: find / -name *.pacnew
+  register: arch_pacnew_files
+  when: ansible_facts['distribution'] == "Archlinux"
+
+# Print the list of pacnew files (if there are) on Arch servers
+- name: List pacnew files - Arch
+  debug:
+    msg: "{{arch_pacnew_files.stdout_lines}}"
+  when: ansible_facts['distribution'] == "Archlinux" and arch_pacnew_files.stdout_lines
+
+# Reboot servers on the LAN network (see "net" variable in the inventory files)
 - name: Reboot - LAN
   reboot:
     test_command: whoami 
   when: net == "LAN" 
 
-# Reboot to apply changes on the DMZ (the "net" variable is defined in the inventory file)
+# Reboot servers on the DMZ network (see "net" variable in the inventory files)
 - name: Reboot - DMZ
   reboot:
     test_command: whoami 
   when: net == "DMZ" 
 
-# Reboot to apply changes on the SERVICE (the "net" variable is defined in the inventory file), except for the ansible server itself that will have to be rebooted manually
+# Reboot servers on the SERVICE network (see "net" variable in the inventory files), unless it's the Ansible server itself
 - name: Reboot - SERVICE
   reboot:
     test_command: whoami 

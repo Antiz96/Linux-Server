@@ -7,8 +7,8 @@
     msg: The 'package' variable is empty
   when: not package
 
-# If the "package" var is not empty, remove the package(s) listed in the "package" variable via "apt" (apt remove xxx && apt autoremove).
-- name: Remove package
+# Remove package(s)
+- name: Remove package(s)
   apt:
     name: "{{package}}"
     state: absent

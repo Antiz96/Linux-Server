@@ -6,7 +6,7 @@
   shell:
     cmd: docker exec -t postgres-zabbix pg_dumpall -c -U $(cat /opt/postgres/zabbix/env/user) -l $(cat /opt/postgres/zabbix/env/database) | tee /opt/postgres/zabbix/backup/$(date +%d-%m-%Y).dump
 
-# Find dumps that are equal to or older than a week
+# Find dumps older than a week
 - name: List old dumps
   find:
     paths: /opt/postgres/zabbix/backup
@@ -14,7 +14,7 @@
     age: 1w
   register: list_old_dumps
 
-# Delete dumps that are equal to or older than a week (and print them)
+# Delete dumps older than a week 
 - name: Delete old dumps
   file:
     path: "{{item.path}}"
