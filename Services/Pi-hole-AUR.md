@@ -135,7 +135,7 @@ sudo postmap /etc/postfix/sasl_passwd
 sudo systemctl restart postfix
 ```
 
-Enable **Less Secure App** on your gmail account (postfix is categorized as so).
+Enable **Less Secure App** on your gmail account (postfix is categorized as such).
 
 ### Deploy scripts and crontab to automate some tasks for the "pihole" user
 
