@@ -5,8 +5,8 @@ amprd01.rc net=SERVICE ansible_connection=local
 [dn]
 dnprd01.rc net=LAN 
 
-[vp]
-vpprd01.rc net=LAN 
+[vn]
+vnprd01.rc net=LAN 
 
 [fs]
 fsprd01.rc net=LAN 
@@ -30,7 +30,7 @@ vsprd01.rc net=LAN
 # Service
 [docker]
 dnprd01.rc
-vpprd01.rc
+vnprd01.rc
 fsprd01.rc
 asprd01.rc
 dbprd01.rc
