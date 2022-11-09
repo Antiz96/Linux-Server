@@ -44,7 +44,8 @@ sudoedit /etc/fail2ban/jail.conf
 > bantime = 15m #How much the ban last.  
 > findtime = 15m #Amount of time between failed attempts.      
 > maxretry = 3 #Number of failed attempts before banning.  
-> banaction = iptables-multiport #Block every opened port to the banned IP.  
+> banaction = iptables-multiport #Block every opened port to the banned IP. 
+> enabled = false #Default status of every other blocks. Put it to false and explicitely enable the blocks you want to enable.   
 > [...]  
   
 - [sshd] block:
