@@ -43,7 +43,7 @@ sudoedit /etc/fail2ban/jail.conf
   
 - [sshd] section:
 > [...]   
-> port = X #Replace X by the SSH port you've set.
+> port = X #Replace X by the SSH port you've set.  
 > logpath = %(sshd_log)s  
 > backend = %(sshd_backend)s  
 > enabled = true  
@@ -56,7 +56,8 @@ sudoedit /etc/fail2ban/jail.conf
 > bantime  = 1w #Ban time of recidivist IPs.  
 > findtime = 1d #Amount of time between recidive failed attempts.  
 > enabled = true  
-  
+> [...]  
+    
 ```
 sudo systemctl restart fail2ban #Restart the service to apply
 ```
