@@ -15,6 +15,7 @@ This is the list of installation and configuration procedures of services that I
 * [Pi-hole - DNS, DHCP and global Ad-Blocking server (AUR Package)](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Pi-hole-AUR.md)
 * [Nginx - Reverse Proxy](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Nginx.md)
 * [KeepAlived - Clustering solution](https://github.com/Antiz96/Server-Configuration/blob/main/Services/KeepAlived.md)
+* [Fail2Ban - Anti-Bruteforce solution](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Fail2Ban.md)
 
 ## Services that runs inside a docker container
 
