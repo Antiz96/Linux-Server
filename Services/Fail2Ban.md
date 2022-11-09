@@ -39,19 +39,17 @@ sudoedit /etc/fail2ban/jail.conf
 
 - [DEFAULT] block:
 > [...]  
-> ignoreip = 127.0.0.1/8 ::1 "your_IP_or_IP_range" #IP(s) to ignore. You should put your IP or IP range, to avoid blocking yourself. See: https://wiki.archlinux.org/title/Fail2ban
-> [...]  
+> [DEFAULT]  
+> ignoreip = 127.0.0.1/8 ::1 "your_IP_or_IP_range" #IP(s) to ignore. You should put your IP or IP range, to avoid blocking yourself. See: https://wiki.archlinux.org/title/Fail2ban  
 > bantime = 15m #How much the ban last.  
-> [...]  
 > findtime = 15m #Amount of time between failed attempts.      
-> [...]  
 > maxretry = 3 #Number of failed attempts before banning.  
-> [...]  
 > banaction = iptables-multiport #Block every opened port to the banned IP.  
 > [...]  
   
 - [sshd] block:
 > [...]   
+> [sshd]  
 > port = X #Replace X by the SSH port you've set.  
 > logpath = %(sshd_log)s  
 > backend = %(sshd_backend)s  
@@ -60,6 +58,7 @@ sudoedit /etc/fail2ban/jail.conf
   
 - [recidive] block:
 > [...]  
+> [recidive]  
 > logpath  = /var/log/fail2ban.log #Path to the fail2ban logs.    
 > banaction = %(banaction_allports)s #Block banned IP from all ports.  
 > bantime  = 1w #Ban time of recidivist IPs.  
