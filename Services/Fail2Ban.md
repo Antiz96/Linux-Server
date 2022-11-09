@@ -25,10 +25,10 @@ https://wiki.archlinux.org/title/Fail2ban
 https://www.linode.com/docs/guides/how-to-use-fail2ban-for-ssh-brute-force-protection/  
 https://www.linuxtricks.fr/wiki/fail2ban-bannir-automatiquement-les-intrus  
 
-*Fail2Ban works with different blocks ("**[block_name]**") defined in the configuration file.*  
-*The **[DEFAULT]** block defines the default parameters and values to apply to every other blocks (unless they are explicitily defined in the said blocks).*  
-*You can then define a block for each services you want to monitor via fail2ban. A lot of them are pre-defined for various services like sshd, httpd, nginx, etc...*  
-*The **[recidive]** block defines the paramaters and values to apply to IPs/hosts that recidived failed attempts.*  
+Fail2Ban works with different blocks ("**[block_name]**") defined in the configuration file.  
+The **[DEFAULT]** block defines the default parameters and values to apply to every other blocks (unless they are explicitily defined in the said blocks).  
+You can then define a block for each services you want to monitor via fail2ban. A lot of them are pre-defined for various services like sshd, httpd, nginx, etc...  
+The **[recidive]** block defines the paramaters and values to apply to IPs/hosts that recidived failed attempts.  
    
 Start and enable the service and edit the configuration file:  
   
