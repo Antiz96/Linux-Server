@@ -20,8 +20,8 @@ sudo firewall-cmd --reload
 *(...to store the VMs, backups, etc...)*
 
 ```
-sudo mkdir /storage/Proxmox
-sudo mkdir /data/Proxmox
+sudo mkdir /proxmox/vms
+sudo mkdir /storage/proxmox
 ```
 
 ## Installation 
@@ -71,10 +71,10 @@ You can now access the Proxmox's web interface on the following URL :
 
 Datacenter --> Storage  
    
-ADD - Type : directory | ID : Backup | Directory : /storage/Proxmox/Backup | Content : VZDump Backup File  
-ADD - Type : directory | ID : ISO | Directory : /storage/Proxmox/ISO | Content : ISO Image  
-ADD - Type : directory | ID : VMs | Directory : /storage/Proxmox/VMs | Content : Disk Image  
-ADD - Type : directory | ID : Data | Directory : /data/Proxmox | Content : Disk Image  
+ADD - Type : directory | ID : Backup | Directory : /storage/proxmox/backup | Content : VZDump Backup File  
+ADD - Type : directory | ID : ISO | Directory : /storage/proxmox/iso | Content : ISO Image  
+ADD - Type : directory | ID : VMs | Directory : /proxmox/vms | Content : Disk Image  
+ADD - Type : directory | ID : VMs_Data | Directory : /storage/proxmox/vms_data | Content : Disk Image  
 EDIT local directory --> uncheck "enabled" checkbox
 
 ### Disable the root account on the Web Interface (for security reasons)
