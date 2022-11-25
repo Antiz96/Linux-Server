@@ -64,7 +64,7 @@
 # Check for pacnew files on Arch servers
 - name: Check pacnew files - Arch
   shell:
-    cmd: find / -name *.pacnew
+    cmd: find /etc -regextype posix-extended -regex ".+\.pac(new|save)"
   register: arch_pacnew_files
   when: ansible_facts['distribution'] == "Archlinux"
 
