@@ -63,9 +63,8 @@ alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
 alias sudo="sudo "
 
 #Others
-alias pman="man -k . | dmenu -l 15 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -"
-alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn &"
-alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn &"
+alias tryhackme="sudo -v && (sudo openvpn --config ~/Documents/Other/Antiz96.ovpn &)"
+alias hackthebox="sudo -v && (sudo openvpn --config ~/Documents/Other/Antiz.ovpn &)"
 
 #BlackArch
 alias wget="wget -U 'noleak'"
