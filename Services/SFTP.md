@@ -58,3 +58,8 @@ Restart the `sshd` service to apply changes:
 ```
 sudo systemctl restart sshd
 ```
+  
+You can the connect to your SFTP instance:  
+```
+sftp username@server
+```
