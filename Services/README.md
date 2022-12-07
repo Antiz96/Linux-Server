@@ -4,7 +4,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 
 ## OS
 
-* [Debian - OS I use on my physical server that host my Proxmox instance](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Debian.md)
+* [Debian - OS I use on my physical server that hosts my Proxmox instance](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Debian.md)
 * [Arch Linux (ARM) - OS I use on my Raspberry PI server](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Arch-Linux-ARM.md)
 
 ## Services that run directly on the host
@@ -17,6 +17,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 * [KeepAlived - Clustering solution](https://github.com/Antiz96/Server-Configuration/blob/main/Services/KeepAlived.md)
 * [Fail2Ban - Anti-Bruteforce solution](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Fail2Ban.md)
 * [SFTP - FTP server over SSH](https://github.com/Antiz96/Server-Configuration/blob/main/Services/SFTP.md)
+* [Samba - Windows like sharing server on Linux](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Samba.md)
 
 ## Services that run inside a docker container
 
