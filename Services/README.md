@@ -1,13 +1,13 @@
 # Server
 
-This is the list of installation and configuration procedures of services that I have (or had) running on my Servers.
+This is a (non-exhaustive) list of installation and configuration procedures of various services that I set up on Linux servers (either for my personal use or in a professional context).  
 
 ## OS
 
-* [Debian - OS](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Debian.md)
-* [Arch Linux (ARM) - OS](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Arch-Linux-ARM.md)
+* [Debian - OS I use on my physical server that hosts my Proxmox instance](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Debian.md)
+* [Arch Linux (ARM) - OS I use on my Raspberry PI server](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Arch-Linux-ARM.md)
 
-## Services that runs directly on the host 
+## Services that run directly on the host
 
 * [Proxmox - Hypervisor/Virtualization platform](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Proxmox.md)
 * [Ansible/Jenkins - Automation and orchestration server](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Ansible-Jenkins.md)
@@ -16,8 +16,10 @@ This is the list of installation and configuration procedures of services that I
 * [Nginx - Reverse Proxy](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Nginx.md)
 * [KeepAlived - Clustering solution](https://github.com/Antiz96/Server-Configuration/blob/main/Services/KeepAlived.md)
 * [Fail2Ban - Anti-Bruteforce solution](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Fail2Ban.md)
+* [SFTP - FTP server over SSH](https://github.com/Antiz96/Server-Configuration/blob/main/Services/SFTP.md)
+* [Samba - Windows like sharing server on Linux](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Samba.md)
 
-## Services that runs inside a docker container
+## Services that run inside a docker container
 
 * [Pi-hole - DNS, DHCP and global Ad-Blocking server](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Pi-hole.md)
 * [Apache Guacamole - Remote Gateway](https://github.com/Antiz96/Server-Configuration/blob/main/Services/Apache-Guacamole.md)
