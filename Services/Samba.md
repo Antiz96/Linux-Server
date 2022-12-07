@@ -2,7 +2,7 @@
   
 https://en.wikipedia.org/wiki/Samba_(software)  
   
-Samba is a Windows like sharing menat to run on Linux.  
+Samba is a Windows like sharing meant to run on Linux.  
 This procedure aims to set up a Samba share server with a dedicated user.  
   
 
