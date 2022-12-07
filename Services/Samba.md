@@ -12,14 +12,14 @@ This procedure aims to set up a Samba share server with a dedicated user.
 
 ```
 sudo pacman -S samba
-sudo systemctl enable --now nmbd
+sudo systemctl enable --now nmbd smbd
 ```
   
 **Debian:**
 
 ```
 sudo apt install samba
-sudo systemctl enable --now nmbd
+sudo systemctl enable --now nmbd smbd
 ```
 
 ## Configuration
