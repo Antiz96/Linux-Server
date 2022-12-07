@@ -52,7 +52,7 @@ Restart the service to apply changes:
 sudo systemctl restart smbd
 ```
   
-You can then connect to your Samba instance *(requires the `smbclient` package):  
+You can then connect to your Samba instance *(requires the `smbclient` package)*:  
 ```
 sudo smbclient //Server_Name/Samba_Share_Name -U username
 ```
