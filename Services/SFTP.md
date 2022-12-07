@@ -28,12 +28,12 @@ sudo systemctl enable --now sshd
 
 https://citizix.com/how-to-set-up-an-sftp-server-on-debian-11-server/  
   
-Create the directory you want the sftp to point to:  
+Create the directory you want the sftp instance to point to:  
 ```
-sudo mkdir -p /path/to/the/sftp/directory #This whole path (the directory itself and its parent directories) has to be owned/writeable by the root user only (`chown root: && chmod 755`)
+sudo mkdir -p /path/to/the/sftp/directory #This whole path (the directory itself and its parent directories) has to be owned/writeable by the root user only (chown root: && chmod 755)
 ```
   
-Create the dedicated user, associate a directory for that user inside the SFTP directory and make it not able to log in via ssh *(optionally you can create a dedicated group as well, so you can restrict the `sftp` instance to a group of users instead of a specific user)*:   
+Create the dedicated user, associate a directory for that user inside the SFTP directory and make it not able to log in *(optionally you can create a dedicated group as well, so you can restrict the `sftp` instance to a group of users instead of a specific user)*:   
 ```
 sudo useradd -d /path/to/the/sftp/directory/user_dir -s /usr/sbin/nologin username
 ```
