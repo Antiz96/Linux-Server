@@ -54,5 +54,5 @@ sudo systemctl restart smbd
   
 You can then connect to your Samba instance *(requires the `smbclient` package)*:  
 ```
-sudo smbclient //Server_Name/Samba_Share_Name -U username
+smbclient //Server_Name/Samba_Share_Name -U username
 ```
