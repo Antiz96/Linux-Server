@@ -24,8 +24,6 @@ sudo systemctl enable --now nmbd smbd
 
 ## Configuration
 
-https://vitux.com/samba-debian-11/  
-  
 Create the directory to share:  
 ```
 sudo mkdir -p /path/to/the/samba/directory
@@ -39,7 +37,7 @@ sudoedit /etc/samba/smb.conf
 > [name_of_the_samba_share] #Call it whatever you want  
 > comment = Some comments  
 > path = /path/to/the/samba/directory  
-> read-only = no  
+> writeable = yes  
 > browsable = yes  
   
 Create a password dedicated to the samba share for the user *(the user has to be an existing user on the system and therefore should exist in `/etc/passwd`. Create the user first if needed.)*:  
