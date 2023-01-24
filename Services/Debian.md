@@ -122,6 +122,16 @@ sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Close the dhcpv6
 sudo firewall-cmd --reload
 ```
 
+## Enable fstrim (for SSDs only - optional)
+
+If you use SSDs, you can use `fstrim` to discard all unused blocks in the filesystem in order to improve performances.  
+You can launch it manually by running `sudo fstrim -av`, but keep in mind that it is not recommended to launch it too frequently. It is commonly approved that running it once a week is a sufficient frequency for most desktop and server systems.  
+  
+To launch `fstrim` automatically on a weekly basis, enable the associated systemd timer:  
+```
+sudo systemctl enable --now fstrim.timer
+```
+
 ## Enable Wake On Lan
 
 https://www.asus.com/support/FAQ/1045950/  
