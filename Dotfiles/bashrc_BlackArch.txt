@@ -7,46 +7,40 @@
 
 ##Prompt##
 
-PS1='[\u@\h \W]\$ '
+PS1="[\u@\h \W]\$ "
 
-##ENV##
+##Env var##
 
-#Export Color
-export Color="--color=auto"
+#Editor
+export EDITOR="/usr/bin/vim"
 
-#Export Editor
-export EDITOR=/usr/bin/vim
-
-#Export Lang for dmenu
-export LC_CTYPE="fr_FR.UTF-8"
-
-#Export Blackarch
+#Blackarch
 export PATH="${HOME}/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:"
 export PATH="${PATH}/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:"
 export LD_PRELOAD=""
 
-##Aliases##
+##Alias##
 
-#Listing Files
-alias ls="ls $Color"
+#Ls
+alias ls="ls --color=auto"
 alias ll="ls -ltr"
 alias l="ls -ltrA"
 
 #Grep
-alias grep="grep $Color"
-alias egrep="egrep $Color"
-alias fgrep="fgrep $Color"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
 
-#Manipulating Files
+#Manipulating files
 alias mv="mv -i"
 alias cp="cp -i"
 alias ln="ln -i"
 alias rm="rm -i"
 
-#Edit
+#Editor
 alias vi="vim"
 
-#Package Manager
+#Package manager
 alias update="sudo pacman -Syy"
 alias upgrade="sudo pacman -Syu"
 alias fullupgrade="sudo pacman -Syu && yay -Syu"
@@ -63,7 +57,7 @@ alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
 #Sudo
 alias sudo="sudo "
 
-#Others
+#Other
 alias tryhackme="sudo -v && (sudo openvpn --config ~/Documents/Other/Antiz96.ovpn &)"
 alias hackthebox="sudo -v && (sudo openvpn --config ~/Documents/Other/Antiz.ovpn &)"
 
