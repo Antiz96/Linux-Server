@@ -1,0 +1,27 @@
+---
+# tasks file for bash_command
+
+# Stop the playbook if the "bash_cmd" variable is empty or undefined
+- name: Fail if the "bash_cmd" variable is empty or undefined
+  fail:
+    msg: The 'bash_cmd' variable is empty
+  when: not bash_cmd
+
+# Run the specified bash command
+- name: Run bash command
+  shell:
+    cmd: "{{bash_cmd}}"
+  ignore_errors: yes
+  register: bash_cmd_output
+
+# Print the standard output of the command (if there is one)
+- name: Bash command standard output
+  debug:
+    msg: "{{bash_cmd_output.stdout_lines}}"
+  when: bash_cmd_output.stdout_lines
+
+# Print the error output of the command (if there is one)
+- name: Bash command error output
+  debug:
+    msg: "{{bash_cmd_output.stderr_lines}}"
+  when: bash_cmd_output.stderr_lines
