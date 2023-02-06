@@ -1,0 +1,5 @@
+---
+- name: "Run a bash command"
+  hosts: all
+  roles:
+    - role: "bash_command"
