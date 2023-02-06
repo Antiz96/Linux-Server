@@ -167,7 +167,7 @@ sudo reboot
 
 ```
 sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils postfix firewalld traceroute rsync zip unzip cronie diffutils git mlocate htop pacman-contrib
-sudo systemctl enable --now sshd cronie postfix firewalld
+sudo systemctl enable --now sshd cronie postfix firewalld paccache.timer
 sudo updatedb
 sudo mandb
 sudo firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (replace "X" by the port)
