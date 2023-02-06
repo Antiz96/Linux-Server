@@ -9,36 +9,33 @@
 
 PS1="[\u@\h \W]\$ "
 
-##ENV##
+##Env var##
 
-#Export Color
-export Color="--color=auto"
+#Editor
+export EDITOR="/usr/bin/vim"
 
-#Export Editor
-export EDITOR=/usr/bin/vim
+##Alias##
 
-##Aliases##
-
-#Listing Files
-alias ls='ls $Color'
+#Ls
+alias ls="ls --color=auto"
 alias ll="ls -ltr"
 alias l="ls -ltrA"
 
 #Grep
-alias grep='grep $Color'
-alias egrep='egrep $Color'
-alias fgrep='fgrep $Color'
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
 
-#Manipulating Files
+#Manipulating files
 alias mv="mv -i"
 alias cp="cp -i"
 alias ln="ln -i"
 alias rm="rm -i"
 
-#Edit
+#Editor
 alias vi="vim"
 
-#Package Manager
+#Package manager
 alias update="sudo apt update"
 alias upgrade="sudo apt update && sudo apt upgrade"
 alias fullupgrade="sudo apt update && sudo apt full-upgrade"
@@ -53,5 +50,5 @@ alias cleanorphans="sudo apt autoremove --purge"
 #Docker
 alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
 
-#Sudoers
+#Sudo
 alias sudo="sudo "
