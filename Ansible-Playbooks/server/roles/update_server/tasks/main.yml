@@ -61,10 +61,24 @@
     upgrade: yes
   when: ansible_facts['distribution'] == "Archlinux"
 
-# Check for pacnew files on Arch servers
+# Check for orphan packages on Arch server
+- name: Check orphan packages - Arch
+  shell:
+    cmd: pacman -Qtdq
+  ignore_errors: yes
+  register: arch_orphan_packages
+  when: ansible_facts['distribution'] == "Archlinux"
+
+# Print the list of orphan packages (if there are) on Arch servers
+- name: List orphan packages - Arch
+  debug:
+    msg: "{{arch_orphan_packages.stdout_lines}}"
+  when: ansible_facts['distribution'] == "Archlinux" and arch_orphan_packages.stdout_lines
+
+# Check for pacnew files on Arch servers (requires the "pacman-contrib" package)
 - name: Check pacnew files - Arch
   shell:
-    cmd: find /etc -regextype posix-extended -regex ".+\.pac(new|save)"
+    cmd: pacdiff -o
   register: arch_pacnew_files
   when: ansible_facts['distribution'] == "Archlinux"
 
