@@ -39,7 +39,7 @@ https://hub.docker.com/r/linuxserver/wireguard
 
 ### Install docker on my server (if not done already)
 
-https://github.com/Antiz96/Server-Configuration/blob/main/Services/Docker.md
+https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md
 
 ### Create a local folder to store the clients configuration and make data persistent for update/upgrade
 

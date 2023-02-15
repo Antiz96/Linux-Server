@@ -4,7 +4,7 @@ https://www.postgresql.org/
 
 ## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Server-Configuration/blob/main/Services/Docker.md
+https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md
 
 ## Installing a PostgreSQL database on Docker
 
@@ -57,7 +57,7 @@ There's multiple ways to automate that backup process. You can simply put the ab
   
 Personally, I use an Ansible Playbook that does the dump and delete every dump older than 7 days.  
 This Ansible Playbook is launched automatically each day by my Jenkins instance so it performs one dump a day and keep 7 days of dump.  
-You can see that Ansible Playbook [here](https://github.com/Antiz96/Server-Configuration/blob/main/Ansible-Playbooks/server/roles/dump_db/tasks/main.yml)  
+You can see that Ansible Playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/server/roles/dump_db/tasks/main.yml)  
   
 To restore a dump, you can use the following command:
 
