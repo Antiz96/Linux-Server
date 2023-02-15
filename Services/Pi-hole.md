@@ -4,7 +4,7 @@ https://pi-hole.net/
 
 ## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Server-Configuration/blob/main/Services/Docker.md
+https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md
 
 ## Installing Pi-hole on Docker
 

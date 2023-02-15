@@ -4,7 +4,7 @@ https://www.zabbix.com/
 
 ## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Server-Configuration/blob/main/Services/Docker.md
+https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md
 
 ## Zabbix database 
 
@@ -12,7 +12,7 @@ Zabbix needs a database to store its data on.
 Zabbix is compatible with both MySQL and PostgreSQL.  
   
 I personally use PostgreSQL inside a docker container.
-You can read my install procedure of PostgreSQL on docker here : https://github.com/Antiz96/Server-Configuration/blob/main/Services/PostgreSQL.md
+You can read my install procedure of PostgreSQL on docker here : https://github.com/Antiz96/Linux-Server/blob/main/Services/PostgreSQL.md
 
 ## Installing Zabbix-Server on Docker
 

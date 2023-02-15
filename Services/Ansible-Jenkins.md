@@ -21,7 +21,7 @@ apt install ansible
 
 ### Configuring the user
 
-I use the [ansible user](https://github.com/Antiz96/Server-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md#create-and-configure-the-ansible-user) I created during the template installation.
+I use the [ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md#create-and-configure-the-ansible-user) I created during the template installation.
 
 ```
 rm /home/ansible/.ssh/authorized_keys #Delete the public key which is only needed for ansible client
@@ -57,7 +57,7 @@ vim /etc/ansible/ansible.cfg
 
 ### Playbooks
 
-My ansible playbooks are available [here](https://github.com/Antiz96/Server-Configuration/tree/main/Ansible-Playbooks).
+My ansible playbooks are available [here](https://github.com/Antiz96/Linux-Server/tree/main/Ansible-Playbooks).
 
 ## Jenkins
 
