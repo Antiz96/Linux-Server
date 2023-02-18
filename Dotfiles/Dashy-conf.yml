@@ -93,13 +93,6 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Website Dev
-    description: Antiz website dev env
-    icon: hl-nginx
-    url: https://website_dev.home-infra.rc
-    statusCheckAllowInsecure: true
-    target: newtab
-
 # Monitoring Servers section
 - name: Monitoring pmx01
   icon: fas fa-chart-line
