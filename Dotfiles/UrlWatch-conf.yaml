@@ -1,0 +1,235 @@
+# Arch
+
+## GitHub
+
+name: "ansible-core"
+url: https://github.com/ansible/ansible/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "blueman"
+url: https://github.com/blueman-project/blueman/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "ddgr"
+url: https://github.com/jarun/ddgr/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "dino"
+url: https://github.com/dino/dino/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "distrobox"
+url: https://github.com/89luca89/distrobox/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "firewalld"
+url: https://github.com/firewalld/firewalld/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "glow"
+url: https://github.com/charmbracelet/glow/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "gsimplecal"
+url: https://github.com/dmedvinsky/gsimplecal/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "hexchat"
+url: https://github.com/hexchat/hexchat/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "icewm"
+url: https://github.com/ice-wm/icewm/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "picom"
+url: https://github.com/yshui/picom/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "redshit"
+url: https://github.com/jonls/redshift/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "urlwatch"
+url: https://github.com/thp/urlwatch/tags
+filter:
+  - grep: "Link--primary"
+---
+
+## GitLab
+
+name: "girara"
+url: https://git.pwmt.org/pwmt/girara/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "tint2"
+url: https://gitlab.com/o9000/tint2/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "unrar-free"
+url: https://gitlab.com/bgermann/unrar-free/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "zathura"
+url: https://git.pwmt.org/pwmt/zathura/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "zathura-cb"
+url: https://git.pwmt.org/pwmt/zathura-cb/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "zathura-djvu"
+url: https://git.pwmt.org/pwmt/zathura-djvu/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "zathura-pdf-mupdf"
+url: https://git.pwmt.org/pwmt/zathura-pdf-mupdf/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "zathura-pdf-poppler"
+url: https://git.pwmt.org/pwmt/zathura-pdf-poppler/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "zathura-ps"
+url: https://git.pwmt.org/pwmt/zathura-ps/-/tags
+filter:
+  - grep: "item-title"
+---
+
+## Other
+
+name: "ansible"
+url: https://pypi.org/project/ansible/#history
+filter:
+  - grep: "card release__card"
+---
+
+name: "notification-daemon"
+url: https://download.gnome.org/sources/notification-daemon/
+filter:
+  - grep: "title"
+---
+
+# AUR
+
+## GitHub
+
+name: "clipboard"
+url: https://github.com/Slackadays/Clipboard/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "arch-update"
+url: https://github.com/Antiz96/arch-update/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "gnome-shell-extension-caffeine"
+url: https://github.com/eonpatapon/gnome-shell-extension-caffeine/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "lowcharts"
+url: https://github.com/juan-leon/lowcharts/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "bd"
+url: https://github.com/vigneshwaranr/bd/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "gitmux"
+url: https://github.com/arl/gitmux/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "dnote"
+url: https://github.com/dnote/dnote/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "certificate-ripper"
+url: https://github.com/Hakky54/certificate-ripper/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "zaman"
+url: https://github.com/Antiz96/zaman/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "malias"
+url: https://github.com/Antiz96/malias/tags
+filter:
+  - grep: "Link--primary"
+---
+
+## GitLab
+
+name: "gnome-shell-extension-desktop-icons-ng"
+url: https://gitlab.com/rastersoft/desktop-icons-ng/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "ame"
+url: https://git.getcryst.al/crystal/software/amethyst/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "malachite"
+url: https://git.getcryst.al/crystal/software/malachite/-/tags
+filter:
+  - grep: "item-title"
+---
