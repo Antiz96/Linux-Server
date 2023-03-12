@@ -49,9 +49,9 @@ urlwatch --edit-config
 > report/email/from: your.username@gmail.com (edit accordingly)  
 > report/email/method: smtp  
 > report/email/smtp/host: smtp.gmail.com  
-> report/email/smtp/keyring: true  
 > report/email/smtp/port: 587  
 > report/email/smtp/starttls: true  
+> report/email/smtp/insecure_password: the password you created in the previous step  
 > report/email/to: The e-mail address you want to send reports to  
   
 ## Run periodically
