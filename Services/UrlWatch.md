@@ -36,7 +36,15 @@ urlwatch --edit-config
 ```
   
 I personally configured `urlwatch` to send changes via mail (through GMAIL SMTP), like so:  
+Configure your GMail account to allow for "less secure" (password-based) apps to login:  
+- Go to https://myaccount.google.com/
+- Click on "Security", then "Applications passwords"
+- Scroll all the way down to "Allow less secure apps" and enable it, then generate a password for `urlwatch`
   
+Then, configure `urlwatch` that way:  
+```
+urlwatch --edit-config
+```
 > report/email/enabled: true  
 > report/email/from: your.username@gmail.com (edit accordingly)  
 > report/email/method: smtp  
@@ -45,13 +53,6 @@ I personally configured `urlwatch` to send changes via mail (through GMAIL SMTP)
 > report/email/smtp/port: 587  
 > report/email/smtp/starttls: true  
 > report/email/to: The e-mail address you want to send reports to  
-  
-Then, configure your GMail account to allow for "less secure" (password-based) apps to login:  
-- Go to https://myaccount.google.com/
-- Click on "Security", then "Applications passwords"
-- Scroll all the way down to "Allow less secure apps" and enable it, then generate a password for `urlwatch`
-  
-Finally, run `urlwatch --smtp-login` and enter the password generated in the above step (it's not stored in the config file, but in your keychain).  
   
 ## Run periodically
 
