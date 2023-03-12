@@ -3,7 +3,7 @@
 https://thp.io/2008/urlwatch/  
   
 `urlwatch` is a tool that helps you watch changes in webpages and get notified (via e-mail, in your terminal or through various third party services) of any changes.  
-I use it to monitor upstream releases of the various packages I maintain on the AUR and Arch repositories.  
+I use it to monitor upstream releases of the various packages I maintain on the Arch repositories and the AUR.  
 
 ## Installation
   
@@ -24,7 +24,7 @@ urlwatch --edit
   
 See the [documentation](https://urlwatch.readthedocs.io/en/latest/introduction.html#jobs-and-filters) for more information.  
   
-My personal configuration is available [here](https://github.com/Antiz96/Linux-Server/blob/main/Dotfiles/UrlWatch-conf.yaml)  
+My personal configuration is available [here](https://github.com/Antiz96/Linux-Server/blob/main/Dotfiles/UrlWatch-conf.yaml).  
   
 ### Reporter configuration
 
@@ -35,9 +35,9 @@ To create or edit your reporter configuration file, run:
 urlwatch --edit-config
 ```
   
-I personally configured my urlwatch to send changes via mail (through GMAIL SMTP), like so:  
+I personally configured `urlwatch` to send changes via mail (through GMAIL SMTP), like so:  
   
-> report/email/enabled: true 
+> report/email/enabled: true  
 > report/email/from: your.username@gmail.com (edit accordingly)  
 > report/email/method: smtp  
 > report/email/smtp/host: smtp.gmail.com  
@@ -48,7 +48,7 @@ I personally configured my urlwatch to send changes via mail (through GMAIL SMTP
   
 Then, configure your GMail account to allow for "less secure" (password-based) apps to login:  
 - Go to https://myaccount.google.com/
-- Click on "Sign-in & security"
+- Click on "Security", then "Applications passwords"
 - Scroll all the way down to "Allow less secure apps" and enable it, then generate a password for `urlwatch`
   
 Finally, run `urlwatch --smtp-login` and enter the password generated in the above step (it's not stored in the config file, but in your keychain).  
