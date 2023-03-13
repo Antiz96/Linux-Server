@@ -18,6 +18,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 * [Fail2Ban - Anti-Bruteforce solution](https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md)
 * [SFTP - FTP server over SSH](https://github.com/Antiz96/Linux-Server/blob/main/Services/SFTP.md)
 * [Samba - Windows like sharing server on Linux](https://github.com/Antiz96/Linux-Server/blob/main/Services/Samba.md)
+* [UrlWatch - Watch changes in webpages and get notified](https://github.com/Antiz96/Linux-Server/blob/main/Services/UrlWatch.md)
 
 ## Services that run inside a docker container
 
