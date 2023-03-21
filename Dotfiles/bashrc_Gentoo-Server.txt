@@ -44,6 +44,7 @@ alias remove="sudo emerge -aC"
 alias search="emerge -s"
 alias pkglist="qlist -Iv"
 alias cleanorphans="sudo emerge -ac"
+alias cleancache="sudo eclean -d packages && sudo eclean -d distfiles"
 
 #Docker
 alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
