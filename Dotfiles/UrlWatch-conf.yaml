@@ -56,6 +56,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "hyfetch"
+url: https://github.com/hykilpikonna/hyfetch/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "icewm"
 url: https://github.com/ice-wm/icewm/tags
 filter:
