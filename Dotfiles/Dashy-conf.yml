@@ -36,24 +36,10 @@ sections:
   icon: fas fa-server
   items:
 
-  - title: Zabbix
-    description: Monitoring Server
-    icon: hl-zabbix
-    url: https://zabbix.home-infra.rc
-    statusCheckAllowInsecure: true
-    target: newtab
-
   - title: Proxmox
     description: Virtualization platform
     icon: hl-proxmox
     url: https://proxmox.home-infra.rc
-    statusCheckAllowInsecure: true
-    target: newtab
-
-  - title: Pihole
-    description: DNS - Adblocker
-    icon: hl-pihole
-    url: https://pihole.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
@@ -72,6 +58,20 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
+  - title: Pihole
+    description: DNS - Adblocker
+    icon: hl-pihole
+    url: https://pihole.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: ZNC
+    description: IRC Bouncer
+    icon: hl-irc
+    url: https://znc.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
   - title: Portainer
     description: Docker container manager
     icon: hl-portainer
@@ -79,10 +79,11 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Router
-    description: Router configuration interface
-    icon: hl-router
-    url: https://mabbox.bytel.fr
+  - title: Zabbix
+    description: Monitoring Server
+    icon: hl-zabbix
+    url: https://zabbix.home-infra.rc
+    statusCheckAllowInsecure: true
     target: newtab
 
   - title: Glances pmx01
@@ -91,6 +92,12 @@ sections:
     url: https://glances-pmx01.home-infra.rc
     statusCheckAcceptCodes: '401'
     statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Router
+    description: Router configuration interface
+    icon: hl-router
+    url: https://mabbox.bytel.fr
     target: newtab
 
 # Monitoring Servers section

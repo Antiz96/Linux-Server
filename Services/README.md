@@ -33,4 +33,5 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 * [Portainer Agent - Web interface to manage Docker](https://github.com/Antiz96/Linux-Server/blob/main/Services/Portainer-Agent.md)
 * [PostgreSQL - Database](https://github.com/Antiz96/Linux-Server/blob/main/Services/PostgreSQL.md)
 * [Zabbix - Monitoring Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Zabbix.md)
+* [ZNC - IRC Bouncer](https://github.com/Antiz96/Linux-Server/blob/main/Services/ZNC.md)
 * [Watchtower - Automating docker containers updates](https://github.com/Antiz96/Linux-Server/blob/main/Services/Watchtower.md)
