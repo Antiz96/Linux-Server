@@ -38,6 +38,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "glances"
+url: https://github.com/nicolargo/glances/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "glow"
 url: https://github.com/charmbracelet/glow/tags
 filter:
