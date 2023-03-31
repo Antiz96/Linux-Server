@@ -23,9 +23,10 @@ urlwatch --edit
 ```
   
 See the [documentation](https://urlwatch.readthedocs.io/en/latest/introduction.html#jobs-and-filters) for more information.  
-  
 My personal configuration is available [here](https://github.com/Antiz96/Linux-Server/blob/main/Dotfiles/UrlWatch-conf.yaml).  
-  
+ 
+Once configured (and after any future modifications in the configuration), run `urlwatch` once to initialize it.
+
 ### Reporter configuration
 
 The reporter configuration serves to declare additional ways to report changes in URLs (in addition of showing them in the console), such as mail or various third party services.  
