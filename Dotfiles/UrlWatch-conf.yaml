@@ -74,6 +74,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "limine"
+url: https://github.com/limine-bootloader/limine/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "picom"
 url: https://github.com/yshui/picom/tags
 filter:
