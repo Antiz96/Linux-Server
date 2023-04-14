@@ -172,14 +172,44 @@ filter:
 
 ## GitHub
 
+name: "arch-update"
+url: https://github.com/Antiz96/arch-update/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "bd"
+url: https://github.com/vigneshwaranr/bd/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "blahaj"
+url: https://github.com/GeopJr/BLAHAJ/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "certificate-ripper"
+url: https://github.com/Hakky54/certificate-ripper/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "clipboard"
 url: https://github.com/Slackadays/Clipboard/tags
 filter:
   - grep: "Link--primary"
 ---
 
-name: "arch-update"
-url: https://github.com/Antiz96/arch-update/tags
+name: "dnote"
+url: https://github.com/dnote/dnote/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "gitmux"
+url: https://github.com/arl/gitmux/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -196,26 +226,8 @@ filter:
   - grep: "Link--primary"
 ---
 
-name: "bd"
-url: https://github.com/vigneshwaranr/bd/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "gitmux"
-url: https://github.com/arl/gitmux/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "dnote"
-url: https://github.com/dnote/dnote/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "certificate-ripper"
-url: https://github.com/Hakky54/certificate-ripper/tags
+name: "malias"
+url: https://github.com/Antiz96/malias/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -226,22 +238,16 @@ filter:
   - grep: "Link--primary"
 ---
 
-name: "malias"
-url: https://github.com/Antiz96/malias/tags
-filter:
-  - grep: "Link--primary"
----
-
 ## GitLab
 
-name: "gnome-shell-extension-desktop-icons-ng"
-url: https://gitlab.com/rastersoft/desktop-icons-ng/-/tags
+name: "ame"
+url: https://git.getcryst.al/crystal/software/amethyst/-/tags
 filter:
   - grep: "item-title"
 ---
 
-name: "ame"
-url: https://git.getcryst.al/crystal/software/amethyst/-/tags
+name: "gnome-shell-extension-desktop-icons-ng"
+url: https://gitlab.com/rastersoft/desktop-icons-ng/-/tags
 filter:
   - grep: "item-title"
 ---
