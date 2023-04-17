@@ -92,6 +92,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "systray-x"
+url: https://github.com/Ximi1970/systray-x/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "urlwatch"
 url: https://github.com/thp/urlwatch/tags
 filter:
