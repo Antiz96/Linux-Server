@@ -80,6 +80,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "mpv"
+url: https://github.com/mpv-player/mpv/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "picom"
 url: https://github.com/yshui/picom/tags
 filter:
