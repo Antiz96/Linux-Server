@@ -38,6 +38,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "gitea"
+url: https://github.com/go-gitea/gitea/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "glances"
 url: https://github.com/nicolargo/glances/tags
 filter:
