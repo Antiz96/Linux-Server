@@ -130,6 +130,12 @@ filter:
   - grep: "item-title"
 ---
 
+name: "remmina"
+url: https://gitlab.com/Remmina/Remmina/-/tags
+filter:
+  - grep: "item-title"
+---
+
 name: "tint2"
 url: https://gitlab.com/o9000/tint2/-/tags
 filter:
