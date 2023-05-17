@@ -86,6 +86,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "libcgif"
+url: https://github.com/dloebl/cgif/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "limine"
 url: https://github.com/limine-bootloader/limine/tags
 filter:
@@ -100,6 +106,12 @@ filter:
 
 name: "picom"
 url: https://github.com/yshui/picom/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "pychess"
+url: https://github.com/pychess/pychess/tags
 filter:
   - grep: "Link--primary"
 ---
