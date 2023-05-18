@@ -8,7 +8,8 @@ https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md
 
 ## Installing Glances on Docker
 
-https://github.com/nicolargo/glances#docker-the-fun-way
+https://github.com/nicolargo/glances#docker-the-fun-way  
+https://github.com/nicolargo/glances/blob/develop/docs/docker.rst  
 
 ### Pull and run the container
 
@@ -23,13 +24,13 @@ I create env files to store the username and password so I won't need to pass th
 
 ```
 sudo mkdir -p /opt/glances/env
-sudo docker exec -it glances bash
+sudo docker exec -it glances sh
 ```
 
 Inside the container:  
 
 ```
-glances -s --username --password
+/venv/bin/python3 -m glances -s --username --password
 ```
 > Define the Glances server username: #Type the username you want to use  
 > Define the Glances server password (username): #Type the password you want to use   
