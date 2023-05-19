@@ -101,7 +101,7 @@ mkdir ~/Documents/Other
 
 ```
 sudo vim /opt/cheatsheet.txt
-sudo chown rcandau: /opt/cheatsheet.txt
+sudo chown antiz: /opt/cheatsheet.txt
 ```
 
 ## Create my wordlist directory
@@ -111,21 +111,21 @@ sudo mkdir /opt/wordlist
 sudo cp /usr/share/dirbuster/directory-list-2.3-medium.txt /opt/wordlist/
 sudo cp /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz /opt/wordlist/
 sudo tar xvzf /opt/wordlist/rockyou.txt.tar.gz -C /opt/wordlist/ && sudo rm /opt/wordlist/rockyou.txt.tar.gz
-sudo chown -R rcandau: /opt/wordlist/
+sudo chown -R antiz: /opt/wordlist/
 ```
 
 ## Create my busybox directory
 
 ```
 sudo mkdir /opt/busybox
-sudo chown rcandau: /opt/busybox
+sudo chown antiz: /opt/busybox
 ```
 
 ## Create my revshell directory
 
 ```
 sudo mkdir /opt/revshell
-sudo chown rcandau: /opt/revshell
+sudo chown antiz: /opt/revshell
 ```
 
 ## Install various tools
