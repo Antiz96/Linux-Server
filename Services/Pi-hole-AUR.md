@@ -281,4 +281,4 @@ contrab -e
 ```
   
 > #Check update  
-> 0 12 * * 0 /home/rcandau/check_update.sh  
+> 0 12 * * 0 /home/antiz/check_update.sh  

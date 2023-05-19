@@ -28,7 +28,7 @@ As root (**only for this part**) :
 
 ```
 apt install sudo
-usermod -aG sudo rcandau
+usermod -aG sudo antiz
 ```
 
 ## Setup a static IP Address (if not done already during the installation process)

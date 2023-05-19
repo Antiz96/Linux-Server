@@ -13,8 +13,8 @@ https://github.com/filebrowser/filebrowser
 ### Create the FileBrowser directory and the database file (with the right permission)
 
 ```
-sudo mkdir -p /data/FileBrowser/data && sudo chown rcandau: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
-sudo touch /data/FileBrowser/database.db && sudo chown rcandau: /data/FileBrowser/database.db && chmod 600 /data/FileBrowser/database.db
+sudo mkdir -p /data/FileBrowser/data && sudo chown antiz: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
+sudo touch /data/FileBrowser/database.db && sudo chown antiz: /data/FileBrowser/database.db && chmod 600 /data/FileBrowser/database.db
 ```
 
 ### Pull and run the container
