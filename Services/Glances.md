@@ -30,7 +30,7 @@ sudo docker exec -it glances sh
 Inside the container:  
 
 ```
-/venv/bin/python3 -m glances -s --username --password
+glances -s --username --password
 ```
 > Define the Glances server username: #Type the username you want to use  
 > Define the Glances server password (username): #Type the password you want to use   
