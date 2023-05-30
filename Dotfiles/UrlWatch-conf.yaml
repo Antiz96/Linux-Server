@@ -116,6 +116,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "python-sentry_sdk"
+url: https://github.com/getsentry/sentry-python/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "redshit"
 url: https://github.com/jonls/redshift/tags
 filter:
