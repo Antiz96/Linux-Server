@@ -136,6 +136,12 @@ filter:
 
 ## GitLab
 
+name: "gajim"
+url: https://dev.gajim.org/gajim/gajim/-/tags
+filter:
+  - grep: "item-title"
+---
+
 name: "girara"
 url: https://git.pwmt.org/pwmt/girara/-/tags
 filter:
