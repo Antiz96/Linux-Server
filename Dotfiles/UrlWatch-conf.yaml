@@ -148,6 +148,12 @@ filter:
   - grep: "item-title"
 ---
 
+name: "python-omemo-dr"
+url: https://dev.gajim.org/gajim/omemo-dr/-/tags
+filter:
+  - grep: "item-title"
+---
+
 name: "remmina"
 url: https://gitlab.com/Remmina/Remmina/-/tags
 filter:
