@@ -88,6 +88,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 
 ```
 curl https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Bashrc/BlackArch -o ~/.bashrc
+mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 ```
 
