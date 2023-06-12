@@ -68,6 +68,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "htmlq"
+url: https://github.com/mgdm/htmlq/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "hyfetch"
 url: https://github.com/hykilpikonna/hyfetch/tags
 filter:
