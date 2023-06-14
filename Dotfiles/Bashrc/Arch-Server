@@ -9,31 +9,39 @@
 
 PS1="[\u@\h \W]\$ "
 
+##Bind##
+
+bind "TAB:menu-complete"
+bind '"\e[Z": menu-complete-backward'
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+bind "set colored-stats on"
+
 ##Env var##
 
-#Editor
+# Editor
 export EDITOR="/usr/bin/vim"
 
 ##Alias##
 
-#Ls
+# Ls
 alias ls="ls --color=auto"
 alias ll="ls -ltr"
 alias l="ls -ltrA"
 
-#Grep
+# Grep
 alias grep="grep --color=auto"
 
-#Manipulating files
+# Manipulating files
 alias mv="mv -i"
 alias cp="cp -i"
 alias ln="ln -i"
 alias rm="rm -i"
 
-#Editor
+# Editor
 alias vi="vim"
 
-#Package manager
+# Package manager
 alias update="sudo pacman -Syy"
 alias upgrade="sudo pacman -Syu"
 alias fullupgrade="sudo pacman -Syu && yay -Syu"
@@ -49,8 +57,8 @@ alias cleancache="sudo pacman -Sc"
 alias cleanaurcache="yay -Sc"
 alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
 
-#Docker
+# Docker
 alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
 
-#Sudo
+# Sudo
 alias sudo="sudo "
