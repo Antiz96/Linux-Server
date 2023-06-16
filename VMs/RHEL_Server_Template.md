@@ -81,13 +81,13 @@ vi /etc/ssh/sshd_config
 > [...]  
 
 ```
-systemctl restart sshd #Restart the SSH daemon to apply changes
+systemctl restart sshd #Restart the SSH daemon to apply changes (if it fails, you probably have to configure firewalld to accept the port you set first)
 ```
 
 #### Configure the firewall
 
 ```
-systemctl enable firewalld #Autostart the firewall at boot.
+systemctl enable --now firewalld #Autostart the firewall at boot.
 firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server.
 firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it.
 firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (replace "X" by the port)
