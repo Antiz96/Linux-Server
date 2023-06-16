@@ -24,9 +24,6 @@ dbprd01.rc net=LAN
 [mn]
 mnprd01.rc net=SERVICE 
 
-[vs]
-vsprd01.rc net=LAN 
-
 # Service
 [docker]
 dnprd01.rc
@@ -35,6 +32,3 @@ fsprd01.rc
 asprd01.rc
 dbprd01.rc
 mnprd01.rc
-
-[gitlab_runner]
-vsprd01.rc
