@@ -94,7 +94,7 @@
 # Tell the user the configuration is over and that he needs to reboot the machine to finish
 - name: Configuration done
   shell:
-    cmd: echo "The configuration is over! Reboot, the machine to apply changes for {{hostname}} ({{ip}})"
+    cmd: echo "The configuration is over! Reboot the server to apply changes for {{hostname}} ({{ip}})"
   register: configuration_done
 
 - name: Configuration done out
