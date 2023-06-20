@@ -88,20 +88,8 @@
     msg: "{{arch_pacnew_files.stdout_lines}}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_pacnew_files.stdout_lines
 
-# Reboot servers on the LAN network (see "net" variable in the inventory files)
-- name: Reboot - LAN
+# Reboot servers (unless it's the Ansible server itself)
+- name: Reboot
   reboot:
     test_command: whoami 
-  when: net == "LAN" 
-
-# Reboot servers on the DMZ network (see "net" variable in the inventory files)
-- name: Reboot - DMZ
-  reboot:
-    test_command: whoami 
-  when: net == "DMZ" 
-
-# Reboot servers on the SERVICE network (see "net" variable in the inventory files), unless it's the Ansible server itself
-- name: Reboot - SERVICE
-  reboot:
-    test_command: whoami 
-  when: net == "SERVICE" and ansible_facts['hostname'] != "amprd01"
+  when: ansible_connection != "local"
