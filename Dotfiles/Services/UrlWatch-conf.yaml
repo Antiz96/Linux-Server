@@ -323,3 +323,11 @@ url: https://git.getcryst.al/crystal/software/malachite/-/tags
 filter:
   - grep: "item-title"
 ---
+
+## Other
+
+name: "spotify"
+url: http://repository.spotify.com/pool/non-free/s/spotify-client/
+filter:
+  - grep: "spotify-client_"
+---
