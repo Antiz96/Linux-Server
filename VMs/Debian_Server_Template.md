@@ -76,7 +76,7 @@ firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (repl
 firewall-cmd --reload #Apply changes
 ```
 
-#### Install qemu-guest-agent (for proxmox)
+#### Install qemu-guest-agent (for ProxMox VMs)
 
 ```
 apt install qemu-guest-agent
@@ -88,11 +88,7 @@ systemctl enable --now qemu-guest-agent
 ```
 firewall-cmd --add-port=10050/tcp --permanent
 firewall-cmd --reload
-wget https://repo.zabbix.com/zabbix/6.2/debian/pool/main/z/zabbix-release/zabbix-release_6.2-1+debian11_all.deb
-dpkg -i zabbix-release_6.2-1+debian11_all.deb
-rm zabbix-release_6.2-1+debian11_all.deb
-apt update
-apt install -y zabbix-agent
+apt install zabbix-agent
 vim /etc/zabbix/zabbix_agentd.conf
 ```
 
