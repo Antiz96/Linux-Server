@@ -1,6 +1,8 @@
 # Proxmox
 
 https://www.proxmox.com
+  
+I personally install ProxMox as a service over a regular install of Debian.  
 
 ## Pre-Installation
 
@@ -29,9 +31,9 @@ sudo mkdir /storage/proxmox
 ### Install Proxmox on Debian
 
 **Official Guide :**  
-https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_11_Bullseye  
+https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_12_Bookworm  
   
-If you're facing a dependency problem during this installation (**dpkg deb error subprocess paste was killed by signal broken pipe**), then :  
+If you're facing a dependency problem during this installation (**dpkg deb error subprocess paste was killed by signal broken pipe**), then:  
 
 ```
 sudo dpkg -P qemu-system-data && sudo apt install -f
@@ -43,22 +45,10 @@ sudo dpkg -P qemu-system-data && sudo apt install -f
 ### Install additionnal useful packages
 
 ```
-sudo apt install ksmtuned ssh-askpass
+sudo apt install ksmtuned
 ```
 
 *ksmtuned --> Allows the use of ballooning (https://pve.proxmox.com/wiki/Dynamic_Memory_Management).*  
-*ssh-askpass --> Allows the possibility to use sudo password remotely (That I sometimes use to upload mutiple ISOs at once to the server).*
-
-### Configure ssh-askpass
-
-```
-sudo vim /etc/sudo.conf
-```
-
-> [...]  
-> #Sudo askpass:  
-> **Path askpass /usr/bin/ssh-askpass**  
-> [...]
 
 ## Access
 
@@ -135,9 +125,7 @@ Proxmox upgrades usually follow Debian upgrade.
 You have to fully update the system, change Debian and Proxmox repos to the new Debian version (for instance, from "buster" to "bullseye") and perform an update + dist-upgrade.  
 Usually, Proxmox write a wiki page/tutorial on how to upgrade from a major release to another, both for Debian and Proxmox at the same time.  
   
-For instance, upgrade from "buster" to "bullseye" and from Proxmox v6 to Proxmox v7 :  
-https://pve.proxmox.com/wiki/Upgrade_from_6.x_to_7.0  
+For instance, upgrade from "bullseye" to "bookworm" and from Proxmox v7 to Proxmox v8:  
+https://pve.proxmox.com/wiki/Upgrade_from_7_to_8  
   
-If you prefer, you'll find video tutorial all over youtube :  
-https://www.youtube.com/watch?v=NLoY4vuTI6g& (French)  
-https://www.youtube.com/watch?v=RCSp6gT7LWs& (English)
+I personally prefer to reinstall Debian and Proxmox completely from scratch by following this procedure in case of major upgrade.
