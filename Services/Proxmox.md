@@ -22,8 +22,8 @@ sudo firewall-cmd --reload
 *(...to store the VMs, backups, etc...)*
 
 ```
-sudo mkdir /proxmox/vms
-sudo mkdir /storage/proxmox
+sudo mkdir -p /proxmox/vms
+sudo mkdir -p /storage/proxmox
 ```
 
 ## Installation 
