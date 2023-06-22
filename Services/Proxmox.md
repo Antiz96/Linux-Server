@@ -83,13 +83,13 @@ EDIT root account --> uncheck "enabled" checkbox
 sudo vim /etc/apt/sources.list.d/pve-enterprise.list
 ```
 
-> **#** deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+> **#** deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise
 
 ```
 sudo vim /etc/apt/sources.list.d/pve-no-subscription.list
 ```
 
-> deb http://download.proxmox.com/debian bullseye pve-no-subscription
+> deb http://download.proxmox.com/debian bookworm pve-no-subscription
 
 ### Get rid of the "No valid subscription key found" message when loggin in to the web interface
 
@@ -122,7 +122,7 @@ sudo apt update && sudo apt full-upgrade
 ### Upgrade Proxmox
 
 Proxmox upgrades usually follow Debian upgrade.  
-You have to fully update the system, change Debian and Proxmox repos to the new Debian version (for instance, from "buster" to "bullseye") and perform an update + dist-upgrade.  
+You have to fully update the system, change Debian and Proxmox repos to the new Debian version (for instance, from "bullseye" to "bookworm") and perform an update + dist-upgrade.  
 Usually, Proxmox write a wiki page/tutorial on how to upgrade from a major release to another, both for Debian and Proxmox at the same time.  
   
 For instance, upgrade from "bullseye" to "bookworm" and from Proxmox v7 to Proxmox v8:  
