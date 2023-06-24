@@ -14,6 +14,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "codespell"
+url: https://github.com/codespell-project/codespell/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "ddgr"
 url: https://github.com/jarun/ddgr/tags
 filter:
