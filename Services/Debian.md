@@ -7,7 +7,7 @@ https://rog.asus.com/us/support/FAQ/1043786
 https://techzillo.com/how-to-disable-or-enable-secure-boot-for-asus-motherboard/ 
   
 I do perform a **minimal installation**.  
-I do not select anything during the installation process (no DE, no standard or additionnal packages, etc...)
+I do not select anything during the installation process (no DE, no standard or additional packages, etc...)
 
 ## Partitioning :
 
@@ -64,7 +64,7 @@ sudo vim /etc/ssh/sshd_config
 > Port **"X"** *#Where "X" is the port you want to set*  
 > [...]
 
-### Disable ssh connexion for the root account
+### Disable ssh connection for the root account
 
 ```
 sudo vim /etc/ssh/sshd_config
@@ -168,7 +168,7 @@ sudo vim /etc/network/interfaces
 
 https://wiki.debian.org/WakeOnLan#Using_WOL
 
-#### Instal wakeonlan on the client
+#### Install wakeonlan on the client
 
 ```
 yay -S wakeonlan

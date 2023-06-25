@@ -38,7 +38,7 @@ sudo pacman -S bash-completion traceroute neofetch dmenu zathura zathura-pdf-pop
 
 Insert the addon disk and execute the run file with sudo privileges
 
-#### Install qemu-agent for Proxmox (if needeed)
+#### Install qemu-agent for Proxmox (if needed)
 
 ```
 sudo pacman -S qemu-guest-agent

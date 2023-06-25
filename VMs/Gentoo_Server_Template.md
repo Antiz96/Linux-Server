@@ -51,7 +51,7 @@ emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute 
 systemctl enable --now sshd cronie
 ```
 
-#### Secure SSH connexion
+#### Secure SSH connection
 
 ```
 vi /etc/ssh/sshd_config
@@ -60,7 +60,7 @@ vi /etc/ssh/sshd_config
 > [...]  
 > Port **"X"** #Change the default SSH port (where "X" is the port you want to set)     
 > [...]  
-> PermitRootLogin no #Disable the SSH connexion for the root account  
+> PermitRootLogin no #Disable the SSH connection for the root account  
 > [...]    
 > PasswordAuthentication no #Disable SSH connexions via password  
 > AuthenticationMethods publickey #Authorize only SSH connexions via publickey  

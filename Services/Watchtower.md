@@ -8,8 +8,8 @@ It is highly customizable; you can configure it to check/apply updates every X t
 It automatically detect the source image and the run command and it will use them both correctly when applying update.  
 See the documentation here : https://containrrr.dev/watchtower/  
   
-Personaly, I'm not a huge fan of automatic update processes. I like to keep them interactive so I can see what's going on and directly interact in case of problems.  
-However, I like to simplify this process as much as possible ! Thats why I use watchtower with the "--run-once" mode, so it is at me to manually launch it everytime but it still does everything for me :)  
+Personally, I'm not a huge fan of automatic update processes. I like to keep them interactive so I can see what's going on and directly interact in case of problems.  
+However, I like to simplify this process as much as possible ! That's why I use watchtower with the "--run-once" mode, so it is at me to manually launch it every time but it still does everything for me :)  
 See https://containrrr.dev/watchtower/arguments/ for more details
 
 ## Update All Docker Containers at once

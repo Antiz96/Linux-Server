@@ -47,7 +47,7 @@ apt update && apt install sudo vim man bash-completion openssh-server dnsutils t
 systemctl enable --now ssh
 ```
 
-#### Secure SSH connexion
+#### Secure SSH connection
 
 ```
 vi /etc/ssh/sshd_config
@@ -56,7 +56,7 @@ vi /etc/ssh/sshd_config
 > [...]  
 > Port **"X"** #Change the default SSH port (where "X" is the port you want to set)  
 > [...]  
-> PermitRootLogin no #Disable the SSH connexion for the root account  
+> PermitRootLogin no #Disable the SSH connection for the root account  
 > [...]  
 > PasswordAuthentication no #Disable SSH connexions via password  
 > AuthenticationMethods publickey #Authorize only SSH connexions via publickey  

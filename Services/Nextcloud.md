@@ -73,7 +73,7 @@ Install the **Two-Factor Admin Support** app.
 ## Update/Upgrade and reinstall procedure
 
 Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.  
-Also, if you did a mapping between a volume stored on a local disk (like I did), all you need to do to reinstall your Nextcloud server is to re-download Docker (if you reinstalled your OS completly) and do the following steps.
+Also, if you did a mapping between a volume stored on a local disk (like I did), all you need to do to reinstall your Nextcloud server is to re-download Docker (if you reinstalled your OS completely) and do the following steps.
 
 ### Pull the docker image
 

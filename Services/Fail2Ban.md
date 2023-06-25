@@ -26,9 +26,9 @@ https://www.linode.com/docs/guides/how-to-use-fail2ban-for-ssh-brute-force-prote
 https://www.linuxtricks.fr/wiki/fail2ban-bannir-automatiquement-les-intrus  
 
 Fail2Ban works with different blocks ("**[block_name]**") defined in the configuration file.  
-The **[DEFAULT]** block defines the default parameters and values to apply to every other blocks (unless they are explicitily defined in the said blocks).  
+The **[DEFAULT]** block defines the default parameters and values to apply to every other blocks (unless they are explicitly defined in the said blocks).  
 You can then define a block for each services you want to monitor via fail2ban. A lot of them are pre-defined for various services like sshd, httpd, nginx, etc...  
-The **[recidive]** block defines the paramaters and values to apply to IPs/hosts that recidived failed attempts.  
+The **[recidive]** block defines the parameters and values to apply to IPs/hosts that recidived failed attempts.  
    
 Start and enable the service and edit the configuration file:  
   
@@ -45,7 +45,7 @@ sudoedit /etc/fail2ban/jail.conf
 > findtime = 15m #Amount of time between failed attempts.      
 > maxretry = 3 #Number of failed attempts before banning.  
 > banaction = iptables-multiport #Block every opened port to the banned IP.   
-> enabled = false #Default status of every other blocks. Put it to false and explicitely enable the blocks you want to enable.   
+> enabled = false #Default status of every other blocks. Put it to false and explicitly enable the blocks you want to enable.   
 > [...]  
   
 - [sshd] block:

@@ -18,7 +18,7 @@ sudo docker pull nicolargo/glances:latest-full
 sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
-### Set a username and password for the web interface (optionnal but recommended)
+### Set a username and password for the web interface (optional but recommended)
 
 I create env files to store the username and password so I won't need to pass them in plain text in the docker run command (which is a bit more secure). It also makes those parameters more flexible as they can be changed by editing the files without having to change the docker run command itself. Those files will obviously be only viewable and editable by the root account for security reasons.  
 
@@ -39,7 +39,7 @@ glances -s --username --password
 > Glances XML-RPC server is running on 0.0.0.0:61209  
 > Announce the Glances server on the LAN (using 172.17.0.5 IP address)  
   
-Then press `ctrl+\` to interupt the proccess and `exit` the container.    
+Then press `ctrl+\` to interrupt the process and `exit` the container.    
 Then, copy the password file locally in the env directory and create the "user" env file that will contains your username.    
 
 *Replace "your_username" by your username*  
