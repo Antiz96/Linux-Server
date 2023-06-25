@@ -20,7 +20,7 @@ jobs:
         run: apk add git py3-pip && pip install codespell
 
       - name: Clone repo
-        run: git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY && cd $REPO_NAME && git checkout $GITHUB_HEAD_REF
+        run: git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY && cd $REPO_NAME && git checkout $GITHUB_HEAD_REF && pwd && ls -ltrA
 
       - name: tests
         run: pwd && ls -ltrA && ls -ltrA .github/workflows
