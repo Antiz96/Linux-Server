@@ -1,0 +1,1 @@
+    path: /etc/NetworkManager/system-connections/Connexion filaire 1.nmconnection
