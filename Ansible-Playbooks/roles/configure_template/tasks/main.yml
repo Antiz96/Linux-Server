@@ -100,3 +100,5 @@
 - name: Configuration done out
   debug:
     msg: "{{configuration_done.stdout_lines}}"
+
+Hello adn goodbya
