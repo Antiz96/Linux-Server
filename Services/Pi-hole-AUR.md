@@ -106,7 +106,7 @@ reboot
 
 ### Configure postfix to use gmail as a relay 
 
-I use postfix to send email containing the result of tasks I automatize through various scripts (more information about those scripts in the next paragraph).  
+I use postfix to send email containing the result of tasks I automate through various scripts (more information about those scripts in the next paragraph).  
   
 https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/  
 
@@ -151,7 +151,7 @@ sudo vim /home/pihole/pihole_whitelist_update.sh
 
 > #!/bin/bash  
 >  
-> python3 /home/pihole/whitelist/scripts/whitelist.py && echo -e "Subject:Pihole's whitelist updated\n\nHello,\n\nThe Pihole's whitelist has been succesfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's whitelist update\n\nHello,\n\nThere was an error during the Pihole's whitelist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
+> python3 /home/pihole/whitelist/scripts/whitelist.py && echo -e "Subject:Pihole's whitelist updated\n\nHello,\n\nThe Pihole's whitelist has been successfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's whitelist update\n\nHello,\n\nThere was an error during the Pihole's whitelist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
 
 #### Automatic blacklist update script
 
@@ -161,7 +161,7 @@ sudo vim /home/pihole/pihole_blacklist_update.sh
 
 > #!/bin/bash  
 >    
-> pihole -g && echo -e "Subject:Pihole's blacklist updated\n\nHello,\n\nPihole's blacklist has been succesfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's blacklist update\n\nHello,\n\nThere was an error during Pihole's blacklist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
+> pihole -g && echo -e "Subject:Pihole's blacklist updated\n\nHello,\n\nPihole's blacklist has been successfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's blacklist update\n\nHello,\n\nThere was an error during Pihole's blacklist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
 
 #### Crontab for automatic executions of the scripts
 
@@ -223,7 +223,7 @@ By default, the DNS service (pihole-FTL) will be bind to the 0.0.0.0 IP address 
 This will prevent any other virtual hosts onto the same machine hosting your pihole instance to get DNS resolution (such as docker containers).  
     
 In order to solve this, you need to uncomment the "bind-interfaces" line in the /etc/dnsmasq.conf file.  
-This will tell the DNS service (pihole-FTL) to bind itself to each interface explicitely (and thus to the IP address of your pihole, and not "0.0.0.0").  
+This will tell the DNS service (pihole-FTL) to bind itself to each interface explicitly (and thus to the IP address of your pihole, and not "0.0.0.0").  
 
 ```
 sudo vim /etc/dnsmasq.conf

@@ -75,7 +75,7 @@
     autoremove: yes
   when: ansible_facts['distribution'] == "Debian"
 
-# If the server is an Arch Server, check that the "archlinux-keyring" package is up to date (and udpate it if needed)
+# If the server is an Arch Server, check that the "archlinux-keyring" package is up to date (and update it if needed)
 
 - name: Check archlinux-keyring - Arch
   pacman:

@@ -1,6 +1,6 @@
 # Red Hat Server Template
 
-Just a quick reminder on how I install a minimal Redhat Server environnement to work with.  
+Just a quick reminder on how I install a minimal Redhat Server environment to work with.  
 It aims to be turned as a template.  
 
 ## Base Install
@@ -65,7 +65,7 @@ vim /etc/selinux/config
 systemctl enable --now sshd
 ```
 
-#### Secure SSH connexion
+#### Secure SSH connection
 
 ```
 vi /etc/ssh/sshd_config
@@ -74,7 +74,7 @@ vi /etc/ssh/sshd_config
 > [...]  
 > Port **"X"** #Change the default SSH port (where "X" is the port you want to set)  
 > [...]  
-> PermitRootLogin no #Disable the SSH connexion for the root account  
+> PermitRootLogin no #Disable the SSH connection for the root account  
 > [...]  
 > PasswordAuthentication no #Disable SSH connexions via password  
 > AuthenticationMethods publickey #Authorize only SSH connexions via publickey  

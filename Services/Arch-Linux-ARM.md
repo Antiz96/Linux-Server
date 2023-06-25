@@ -54,7 +54,7 @@ sudo vi /etc/fstab
 
 ### Rename the default "alarm" user
 
-#### Temporarely enable ssh connexion for the root user
+#### Temporarily enable ssh connection for the root user
 
 ```
 sudo vi /etc/ssh/sshd_config
@@ -89,7 +89,7 @@ sudo vi /etc/ssh/sshd_config
 > Port **"X"** *#Where "X" is the port you want to set*  
 > [...]
 
-### Disable ssh connexion for the root account
+### Disable ssh connection for the root account
 
 ```
 sudo vi /etc/ssh/sshd_config

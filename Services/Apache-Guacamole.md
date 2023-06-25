@@ -113,14 +113,14 @@ https://www.youtube.com/watch?v=LWdxhZyHT_8
 
 ### Modify the default user's password (for security reasons) and changing the timezone
 
-guacadmin (top right coner) --> Settings --> Preferences  
+guacadmin (top right corner) --> Settings --> Preferences  
 From here you can set/change the timezone if needed and change the password for the current (guacadmin) user.
 
 ### Create your own new administrator account 
 
 *We will delete the default user in the next step for security reasons*  
   
-guacadmin (top right coner) --> Settings --> User --> guacadmin  
+guacadmin (top right corner) --> Settings --> User --> guacadmin  
 From here you can clone the guacadmin user (with the "clone" button at the bottom center of the page) to create a new user with the same permissions.    
 Then change the username, password, profil and various settings to your liking and click "Save" at the bottom center.  
 
@@ -155,7 +155,7 @@ sudo docker update --restart unless-stopped guacamole
 ## Update/Upgrade and reinstall procedure
 
 Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.  
-Also, if you did a mapping between a volume stored on a secondary disk and your mysql container to store the database (like I did), all you need to do to reinstall your Guacamole server is to re-download Docker (if you reinstalled your OS completly) and do the following steps :  
+Also, if you did a mapping between a volume stored on a secondary disk and your mysql container to store the database (like I did), all you need to do to reinstall your Guacamole server is to re-download Docker (if you reinstalled your OS completely) and do the following steps :  
 
 ### Pull the different docker images 
 
