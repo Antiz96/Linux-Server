@@ -22,5 +22,8 @@ jobs:
       - name: Clone repo
         run: git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY && cd $REPO_NAME && git checkout $GITHUB_HEAD_REF
 
+      - name: tests
+        run: pwd && ls -ltrA && ls -ltrA .github/workflows
+
       - name: Run codespell
         run: codespell --enable-colors --exclude-file=".github/workflows/codespell_exclude_lines.txt"
