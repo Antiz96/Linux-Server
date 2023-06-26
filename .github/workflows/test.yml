@@ -17,7 +17,10 @@ jobs:
         run: apk update && apk upgrade
 
       - name: Install packages
-        run: apk add py3-pip && pip install codespell
+        run: apk add ansible-lint py3-pip && pip install codespell
 
       - name: Run codespell
         run: codespell --enable-colors --exclude-file=".github/workflows/codespell_exclude_lines.txt"
+
+      - name: Run ansible-lint
+        run: ansible-lint --force-color Ansible-Playbooks/roles/*/tasks/main.yml
