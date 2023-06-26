@@ -4,7 +4,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 It is mostly a summarized documentation and a reminder for myself but, obviously, feel free to use (and improve) it!  
   
 This repo also contains my configuration files (Dotfiles) and the Ansible Playbooks I use to automate various administration tasks.  
-
+  
 * [Services - Installation and configuration procedures for services that I set up on Linux Servers](https://github.com/Antiz96/Linux-Server/tree/main/Services)
 * [VMs - Installation and configuration procedures for the various virtual Linux Servers I run on my Proxmox instance + Various tips](https://github.com/Antiz96/Linux-Server/tree/main/VMs)
 * [Dotfiles - My various configuration files (.bashrc, specific services config files, etc...)](https://github.com/Antiz96/Linux-Server/tree/main/Dotfiles)
