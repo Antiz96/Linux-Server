@@ -1,5 +1,5 @@
 ---
 - name: "Append group(s) to a user"
-  hosts: "{{hosts}}"
+  hosts: "{{ hosts }}"
   roles:
     - role: "append_group_user"

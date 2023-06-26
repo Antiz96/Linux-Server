@@ -3,12 +3,13 @@
 
 # Clean orphaned docker volumes and unused docker resources on gitlab-runners
 - name: Clean unused docker resources
-  shell:
+  ansible.builtin.shell:
     cmd: docker system prune --volumes -af
   register: docker_clean
+  changed_when: docker_clean.rc == 0
 
 # Print the output of the clean (to see what have been deleted)
 - name: Clean output
-  debug:
-    msg: "{{docker_clean.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ docker_clean.stdout_lines }}"
   when: docker_clean.stdout_lines
