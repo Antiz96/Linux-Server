@@ -22,5 +22,3 @@
     name: "{{ package_arch }}"
     state: present
   when: ansible_facts['distribution'] == "Archlinux" and package_arch
-
-#Hello and Goodbye
