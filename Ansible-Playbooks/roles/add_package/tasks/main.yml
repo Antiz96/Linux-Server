@@ -23,4 +23,4 @@
     state: present
   when: ansible_facts['distribution'] == "Archlinux" and package_arch
 
-#Hello adn Goodbye
+#Hello and Goodbye
