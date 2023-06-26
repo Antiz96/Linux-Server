@@ -23,19 +23,19 @@
 
 # If the "sudo" var is set to "false", remove sudo privileges on Debian servers
 - name: Remove sudo privileges - Debian
-  ansible.builtin.shell: 
+  ansible.builtin.shell:
     cmd: gpasswd -d "{{ username }}" sudo
   register: remove_sudo_debian
-  failed_when: remove_sudo_debian.rc != 0 and remove_sudo_debian.rc != 3 #return code 3 means the user isn't a member of the specified group
+  failed_when: remove_sudo_debian.rc != 0 and remove_sudo_debian.rc != 3 # return code 3 means the user isn't a member of the specified group
   changed_when: remove_sudo_debian.rc == 0
   when: ansible_facts['distribution'] == "Debian" and not sudo | bool
 
 # If the "sudo" var is set to "false", remove sudo privileges on Arch servers
 - name: Remove sudo privileges - Arch
-  ansible.builtin.shell: 
+  ansible.builtin.shell:
     cmd: gpasswd -d "{{ username }}" wheel
   register: remove_sudo_arch
-  failed_when: remove_sudo_arch.rc != 0 and remove_sudo_arch.rc != 3 #return code 3 means the user isn't a member of the specified group
+  failed_when: remove_sudo_arch.rc != 0 and remove_sudo_arch.rc != 3 # return code 3 means the user isn't a member of the specified group
   changed_when: remove_sudo_arch.rc == 0
   when: ansible_facts['distribution'] == "Archlinux" and not sudo | bool
 

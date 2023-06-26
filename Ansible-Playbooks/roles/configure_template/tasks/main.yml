@@ -51,7 +51,7 @@
 - name: Modify root password
   ansible.builtin.user:
     name: root
-    password: "{{ root_passwd|password_hash('sha256') }}"
+    password: "{{ root_passwd | password_hash('sha256') }}"
     update_password: always
 
 # Configure the Zabbix Agent configuration file with the hostname of the server
