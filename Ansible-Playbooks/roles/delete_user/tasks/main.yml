@@ -3,13 +3,13 @@
 
 # Stop the playbook if the "username" var is empty or undefined
 - name: Fail if the "username" variable is empty or undefined
-  fail:
+  ansible.builtin.fail:
     msg: The 'username' variable is empty
   when: not username
 
 # Delete the user and its home directory
 - name: Delete user
-  user:
-    name: "{{username}}"
+  ansible.builtin.user:
+    name: "{{ username }}"
     state: absent
-    remove: yes
+    remove: true

@@ -3,93 +3,90 @@
 
 # Update repositories on Debian servers
 - name: Update repos - Debian
-  apt:
-    update_cache: yes
+  ansible.builtin.apt:
+    update_cache: true
   when: ansible_facts['distribution'] == "Debian"
 
 # Update repositories on Arch servers
 - name: Update repos - Arch
-  pacman:
-    update_cache: yes
+  community.general.pacman:
+    update_cache: true
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Check the list of packages to update on Debian servers
 - name: Check packages to update - Debian
-  shell:
+  ansible.builtin.shell:
     cmd: apt list --upgradable | grep -v "En train de lister"
-  ignore_errors: yes
+  ignore_errors: true
   register: debian_packages_update
+  changed_when: debian_packages_update.rc == 0
   when: ansible_facts['distribution'] == "Debian"
 
 # Check the list of packages to update on Arch servers (requires the "pacman-contrib" package)
 - name: Check packages to update - Arch
-  shell:
+  ansible.builtin.shell:
     cmd: checkupdates
-  ignore_errors: yes
+  ignore_errors: true
   register: arch_packages_update
+  changed_when: arch_packages_update.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Print the list of packages to update on Debian servers
 - name: List packages to update - Debian
-  debug:
-    msg: "{{debian_packages_update.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ debian_packages_update.stdout_lines }}"
   when: ansible_facts['distribution'] == "Debian" and debian_packages_update.stdout_lines
 
 # Print the list of packages to update on Arch servers
 - name: List packages to update - Arch
-  debug:
-    msg: "{{arch_packages_update.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ arch_packages_update.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_packages_update.stdout_lines
 
 # Update packages on Debian servers
 - name: Update - Debian
-  apt:
+  ansible.builtin.apt:
     upgrade: full
-    autoremove: yes
+    autoremove: true
   when: ansible_facts['distribution'] == "Debian"
-
-# Update the Arch Linux keyring (if necessary) on Arch servers
-- name: Check archlinux-keyring - Arch
-  pacman:
-    name: archlinux-keyring
-    state: latest
-  when: ansible_facts['distribution'] == "Archlinux"
 
 # Update packages on Arch servers
 - name: Update - Arch
-  pacman:
-    upgrade: yes
+  community.general.pacman:
+    upgrade: true
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Check for orphan packages on Arch server
 - name: Check orphan packages - Arch
-  shell:
+  ansible.builtin.shell:
     cmd: pacman -Qtdq
-  ignore_errors: yes
+  ignore_errors: true
   register: arch_orphan_packages
+  changed_when: arch_orphan_packages.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Print the list of orphan packages (if there are) on Arch servers
 - name: List orphan packages - Arch
-  debug:
-    msg: "{{arch_orphan_packages.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ arch_orphan_packages.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_orphan_packages.stdout_lines
 
 # Check for pacnew files on Arch servers (requires the "pacman-contrib" package)
 - name: Check pacnew files - Arch
-  shell:
+  ansible.builtin.shell:
     cmd: pacdiff -o
   register: arch_pacnew_files
+  changed_when: arch_pacnew_files.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Print the list of pacnew files (if there are) on Arch servers
 - name: List pacnew files - Arch
-  debug:
-    msg: "{{arch_pacnew_files.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ arch_pacnew_files.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_pacnew_files.stdout_lines
 
 # Reboot servers (unless it's the Ansible server itself)
 - name: Reboot
-  reboot:
-    test_command: whoami 
+  ansible.builtin.reboot:
+    test_command: whoami
   when: ansible_connection != "local"

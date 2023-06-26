@@ -3,100 +3,92 @@
 
 # Stop the playbook if the "ip" var is empty or undefined
 - name: Fail if the "ip" variable is empty or undefined
-  fail:
+  ansible.builtin.fail:
     msg: The 'ip' variable is empty
   when: not ip
 
 # Stop the playbook if the "hostname" var is empty or undefined
 - name: Fail if the "hostname" variable is empty or undefined
-  fail:
+  ansible.builtin.fail:
     msg: The 'hostname' variable is empty
   when: not hostname
 
 # Stop the playbook if the "root_passwd" var is empty or undefined
 - name: Fail if the "root_passwd" variable is empty or undefined
-  fail:
+  ansible.builtin.fail:
     msg: The 'root_passwd' variable is empty
   when: not root_passwd
 
 # If the server is a Debian Server, change the IP by modifying the "interfaces" file
 - name: Modify IP - Debian
-  replace:
+  ansible.builtin.replace:
     path: /etc/network/interfaces
     regexp: "192.168.1.100"
-    replace: "{{ip}}"
+    replace: "{{ ip }}"
   when: ansible_facts['distribution'] == "Debian"
 
 # If the server is an Arch Server, change the IP by modifying the "nmconnection" file
 - name: Modify IP - Arch
-  replace:
+  ansible.builtin.replace:
     path: /etc/NetworkManager/system-connections/Connexion filaire 1.nmconnection
     regexp: "192.168.1.100"
-    replace: "{{ip}}"
+    replace: "{{ ip }}"
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Change the hostname of the server
 - name: Modify hostname
-  hostname:
-    name: "{{hostname}}.rc"
-  
+  ansible.builtin.hostname:
+    name: "{{ hostname }}.rc"
+
 # Change the "hosts" file of the server accordingly
 - name: Modify "hosts" file
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: "^127.0.1.1"
-    line: "127.0.1.1       {{hostname}}.rc {{hostname}}"
+    line: "127.0.1.1       {{ hostname }}.rc {{ hostname }}"
 
 # Change the root password
 - name: Modify root password
-  user:
+  ansible.builtin.user:
     name: root
-    password: "{{root_passwd|password_hash('sha256')}}"
+    password: "{{ root_passwd|password_hash('sha256') }}"
     update_password: always
 
 # Configure the Zabbix Agent configuration file with the hostname of the server
 - name: Modify Zabbix Agent configuration
-  replace:
+  ansible.builtin.replace:
     path: /etc/zabbix/zabbix_agentd.conf
     regexp: "template.rc"
-    replace: "{{hostname}}.rc"
+    replace: "{{ hostname }}.rc"
 
 # Restart Zabbix Agent to apply changes
 - name: Restart Zabbix Agent
-  service:
+  ansible.builtin.service:
     name: zabbix-agent
     state: restarted
 
 # If the server is a Debian Server, update it via "apt" (apt update && apt full-upgrade && apt autoremove)
 - name: Update - Debian
-  apt:
-    update_cache: yes
+  ansible.builtin.apt:
+    update_cache: true
     upgrade: full
-    autoremove: yes
+    autoremove: true
   when: ansible_facts['distribution'] == "Debian"
-
-# If the server is an Arch Server, check that the "archlinux-keyring" package is up to date (and update it if needed)
-
-- name: Check archlinux-keyring - Arch
-  pacman:
-    name: archlinux-keyring
-    update_cache: yes
-    state: latest
-  when: ansible_facts['distribution'] == "Archlinux"
 
 # If the server is an Arch Server, update it via "pacman" (pacman -Sy && pacman -Su)
 - name: Update - Arch
-  pacman:
-    update_cache: yes
-    upgrade: yes
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Tell the user the configuration is over and that he needs to reboot the machine to finish
 - name: Configuration done
-  shell:
-    cmd: echo "The configuration is over! Reboot the server to apply changes for {{hostname}} ({{ip}})"
+  ansible.builtin.shell:
+    cmd: echo "The configuration is over! Reboot the server to apply changes for {{ hostname }} ({{ ip }})"
   register: configuration_done
+  changed_when: configuration_done.rc == 0
 
 - name: Configuration done out
-  debug:
-    msg: "{{configuration_done.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ configuration_done.stdout_lines }}"

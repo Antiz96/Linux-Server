@@ -3,36 +3,39 @@
 
 # Renew the self signed certificate for a year
 - name: Renew certificate
-  shell:
+  ansible.builtin.shell:
     cmd: openssl x509 -signkey /opt/ssl/home-infra.rc.key -in /opt/ssl/home-infra.rc.csr -req -days 365 -out /opt/ssl/home-infra.rc.crt
   register: renew_certificate
+  changed_when: renew_certificate.rc == 0
 
 # Print the renewal output
 - name: Renew certificate output
-  debug:
-    msg: "{{renew_certificate.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ renew_certificate.stdout_lines }}"
   when: renew_certificate.stdout_lines
 
 # Check the certificate modulus
 - name: Check certificate modulus
-  shell:
+  ansible.builtin.shell:
     cmd: openssl x509 -modulus -noout -in /opt/ssl/home-infra.rc.crt
   register: certificate_modulus
+  changed_when: certificate_modulus.rc == 0
 
 # Print the certificate modulus
 - name: Check certificate modulus
-  debug:
-    msg: "{{certificate_modulus.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ certificate_modulus.stdout_lines }}"
   when: certificate_modulus.stdout_lines
 
 # Check the certificate expiration date
 - name: Check certificate expiration date
-  shell:
+  ansible.builtin.shell:
     cmd: openssl x509 -enddate -noout -in /opt/ssl/home-infra.rc.crt
   register: certificate_exp
+  changed_when: certificate_exp.rc == 0
 
 # Print the certificate expiration date to verify that it has been correctly renewed
 - name: Check certificate expiration date output
-  debug:
-    msg: "{{certificate_exp.stdout_lines}}"
+  ansible.builtin.debug:
+    msg: "{{ certificate_exp.stdout_lines }}"
   when: certificate_exp.stdout_lines

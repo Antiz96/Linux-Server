@@ -1,5 +1,5 @@
 ---
 - name: "Add package(s) to hosts"
-  hosts: "{{hosts}}"
+  hosts: "{{ hosts }}"
   roles:
     - role: "add_package"
