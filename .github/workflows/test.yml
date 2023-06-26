@@ -23,4 +23,4 @@ jobs:
         run: codespell --enable-colors --exclude-file=".github/workflows/codespell_exclude_lines.txt"
 
       - name: Run ansible-lint
-        run: ansible-lint --force-color -q Ansible-Playbooks/roles/*/tasks/main.yml
+        run: ansible-lint --force-color Ansible-Playbooks/roles/*/tasks/main.yml
