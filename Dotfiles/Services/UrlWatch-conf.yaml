@@ -14,6 +14,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "bluez"
+url: https://github.com/bluez/bluez/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "codespell"
 url: https://github.com/codespell-project/codespell/tags
 filter:
