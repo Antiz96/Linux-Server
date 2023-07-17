@@ -98,6 +98,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "jenkins"
+url: https://github.com/jenkinsci/jenkins/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "keepassxc"
 url: https://github.com/keepassxreboot/keepassxc/tags
 filter:
