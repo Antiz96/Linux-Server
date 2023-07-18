@@ -32,6 +32,7 @@ vim /home/ansible/.ssh/id_rsa_ansible
 ```
 > Copy the ansible SSH private key here
 
+## Create the working directories
 
 I create one directory for playbooks and one dedicated for inventory files:
   
