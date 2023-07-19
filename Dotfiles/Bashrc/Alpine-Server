@@ -1,0 +1,59 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt##
+
+PS1="[\u@\h \W]\$ "
+
+##Bind##
+
+bind "TAB:menu-complete"
+bind '"\e[Z": menu-complete-backward'
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+bind "set colored-stats on"
+
+##Env var##
+
+# Editor
+export EDITOR="/usr/bin/vim"
+
+##Alias##
+
+# Ls
+alias ls="ls --color=auto"
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+# Grep
+alias grep="grep --color=auto"
+
+# Manipulating files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+# Editor
+alias vi="vim"
+
+# Package manager
+alias update="sudo apk update"
+alias upgrade="sudo apk upgrade"
+alias fullupgrade="sudo apk update && sudo apk upgrade"
+alias install="sudo apk add"
+alias remove="sudo apk del"
+alias pkglist="apk info"
+alias pkginfo="apk info -a"
+alias pkgsearch="apk search -v"
+alias cleancache="sudo apk -v cache clean"
+
+# Docker
+alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
+
+# Sudo
+alias sudo="sudo "
