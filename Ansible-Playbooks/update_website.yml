@@ -1,5 +1,0 @@
----
-- name: "Update website on web servers"
-  hosts: all
-  roles:
-    - role: "update_website"

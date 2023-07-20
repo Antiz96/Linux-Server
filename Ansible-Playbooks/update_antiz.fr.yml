@@ -1,0 +1,5 @@
+---
+- name: "Update the antiz.fr website on web servers"
+  hosts: all
+  roles:
+    - role: "update_antiz.fr"
