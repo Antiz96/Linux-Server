@@ -31,6 +31,13 @@ sections:
       city: Rouen
       units: metric
 
+  - type: custom-search
+    options:
+      placeholder: Websearch
+      engines:
+      - title: Search
+        url: https://swisscows.com/fr/web?query=
+
 # Self Hosted Services section
 - name: Self Hosted Services
   icon: fas fa-server
@@ -108,15 +115,15 @@ sections:
   - type: gl-current-cpu
     options:
       hostname: http://pmx01.rc:61208
-      username: 
+      username:
       password:
       useProxy: true
 
   - type: gl-current-mem
     options:
       hostname: http://pmx01.rc:61208
-      username: 
-      password: 
+      username:
+      password:
       useProxy: true
 
 # Github stats section
@@ -132,44 +139,3 @@ sections:
           - Antiz96/arch-update
           - Antiz96/malias
           - Antiz96/zaman
-
-# Vulnerability Feed section
-- name: Vulnerability Feed (Debian)
-  icon: fas fa-exclamation
-  widgets:
-
-    - type: cve-vulnerabilities
-      options:
-        vendorId: 23
-        limit: 15
-        useProxy: true
-
-# GitHub Trending section
-- name: GitHub Trending
-  icon: fab fa-github
-  widgets:
-
-  - type: github-trending-repos
-    options:
-      limit: 25
-
-# GitHub Trending section (Bash)
-- name: GitHub Trending (Bash)
-  icon: fab fa-github
-  widgets:
-
-  - type: github-trending-repos
-    options:
-      lang: bash
-      limit: 25
-
-# Arch-Linux News section
-- name: Arch-Linux News
-  icon: fab fa-linux
-  widgets:
-
-  - type: rss-feed
-    options:
-      rssUrl: https://archlinux.org/feeds/news/
-      apiKey: 3r5tcdttooyafa4qhcsgqmo5eaddkfudtxxwnevf
-      limit: 5
