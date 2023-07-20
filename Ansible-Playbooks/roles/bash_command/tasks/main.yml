@@ -17,11 +17,11 @@
 # Print the standard output of the command (if there is one)
 - name: Bash command standard output
   ansible.builtin.debug:
-    msg: "{{ bash_cmd_output.stdout_lines }}"
+    msg: "{{ run_bash_cmd.stdout_lines }}"
   when: run_bash_cmd.stdout_lines
 
 # Print the error output of the command (if there is one)
 - name: Bash command error output
   ansible.builtin.debug:
-    msg: "{{ bash_cmd_output.stderr_lines }}"
+    msg: "{{ run_bash_cmd.stderr_lines }}"
   when: run_bash_cmd.stderr_lines

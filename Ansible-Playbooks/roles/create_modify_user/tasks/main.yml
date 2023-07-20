@@ -48,7 +48,7 @@
   ansible.builtin.shell:
     cmd: gpasswd -d "{{ username }}" sudo
   register: remove_sudo_debian
-  failed_when: remove_sudo_debian.rc != 0 and remove_sudo_debian_output.rc != 3 # return code 3 means the user isn't a member of the specified group
+  failed_when: remove_sudo_debian.rc != 0 and remove_sudo_debian.rc != 3 # return code 3 means the user isn't a member of the specified group
   changed_when: remove_sudo_debian.rc == 0
   when: ansible_facts['distribution'] == "Debian" and not sudo | bool
 
