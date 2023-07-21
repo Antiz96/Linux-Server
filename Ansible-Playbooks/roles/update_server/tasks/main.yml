@@ -16,8 +16,7 @@
 # Check the list of packages to update on Debian servers
 - name: Check packages to update - Debian
   ansible.builtin.shell:
-    cmd: apt list --upgradable | grep -v "En train de lister"
-  ignore_errors: true
+    cmd: apt list --upgradable
   register: debian_packages_update
   changed_when: debian_packages_update.rc == 0
   when: ansible_facts['distribution'] == "Debian"
