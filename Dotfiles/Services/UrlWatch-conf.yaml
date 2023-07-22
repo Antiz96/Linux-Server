@@ -122,6 +122,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "markdownlint"
+url: https://github.com/markdownlint/markdownlint/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "mpv"
 url: https://github.com/mpv-player/mpv/tags
 filter:
