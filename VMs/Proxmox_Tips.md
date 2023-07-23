@@ -4,7 +4,7 @@
 
 ### System
 
-- Graphic Card --> "Spice" for desktop VMs | "Default" for server VMs 
+- Graphic Card --> "Spice" for desktop VMs | "Default" for server VMs
 - BIOS --> OVMF (UEFI) **If the VMs boots with an error saying "access denied" and/or into an EFI Shell, recreate it with the "Pre-Enroll keys" option unchecked**
 - Agent Qemu --> Check
 
@@ -28,33 +28,33 @@
 
 ## Install the Qemu guest agent (for a better VM management by Proxmox)
 
-- Arch-Linux:  
+- Arch-Linux:
 
-```
+```bash
 sudo pacman -S qemu-guest-agent
 ```
 
-- Debian/Ubuntu:  
+- Debian/Ubuntu:
 
-```
+```bash
 sudo apt install qemu-guest-agent
 ```
 
-- Fedora/RHEL:  
+- Fedora/RHEL:
 
-```
+```bash
 sudo dnf install qemu-guest-agent
 ```
 
-- Gentoo:  
+- Gentoo:
 
-```
+```bash
 sudo emerge --ask qemu-guest-agent
 ```
 
-Then, start and enable it:  
+Then, start and enable it:
 
-```
+```bash
 sudo systemctl enable --now qemu-guest-agent
 ```
 
@@ -62,43 +62,43 @@ sudo systemctl enable --now qemu-guest-agent
 
 ### Install the Spice agent package
 
-- Arch-Linux:  
+- Arch-Linux:
 
-```
+```bash
 sudo pacman -S spice-vdagent
 ```
 
-- Debian/Ubuntu: 
+- Debian/Ubuntu:
 
-```
+```bash
 sudo apt install spice-vdagent
 ```
 
-- Fedora/RHEL:  
+- Fedora/RHEL:
 
-```
+```bash
 sudo dnf install spice-vdagent
 ```
 
-- Gentoo:  
+- Gentoo:
 
-```
+```bash
 sudo emerge --ask spice-vdagent
 ```
 
 You then may need to start it manually (or reboot) for it to work depending on your system
 
-```
+```bash
 sudo systemctl start spice-vdagentd
 ```
 
 ### Autolaunch at boot for IceWM (and standalone Window Manager in general)
 
-```
+```bash
 vim ~/.icewm/startup
 ```
 
 > [...]  
 > #Spice Agent  
 > /usr/bin/spice-vdagent &  
-> /usr/bin/spice-vdagentd & 
+> /usr/bin/spice-vdagentd &

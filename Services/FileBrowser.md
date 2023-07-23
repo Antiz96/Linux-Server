@@ -1,33 +1,32 @@
 # FileBrowser
 
-https://filebrowser.org/
+<https://filebrowser.org/>
 
 ## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md
+<https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md>
 
 ## Installing FileBrowser on Docker
 
-https://github.com/filebrowser/filebrowser
+<https://github.com/filebrowser/filebrowser>
 
 ### Create the FileBrowser directory and the database file (with the right permission)
 
-```
+```bash
 sudo mkdir -p /data/FileBrowser/data && sudo chown antiz: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
 sudo touch /data/FileBrowser/database.db && sudo chown antiz: /data/FileBrowser/database.db && chmod 600 /data/FileBrowser/database.db
 ```
 
 ### Pull and run the container
 
-```
+```bash
 sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
 ```
 
 ### Access
 
-You can now access and configure it on this URL (admin:admin) :  
+You can now access and configure it on this URL (admin:admin):  
 `http://[HOSTNAME]:8080/`
-
 
 ## Configuration
 
@@ -41,15 +40,15 @@ Also, if you did a mapping between a volume stored on a local disk (like I did),
 
 ### Pull the docker image
 
-*(... to check if there's an available update)*
+(... to check if there's an available update)
 
-```
+```bash
 sudo docker pull filebrowser/filebrowser
 ```
 
 ### Apply the update
 
-```
+```bash
 sudo docker stop filebrowser
 sudo docker rm filebrowser
 sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
@@ -57,15 +56,15 @@ sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:
 
 ### After an update
 
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images) :  
+After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images):
 
-```
+```bash
 sudo docker image prune
 ```
 
 Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) :  
-**If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted.**  
+**If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted.**
 
-```
+```bash
 sudo docker system prune
 ```
