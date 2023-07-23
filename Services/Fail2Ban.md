@@ -1,116 +1,119 @@
 # Fail2Ban
 
-https://www.fail2ban.org
+<https://www.fail2ban.org>
 
 I use Fail2Ban to prevent brute-force attacks on the SSH service of my servers.  
-It allows me to automatically ban IPs that show numerous and suspicious signs like too many password failures.  
+It allows me to automatically ban IPs that show numerous and suspicious signs like too many password failures.
 
 ## Installation
 
-**Arch :** 
+- Arch:
 
-```
+```bash
 sudo pacman -S fail2ban
 ```
-  
-**Debian :**
 
-```
+- Debian:
+
+```bash
 sudo apt install fail2ban
 ```
 
 ## Configuration
 
-https://wiki.archlinux.org/title/Fail2ban  
-https://www.linode.com/docs/guides/how-to-use-fail2ban-for-ssh-brute-force-protection/  
-https://www.linuxtricks.fr/wiki/fail2ban-bannir-automatiquement-les-intrus  
+<https://wiki.archlinux.org/title/Fail2ban>  
+<https://www.linode.com/docs/guides/how-to-use-fail2ban-for-ssh-brute-force-protection/>  
+<https://www.linuxtricks.fr/wiki/fail2ban-bannir-automatiquement-les-intrus>
 
 Fail2Ban works with different blocks ("**[block_name]**") defined in the configuration file.  
 The **[DEFAULT]** block defines the default parameters and values to apply to every other blocks (unless they are explicitly defined in the said blocks).  
 You can then define a block for each services you want to monitor via fail2ban. A lot of them are pre-defined for various services like sshd, httpd, nginx, etc...  
-The **[recidive]** block defines the parameters and values to apply to IPs/hosts that recidived failed attempts.  
-   
-Start and enable the service and edit the configuration file:  
-  
-```
+The **[recidive]** block defines the parameters and values to apply to IPs/hosts that recidived failed attempts.
+
+Start and enable the service and edit the configuration file:
+
+```bash
 sudo systemctl enable --now fail2ban
 sudoedit /etc/fail2ban/jail.conf
 ```
 
 - [DEFAULT] block:
+
 > [...]  
 > [DEFAULT]  
-> ignoreip = 127.0.0.1/8 ::1 "your_IP_or_IP_range" #IP(s) to ignore. You should put your IP or IP range, to avoid blocking yourself. See: https://wiki.archlinux.org/title/Fail2ban  
+> ignoreip = 127.0.0.1/8 ::1 "your_IP_or_IP_range" #IP(s) to ignore. You should put your IP or IP range, to avoid blocking yourself. See <https://wiki.archlinux.org/title/Fail2ban>  
 > bantime = 15m #How much the ban last.  
-> findtime = 15m #Amount of time between failed attempts.      
+> findtime = 15m #Amount of time between failed attempts.  
 > maxretry = 3 #Number of failed attempts before banning.  
-> banaction = iptables-multiport #Block every opened port to the banned IP.   
-> enabled = false #Default status of every other blocks. Put it to false and explicitly enable the blocks you want to enable.   
-> [...]  
-  
+> banaction = iptables-multiport #Block every opened port to the banned IP.  
+> enabled = false #Default status of every other blocks. Put it to false and explicitly enable the blocks you want to enable.  
+> [...]
+
 - [sshd] block:
-> [...]   
+
+> [...]  
 > [sshd]  
 > port = X #Replace X by the SSH port you've set.  
 > logpath = %(sshd_log)s  
 > backend = %(sshd_backend)s  
 > enabled = true  
-> [...]  
-  
+> [...]
+
 - [recidive] block:
+
 > [...]  
 > [recidive]  
-> logpath  = /var/log/fail2ban.log #Path to the fail2ban logs.    
+> logpath  = /var/log/fail2ban.log #Path to the fail2ban logs.  
 > banaction = %(banaction_allports)s #Block banned IP from all ports.  
 > bantime  = 1w #Ban time of recidivist IPs.  
 > findtime = 1d #Amount of time between recidive failed attempts.  
 > enabled = true  
-> [...]  
-    
-```
+> [...]
+
+```bash
 sudo systemctl restart fail2ban #Restart the service to apply
 ```
 
 ## Manage fail2ban with fail2ban-client
 
-You can check the help with:  
+You can check the help with:
 
-```
+```bash
 fail2ban-client
 ```
-  
-You can check active jails with:  
-  
-```
+
+You can check active jails with:
+
+```bash
 sudo fail2ban-client status
 ```
-  
+
 You can display information about a specific jail with:  
-*Example with the sshd jail*  
-  
-```
+*Example with the sshd jail*
+
+```bash
 sudo fail2ban-client status sshd
 ```
-  
-You can check the compact list of banned IPs with:  
-  
-```
+
+You can check the compact list of banned IPs with:
+
+```bash
 sudo fail2ban-client banned
 ```
-  
+
 You can manually unban an IP for a specific jail with:  
-*Example with the sshd jail and the 192.168.1.250 IP*  
-  
-```
+*Example with the sshd jail and the 192.168.1.250 IP*
+
+```bash
 sudo fail2ban-client set sshd unbanip 192.168.1.250
 ```
 
 ## Tips and tricks
 
 Here's a script I wrote to get the number of currently banned IPs.  
-It's useful to monitor it via a monitoring server like Zabbix, for instance.  
-  
-```
+It's useful to monitor it via a monitoring server like Zabbix, for instance.
+
+```bash
 #!/bin/bash
 
 jails_list=$(fail2ban-client status | grep -w "Jail list:" | cut -f2 | sed s/,//g)

@@ -1,7 +1,7 @@
 # Red Hat Server Template
 
 Just a quick reminder on how I install a minimal Redhat Server environment to work with.  
-It aims to be turned as a template.  
+It aims to be turned as a template.
 
 ## Base Install
 
@@ -9,19 +9,20 @@ I basically follow each installation steps normally with the following exception
 
 - I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#partition-scheme))
 - I don't check anything during the **Software selection** step so I get a minimal installation. I install useful packages after the installation instead (see [Install useful packages](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#install-useful-packages))
-- I don't create any user during the installation process. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#create-and-configure-the-ansible-user)).  
-**Remember to set a password for the root account during the installation process, otherwise you won't be able to log in to the server after reboot !**
+- I don't create any user during the installation process. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#create-and-configure-the-ansible-user)).
+
+**Remember to set a password for the root account during the installation process, otherwise you won't be able to log in to the server after reboot!**
 
 ### Partition scheme
 
-- Personal context:  
-  
+- Personal context:
+
 > EFI partition mounted on /boot/EFI --> 550M - ESP  
 > Swap partition --> 4G - SWAP  
-> Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)  
-  
-- Professional context:  
-  
+> Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)
+
+- Professional context:
+
 > EFI partition mounted on /boot --> 550M - ESP  
 > Swap partition --> 4G - SWAP  
 > Root partition --> Left free space - XFS - LVM  
@@ -31,11 +32,11 @@ I basically follow each installation steps normally with the following exception
 > > /opt --> 2G  
 > > /usr --> 4G  
 > > /var --> 1G  
-> > /var/log --> 4G  
+> > /var/log --> 4G
 
 ### Install useful packages
 
-```
+```bash
 dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate curl openssl telnet chrony wget epel-release && dnf install htop
 ```
 
@@ -43,31 +44,31 @@ dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils
 
 #### Set Selinux to "permissive"
 
-- For the current session:  
-  
-```
+- For the current session:
+
+```bash
 setenforce 0
 ```
-  
-- Permanently:  
-  
-```
+
+- Permanently:
+
+```bash
 vim /etc/selinux/config
 ```
 
 > [...]  
 > SELINUX=permissive  
-> [...]  
+> [...]
 
 #### Enable ssh
 
-```
+```bash
 systemctl enable --now sshd
 ```
 
 #### Secure SSH connection
 
-```
+```bash
 vi /etc/ssh/sshd_config
 ```
 
@@ -78,15 +79,15 @@ vi /etc/ssh/sshd_config
 > [...]  
 > PasswordAuthentication no #Disable SSH connexions via password  
 > AuthenticationMethods publickey #Authorize only SSH connexions via publickey  
-> [...]  
+> [...]
 
-```
+```bash
 systemctl restart sshd #Restart the SSH daemon to apply changes (if it fails, you probably have to configure firewalld to accept the port you set first)
 ```
 
 #### Configure the firewall
 
-```
+```bash
 systemctl enable --now firewalld #Autostart the firewall at boot.
 firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server.
 firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it.
@@ -96,14 +97,14 @@ firewall-cmd --reload #Apply changes
 
 #### Install qemu-guest-agent (for proxmox)
 
-```
+```bash
 dnf install qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 ```
 
 #### Configure the inactivity timeout
 
-```
+```bash
 sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 ```
 
@@ -111,18 +112,18 @@ sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 > #Set inactivity timeout  
 > TMOUT=900  
 > readonly TMOUT  
-> export TMOUT  
+> export TMOUT
 
 ### Create and configure the ansible user
 
-```
+```bash
 useradd -m -u 1000 ansible #Create the ansible user
 vim /etc/sudoers.d/ansible #Make the ansible user a sudoer
 ```
 
 > ansible ALL=(ALL) NOPASSWD: ALL
 
-```
+```bash
 mkdir -p /home/ansible/.ssh && chmod 700 /home/ansible/.ssh && chown ansible: /home/ansible/.ssh
 touch /home/ansible/.ssh/authorized_keys && chmod 600 /home/ansible/.ssh/authorized_keys && chown ansible: /home/ansible/.ssh/authorized_keys #Create the authorized_keys file for the user ansible
 vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH public key in it (ansible@ansible-server)
@@ -132,6 +133,6 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 
 ## Reboot
 
-```
+```bash
 reboot
 ```
