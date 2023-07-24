@@ -221,3 +221,14 @@ sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.25
 sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
 sudo nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
 ```
+
+## Switch to the Linux RPI Kernel
+
+By default, Arch Linux ARM **aarch64** comes with the mainline Linux kernel.  
+I personally advise switching to the Linux RPI kernel for a better hardware support:
+
+```bash
+sudo pacman -S linux-rpi linux-rpi-headers #Accept to replace conflicting packages
+sudo sed -i 's/mmcblk1/mmcblk0/' /etc/fstab
+sudo reboot
+```
