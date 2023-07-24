@@ -20,9 +20,9 @@ sudo mkdir /opt/pihole
 
 #### Without DHCP
 
-If you don't plan to use Pi-hole as your DHCP (i.e. you still want to use your router's DHCP), you can run the container normally, exposing ports for DNS and the web interface:
+If you don't plan to use Pi-hole as your DHCP (i.e. you still want to use your router's DHCP), you can run the container this way, only exposing ports for DNS and the web interface:
 
-*"ServerIP" should be replaced with your external IP.*
+*"ServerIP" should be replaced with your IP.*
 
 ```bash
 sudo docker run -d \
@@ -38,18 +38,19 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.1" \
+  -e ServerIP="192.168.1.102" \
+  --shm-size=500m \
   pihole/pihole:latest
 ```
 
 #### With DHCP
 
-If you plan to use Pi-hole as your DHCP as well, you'll need to use some tricks.  
+If you plan to use Pi-hole as your DHCP as well, you'll need some additional configurations.  
 There are multiple different ways to run DHCP from within the Docker Pi-hole container.  
 All of that is well explained [here](https://docs.pi-hole.net/docker/dhcp/)
 
 I personally use the simple and easy method which consists of running the container with the "host" network mode.  
-*Be aware that this will make the container run on your LAN Network (just like a regular pihole) instead of being bridged and isolated from the host like it would normally be*
+*Be aware that this will make the container run on your LAN Network (just like a regular server) instead of being bridged and isolated from the host like it would normally be*
 
 As the container will run directly on the host's network, we need to manually open the necessary port on the firewall:
 
@@ -62,7 +63,7 @@ sudo firewall-cmd --reload
 ```
 
 Now we can run the container with the "host" network mode (and also add the `--cap-add=NET_ADMIN` which is necessary to run the DHCP service):  
-*"ServerIP" should be replaced with your external IP.*
+*"ServerIP" should be replaced with your IP.*
 
 ```bash
 sudo docker run -d \
@@ -78,7 +79,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.1" \
+  -e ServerIP="192.168.1.2" \
   --shm-size=500m \
   pihole/pihole:latest
 ```
@@ -131,7 +132,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.1" \
+  -e ServerIP="192.168.1.2" \
   --shm-size=500m \
   pihole/pihole:latest
 ```
