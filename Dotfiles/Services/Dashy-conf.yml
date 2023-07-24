@@ -58,17 +58,24 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
+  - title: Pihole 1
+    description: DNS - Adblocker
+    icon: hl-pihole
+    url: https://pihole1.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Pihole 2
+    description: DNS - Adblocker
+    icon: hl-pihole
+    url: https://pihole2.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
   - title: FileBrowser
     description: Self hosted cloud
     icon: hl-filebrowser
     url: https://filebrowser.home-infra.rc
-    statusCheckAllowInsecure: true
-    target: newtab
-
-  - title: Pihole
-    description: DNS - Adblocker
-    icon: hl-pihole
-    url: https://pihole.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
@@ -79,13 +86,6 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Portainer
-    description: Docker container manager
-    icon: hl-portainer
-    url: https://portainer.home-infra.rc
-    statusCheckAllowInsecure: true
-    target: newtab
-
   - title: Zabbix
     description: Monitoring Server
     icon: hl-zabbix
@@ -93,11 +93,18 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Glances pmx01
+  - title: Glances
     description: Monitoring tool
     icon: hl-glances
     url: https://glances-pmx01.home-infra.rc
     statusCheckAcceptCodes: '401'
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Portainer
+    description: Docker container manager
+    icon: hl-portainer
+    url: https://portainer.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
