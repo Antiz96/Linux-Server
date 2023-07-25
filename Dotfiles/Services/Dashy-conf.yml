@@ -4,7 +4,7 @@
 # Page meta info, like heading, footer text and nav links
 pageInfo:
   title: Home Dashboard
-  description: Welcome to the RC Home Infra dashboard !
+  description: Welcome to the RC Home Infra dashboard!
 
 # Optional app settings and configuration
 appConfig:
@@ -12,31 +12,45 @@ appConfig:
   statusCheck: true
 
 # Main content - An array of sections, each containing an array of items
-# Widget section
+
 sections:
-- name: Widget
-  icon: fas fa-rocket-launch
+
+# Monitoring Servers section
+- name: Monitoring pmx01
+  icon: fas fa-chart-line
   widgets:
 
-  - type: clock
+  - type: gl-current-cpu
     options:
-      timeZone: Europe/Paris
-      format: fr-FR
-      customCityName: Rouen
-      hideSeconds: true
+      hostname: http://pmx01.rc:61208
+      username:
+      password:
+      useProxy: true
 
-  - type: weather
+  - type: gl-current-mem
     options:
-      apiKey: 1599151d7e028c2406c4eaf11cf0a7dd
-      city: Rouen
-      units: metric
+      hostname: http://pmx01.rc:61208
+      username:
+      password:
+      useProxy: true
 
-  - type: custom-search
+- name: Monitoring rasp01
+  icon: fas fa-chart-line
+  widgets:
+
+  - type: gl-current-cpu
     options:
-      placeholder: Websearch
-      engines:
-      - title: Search
-        url: https://swisscows.com/fr/web?query=
+      hostname: http://rasp01:61208
+      username:
+      password:
+      useProxy: true
+
+  - type: gl-current-mem
+    options:
+      hostname: http://rasp01.rc:61208
+      username:
+      password:
+      useProxy: true
 
 # Self Hosted Services section
 - name: Self Hosted Services
@@ -93,10 +107,18 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Glances
+  - title: Glances pmx01
     description: Monitoring tool
     icon: hl-glances
     url: https://glances-pmx01.home-infra.rc
+    statusCheckAcceptCodes: '401'
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Glances rasp01
+    description: Monitoring tool
+    icon: hl-glances
+    url: https://glances-rasp01.home-infra.rc
     statusCheckAcceptCodes: '401'
     statusCheckAllowInsecure: true
     target: newtab
@@ -113,25 +135,6 @@ sections:
     icon: hl-router
     url: https://mabbox.bytel.fr
     target: newtab
-
-# Monitoring Servers section
-- name: Monitoring pmx01
-  icon: fas fa-chart-line
-  widgets:
-
-  - type: gl-current-cpu
-    options:
-      hostname: http://pmx01.rc:61208
-      username:
-      password:
-      useProxy: true
-
-  - type: gl-current-mem
-    options:
-      hostname: http://pmx01.rc:61208
-      username:
-      password:
-      useProxy: true
 
 # Github stats section
 - name: GitHub Stats
