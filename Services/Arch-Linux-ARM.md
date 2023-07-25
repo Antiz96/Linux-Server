@@ -211,6 +211,16 @@ source ~/.bashrc
 
 ## Setup a static IP address
 
+<https://unix.stackexchange.com/questions/216018/arch-linux-despite-ot-static-ip-configuration-i-get-a-dhcp-address>
+
+```bash
+sudoedit /etc/systemd/network/en.network #Do the same to any other file present there
+```
+
+> [...]  
+> DHCP=no  
+> [...]
+
 <https://nanxiao.me/en/configure-static-ip-address-on-arch-linux/>
 
 ```bash
