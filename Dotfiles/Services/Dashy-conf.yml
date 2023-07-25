@@ -100,13 +100,6 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Zabbix
-    description: Monitoring Server
-    icon: hl-zabbix
-    url: https://zabbix.home-infra.rc
-    statusCheckAllowInsecure: true
-    target: newtab
-
   - title: Glances pmx01
     description: Monitoring tool
     icon: hl-glances
@@ -120,6 +113,13 @@ sections:
     icon: hl-glances
     url: https://glances-rasp01.home-infra.rc
     statusCheckAcceptCodes: '401'
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Zabbix
+    description: Monitoring Server
+    icon: hl-zabbix
+    url: https://zabbix.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
