@@ -143,20 +143,20 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
 >
-> vrrp_instance VIP_HOSTNAME {  
+> vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state MASTER  
-> > interface eth0  
+> > interface eth0 # Adapt to your network interface  
 > > virtual_router_id 1  
 > > priority 150  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
-> > > auth_pass 1234  
+> > > auth_pass 1234 # Use a secure password here  
 > >
 > > }  
 > >
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24  
+> > > 192.168.1.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
@@ -189,20 +189,20 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
 >
-> vrrp_instance VIP_HOSTNAME {  
+> vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state BACKUP  
-> > interface eth0  
+> > interface eth0 # Adapt to your network interface  
 > > virtual_router_id 1  
 > > priority 100  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
-> > > auth_pass 1234  
+> > > auth_pass 1234 # Use a secure password here  
 > >
 > > }  
 > >
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24  
+> > > 192.168.1.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
@@ -245,21 +245,21 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
 >
-> vrrp_instance VIP_HOSTNAME {  
+> vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state BACKUP  
-> > interface eth0  
+> > interface eth0 # Adapt to your network interface  
 > > virtual_router_id 1  
 > > priority 150  
 > > nopreempt  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
-> > > auth_pass 1234  
+> > > auth_pass 1234 # Use a secure password here  
 > >
 > > }  
 > >  
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24  
+> > > 192.168.1.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
@@ -292,21 +292,21 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
 >
-> vrrp_instance VIP_HOSTNAME {  
+> vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state BACKUP  
-> > interface eth0  
+> > interface eth0 # Adapt to your network interface  
 > > virtual_router_id 1  
 > > priority 100  
 > > nopreemt  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
-> > > auth_pass 1234  
+> > > auth_pass 1234 # Use a secure password here  
 > >
 > > }  
 > >
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24  
+> > > 192.168.1.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
