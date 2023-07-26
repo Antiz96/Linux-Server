@@ -81,5 +81,5 @@ sudoedit /etc/kea/kea-dhcp4.conf
 sudo systemctl enable --now kea-dhcp4
 ```
 
-Alternatively, the `keactrl` command can be used instead:
+Alternatively, the `keactrl` command can be used instead:  
 <https://kea.readthedocs.io/en/kea-2.2.0/arm/keactrl.html>
