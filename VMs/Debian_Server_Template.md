@@ -37,15 +37,15 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```bash
-apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget
+apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate
 ```
 
 ### Configure various things
 
-#### Enable ssh
+#### Enable services
 
 ```bash
-systemctl enable --now ssh
+systemctl enable --now ssh logrotate.timer
 ```
 
 #### Secure SSH connection
