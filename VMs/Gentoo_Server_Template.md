@@ -41,15 +41,15 @@ Replaces the fdisk part in: <https://github.com/Antiz96/Linux-Configuration/blob
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#install-additional-useful-packages>
 
 ```bash
-emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop
+emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop logrotate
 ```
 
 ### Configure various things
 
-#### Enable ssh and cronie
+#### Enable services
 
 ```bash
-systemctl enable --now sshd cronie
+systemctl enable --now sshd cronie logrotate.timer
 ```
 
 #### Secure SSH connection

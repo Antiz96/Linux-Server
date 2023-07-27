@@ -51,7 +51,8 @@ sudo systemctl restart networking
 
 ```bash
 sudo apt update && sudo apt full-upgrade
-sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony parted wget postfix
+sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony parted wget logrotate
+sudo systemctl enable --now logrotate.timer
 ```
 
 ## Secure SSH connexions

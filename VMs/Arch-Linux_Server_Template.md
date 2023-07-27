@@ -41,8 +41,8 @@ Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/B
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages>
 
 ```bash
-pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils wget traceroute rsync zip unzip cronie diffutils mlocate htop pacman-contrib
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils wget traceroute rsync zip unzip cronie diffutils mlocate htop logrotate pacman-contrib
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### Configure various things
@@ -50,7 +50,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 #### Enable services/timers
 
 ```bash
-systemctl enable --now sshd cronie paccache.timer
+systemctl enable --now sshd cronie paccache.timer logrotate.timer
 ```
 
 #### Secure SSH connection

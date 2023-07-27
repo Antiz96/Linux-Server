@@ -37,7 +37,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```bash
-dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate curl openssl telnet chrony wget epel-release && dnf install htop
+dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate curl openssl telnet chrony wget epel-release && dnf install htop logrotate
 ```
 
 ### Configure various things
@@ -60,10 +60,10 @@ vim /etc/selinux/config
 > SELINUX=permissive  
 > [...]
 
-#### Enable ssh
+#### Enable services
 
 ```bash
-systemctl enable --now sshd
+systemctl enable --now sshd logrotate.timer
 ```
 
 #### Secure SSH connection
