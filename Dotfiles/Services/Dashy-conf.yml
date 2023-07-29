@@ -34,20 +34,20 @@ sections:
       password:
       useProxy: true
 
-- name: Monitoring rasp01
+- name: Monitoring pmx02
   icon: fas fa-chart-line
   widgets:
 
   - type: gl-current-cpu
     options:
-      hostname: http://rasp01:61208
+      hostname: http://pmx02.rc:61208
       username:
       password:
       useProxy: true
 
   - type: gl-current-mem
     options:
-      hostname: http://rasp01.rc:61208
+      hostname: http://pmx02.rc:61208
       username:
       password:
       useProxy: true
@@ -57,18 +57,17 @@ sections:
   icon: fas fa-server
   items:
 
-  - title: Proxmox
+  - title: Proxmox 1
     description: Virtualization platform
     icon: hl-proxmox
-    url: https://proxmox.home-infra.rc
+    url: https://proxmox1.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Jenkins
-    description: Automation - Orchestrator
-    icon: hl-jenkins
-    url: https://jenkins.home-infra.rc
-    statusCheckAcceptCodes: '403'
+  - title: Proxmox 2
+    description: Virtualization platform
+    icon: hl-proxmox
+    url: https://proxmox2.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
@@ -86,6 +85,14 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
+  - title: Jenkins
+    description: Automation - Orchestrator
+    icon: hl-jenkins
+    url: https://jenkins.home-infra.rc
+    statusCheckAcceptCodes: '403'
+    statusCheckAllowInsecure: true
+    target: newtab
+
   - title: FileBrowser
     description: Self hosted cloud
     icon: hl-filebrowser
@@ -97,6 +104,13 @@ sections:
     description: IRC Bouncer
     icon: hl-irc
     url: https://znc.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Portainer
+    description: Docker container manager
+    icon: hl-portainer
+    url: https://portainer.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
@@ -120,13 +134,6 @@ sections:
     description: Monitoring Server
     icon: hl-zabbix
     url: https://zabbix.home-infra.rc
-    statusCheckAllowInsecure: true
-    target: newtab
-
-  - title: Portainer
-    description: Docker container manager
-    icon: hl-portainer
-    url: https://portainer.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
