@@ -122,10 +122,10 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Glances rasp01
+  - title: Glances pmx02
     description: Monitoring tool
     icon: hl-glances
-    url: https://glances-rasp01.home-infra.rc
+    url: https://glances-pmx02.home-infra.rc
     statusCheckAcceptCodes: '401'
     statusCheckAllowInsecure: true
     target: newtab
