@@ -143,7 +143,7 @@ Datacenter --> Cluster --> Create Cluster (Give it a name, select the network in
 
 From the node 2 web UI:
 
-Datacenter --> Cluster --> Join Cluster (Copy paste the join information from node 1, enter the root password of node 1, select the network interface to link to the cluster and click on "Join Cluser")
+Datacenter --> Cluster --> Join Cluster (Copy paste the join information from node 1, enter the root password of node 1, select the network interface to link to the cluster and click on "Join Cluster")
 
 ### Optional - Setup the ssh connection between the two nodes
 
