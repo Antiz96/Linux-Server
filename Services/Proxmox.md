@@ -130,3 +130,32 @@ For instance, upgrade from "bullseye" to "bookworm" and from Proxmox v7 to Proxm
 <https://pve.proxmox.com/wiki/Upgrade_from_7_to_8>
 
 I personally prefer to reinstall Debian and Proxmox completely from scratch by following this procedure in case of major upgrade.
+
+## Create a ProxMox Cluster
+
+### Create the cluster on node 1
+
+From the node 1 web UI:
+
+Datacenter --> Cluster --> Create Cluster (Give it a name, select the network interface to link to the cluster and click on "Create")
+
+### Join the cluster on node 2
+
+From the node 2 web UI:
+
+Datacenter --> Cluster --> Join Cluster (Copy paste the join information from node 1, enter the root password of node 1, select the network interface to link to the cluster and click on "Join Cluster")
+
+### Optional - Setup the ssh connection between the two nodes
+
+This part is only needed if you don't use port 22 for the `ssh` service.
+
+```bash
+sudoedit /root/.ssh/config
+```
+
+> [... ]  
+> Host "IP_of_node_2"  
+> > Port "Port_number"
+
+Do the same on node2 with node1's IP.  
+If you have more than 2 nodes, create an entry for each nodes.
