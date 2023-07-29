@@ -38,7 +38,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.102" \
+  -e ServerIP="192.168.1.1" \
   --shm-size=500m \
   pihole/pihole:latest
 ```
@@ -131,8 +131,8 @@ sudo docker stop pihole
 sudo docker rm pihole
 sudo docker run -d \
   --name pihole \
-  --cap-add=NET_ADMIN \
-  --net=host \
+  -p 53:53/tcp -p 53:53/udp \
+  -p 80:80 \
   -e TZ="Europe/Paris" \
   -v "/opt/pihole/etc-pihole:/etc/pihole" \
   -v "/opt/pihole/log-pihole:/var/log/pihole" \
@@ -142,7 +142,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.2" \
+  -e ServerIP="192.168.1.1" \
   --shm-size=500m \
   pihole/pihole:latest
 ```
