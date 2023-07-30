@@ -47,9 +47,10 @@ sudo vim /etc/hosts
 > IP_OF_NODE3        Hostname.domain Hostname  
 > IP_OF_VIP          Hostname.domain Hostname
 
-### Create a directory to store the check and the notify script on both of my servers
+### Create a directory to store the check and the notify script on all nodes
 
-(respectively aimed to trigger the changing state and the changing state action(s))
+(respectively aimed to trigger the changing state and the changing state action(s))  
+The following examples are for an nginx cluster.
 
 ```bash
 sudo mkdir /opt/keepalived/
@@ -59,12 +60,12 @@ sudo vim /opt/keepalived/keepalived_check.sh
 > [...]  
 > #!/bin/bash  
 >
-> MASTER=$(ip a | grep -w "192.168.1.20")  
+> MASTER=$(ip a | grep -w "192.168.1.20") # The MASTER is the node that has the VIP assigned  
 >
-> if [ -n "$MASTER" ]; then  
+> if [ -n "$MASTER" ]; then # If the node is the MASTER, check that it is a "good" MASTER (in this case, that the nginx service is running) or put it in FAULT state  
 > > pidof nginx || exit 1  
 >
-> else  
+> else # If the node isn't the MASTER, check that it is a "good" BACKUP (in this case, that the nginx configurations syntax is correct) or put it in FAULT state  
 > > nginx -t 2>&1 | grep -w "syntax is ok" || exit 1  
 >
 > fi
@@ -80,26 +81,26 @@ sudo vim /opt/keepalived/keepalived_notify.sh
 > NAME=$2  
 > STATE=$3  
 >
-> echo "$STATE" > /opt/keepalived/state.txt  
+> echo "$STATE" > /opt/keepalived/state.txt # Redirect the current state of the node in a file (useful to monitor the state of a node by checking the content of that file)  
 >
 > case $STATE in  
-> > "MASTER")  
+> > "MASTER") # If the node has the MASTER state, do something (in this case, start nginx)  
 > > > systemctl start nginx  
 > > > exit 0  
 > >
 > > ;;  
-> > "BACKUP")  
+> > "BACKUP") # If the node has the BACKUP state, do something (in this case, stop nginx)  
 > > > systemctl stop nginx  
 > > > exit 0  
 > >
 > > ;;  
-> > "FAULT")  
+> > "FAULT") # If the node has the FAULT state, do something (in this case, stop nginx and exit with an error code)  
 > > > systemctl stop nginx  
 > > > exit 1  
 > >
 > > ;;  
 > > \*)  
-> > > echo "Unknown state : $STATE" > /opt/keepalived/state.txt  
+> > > echo "Unknown state : $STATE" > /opt/keepalived/state.txt # If the node has an UNKNOWN state, output it to the state file and exit with an error code)  
 > > > exit 1  
 > >
 > > ;;
@@ -146,7 +147,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state MASTER  
 > > interface eth0 # Adapt to your network interface  
-> > virtual_router_id 1  
+> > virtual_router_id 1 # This router id should be unique to each cluster and only be shared by nodes of the same cluster. Increment it if needed.  
 > > priority 150  
 > > advert_int 1  
 > > authentication {  
@@ -192,7 +193,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state BACKUP  
 > > interface eth0 # Adapt to your network interface  
-> > virtual_router_id 1  
+> > virtual_router_id 1 # This router id should be unique to each cluster and only be shared by nodes of the same cluster. Increment it if needed.  
 > > priority 100  
 > > advert_int 1  
 > > authentication {  
@@ -248,7 +249,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state BACKUP  
 > > interface eth0 # Adapt to your network interface  
-> > virtual_router_id 1  
+> > virtual_router_id 1 # This router id should be unique to each cluster and only be shared by nodes of the same cluster. Increment it if needed.  
 > > priority 150  
 > > nopreempt  
 > > advert_int 1  
@@ -295,7 +296,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > vrrp_instance VIP_HOSTNAME { # Adapt the HOSTNAME to your VIP's hostname  
 > > state BACKUP  
 > > interface eth0 # Adapt to your network interface  
-> > virtual_router_id 1  
+> > virtual_router_id 1 # This router id should be unique to each cluster and only be shared by nodes of the same cluster. Increment it if needed.  
 > > priority 100  
 > > nopreemt  
 > > advert_int 1  
