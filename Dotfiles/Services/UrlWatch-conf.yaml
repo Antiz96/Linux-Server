@@ -184,6 +184,12 @@ filter:
   - grep: "item-title"
 ---
 
+name: "kea"
+url: https://gitlab.isc.org/isc-projects/kea/-/tags
+filter:
+  - grep: "item-title"
+---
+
 name: "python-omemo-dr"
 url: https://dev.gajim.org/gajim/omemo-dr/-/tags
 filter:
