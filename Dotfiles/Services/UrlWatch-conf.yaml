@@ -196,6 +196,12 @@ filter:
   - grep: "item-title"
 ---
 
+name: "python-nbxmpp"
+url: https://dev.gajim.org/gajim/python-nbxmpp/-/tags
+filter:
+  - grep: "item-title"
+---
+
 name: "python-omemo-dr"
 url: https://dev.gajim.org/gajim/omemo-dr/-/tags
 filter:
