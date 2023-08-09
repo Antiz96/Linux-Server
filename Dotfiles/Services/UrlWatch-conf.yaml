@@ -158,6 +158,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "rofi"
+url: https://github.com/davatorium/rofi/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "systray-x"
 url: https://github.com/Ximi1970/systray-x/tags
 filter:
