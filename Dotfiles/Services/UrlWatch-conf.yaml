@@ -182,6 +182,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "touchegg"
+url: https://github.com/JoseExposito/touchegg/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "urlwatch"
 url: https://github.com/thp/urlwatch/tags
 filter:
