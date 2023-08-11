@@ -146,6 +146,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "python-mistune"
+url: https://github.com/lepture/mistune/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "python-sentry_sdk"
 url: https://github.com/getsentry/sentry-python/tags
 filter:
