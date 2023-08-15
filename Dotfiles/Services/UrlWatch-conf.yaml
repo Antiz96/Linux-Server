@@ -44,6 +44,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "entr"
+url: https://github.com/eradman/entr/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "firewalld"
 url: https://github.com/firewalld/firewalld/tags
 filter:
@@ -134,8 +140,20 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "pasystray"
+url: https://github.com/christophgysin/pasystray/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "picom"
 url: https://github.com/yshui/picom/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "piper"
+url: https://github.com/libratbag/piper/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -154,6 +172,18 @@ filter:
 
 name: "python-sentry_sdk"
 url: https://github.com/getsentry/sentry-python/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "python-tqdm"
+url: https://github.com/tqdm/tqdm/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "python-userpath"
+url: https://github.com/ofek/userpath/tags
 filter:
   - grep: "Link--primary"
 ---
