@@ -153,7 +153,7 @@ Advanced --> APM Configuration --> Power On By PCI-E --> Enabled
 
 - pmx02:
 
-No related option is BIOS, it seems activated by default.
+No related option in BIOS, it seems activated by default.
 
 ### Enable Wake On Lan in Debian
 
