@@ -146,24 +146,40 @@ sudo systemctl enable --now fstrim.timer
 
 ### Enable Wake On Lan in the BIOS
 
+- pmx01:
+
 DEL Key at startup to go to the BIOS  
 Advanced Section --> APM Configuration --> Power On By PCI-E --> Enabled
+
+- pmx02:
+
+No related option is BIOS, it seems activated by default.
 
 ### Enable Wake On Lan in Debian
 
 ```bash
 sudo apt install ethtool
-sudo ethtool -s enp3s0 wol g
-sudo ethtool enp3s0
+sudo ethtool -s enp3s0 wol g # Adapt network card name if needed
 sudo vim /etc/network/interfaces
 ```
 
 > [...]  
 > auto enp3s0
 > iface enp3s0 inet manual  
-> > **post-up /sbin/ethtool -s enp3s0 wol g**  
-> > **post-down /sbin/ethtool -s enp3s0 wol g**  
+> > **post-up ethtool -s enp3s0 wol g** # Adapt network card name if needed  
+> > **post-down ethtool -s enp3s0 wol g** # Adapt network card name if needed  
 >
+> [...]
+
+Verify with:
+
+```bash
+sudo ethtool enp3s0 # Adapt network card name if needed  
+
+```
+
+> [...]  
+> Wake-on: **g** # "g" means it is enabled  
 > [...]
 
 ### Using Wake On Lan
