@@ -149,17 +149,12 @@ sudo systemctl enable --now fstrim.timer
 DEL Key at startup to go to the BIOS  
 Advanced Section --> APM Configuration --> Power On By PCI-E --> Enabled
 
-### Enable Wake On Lan in Debian (manually)
+### Enable Wake On Lan in Debian
 
 ```bash
 sudo apt install ethtool
 sudo ethtool -s enp3s0 wol g
 sudo ethtool enp3s0
-```
-
-### Enable Wake On Lan in Debian (persistently)
-
-```bash
 sudo vim /etc/network/interfaces
 ```
 
@@ -178,7 +173,7 @@ sudo vim /etc/network/interfaces
 #### Install wakeonlan on the client
 
 ```bash
-yay -S wakeonlan
+yay -S wakeonlan || sudo apt install wakeonlan
 ```
 
 #### Get the network card's mac address of the server

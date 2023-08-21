@@ -185,23 +185,6 @@ sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Close the dhcpv6
 sudo firewall-cmd --reload
 ```
 
-## Install yay
-
-```bash
-cd /tmp
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-```
-
-## Install wakeonlan
-
-(... so I can power on my server remotly via ssh on this server)
-
-```bash
-yay -S wakeonlan
-```
-
 ## Download my .bashrc
 
 ```bash
