@@ -149,7 +149,7 @@ sudo systemctl enable --now fstrim.timer
 - pmx01:
 
 DEL Key at startup to go to the BIOS  
-Advanced Section --> APM Configuration --> Power On By PCI-E --> Enabled
+Advanced --> APM Configuration --> Power On By PCI-E --> Enabled
 
 - pmx02:
 
