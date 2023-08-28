@@ -8,6 +8,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "bash-bats"
+url: https://github.com/bats-core/bats-core/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "blueman"
 url: https://github.com/blueman-project/blueman/tags
 filter:
@@ -22,6 +28,12 @@ filter:
 
 name: "codespell"
 url: https://github.com/codespell-project/codespell/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "containerd"
+url: https://github.com/containerd/containerd/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -218,6 +230,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "ttf-font-awesome"
+url: https://github.com/FortAwesome/Font-Awesome/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "urlwatch"
 url: https://github.com/thp/urlwatch/tags
 filter:
@@ -244,6 +262,12 @@ filter:
   - grep: "item-title"
 ---
 
+name: "pdfjs/pdfjs-legacy"
+url: https://github.com/mozilla/pdf.js/tags
+filter:
+  - grep: "item-title"
+---
+
 name: "python-nbxmpp"
 url: https://dev.gajim.org/gajim/python-nbxmpp/-/tags
 filter:
@@ -252,6 +276,12 @@ filter:
 
 name: "python-omemo-dr"
 url: https://dev.gajim.org/gajim/omemo-dr/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "py3status"
+url: https://github.com/ultrabug/py3status/tags
 filter:
   - grep: "item-title"
 ---
