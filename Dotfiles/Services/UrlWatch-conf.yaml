@@ -447,7 +447,5 @@ filter:
 ## Other
 
 name: "spotify"
-url: http://repository.spotify.com/pool/non-free/s/spotify-client/
-filter:
-  - grep: "spotify-client_"
+url: http://repository.spotify.com/dists/testing/non-free/binary-amd64/Packages
 ---
