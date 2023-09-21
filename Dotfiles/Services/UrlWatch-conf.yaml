@@ -68,6 +68,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "font-awesome"
+url: https://github.com/FortAwesome/Font-Awesome/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "gitea"
 url: https://github.com/go-gitea/gitea/tags
 filter:
@@ -170,6 +176,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "powerline"
+url: https://github.com/powerline/powerline/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "pychess"
 url: https://github.com/pychess/pychess/tags
 filter:
@@ -226,12 +238,6 @@ filter:
 
 name: "touchegg"
 url: https://github.com/JoseExposito/touchegg/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "ttf-font-awesome"
-url: https://github.com/FortAwesome/Font-Awesome/tags
 filter:
   - grep: "Link--primary"
 ---
