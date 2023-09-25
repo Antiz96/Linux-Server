@@ -268,7 +268,7 @@ filter:
   - grep: "item-title"
 ---
 
-name: "pdfjs/pdfjs-legacy"
+name: "pdfjs_pdfjs-legacy"
 url: https://github.com/mozilla/pdf.js/tags
 filter:
   - grep: "item-title"
