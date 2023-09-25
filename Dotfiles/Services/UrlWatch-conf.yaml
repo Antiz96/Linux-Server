@@ -164,6 +164,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "pdfjs/pdfjs-legacy"
+url: https://github.com/mozilla/pdf.js/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "picom"
 url: https://github.com/yshui/picom/tags
 filter:
@@ -208,6 +214,12 @@ filter:
 
 name: "python-userpath"
 url: https://github.com/ofek/userpath/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "py3status"
+url: https://github.com/ultrabug/py3status/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -268,12 +280,6 @@ filter:
   - grep: "item-title"
 ---
 
-name: "pdfjs_pdfjs-legacy"
-url: https://github.com/mozilla/pdf.js/tags
-filter:
-  - grep: "item-title"
----
-
 name: "python-nbxmpp"
 url: https://dev.gajim.org/gajim/python-nbxmpp/-/tags
 filter:
@@ -282,12 +288,6 @@ filter:
 
 name: "python-omemo-dr"
 url: https://dev.gajim.org/gajim/omemo-dr/-/tags
-filter:
-  - grep: "item-title"
----
-
-name: "py3status"
-url: https://github.com/ultrabug/py3status/tags
 filter:
   - grep: "item-title"
 ---
