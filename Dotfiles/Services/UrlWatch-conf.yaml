@@ -2,8 +2,20 @@
 
 ## GitHub
 
+name: "ansible-bender"
+url: https://github.com/ansible-community/ansible-bender/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "ansible-core"
 url: https://github.com/ansible/ansible/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "ansible-language-server"
+url: https://github.com/ansible/ansible-language-server/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -158,6 +170,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "molecule"
+url: https://github.com/ansible/molecule/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "mpv"
 url: https://github.com/mpv-player/mpv/tags
 filter:
@@ -196,6 +214,12 @@ filter:
 
 name: "pychess"
 url: https://github.com/pychess/pychess/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "python-ansible-compat"
+url: https://github.com/ansible/ansible-compat/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -262,6 +286,12 @@ filter:
 
 name: "urlwatch"
 url: https://github.com/thp/urlwatch/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "vim-ansible"
+url: https://github.com/pearofducks/ansible-vim/tags
 filter:
   - grep: "Link--primary"
 ---
