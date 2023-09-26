@@ -8,6 +8,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "ansible-lint"
+url: https://github.com/ansible/ansible-lint/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "bash-bats"
 url: https://github.com/bats-core/bats-core/tags
 filter:
