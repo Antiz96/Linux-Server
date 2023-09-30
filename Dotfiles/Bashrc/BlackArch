@@ -93,5 +93,3 @@ alias nmap_ip_full="nmap -sV $ip -p- > /tmp/nmap_result.txt && cat /tmp/nmap_res
 # source files
 [ -r /usr/share/bash-completion/completions ] &&
   . /usr/share/bash-completion/completions/*
-
-  test
