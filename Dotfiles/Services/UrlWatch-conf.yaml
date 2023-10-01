@@ -74,6 +74,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "elixir"
+url: https://github.com/elixir-lang/elixir/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "entr"
 url: https://github.com/eradman/entr/tags
 filter:
