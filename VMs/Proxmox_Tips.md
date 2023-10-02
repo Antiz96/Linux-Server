@@ -4,7 +4,7 @@
 
 ### System
 
-- Graphic Card --> "Spice" for desktop VMs | "Default" for server VMs
+- Graphic Card --> "Spice" for desktop VMs or "Default" for server VMs
 - BIOS --> OVMF (UEFI) **If the VMs boots with an error saying "access denied" and/or into an EFI Shell, recreate it with the "Pre-Enroll keys" option unchecked**
 - Agent Qemu --> Check
 

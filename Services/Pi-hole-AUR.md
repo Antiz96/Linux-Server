@@ -152,10 +152,11 @@ sudo git clone https://github.com/anudeepND/whitelist.git
 sudo vim /home/pihole/pihole_whitelist_update.sh
 ```
 
-> [...]  
-> #!/bin/bash  
->
-> python3 /home/pihole/whitelist/scripts/whitelist.py && echo -e "Subject:Pihole's whitelist updated\n\nHello,\n\nThe Pihole's whitelist has been successfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's whitelist update\n\nHello,\n\nThere was an error during the Pihole's whitelist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
+```bash
+#!/bin/bash
+
+python3 /home/pihole/whitelist/scripts/whitelist.py && echo -e "Subject:Pihole's whitelist updated\n\nHello,\n\nThe Pihole's whitelist has been successfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's whitelist update\n\nHello,\n\nThere was an error during the Pihole's whitelist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
+```
 
 #### Automatic blacklist update script
 
@@ -163,10 +164,11 @@ sudo vim /home/pihole/pihole_whitelist_update.sh
 sudo vim /home/pihole/pihole_blacklist_update.sh
 ```
 
-> [...]  
-> #!/bin/bash  
->
-> pihole -g && echo -e "Subject:Pihole's blacklist updated\n\nHello,\n\nPihole's blacklist has been successfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's blacklist update\n\nHello,\n\nThere was an error during Pihole's blacklist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
+```bash
+#!/bin/bash
+
+pihole -g && echo -e "Subject:Pihole's blacklist updated\n\nHello,\n\nPihole's blacklist has been successfully updated." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com || echo -e "Subject:Error during Pihole's blacklist update\n\nHello,\n\nThere was an error during Pihole's blacklist update." | /usr/sbin/sendmail yourmailexample@mail.com, yourmailexample2@mail.com
+```
 
 #### Crontab for automatic executions of the scripts
 
@@ -266,19 +268,19 @@ sudo pacman -S pacman-contrib
 sudo vim ~/check_update.sh
 ```
 
-> [...]  
-> #!/bin/bash  
+```bash
+#!/bin/bash
+
+PACKAGES=$(/usr/bin/checkupdates | awk '{print $1}' && /usr/bin/yay -Qua | awk '{print $1}')
 >
->
-> PACKAGES=$(/usr/bin/checkupdates | awk '{print $1}' && /usr/bin/yay -Qua | awk '{print $1}')  
->
-> if [ -n "$PACKAGES" ]; then  
-> > echo -e "Subject:Server's package list available for update\n\nHello,\n\nThe following packages can be updated on the server :\n$PACKAGES" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com  
->
-> else  
-> > echo -e "Subject:No packages to update on Server\n\nHello,\n\nThere is no packages to update on Server.\nThe server is up to date" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com  
->
-> fi
+if [ -n "$PACKAGES" ]; then
+        echo -e "Subject:Server's package list available for update\n\nHello,\n\nThe following packages can be updated on the server :\n$PACKAGES" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com
+
+else
+        echo -e "Subject:No packages to update on Server\n\nHello,\n\nThere is no packages to update on Server.\nThe server is up to date" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com
+
+fi
+```
 
 ```bash
 chmod +x check_update.sh
