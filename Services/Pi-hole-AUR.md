@@ -274,10 +274,10 @@ sudo vim ~/check_update.sh
 PACKAGES=$(/usr/bin/checkupdates | awk '{print $1}' && /usr/bin/yay -Qua | awk '{print $1}')
 >
 if [ -n "$PACKAGES" ]; then
-	echo -e "Subject:Server's package list available for update\n\nHello,\n\nThe following packages can be updated on the server :\n$PACKAGES" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com
+        echo -e "Subject:Server's package list available for update\n\nHello,\n\nThe following packages can be updated on the server :\n$PACKAGES" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com
 
 else
-	echo -e "Subject:No packages to update on Server\n\nHello,\n\nThere is no packages to update on Server.\nThe server is up to date" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com
+        echo -e "Subject:No packages to update on Server\n\nHello,\n\nThere is no packages to update on Server.\nThe server is up to date" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com
 
 fi
 ```

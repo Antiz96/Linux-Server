@@ -63,10 +63,10 @@ sudo vim /opt/keepalived/keepalived_check.sh
 MASTER=$(ip a | grep -w "192.168.1.20") # The MASTER is the node that has the VIP assigned
 
 if [ -n "$MASTER" ]; then # If the node is the MASTER, check that it is a "good" MASTER (in this case, that the nginx service is running) or put it in FAULT state
-	pidof nginx || exit 1
+        pidof nginx || exit 1
 
 else # If the node isn't the MASTER, check that it is a "good" BACKUP (in this case, that the nginx configurations syntax is correct) or put it in FAULT state
-	nginx -t 2>&1 | grep -w "syntax is ok" || exit 1
+        nginx -t 2>&1 | grep -w "syntax is ok" || exit 1
 
 fi
 ```
