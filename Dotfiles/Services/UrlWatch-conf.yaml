@@ -116,6 +116,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "grafana-zabbix"
+url: https://github.com/grafana/grafana-zabbix/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "gsimplecal"
 url: https://github.com/dmedvinsky/gsimplecal/tags
 filter:
@@ -302,6 +308,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "zabbix"
+url: https://github.com/zabbix/zabbix/tags
+filter:
+  - grep: "Link--primary"
+---
+
 ## GitLab
 
 name: "gajim"
@@ -318,6 +330,12 @@ filter:
 
 name: "kea"
 url: https://gitlab.isc.org/isc-projects/kea/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "notification-daemon"
+url: https://gitlab.gnome.org/Archive/notification-daemon/-/tags
 filter:
   - grep: "item-title"
 ---
@@ -388,7 +406,7 @@ filter:
   - grep: "item-title"
 ---
 
-## Other
+## Pypi
 
 name: "ansible"
 url: https://pypi.org/project/ansible/#history
@@ -396,10 +414,10 @@ filter:
   - grep: "card release__card"
 ---
 
-name: "notification-daemon"
-url: https://download.gnome.org/sources/notification-daemon/
+name: "python-zabbix-api"
+url: https://pypi.org/project/ansible/#history
 filter:
-  - grep: "title"
+  - grep: "card release__card"
 ---
 
 # AUR
