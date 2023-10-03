@@ -415,7 +415,7 @@ filter:
 ---
 
 name: "python-zabbix-api"
-url: https://pypi.org/project/ansible/#history
+url: https://pypi.org/project/zabbix-api/#history
 filter:
   - grep: "card release__card"
 ---
