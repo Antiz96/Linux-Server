@@ -466,12 +466,6 @@ filter:
   - grep: "Link--primary"
 ---
 
-name: "gnome-shell-extension-caffeine"
-url: https://github.com/eonpatapon/gnome-shell-extension-caffeine/tags
-filter:
-  - grep: "Link--primary"
----
-
 name: "lowcharts"
 url: https://github.com/juan-leon/lowcharts/tags
 filter:
@@ -494,12 +488,6 @@ filter:
 
 name: "ame"
 url: https://git.getcryst.al/crystal/software/amethyst/-/tags
-filter:
-  - grep: "item-title"
----
-
-name: "gnome-shell-extension-desktop-icons-ng"
-url: https://gitlab.com/rastersoft/desktop-icons-ng/-/tags
 filter:
   - grep: "item-title"
 ---
