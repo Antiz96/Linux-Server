@@ -152,6 +152,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "jbig2dec"
+url: https://github.com/ArtifexSoftware/jbig2dec/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "jenkins"
 url: https://github.com/jenkinsci/jenkins/tags
 filter:
@@ -190,6 +196,12 @@ filter:
 
 name: "mpv"
 url: https://github.com/mpv-player/mpv/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "mupdf"
+url: https://github.com/ArtifexSoftware/mupdf/tags
 filter:
   - grep: "Link--primary"
 ---
