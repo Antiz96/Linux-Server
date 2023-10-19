@@ -490,6 +490,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "only-office"
+url: https://github.com/ONLYOFFICE/DesktopEditors/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "zaman"
 url: https://github.com/Antiz96/zaman/tags
 filter:
