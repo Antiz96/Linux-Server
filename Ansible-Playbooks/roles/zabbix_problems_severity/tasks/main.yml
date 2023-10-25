@@ -1,0 +1,18 @@
+---
+# tasks file for zabbix_problems_severity
+
+# Launch the script to get the total number of current problems on Zabbix classed by severityi locally
+- name: Get number of Zabbix problems
+  ansible.builtin.shell: 
+    cmd: /opt/scripts/zabbix-api/problems-severity.sh
+  delegate_to: localhost
+  run_once: yes
+
+# Copy the file to the WS servers to expose the result on the dedicated URL
+- name: Copy result
+  ansible.builtin.copy:
+    src: /opt/scripts/zabbix-api/problems-severity-result.html
+    dest: /opt/nginx/zabbix-problems.html
+    owner: root
+    group: root
+    mode: '0644'

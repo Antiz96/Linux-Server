@@ -1,0 +1,5 @@
+---
+- name: "Get current Zabbix problems severity and upload them to web servers"
+  hosts: ws
+  roles:
+    - role: "zabbix_problems_severity"
