@@ -139,6 +139,13 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
+  - title: Uptime Kuma
+    description: Uptime Monitoring
+    icon: hl-uptime-kuma
+    url: https://uptime-kuma.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
   - title: Router
     description: Router configuration interface
     icon: hl-router
