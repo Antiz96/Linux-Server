@@ -159,5 +159,5 @@ sections:
   widgets:
     - type: iframe
       options:
-        url: https://uptime-kuma.home-infra.rc/status/public
+        url: https://uptime-kuma.home-infra.rc/status/dashboard
         frameHeight: 522
