@@ -152,11 +152,12 @@ sections:
     url: https://mabbox.bytel.fr
     target: newtab
 
-# Zabbix problems iframe
-- name: Zabbix Problems
-  icon: fas fa-exclamation
+# Uptime Kuma iframe
+- name: Services Health
+  icon: fas fa-heart
 
   widgets:
     - type: iframe
       options:
-        url: https://zabbix-problems.home-infra.rc/
+        url: https://uptime-kuma.home-infra.rc/status/public
+        frameHeight: 522
