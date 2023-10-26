@@ -22,7 +22,7 @@ sudo docker run -d --restart=unless-stopped -p 3001:3001 -v /opt/uptime-kuma:/ap
 
 ## Access
 
-You can connect to the portainer web interface using the following URL:  
+You can connect to the uptime kuma web interface using the following URL:  
 `http://[HOSTNAME]:3001`
 
 ## Update/Upgrade Procedure
