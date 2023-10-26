@@ -61,54 +61,62 @@ sudo openssl x509 -signkey xxx.key -in xxx.csr -req -days 365 -out xxx.crt
 sudo vim "URL".conf
 ```
 
-> server {  
-> > listen “HOSTNAME or IP”:443 ssl http2;  
-> > server_name “URL”;  
-> >
-> > #Log Path  
-> > access_log /var/log/nginx/”URL”\_access.log;  
-> > error_log /var/log/nginx/”URL”\_error.log;  
-> >
-> > #SSL  
-> > ssl_protocols TLSv1.2 TLSv1.3;  
-> > #Protocols needed for Portainer  
-> > #proxy_ssl_protocols TLSv1.2 TLSv1.3;  
-> > ssl_certificate /opt/ssl/”Filename”.crt;  
-> > ssl_certificate_key /opt/ssl/”Filename”.key;  
-> >
-> > location / {  
-> > > proxy_pass “URL_to_redirect_to”;
-> > >
-> > > #Header needed for Pihole  
-> > > #proxy_set_header Host $host;  
-> > >
-> > > #Extra configuration needed for FileBrowser (disable the max size check for file upload)  
-> > > #client_max_body_size 0;  
-> > >
-> > > #Extra configuration needed for Portainer (websocket for container consoles)  
-> > > #proxy_http_version 1.1;  
-> > > #proxy_set_header Upgrade $http_upgrade;  
-> > > #proxy_set_header Connection "Upgrade";  
-> > > #proxy_set_header Host $host;  
-> > >
-> > > #Extra configuration needed for Proxmox (websocket for VM consoles and disable the max size check for ISO upload)  
-> > > #proxy_http_version 1.1;  
-> > > #proxy_set_header Upgrade $http_upgrade;  
-> > > #proxy_set_header Connection "upgrade";  
-> > > #client_max_body_size 0;  
-> > >
-> > > #HSTS Vulnerability  
-> > > add_header Strict-Transport-Security 'max-age=63072000; includeSubDomains; preload';  
-> > >
-> > > #Nosniff & XSS Protection  
-> > > add_header X-Content-Type-Options nosniff;  
-> > > add_header X-XSS-Protection "1; mode=block";  
-> > > add_header X-Frame-Options SAMEORIGIN always;  
-> > > add_header Content-Security-Policy "frame-ancestors 'self';base-uri 'self';";  
-> >
-> > }  
->
-> }
+```text
+server {
+
+    listen clprd01.rc:443 ssl http2;
+    server_name “URL”;
+
+    # Log Path
+    access_log /var/log/nginx/”URL”_access.log;
+    error_log /var/log/nginx/”URL”_error.log;
+
+    # SSL
+    ssl_protocols TLSv1.2 TLSv1.3;
+    #Protocols needed for Portainer
+    #proxy_ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_certificate /opt/ssl/home-infra.rc.crt;
+    ssl_certificate_key /opt/ssl/home-infra.rc.key;
+
+    location / {
+
+        proxy_pass “URL_to_redirect_to”;
+
+        # Header needed for Pihole
+        #proxy_set_header Host $host;
+
+        # Extra configuration needed for FileBrowser (disable the max size check for file upload)
+        #client_max_body_size 0;
+
+        # Extra configuration needed for Portainer (websocket for container consoles)
+        #proxy_http_version 1.1;
+        #proxy_set_header Upgrade $http_upgrade;
+        #proxy_set_header Connection "Upgrade";
+        #proxy_set_header Host $host;
+
+        # Extra configuration needed for Proxmox (websocket for VM consoles and disable the max size check for ISO upload)
+        #proxy_http_version 1.1;
+        #proxy_set_header Upgrade $http_upgrade;
+        #proxy_set_header Connection "upgrade";
+        #client_max_body_size 0;
+
+        # Extra configuration needed for Uptime Kuma (websocket)
+        #proxy_set_header Upgrade $http_upgrade;
+        #proxy_set_header Connection "upgrade";
+
+        # HSTS Vulnerability
+        add_header Strict-Transport-Security 'max-age=63072000; includeSubDomains; preload';
+
+        # Nosniff & XSS Protection
+        add_header X-Content-Type-Options nosniff;
+        add_header X-XSS-Protection "1; mode=block";
+        add_header X-Frame-Options SAMEORIGIN always;
+        add_header Content-Security-Policy "frame-ancestors 'self';base-uri 'self';";
+
+    }
+
+}
+```
 
 ## Validate and apply new configuration(s)
 
