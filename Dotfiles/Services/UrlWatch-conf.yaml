@@ -122,6 +122,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "goverlay"
+url: https://github.com/benjamimgois/goverlay/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "grafana-zabbix"
 url: https://github.com/grafana/grafana-zabbix/tags
 filter:
@@ -184,6 +190,12 @@ filter:
 
 name: "limine"
 url: https://github.com/limine-bootloader/limine/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "lutris"
+url: https://github.com/lutris/lutris/tags
 filter:
   - grep: "Link--primary"
 ---
