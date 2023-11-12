@@ -45,8 +45,18 @@ sudo chmod 600 /opt/postgres/env/* && sudo chmod 750 /opt/postgres/env
 
 ### Pull and run the container
 
+**Warning:**  
+Upgrading postgres from one major version to another isn't a transparent operation
+
+New major releases come with structure changes that imply a manual intervention for a seamingless update.  
+Also, you want to make sure the application using your postgres database is compatible with the new major postgres release yet before upgrading.
+
+As such, I advise you to **not** use the `latest` tag but to point to an explicit major release (e.g. `14`, `15`, `16`) in your docker command.
+
+See [Upgrade postgres from one major release to another](#upgrade-postgres-from-one-major-release-to-another) for more details.
+
 ```bash
-sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:15
 ```
 
 ### Set an automatic backup of the database (optional)
@@ -60,13 +70,51 @@ There's multiple ways to automate that backup process. You can simply put the ab
 
 Personally, I use an Ansible Playbook that does the dump and delete every dump older than 7 days.  
 This Ansible Playbook is launched automatically each day by my Jenkins instance so it performs one dump a day and keep 7 days of dump.  
-You can see that Ansible Playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/server/roles/dump_db/tasks/main.yml)
+You can see that Ansible Playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/dump_db/tasks/main.yml).
 
 To restore a dump, you can use the following command:
 
 ```bash
-cat "path_to_the_dump" | sudo docker exec -i postgres psql -U "username" -l postgres
+sudo cat "path_to_the_dump" | sudo docker exec -i postgres psql -U $(sudo cat /opt/postgres/env/user) -d $(sudo cat /opt/postgres/env/database)
 ```
+
+### Upgrade postgres from one major release to another
+
+1 - Make a proper backup of the current state of the machine running the postgreSQL container (e.g. a snapshot of the VM).
+
+2 - Stop services using the postgres database, so data are not being written anymore.
+
+3 - Perform a dump of the database:
+
+```bash
+sudo docker exec -t postgres pg_dumpall -c -U $(sudo cat /opt/postgres/env/user) -l $(sudo cat /opt/postgres/env/database) | sudo tee /opt/postgres/backup/$(date +%d-%m-%Y).dump
+```
+
+4 - Remove the "old" container:
+
+```bash
+sudo docker rm -f postgres
+```
+
+5 - Delete the content of the "data" directory (there are structure changes from one major version to another which prevent a major release to use the data structure of the previous one):
+
+```bash
+sudo rm -rf /opt/postgres/data/*
+```
+
+6 - Deploy the new container using the new major release as a tag:
+
+```bash
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:16
+```
+
+7 - Restore the dump you created earlier:
+
+```bash
+sudo cat /opt/postgres/backup/$(date +%d-%m-%Y).dump | sudo docker exec -i postgres psql -U $(sudo cat /opt/postgres/env/user) -d $(sudo cat /opt/postgres/env/database)
+```
+
+8 - Restart services using the postgres database.
 
 ## Update/Upgrade and reinstall procedure
 
@@ -77,7 +125,7 @@ Since we use Docker, the update and upgrade procedure is actually the same as it
 (... to check if there's available updates)
 
 ```bash
-sudo docker pull postgres
+sudo docker pull postgres:15 # Adapt the tag to the one you're currently using
 ```
 
 ### Apply the update
@@ -85,7 +133,7 @@ sudo docker pull postgres
 ```bash
 sudo docker stop postgres
 sudo docker rm postgres
-sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:15 # Adapt the tag to the one you're currently using
 ```
 
 ### After an update
