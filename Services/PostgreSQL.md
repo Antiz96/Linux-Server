@@ -46,7 +46,7 @@ sudo chmod 600 /opt/postgres/env/* && sudo chmod 750 /opt/postgres/env
 ### Pull and run the container
 
 **Warning:**  
-Upgrading postgres from one major version to another isn't a transparent operation:**
+Upgrading postgres from one major version to another isn't a transparent operation
 
 New major releases come with structure changes that imply a manual intervention for a seamingless update.  
 Also, you want to make sure the application using your postgres database is compatible with the new major postgres release yet before upgrading.
