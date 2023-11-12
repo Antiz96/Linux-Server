@@ -93,7 +93,7 @@ sudo docker exec -t postgres pg_dumpall -c -U $(sudo cat /opt/postgres/env/user)
 4 - Remove the "old" container:
 
 ```bash
-sudo docker rm -f postgres`  
+sudo docker rm -f postgres
 ```
 
 5 - Delete the content of the "data" directory (there are structure changes from one major version to another which prevent a major release to use the data structure of the previous one):
@@ -111,6 +111,8 @@ sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt
 ```bash 
 sudo cat /opt/postgres/backup/$(date +%d-%m-%Y).dump | sudo docker exec -i postgres psql -U $(sudo cat /opt/postgres/env/user) -d $(sudo cat /opt/postgres/env/database)
 ```
+
+8 - Restart services using the postgres database.
 
 ## Update/Upgrade and reinstall procedure
 
