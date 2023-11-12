@@ -103,12 +103,14 @@ sudo rm -rf /opt/postgres/data/*
 ```
 
 6 - Deploy the new container using the new major release as a tag:
-```bash 
+
+```bash
 sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:16
 ```
 
 7 - Restore the dump you created earlier:
-```bash 
+
+```bash
 sudo cat /opt/postgres/backup/$(date +%d-%m-%Y).dump | sudo docker exec -i postgres psql -U $(sudo cat /opt/postgres/env/user) -d $(sudo cat /opt/postgres/env/database)
 ```
 
