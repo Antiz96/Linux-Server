@@ -80,13 +80,37 @@ sudo cat "path_to_the_dump" | sudo docker exec -i postgres psql -U $(sudo cat /o
 
 ### Upgrade postgres from one major release to another
 
-1 - Make a proper backup of the current state of the machine running the postgreSQL container (e.g. a snapshot of the VM).  
-2 - Stop services using the postgres database, so data are not being written anymore.  
-3 - Perform a dump of the database: `sudo docker exec -t postgres pg_dumpall -c -U $(sudo cat /opt/postgres/env/user) -l $(sudo cat /opt/postgres/env/database) | sudo tee /opt/postgres/backup/$(date +%d-%m-%Y).dump`  
-4 - Remove the "old" container: `sudo docker rm -f postgres`  
-5 - Delete the content of the "data" directory (there are structure changes from one major version to another which prevent a major release to use the data structure of the previous one): `sudo rm -rf /opt/postgres/data/*`  
-6 - Deploy the new container using the new major release as a tag: `sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:16`  
-7 - Restore the dump you created earlier: `sudo cat /opt/postgres/backup/$(date +%d-%m-%Y).dump | sudo docker exec -i postgres psql -U $(sudo cat /opt/postgres/env/user) -d $(sudo cat /opt/postgres/env/database)`  
+1 - Make a proper backup of the current state of the machine running the postgreSQL container (e.g. a snapshot of the VM).
+
+2 - Stop services using the postgres database, so data are not being written anymore.
+
+3 - Perform a dump of the database:
+
+```bash
+sudo docker exec -t postgres pg_dumpall -c -U $(sudo cat /opt/postgres/env/user) -l $(sudo cat /opt/postgres/env/database) | sudo tee /opt/postgres/backup/$(date +%d-%m-%Y).dump
+```
+
+4 - Remove the "old" container:
+
+```bash
+sudo docker rm -f postgres`  
+```
+
+5 - Delete the content of the "data" directory (there are structure changes from one major version to another which prevent a major release to use the data structure of the previous one):
+
+```bash
+sudo rm -rf /opt/postgres/data/*
+```
+
+6 - Deploy the new container using the new major release as a tag:
+```bash 
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:16
+```
+
+7 - Restore the dump you created earlier:
+```bash 
+sudo cat /opt/postgres/backup/$(date +%d-%m-%Y).dump | sudo docker exec -i postgres psql -U $(sudo cat /opt/postgres/env/user) -d $(sudo cat /opt/postgres/env/database)
+```
 
 ## Update/Upgrade and reinstall procedure
 
