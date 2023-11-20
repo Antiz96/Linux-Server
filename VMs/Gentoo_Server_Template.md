@@ -41,7 +41,7 @@ Replaces the fdisk part in: <https://github.com/Antiz96/Linux-Configuration/blob
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#install-additional-useful-packages>
 
 ```bash
-emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop logrotate
+emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop logrotate fail2ban
 ```
 
 ### Configure various things
@@ -111,6 +111,10 @@ sudo vim /etc/bash/bashrc #Set the inactivity timeout to 15 min
 > TMOUT=900  
 > readonly TMOUT  
 > export TMOUT
+
+#### Configure Fail2Ban
+
+Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
 ### Create and configure the ansible user
 
