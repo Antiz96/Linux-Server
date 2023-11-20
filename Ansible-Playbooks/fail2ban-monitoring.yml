@@ -1,0 +1,5 @@
+---
+- name: "Check the current number of banned IPs via fail2ban"
+  hosts: all
+  roles:
+    - role: "fail2ban-monitoring"

@@ -1,0 +1,16 @@
+---
+# tasks file for fail2ban-monitoring
+
+# Check the current number of banned IPs via the fail2ban-monitoring script (home-made script: https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md#tips-and-tricks)
+- name: Check number of banned IPs
+  ansible.builtin.shell:
+    cmd: fail2ban-monitoring
+  register: banned_num
+  changed_when: banned_num.rc == 0
+
+# Display the number of currently banned IPs
+- name: Display number of banned IPs
+  ansible.builtin.debug:
+    msg: "{{ banned_num.stdout_lines }}"
+  when: banned_num.stdout_lines
+  failed_when: banned_num.stdout != "0"
