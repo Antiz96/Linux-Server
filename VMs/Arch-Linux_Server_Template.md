@@ -42,7 +42,7 @@ Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/B
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages>
 
 ```bash
-pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync zip unzip diffutils mlocate htop logrotate pacman-contrib
+pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync zip unzip diffutils mlocate htop logrotate pacman-contrib fail2ban
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
@@ -113,6 +113,10 @@ sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 > TMOUT=900  
 > readonly TMOUT  
 > export TMOUT
+
+#### Configure Fail2Ban
+
+Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
 ### Create and configure the ansible user
 

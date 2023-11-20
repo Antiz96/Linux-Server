@@ -37,7 +37,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```bash
-apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate
+apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate fail2ban
 ```
 
 ### Configure various things
@@ -95,6 +95,10 @@ sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 > TMOUT=900  
 > readonly TMOUT  
 > export TMOUT
+
+#### Configure Fail2Ban
+
+Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
 ### Create and configure the ansible user
 
