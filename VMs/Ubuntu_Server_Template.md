@@ -67,6 +67,10 @@ vi /etc/ssh/sshd_config
 systemctl restart ssh #Restart the SSH daemon to apply changes (if it fails, you probably have to configure firewalld to accept the port you set first)
 ```
 
+#### Configure Fail2Ban
+
+Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
+
 #### Configure the firewall
 
 ```bash
@@ -84,6 +88,44 @@ apt install qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 ```
 
+#### Install and configure Zabbix Agent
+
+```bash
+firewall-cmd --add-port=10050/tcp --permanent
+firewall-cmd --reload
+apt install zabbix-agent
+vim /etc/zabbix/zabbix_agentd.conf
+```
+
+> [...]  
+> Server=hostname_of_zabbix_server  
+> [...]  
+> ServerActive=hostname_of_zabbix_server  
+> [...]  
+> Hostname=template.rc  
+> [...]  
+> UserParameter=fail2ban_ip_num,/etc/zabbix/scripts/fail2ban_ip_num.sh
+
+```bash
+mkdir /etc/zabbix/scripts
+vim /etc/zabbix/scripts/fail2ban_ip_num.sh
+```
+
+```text
+#!/bin/bash
+
+jails_list=$(fail2ban-client status | grep -w "Jail list:" | cut -f2 | sed s/,//g)
+
+for i in ${jails_list} ; do ban_number=$(( ban_number + $(fail2ban-client status "${i}" | grep -w "Currently banned:" | cut -f2) )) ; done
+
+echo "${ban_number}"
+```
+
+```bash
+chmod +x /etc/zabbix/scripts/fail2ban_ip_num.sh
+systemctl enable --now zabbix-agent
+```
+
 #### Configure the inactivity timeout
 
 ```bash
@@ -95,10 +137,6 @@ sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 > TMOUT=900  
 > readonly TMOUT  
 > export TMOUT
-
-#### Configure Fail2Ban
-
-Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
 ### Create and configure the ansible user
 
