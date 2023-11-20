@@ -121,6 +121,7 @@ echo "${ban_number}"
 chmod +x /etc/zabbix/scripts/fail2ban_ip_num.sh
 systemctl enable --now zabbix-agent
 ```
+
 #### Configure the inactivity timeout
 
 ```bash
