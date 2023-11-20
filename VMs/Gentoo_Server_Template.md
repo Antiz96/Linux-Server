@@ -73,6 +73,10 @@ firewall-cmd --reload #Apply changes
 systemctl restart sshd #Restart the SSH daemon to apply changes
 ```
 
+#### Configure Fail2Ban
+
+Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
+
 #### Install qemu-guest-agent (for proxmox)
 
 ```bash
@@ -94,9 +98,27 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > ServerActive=hostname_of_zabbix_server  
 > [...]  
-> Hostname=template.rc
+> Hostname=template.rc  
+> [...]  
+> UserParameter=fail2ban_ip_num,/etc/zabbix/scripts/fail2ban_ip_num.sh
 
 ```bash
+mkdir /etc/zabbix/scripts
+vim /etc/zabbix/scripts/fail2ban_ip_num.sh
+```
+
+```text
+#!/bin/bash
+
+jails_list=$(fail2ban-client status | grep -w "Jail list:" | cut -f2 | sed s/,//g)
+
+for i in ${jails_list} ; do ban_number=$(( ban_number + $(fail2ban-client status "${i}" | grep -w "Currently banned:" | cut -f2) )) ; done
+
+echo "${ban_number}"
+```
+
+```bash
+chmod +x /etc/zabbix/scripts/fail2ban_ip_num.sh
 systemctl enable --now zabbix-agent
 ```
 
@@ -111,10 +133,6 @@ sudo vim /etc/bash/bashrc #Set the inactivity timeout to 15 min
 > TMOUT=900  
 > readonly TMOUT  
 > export TMOUT
-
-#### Configure Fail2Ban
-
-Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
 ### Create and configure the ansible user
 
