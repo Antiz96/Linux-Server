@@ -102,7 +102,7 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=template.rc  
 > [...]  
-> UserParameter=fail2ban_ip_num,/etc/zabbix/scripts/fail2ban_ip_num.sh
+> UserParameter=fail2ban_ip_num,sudo /etc/zabbix/scripts/fail2ban_ip_num.sh
 
 ```bash
 mkdir /etc/zabbix/scripts
@@ -121,6 +121,12 @@ echo "${ban_number}"
 
 ```bash
 chmod +x /etc/zabbix/scripts/fail2ban_ip_num.sh
+vim /etc/sudoers.d/zabbix-agent
+```
+
+> zabbix-agent ALL=(ALL) NOPASSWD:/etc/zabbix/scripts/fail2ban_ip_num.sh
+
+```bash
 systemctl enable --now zabbix-agent
 ```
 
