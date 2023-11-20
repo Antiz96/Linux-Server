@@ -13,4 +13,4 @@
   ansible.builtin.debug:
     msg: "{{ banned_num.stdout_lines }}"
   when: banned_num.stdout_lines
-  failed_when: banned_num.stdout != "0" 
+  failed_when: banned_num.stdout != "0"
