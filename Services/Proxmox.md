@@ -145,15 +145,29 @@ From the node 2 web UI:
 
 Datacenter --> Cluster --> Join Cluster (Copy paste the join information from node 1, enter the root password of node 1, select the network interface to link to the cluster and click on "Join Cluster")
 
-### Optional - Setup the ssh connection between the two nodes
+### Setup the ssh connection between the two nodes
 
-This part is only needed if you don't use port 22 for the `ssh` service.
+Allow ssh connection for the `root` user using key authentication (ProxMox uses ssh over the `root` user of each node for some specific components such as the vncproxy used to access the console of VMs from another node):
+
+```bash
+sudoedit /etc/ssh/sshd_config
+```
+
+> [...]  
+> PermitRootLogin prohibit-password  
+> [...]
+
+```bash
+sudo systemctl restart sshd
+```
+
+If you don't use port `22` for ssh, create/modify the ssh config of each nodes accordingly:
 
 ```bash
 sudoedit /root/.ssh/config
 ```
 
-> [... ]  
+> [...]  
 > Host "IP_of_node_2"  
 > > Port "Port_number"
 
