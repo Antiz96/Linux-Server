@@ -24,7 +24,7 @@ sudo vim /etc/passwd #(change /bin/zsh to /bin/bash)
 
 ```bash
 sudo pacman-key --refresh-keys
-sudo pacman -Syu && yay -Syu
+sudo pacman -Syu && paru -Syu
 reboot
 ```
 
@@ -147,7 +147,7 @@ sudo chown antiz: /opt/revshell
 ## Install various tools
 
 ```bash
-sudo pacman -S sqlitebrowser && yay -S stegseek
+sudo pacman -S sqlitebrowser && paru -S stegseek
 ```
 
 ## Firefox Bookmark
