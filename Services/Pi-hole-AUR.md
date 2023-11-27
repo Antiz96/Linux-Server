@@ -28,7 +28,7 @@ I basically followed the Arch Wiki: <https://wiki.archlinux.org/title/Pi-hole>
 ### Install the AUR Package and enable the service
 
 ```bash
-yay -S pi-hole-server
+paru -S pi-hole-server
 sudo systemctl status pihole-FTL #If it's in "Failed" state, you might need to reboot
 ```
 
@@ -271,7 +271,7 @@ sudo vim ~/check_update.sh
 ```bash
 #!/bin/bash
 
-PACKAGES=$(/usr/bin/checkupdates | awk '{print $1}' && /usr/bin/yay -Qua | awk '{print $1}')
+PACKAGES=$(/usr/bin/checkupdates | awk '{print $1}' && /usr/bin/paru -Qua | awk '{print $1}')
 >
 if [ -n "$PACKAGES" ]; then
         echo -e "Subject:Server's package list available for update\n\nHello,\n\nThe following packages can be updated on the server :\n$PACKAGES" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com

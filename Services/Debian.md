@@ -189,7 +189,7 @@ sudo ethtool enp3s0 # Adapt network card name if needed
 #### Install wakeonlan on the client
 
 ```bash
-yay -S wakeonlan || sudo apt install wakeonlan
+paru -S wakeonlan || sudo apt install wakeonlan
 ```
 
 #### Get the network card's mac address of the server
