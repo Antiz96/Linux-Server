@@ -175,7 +175,7 @@ sudo reboot
 ## Install useful packages and starting/configuring the firewall
 
 ```bash
-sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils postfix firewalld traceroute rsync zip unzip cronie diffutils git mlocate htop logrotate pacman-contrib
+sudo pacman -S base-devel man bash-completion openssh inetutils dnsutils postfix firewalld traceroute rsync zip unzip cronie diffutils git mlocate htop logrotate pacman-contrib
 sudo systemctl enable --now sshd cronie postfix firewalld paccache.timer logrotate.timer
 sudo updatedb
 sudo mandb
@@ -221,7 +221,7 @@ By default, Arch Linux ARM **aarch64** comes with the mainline Linux kernel.
 I personally advise switching to the Linux RPI kernel for a better hardware support:
 
 ```bash
-sudo pacman -S linux-rpi linux-rpi-headers #Accept to replace conflicting packages
+sudo pacman -S linux-rpi #Accept to replace conflicting packages
 sudo sed -i 's/mmcblk1/mmcblk0/' /etc/fstab
 sudo reboot
 ```
