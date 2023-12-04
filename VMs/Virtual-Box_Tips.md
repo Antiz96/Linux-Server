@@ -8,6 +8,8 @@ You can actually go up to 256MB video memory from the sum up of your VM compared
 
 ### Install the VBox utilities
 
+**Requires kernel headers**
+
 - Arch:
 
 ```bash
@@ -28,7 +30,7 @@ sudo dnf install virtualbox-guest-utils
 
 Then, enable "Bidirectionnal copy-paste/drag-n-drop" in the peripherals settings of Virtual Box.
 
-### Autolaunch at boot for IceWM (and standalone Window Manager in general)
+### Autolaunch at boot for standalone Window Manager (example with IceWM)
 
 ```bash
 vim ~/.icewm/startup
