@@ -8,7 +8,7 @@ You can actually go up to 256MB video memory from the sum up of your VM compared
 
 ### Install the VBox utilities
 
-**Requires kernel headers**
+Requires **kernel headers** to work properly
 
 - Arch:
 
