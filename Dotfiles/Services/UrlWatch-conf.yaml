@@ -2,6 +2,12 @@
 
 ## GitHub
 
+name: "actionlint"
+url: https://github.com/rhysd/actionlint/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "ansible-bender"
 url: https://github.com/ansible-community/ansible-bender/tags
 filter:
@@ -148,6 +154,12 @@ filter:
 
 name: "htmlq"
 url: https://github.com/mgdm/htmlq/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "hugo"
+url: https://github.com/gohugoio/hugo/tags
 filter:
   - grep: "Link--primary"
 ---
