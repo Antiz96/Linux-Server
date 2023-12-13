@@ -157,6 +157,8 @@ pipeline {
                         error("Update Servers - Proxmox - Prod - Pmx02 failed. Aborting pipeline.")
                     }
                 }
+            }
+	}
 
         stage('Update Servers - Proxmox - Prod - Pmx01') {
             steps {
@@ -178,5 +180,4 @@ pipeline {
             }
         }
     }
-  }
 }
