@@ -140,25 +140,6 @@ pipeline {
             }
         }
 
-        stage('Update Servers - Proxmox - Prod - Pmx01') {
-            steps {
-                script {
-                    catchError(buildResult: 'SUCCESS') {
-			build(
-                            job: 'Update_Servers',
-                            parameters: [
-                                string(name: 'SERVER_TYPE', value: 'Proxmox'),
-                                string(name: 'ENV', value: 'prod'),
-                                string(name: 'HOSTS', value: 'pmx01')
-                            ],
-                            propagate: true,
-                            wait: true
-		       )
-		    }
-                }
-            }
-	}
-
         stage('Update Servers - Proxmox - Prod - Pmx02') {
             steps {
                 script {
@@ -178,5 +159,24 @@ pipeline {
                 }
             }
         }
+
+        stage('Update Servers - Proxmox - Prod - Pmx01') {
+            steps {
+                script {
+                    catchError(buildResult: 'SUCCESS') {
+			build(
+                            job: 'Update_Servers',
+                            parameters: [
+                                string(name: 'SERVER_TYPE', value: 'Proxmox'),
+                                string(name: 'ENV', value: 'prod'),
+                                string(name: 'HOSTS', value: 'pmx01')
+                            ],
+                            propagate: true,
+                            wait: true
+		       )
+		    }
+                }
+            }
+	}
     }
 }
