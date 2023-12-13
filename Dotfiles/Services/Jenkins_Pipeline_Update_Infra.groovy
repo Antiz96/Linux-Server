@@ -140,26 +140,6 @@ pipeline {
             }
         }
 
-        stage('Update Servers - Proxmox - Prod - Pmx02') {
-            steps {
-                script {
-                    def result = build(
-                        job: 'Update_Servers',
-                        parameters: [
-                            string(name: 'SERVER_TYPE', value: 'Proxmox'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'HOSTS', value: 'pmx02')
-                        ],
-                        propagate: true,
-                        wait: true
-                    )
-                    if (result == 'FAILURE') {
-                        error("Update Servers - Proxmox - Prod - Pmx02 failed. Aborting pipeline.")
-                    }
-                }
-            }
-	}
-
         stage('Update Servers - Proxmox - Prod - Pmx01') {
             steps {
                 script {
@@ -175,6 +155,26 @@ pipeline {
                     )
                     if (result == 'FAILURE') {
                         error("Update Servers - Proxmox - Prod - Pmx01 failed. Aborting pipeline.")
+                    }
+                }
+            }
+	}
+
+        stage('Update Servers - Proxmox - Prod - Pmx02') {
+            steps {
+                script {
+                    def result = build(
+                        job: 'Update_Servers',
+                        parameters: [
+                            string(name: 'SERVER_TYPE', value: 'Proxmox'),
+                            string(name: 'ENV', value: 'prod'),
+                            string(name: 'HOSTS', value: 'pmx02')
+                        ],
+                        propagate: true,
+                        wait: true
+                    )
+                    if (result == 'FAILURE') {
+                        error("Update Servers - Proxmox - Prod - Pmx02 failed. Aborting pipeline.")
                     }
                 }
             }
