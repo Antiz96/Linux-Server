@@ -143,19 +143,18 @@ pipeline {
         stage('Update Servers - Proxmox - Prod - Pmx01') {
             steps {
                 script {
-                    def result = build(
-                        job: 'Update_Servers',
-                        parameters: [
-                            string(name: 'SERVER_TYPE', value: 'Proxmox'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'HOSTS', value: 'pmx01')
-                        ],
-                        propagate: true,
-                        wait: true
-                    )
-                    if (result == 'FAILURE') {
-                        error("Update Servers - Proxmox - Prod - Pmx01 failed. Aborting pipeline.")
-                    }
+                    catchError(buildResult: 'SUCCESS') {
+			build(
+                            job: 'Update_Servers',
+                            parameters: [
+                                string(name: 'SERVER_TYPE', value: 'Proxmox'),
+                                string(name: 'ENV', value: 'prod'),
+                                string(name: 'HOSTS', value: 'pmx01')
+                            ],
+                            propagate: true,
+                            wait: true
+		       )
+		    }
                 }
             }
 	}
