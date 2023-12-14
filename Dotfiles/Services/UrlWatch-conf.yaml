@@ -158,6 +158,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "hugo"
+url: https://github.com/gohugoio/hugo/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "hyfetch"
 url: https://github.com/hykilpikonna/hyfetch/tags
 filter:
