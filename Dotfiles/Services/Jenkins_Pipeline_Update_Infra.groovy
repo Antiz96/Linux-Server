@@ -163,7 +163,7 @@ pipeline {
         stage('Update Servers - Proxmox - Prod - Pmx01') {
             steps {
                 script {
-                    catchError(buildResult: 'SUCCESS') {
+                    catchError(buildResult: 'FAILURE', stageResult: 'SUCCESS') {
 			build(
                             job: 'Update_Servers',
                             parameters: [
