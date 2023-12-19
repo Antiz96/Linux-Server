@@ -376,6 +376,12 @@ filter:
   - grep: "item-title"
 ---
 
+name: "libplacebo"
+url: https://code.videolan.org/videolan/libplacebo/-/tags
+filter:
+  - grep: "item-title"
+---
+
 name: "notification-daemon"
 url: https://gitlab.gnome.org/Archive/notification-daemon/-/tags
 filter:
