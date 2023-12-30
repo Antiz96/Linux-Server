@@ -38,3 +38,4 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [ZNC - IRC Bouncer](https://github.com/Antiz96/Linux-Server/blob/main/Services/ZNC.md)
 - [Watchtower - Automating docker containers updates](https://github.com/Antiz96/Linux-Server/blob/main/Services/Watchtower.md)
 - [Uptime Kuma - Uptime monitoring](https://github.com/Antiz96/Linux-Server/blob/main/Services/Uptime-Kuma.md)
+- [Homepage - Dashboard](https://github.com/Antiz96/Linux-Server/blob/main/Services/Homepage.md)
