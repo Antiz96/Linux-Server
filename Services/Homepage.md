@@ -40,7 +40,7 @@ sudo docker run -d --name homepage \
 Access the webpage to generate the config and then truncate the file I don't need:
 
 ```bash
-sudo truncate -s 0 /opt/homepage/bookmarks.yaml
+sudo truncate -s 0 /opt/homepage/config/bookmarks.yaml
 ```
 
 ## Update procedure
