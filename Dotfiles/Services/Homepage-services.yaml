@@ -1,0 +1,119 @@
+---
+- Monitoring pmx01:
+    - Glances pmx01:
+        href: https://glances-pmx01.home-infra.rc
+        icon: glances
+        description: Monitoring tool
+        siteMonitor: https://glances-pmx01.home-infra.rc
+        statusStyle: dot
+    - CPU pmx01:
+        widget:
+          type: glances
+          url: https://glances-pmx01.home-infra.rc
+          username:
+          password:
+          metric: cpu
+    - RAM pmx01:
+        widget:
+          type: glances
+          url: https://glances-pmx01.home-infra.rc
+          username:
+          password:
+          metric: memory
+
+- Monitoring pmx02:
+    - Glances pmx02:
+        href: https://glances-pmx02.home-infra.rc
+        icon: glances
+        description: Monitoring tool
+        siteMonitor: https://glances-pmx02.home-infra.rc
+        statusStyle: dot
+    - CPU pmx02:
+        widget:
+          type: glances
+          url: https://glances-pmx02.home-infra.rc
+          username:
+          password:
+          metric: cpu
+    - RAM pmx02:
+        widget:
+          type: glances
+          url: https://glances-pmx02.home-infra.rc
+          username:
+          password:
+          metric: memory
+
+- Services:
+    - Proxmox 1:
+        href: https://proxmox1.home-infra.rc
+        icon: proxmox
+        description: Virtualization platform
+        siteMonitor: https://proxmox1.home-infra.rc
+        statusStyle: dot
+    - Proxmox 2:
+        href: https://proxmox2.home-infra.rc
+        icon: proxmox
+        description: Virtualization platform
+        siteMonitor: https://proxmox2.home-infra.rc
+        statusStyle: dot
+    - Pihole 1:
+        href: https://pihole1.home-infra.rc
+        icon: pi-hole
+        description: DNS - Adblocker
+        siteMonitor: https://pihole1.home-infra.rc
+        statusStyle: dot
+    - Pihole 2:
+        href: https://pihole2.home-infra.rc
+        icon: pi-hole
+        description: DNS - Adblocker
+        siteMonitor: https://pihole2.home-infra.rc
+        statusStyle: dot
+    - Jenkins:
+        href: https://jenkins.home-infra.rc
+        icon: jenkins
+        description: Automation - Orchestrator
+        siteMonitor: https://jenkins.home-infra.rc
+        statusStyle: dot
+    - FileBrowser:
+        href: https://filebrowser.home-infra.rc
+        icon: filebrowser
+        description: Private cloud
+        siteMonitor: https://filebrowser.home-infra.rc
+        statusStyle: dot
+    - ZNC:
+        href: https://znc.home-infra.rc
+        icon: znc
+        description: IRC Bouncer
+        siteMonitor: https://znc.home-infra.rc
+        statusStyle: dot
+    - Portainer:
+        href: https://portainer.home-infra.rc
+        icon: portainer
+        description: Docker container manager
+        siteMonitor: https://portainer.home-infra.rc
+        statusStyle: dot
+    - Zabbix:
+        href: https://zabbix.home-infra.rc
+        icon: zabbix
+        description: Monitoring Server
+        siteMonitor: https://zabbix.home-infra.rc
+        statusStyle: dot
+    - Uptime Kuma:
+        href: https://uptime-kuma.home-infra.rc
+        icon: uptime-kuma
+        description: Uptime Monitoring
+        siteMonitor: https://uptime-kuma.home-infra.rc
+        statusStyle: dot
+    - Router:
+        href: https://mabbox.bytel.fr
+        icon: box
+        description: Router configuration interface
+        siteMonitor: https://mabbox.bytel.fr
+        statusStyle: dot
+
+- Services Health:
+    - Uptime Kuma Dashboard:
+        widget:
+          type: uptimekuma
+          url: https://uptime-kuma.home-infra.rc
+          slug: dashboard

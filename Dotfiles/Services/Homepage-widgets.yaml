@@ -1,0 +1,20 @@
+---
+- search:
+    provider: custom
+    url: https://swisscows.com/fr/web?query=
+    target: _blank
+
+- openmeteo:
+    label: Rouen
+    latitude: 49.443232
+    longitude: 1.099971
+    timezone: Europe/Paris
+    units: metric
+    cache: 5
+
+- datetime:
+    locale: fr
+    text_size: xl
+    format:
+      dateStyle: short
+      timeStyle: short
