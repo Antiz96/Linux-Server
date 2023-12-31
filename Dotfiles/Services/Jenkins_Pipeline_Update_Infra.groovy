@@ -156,6 +156,7 @@ pipeline {
                     if (result == 'FAILURE') {
                         error("Update Servers - Proxmox - Prod - Pmx02 failed. Aborting pipeline.")
                     }
+		    input("Proceed with Update Servers - Proxmox - Prod - Pmx01?")
                 }
             }
         }
