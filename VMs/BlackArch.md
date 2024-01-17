@@ -8,7 +8,7 @@ Just a quick reminder on how I install BlackArch to practice security stuff.
 
 ### Partition scheme
 
-> 550M EFI  
+> 1G EFI  
 > 4G Swap  
 > Left ext4 root
 
