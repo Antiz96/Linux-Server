@@ -13,7 +13,7 @@ I do not select anything during the installation process (no DE, no standard or 
 
 **System Disk:**  
 
-- ESP   --> 1G
+- ESP   --> 1 GB
 - Swap  --> 4 GB
 - /     --> 25 GB (0% reserved block) - ext4
 - /data --> Left free space (0% reserved block) - ext4
