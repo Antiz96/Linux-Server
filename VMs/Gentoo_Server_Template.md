@@ -19,13 +19,13 @@ Replaces the fdisk part in: <https://github.com/Antiz96/Linux-Configuration/blob
 
 - Personal context:
 
-> EFI partition mounted on /boot/EFI --> 550M - ESP  
+> EFI partition mounted on /boot/EFI --> 1G - ESP  
 > Swap partition --> 4G - SWAP  
 > Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)
 
 - Professional context:
 
-> EFI partition mounted on /boot --> 550M - FAT32  
+> EFI partition mounted on /boot --> 1G - FAT32  
 > Swap partition --> 4G - SWAP  
 > Root partition --> Left free space - XFS - LVM  
 > > / --> 3G  

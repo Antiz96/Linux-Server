@@ -17,13 +17,13 @@ I basically follow each installation steps normally with the following exception
 
 - Personal context:
 
-> EFI partition mounted on /boot/EFI --> 550M - ESP  
+> EFI partition mounted on /boot/EFI --> 1G - ESP  
 > Swap partition --> 4G - SWAP  
 > Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)
 
 - Professional context:
 
-> EFI partition mounted on /boot --> 550M - ESP  
+> EFI partition mounted on /boot --> 1G - ESP  
 > Swap partition --> 4G - SWAP  
 > Root partition --> Left free space - XFS - LVM  
 > > / --> 3G  
