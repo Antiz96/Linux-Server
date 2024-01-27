@@ -314,6 +314,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "retsnoop"
+url: https://github.com/anakryiko/retsnoop/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "rofi"
 url: https://github.com/davatorium/rofi/tags
 filter:
