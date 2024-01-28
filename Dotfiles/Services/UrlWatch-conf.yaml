@@ -176,6 +176,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "iotop-c"
+url: https://github.com/Tomas-M/iotop/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "jbig2dec"
 url: https://github.com/ArtifexSoftware/jbig2dec/tags
 filter:
