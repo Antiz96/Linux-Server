@@ -362,6 +362,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "yubico-piv-tool"
+url: https://github.com/Yubico/yubico-piv-tool/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "zabbix"
 url: https://github.com/zabbix/zabbix/tags
 filter:
