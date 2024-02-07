@@ -1,6 +1,4 @@
-# Arch
-
-## GitHub
+# GitHub
 
 name: "actionlint"
 url: https://github.com/rhysd/actionlint/tags
@@ -32,8 +30,26 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "arch-update"
+url: https://github.com/Antiz96/arch-update/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "bash-bats"
 url: https://github.com/bats-core/bats-core/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "bd"
+url: https://github.com/vigneshwaranr/bd/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "blahaj"
+url: https://github.com/GeopJr/BLAHAJ/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -46,6 +62,18 @@ filter:
 
 name: "bluez"
 url: https://github.com/bluez/bluez/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "certificate-ripper"
+url: https://github.com/Hakky54/certificate-ripper/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "clipboard"
+url: https://github.com/Slackadays/Clipboard/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -76,6 +104,12 @@ filter:
 
 name: "distrobox"
 url: https://github.com/89luca89/distrobox/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "dnote"
+url: https://github.com/dnote/dnote/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -112,6 +146,12 @@ filter:
 
 name: "gitea"
 url: https://github.com/go-gitea/gitea/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "gitmux"
+url: https://github.com/arl/gitmux/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -212,8 +252,20 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "lowcharts"
+url: https://github.com/juan-leon/lowcharts/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "lutris"
 url: https://github.com/lutris/lutris/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "malias"
+url: https://github.com/Antiz96/malias/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -238,6 +290,12 @@ filter:
 
 name: "mupdf"
 url: https://github.com/ArtifexSoftware/mupdf/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "only-office"
+url: https://github.com/ONLYOFFICE/DesktopEditors/tags
 filter:
   - grep: "Link--primary"
 ---
@@ -362,6 +420,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "wakeonlan"
+url: https://github.com/jpoliv/wakeonlan/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "yubico-piv-tool"
 url: https://github.com/Yubico/yubico-piv-tool/tags
 filter:
@@ -374,7 +438,19 @@ filter:
   - grep: "Link--primary"
 ---
 
-## GitLab
+name: "zaman"
+url: https://github.com/Antiz96/zaman/tags
+filter:
+  - grep: "Link--primary"
+---
+
+# GitLab
+
+name: "ame"
+url: https://git.getcryst.al/crystal/software/amethyst/-/tags
+filter:
+  - grep: "item-title"
+---
 
 name: "gajim"
 url: https://dev.gajim.org/gajim/gajim/-/tags
@@ -396,6 +472,12 @@ filter:
 
 name: "libplacebo"
 url: https://code.videolan.org/videolan/libplacebo/-/tags
+filter:
+  - grep: "item-title"
+---
+
+name: "malachite"
+url: https://git.getcryst.al/crystal/software/malachite/-/tags
 filter:
   - grep: "item-title"
 ---
@@ -472,7 +554,7 @@ filter:
   - grep: "item-title"
 ---
 
-## Pypi
+# Pypi
 
 name: "ansible"
 url: https://pypi.org/project/ansible/#history
@@ -486,91 +568,7 @@ filter:
   - grep: "card release__card"
 ---
 
-# AUR
-
-## GitHub
-
-name: "arch-update"
-url: https://github.com/Antiz96/arch-update/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "bd"
-url: https://github.com/vigneshwaranr/bd/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "blahaj"
-url: https://github.com/GeopJr/BLAHAJ/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "certificate-ripper"
-url: https://github.com/Hakky54/certificate-ripper/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "clipboard"
-url: https://github.com/Slackadays/Clipboard/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "dnote"
-url: https://github.com/dnote/dnote/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "gitmux"
-url: https://github.com/arl/gitmux/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "lowcharts"
-url: https://github.com/juan-leon/lowcharts/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "malias"
-url: https://github.com/Antiz96/malias/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "only-office"
-url: https://github.com/ONLYOFFICE/DesktopEditors/tags
-filter:
-  - grep: "Link--primary"
----
-
-name: "zaman"
-url: https://github.com/Antiz96/zaman/tags
-filter:
-  - grep: "Link--primary"
----
-
-## GitLab
-
-name: "ame"
-url: https://git.getcryst.al/crystal/software/amethyst/-/tags
-filter:
-  - grep: "item-title"
----
-
-name: "malachite"
-url: https://git.getcryst.al/crystal/software/malachite/-/tags
-filter:
-  - grep: "item-title"
----
-
-## Other
+# Other
 
 name: "spotify"
 url: http://repository.spotify.com/dists/testing/non-free/binary-amd64/Packages
