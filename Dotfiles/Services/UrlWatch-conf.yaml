@@ -348,6 +348,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "python-pymupdf"
+url: https://github.com/pymupdf/PyMuPDF/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "python-sentry_sdk"
 url: https://github.com/getsentry/sentry-python/tags
 filter:
