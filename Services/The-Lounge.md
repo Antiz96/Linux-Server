@@ -21,6 +21,12 @@ sudo mkdir /opt/thelounge
 sudo docker run -d --restart=unless-stopped -p 9000:9000 -v /opt/thelounge:/var/opt/thelounge --name thelounge ghcr.io/thelounge/thelounge:latest
 ```
 
+## Create a user for the web client
+
+```bash
+sudo docker exec --user node -it thelounge thelounge add [username]
+```
+
 ## Access
 
 You can connect to the the lounge web client using the following URL:  
