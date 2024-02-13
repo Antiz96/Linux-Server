@@ -118,10 +118,10 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: ZNC
-    description: IRC Bouncer
+  - title: The Lounge
+    description: IRC Client
     icon: hl-irc
-    url: https://znc.home-infra.rc
+    url: https://the-lounge.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 

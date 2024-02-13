@@ -80,11 +80,11 @@
         description: Private cloud
         siteMonitor: https://filebrowser.home-infra.rc
         statusStyle: dot
-    - ZNC:
-        href: https://znc.home-infra.rc
-        icon: znc
-        description: IRC Bouncer
-        siteMonitor: https://znc.home-infra.rc
+    - The Lounge:
+        href: https://the-lounge.home-infra.rc
+        icon: thelounge
+        description: IRC Client
+        siteMonitor: https://the-lounge.home-infra.rc
         statusStyle: dot
     - Portainer:
         href: https://portainer.home-infra.rc
