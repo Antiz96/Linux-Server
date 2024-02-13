@@ -36,6 +36,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [PostgreSQL - Database](https://github.com/Antiz96/Linux-Server/blob/main/Services/PostgreSQL.md)
 - [Zabbix - Monitoring Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Zabbix.md)
 - [ZNC - IRC Bouncer](https://github.com/Antiz96/Linux-Server/blob/main/Services/ZNC.md)
+- [The Lounge - Web IRC Client](https://github.com/Antiz96/Linux-Server/blob/main/Services/The-Lounge.md)
 - [Watchtower - Automating docker containers updates](https://github.com/Antiz96/Linux-Server/blob/main/Services/Watchtower.md)
 - [Uptime Kuma - Uptime monitoring](https://github.com/Antiz96/Linux-Server/blob/main/Services/Uptime-Kuma.md)
 - [Homepage - Dashboard](https://github.com/Antiz96/Linux-Server/blob/main/Services/Homepage.md)
