@@ -18,27 +18,27 @@ sudo mkdir /opt/thelounge
 ### Download and launch the docker container
 
 ```bash
-sudo docker run -d --restart=unless-stopped -p 9000:9000 -v /opt/thelounge:/var/opt/thelounge --name thelounge ghcr.io/thelounge/thelounge:latest
+sudo docker run -d --restart=unless-stopped -p 113:9001 -p 9000:9000 -v /opt/thelounge:/var/opt/thelounge --name the-lounge ghcr.io/thelounge/thelounge:latest
 ```
 
 ## Create a user for the web client
 
 ```bash
-sudo docker exec --user node -it thelounge thelounge add [username]
+sudo docker exec --user node -it the-lounge thelounge add [username]
 ```
 
 ## Access
 
-You can connect to the the lounge web client using the following URL:  
+You can connect to the 'the lounge' web client using the following URL:  
 `http://[HOSTNAME]:9000`
 
 ## Update/Upgrade Procedure
 
 ```bash
 sudo docker pull ghcr.io/thelounge/thelounge:latest
-sudo docker stop thelounge
-sudo docker rm thelounge
-sudo docker run -d --restart=unless-stopped -p 9000:9000 -v /opt/thelounge:/var/opt/thelounge --name thelounge ghcr.io/thelounge/thelounge:latest
+sudo docker stop the-lounge
+sudo docker rm the-lounge
+sudo docker run -d --restart=unless-stopped -p 113:9001 -p 9000:9000 -v /opt/thelounge:/var/opt/thelounge --name the-lounge ghcr.io/thelounge/thelounge:latest
 ```
 
 ### After an update
