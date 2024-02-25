@@ -1,7 +1,7 @@
 ---
 - search:
     provider: custom
-    url: https://swisscows.com/fr/web?query=
+    url: https://www.gibiru.com/results.html?q=
     target: _blank
 
 - openmeteo:
