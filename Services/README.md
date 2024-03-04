@@ -16,6 +16,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [Pi-hole - DNS, DHCP and global Ad-Blocking server (AUR Package)](https://github.com/Antiz96/Linux-Server/blob/main/Services/Pi-hole-AUR.md)
 - [Nginx - Reverse Proxy](https://github.com/Antiz96/Linux-Server/blob/main/Services/Nginx.md)
 - [Kea - DHCP Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Kea.md)
+- [Gitea - Git Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Gitea.md)
 - [KeepAlived - Clustering solution](https://github.com/Antiz96/Linux-Server/blob/main/Services/KeepAlived.md)
 - [Fail2Ban - Anti-Bruteforce solution](https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md)
 - [SFTP - FTP server over SSH](https://github.com/Antiz96/Linux-Server/blob/main/Services/SFTP.md)
