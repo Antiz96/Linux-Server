@@ -26,7 +26,7 @@ sudo pacman -S sqlite
 Optionally, you can modify the default `app.ini` configuration file to customize Gitea's settings. See the two links at the top of this chapter for more information.  
 *If you're fine using the default settings, you can skip that part. The required settings to run Gitea can be customized graphically from the WebUI when accessing it the first time.
 
-```
+```bash
 sudo -e /etc/gitea/app.ini
 ```
 
