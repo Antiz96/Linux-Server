@@ -47,13 +47,13 @@
     - Proxmox 1:
         href: https://proxmox1.home-infra.rc
         icon: proxmox
-        description: Virtualization platform
+        description: Hypervisor
         siteMonitor: https://proxmox1.home-infra.rc
         statusStyle: dot
     - Proxmox 2:
         href: https://proxmox2.home-infra.rc
         icon: proxmox
-        description: Virtualization platform
+        description: Hypervisor
         siteMonitor: https://proxmox2.home-infra.rc
         statusStyle: dot
     - Pihole 1:
@@ -68,35 +68,35 @@
         description: DNS - Adblocker
         siteMonitor: https://pihole2.home-infra.rc
         statusStyle: dot
+    - Zabbix:
+        href: https://zabbix.home-infra.rc
+        icon: zabbix
+        description: Monitoring Server
+        siteMonitor: https://zabbix.home-infra.rc
+        statusStyle: dot
     - Jenkins:
         href: https://jenkins.home-infra.rc
         icon: jenkins
         description: Automation - Orchestrator
         siteMonitor: https://jenkins.home-infra.rc
         statusStyle: dot
+    - Gitea:
+        href: https://gitea.home-infra.rc
+        icon: gitea
+        description: Git Server
+        siteMonitor: https://gitea.home-infra.rc
+        statusStyle: dot
     - FileBrowser:
         href: https://filebrowser.home-infra.rc
         icon: filebrowser
-        description: Private cloud
+        description: Private Cloud
         siteMonitor: https://filebrowser.home-infra.rc
-        statusStyle: dot
-    - The Lounge:
-        href: https://the-lounge.home-infra.rc
-        icon: thelounge
-        description: IRC Client
-        siteMonitor: https://the-lounge.home-infra.rc
         statusStyle: dot
     - Portainer:
         href: https://portainer.home-infra.rc
         icon: portainer
-        description: Docker container manager
+        description: Docker Container Manager
         siteMonitor: https://portainer.home-infra.rc
-        statusStyle: dot
-    - Zabbix:
-        href: https://zabbix.home-infra.rc
-        icon: zabbix
-        description: Monitoring Server
-        siteMonitor: https://zabbix.home-infra.rc
         statusStyle: dot
     - Uptime Kuma:
         href: https://uptime-kuma.home-infra.rc
@@ -104,10 +104,16 @@
         description: Uptime Monitoring
         siteMonitor: https://uptime-kuma.home-infra.rc
         statusStyle: dot
+    - The Lounge:
+        href: https://the-lounge.home-infra.rc
+        icon: thelounge
+        description: IRC Client
+        siteMonitor: https://the-lounge.home-infra.rc
+        statusStyle: dot
     - Router:
         href: https://mabbox.bytel.fr
         icon: box
-        description: Router configuration interface
+        description: Router Configuration Interface
         siteMonitor: https://mabbox.bytel.fr
         statusStyle: dot
 
