@@ -13,7 +13,7 @@ sudo pacman -S gitea
 <https://docs.gitea.com/administration/customizing-gitea>  
 <https://docs.gitea.com/administration/config-cheat-sheet>
 
-Since this Gitea instance is only for my personal usage, I'm using SQLite as a built-in database for an easy and straightforward setup and maintainance.  
+Since this Gitea instance is only for my personal usage, I'm using SQLite as a built-in database for an easy and straightforward setup and maintenance.  
 If you intend to use Gitea at a production grade with a high number of connections and users, you should consider using PostgreSQL or MariaDB instead:  
 <https://docs.gitea.com/installation/database-prep>
 <https://wiki.archlinux.org/title/Gitea#Configuration>
