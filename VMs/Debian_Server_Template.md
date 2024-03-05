@@ -45,7 +45,7 @@ apt update && apt install sudo vim man bash-completion openssh-server dnsutils t
 #### Enable services
 
 ```bash
-systemctl enable --now ssh logrotate.timer
+systemctl enable --now ssh logrotate.timer fstrim.timer
 ```
 
 #### Secure SSH connection

@@ -32,6 +32,7 @@ reboot
 
 ```bash
 sudo pacman -S bash-completion traceroute neofetch dmenu zathura zathura-pdf-poppler numlockx
+sudo systemctl enable --now fstrim.timer
 ```
 
 #### Install virtualbox addons (if needed)

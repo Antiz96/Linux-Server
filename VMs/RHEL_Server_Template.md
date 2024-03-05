@@ -63,7 +63,7 @@ vim /etc/selinux/config
 #### Enable services
 
 ```bash
-systemctl enable --now sshd logrotate.timer
+systemctl enable --now sshd logrotate.timer fstrim.timer
 ```
 
 #### Secure SSH connection
