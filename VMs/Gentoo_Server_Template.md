@@ -49,7 +49,7 @@ emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute 
 #### Enable services
 
 ```bash
-systemctl enable --now sshd cronie logrotate.timer
+systemctl enable --now sshd cronie logrotate.timer fstrim.timer
 ```
 
 #### Secure SSH connection

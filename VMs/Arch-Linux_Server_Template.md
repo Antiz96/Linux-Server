@@ -43,7 +43,6 @@ Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/B
 
 ```bash
 pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync zip unzip diffutils mlocate htop logrotate pacman-contrib fail2ban
-grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### Configure various things
@@ -51,7 +50,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 #### Enable services/timers
 
 ```bash
-systemctl enable --now sshd paccache.timer logrotate.timer
+systemctl enable --now sshd paccache.timer logrotate.timer fstrim.timer
 ```
 
 #### Secure SSH connection
