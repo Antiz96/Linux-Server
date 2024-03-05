@@ -10,7 +10,7 @@
 
 ### Disk
 
-- Check the "Discard" option (for thin provisioning)
+- Check the "Discard" and the "SSD emulation" options (for thin provisioning and trim)
 
 ### CPU
 
