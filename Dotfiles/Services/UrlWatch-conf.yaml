@@ -246,6 +246,12 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "libconfig"
+url: https://github.com/hyperrealm/libconfig/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "limine"
 url: https://github.com/limine-bootloader/limine/tags
 filter:
@@ -342,6 +348,18 @@ filter:
   - grep: "Link--primary"
 ---
 
+name: "python-fastapi"
+url: https://github.com/tiangolo/fastapi/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "python-gnupg"
+url: https://github.com/vsajip/python-gnupg/tags
+filter:
+  - grep: "Link--primary"
+---
+
 name: "python-mistune"
 url: https://github.com/lepture/mistune/tags
 filter:
@@ -356,6 +374,18 @@ filter:
 
 name: "python-sentry_sdk"
 url: https://github.com/getsentry/sentry-python/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "python-starlette"
+url: https://github.com/encode/starlette/tags
+filter:
+  - grep: "Link--primary"
+---
+
+name: "python-tabulate"
+url: https://github.com/astanin/python-tabulate/tags
 filter:
   - grep: "Link--primary"
 ---
