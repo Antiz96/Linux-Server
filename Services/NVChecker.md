@@ -50,7 +50,7 @@ nvchecker_output="$(nvchecker 2>&1)"
 
 if [ -n "${nvchecker_output}" ]; then
         echo -e "\n${nvchecker_output}\n"
-        echo -e "Subject:NVChecker - New upstream releases\n\n${nvchecker_output}" | sendmail antiz@archlinux.org || exit 1
+        echo -e "Subject:NVChecker - New upstream releases\n\n${nvchecker_output}" | sendmail youremailaddress@mail.com || exit 1
         nvtake --all
 else
         echo -e "\nNo new upstream release\n"
