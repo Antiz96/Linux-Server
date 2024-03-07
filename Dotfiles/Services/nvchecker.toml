@@ -1,0 +1,630 @@
+[__config__]
+oldver = "old.txt"
+newver = "new.txt"
+keyfile = "keyfile.toml"
+
+# GitHub
+
+[actionlint]
+source = "github"
+github = "rhysd/actionlint"
+prefix = "v"
+use_max_tag = true
+
+[ansible-bender]
+source = "github"
+github = "ansible-community/ansible-bender"
+prefix = "v"
+use_max_tag = true
+
+[ansible-core]
+source = "github"
+github = "ansible/ansible"
+prefix = "v"
+use_max_tag = true
+
+[ansible-language-server]
+source = "github"
+github= "ansible/ansible-language-server"
+prefix = "v"
+use_max_tag = true
+
+[ansible-lint]
+source = "github"
+github = "ansible/ansible-lint"
+prefix = "v"
+use_max_tag = true
+
+[arch-update]
+source = "github"
+github = "Antiz96/arch-update"
+prefix = "v"
+use_max_tag = true
+
+[bash-bats]
+source = "github"
+github = "bats-core/bats-core"
+prefix = "v"
+use_max_tag = true
+
+[bd]
+source = "github"
+github = "vigneshwaranr/bd"
+prefix = "v"
+use_max_tag = true
+
+[blahaj]
+source = "github"
+github = "GeopJr/BLAHAJ"
+prefix = "v"
+use_max_tag = true
+
+[blueman]
+source = "github"
+github = "blueman-project/blueman"
+prefix = "v"
+use_max_tag = true
+
+[certificate-ripper]
+source = "github"
+github = "Hakky54/certificate-ripper"
+prefix = "v"
+use_max_tag = true
+
+[clipboard]
+source = "github"
+github = "Slackadays/Clipboard"
+prefix = "v"
+use_max_tag = true
+
+[codespell]
+source = "github"
+github = "codespell-project/codespell"
+prefix = "v"
+use_max_tag = true
+
+[containerd]
+source = "github"
+github = "containerd/containerd"
+prefix = "v"
+use_max_tag = true
+
+[ddgr]
+source = "github"
+github = "jarun/ddgr"
+prefix = "v"
+use_max_tag = true
+
+[dino]
+source = "github"
+github = "dino/dino"
+prefix = "v"
+use_max_tag = true
+
+[distrobox]
+source = "github"
+github = "89luca89/distrobox"
+prefix = "v"
+use_max_tag = true
+
+[dnote]
+source = "github"
+github = "dnote/dnote"
+prefix = "v"
+use_max_tag = true
+
+[elixir]
+source = "github"
+github = "elixir-lang/elixir"
+prefix = "v"
+use_max_tag = true
+
+[entr]
+source = "github"
+github = "eradman/entr"
+prefix = "v"
+use_max_tag = true
+
+[fastfetch]
+source = "github"
+github = "fastfetch-cli/fastfetch"
+prefix = "v"
+use_max_tag = true
+
+[firewalld]
+source = "github"
+github = "firewalld/firewalld"
+prefix = "v"
+use_max_tag = true
+
+[font-awesome]
+source = "github"
+github = "FortAwesome/Font-Awesome"
+prefix = "v"
+use_max_tag = true
+
+[gitea]
+source = "github"
+github = "go-gitea/gitea"
+prefix = "v"
+use_max_tag = true
+
+[gitmux]
+source = "github"
+github = "arl/gitmux"
+prefix = "v"
+use_max_tag = true
+
+[glances]
+source = "github"
+github = "nicolargo/glances"
+prefix = "v"
+use_max_tag = true
+
+[glow]
+source = "github"
+github = "charmbracelet/glow"
+prefix = "v"
+use_max_tag = true
+
+[goverlay]
+source = "github"
+github = "benjamimgois/goverlay"
+prefix = "v"
+use_max_tag = true
+
+[grafana-zabbix]
+source = "github"
+github = "grafana/grafana-zabbix"
+prefix = "v"
+use_max_tag = true
+
+[gsimplecal]
+source = "github"
+github = "dmedvinsky/gsimplecal"
+prefix = "v"
+use_max_tag = true
+
+[hexchat]
+source = "github"
+github = "hexchat/hexchat"
+prefix = "v"
+use_max_tag = true
+
+[htmlq]
+source = "github"
+github = "mgdm/htmlq"
+prefix = "v"
+use_max_tag = true
+
+[hugo]
+source = "github"
+github = "gohugoio/hugo"
+prefix = "v"
+use_max_tag = true
+
+[hyfetch]
+source = "github"
+github = "hykilpikonna/hyfetch"
+prefix = "v"
+use_max_tag = true
+
+[icewm]
+source = "github"
+github = "ice-wm/icewm"
+prefix = "v"
+use_max_tag = true
+
+[iotop-c]
+source = "github"
+github = "Tomas-M/iotop"
+prefix = "v"
+use_max_tag = true
+
+[jbig2dec]
+source = "github"
+github = "ArtifexSoftware/jbig2dec"
+prefix = "v"
+use_max_tag = true
+
+[jenkins]
+source = "github"
+github = "jenkinsci/jenkins"
+prefix = "v"
+use_max_tag = true
+
+[keepassxc]
+source = "github"
+github = "keepassxreboot/keepassxc"
+prefix = "v"
+use_max_tag = true
+
+[libcgif]
+source = "github"
+github = "dloebl/cgif"
+prefix = "v"
+use_max_tag = true
+
+[libconfig]
+source = "github"
+github = "hyperrealm/libconfig"
+prefix = "v"
+use_max_tag = true
+
+[limine]
+source = "github"
+github = "limine-bootloader/limine"
+prefix = "v"
+use_max_tag = true
+
+[lowcharts]
+source = "github"
+github = "juan-leon/lowcharts"
+prefix = "v"
+use_max_tag = true
+
+[lutris]
+source = "github"
+github = "lutris/lutris"
+prefix = "v"
+use_max_tag = true
+
+[malias]
+source = "github"
+github = "Antiz96/malias"
+prefix = "v"
+use_max_tag = true
+
+[markdownlint]
+source = "github"
+github = "markdownlint/markdownlint"
+prefix = "v"
+use_max_tag = true
+
+[molecule]
+source = "github"
+github = "ansible/molecule"
+prefix = "v"
+use_max_tag = true
+
+[mpv]
+source = "github"
+github = "mpv-player/mpv"
+prefix = "v"
+use_max_tag = true
+
+[mupdf]
+source = "github"
+github = "ArtifexSoftware/mupdf"
+prefix = "v"
+use_max_tag = true
+
+[only-office]
+source = "github"
+github = "ONLYOFFICE/DesktopEditors"
+prefix = "v"
+use_max_tag = true
+
+[pasystray]
+source = "github"
+github = "christophgysin/pasystray"
+prefix = "v"
+use_max_tag = true
+
+[pdfjs_pdfjs-legacy]
+source = "github"
+github = "mozilla/pdf.js"
+prefix = "v"
+use_max_tag = true
+
+[picom]
+source = "github"
+github = "yshui/picom"
+prefix = "v"
+use_max_tag = true
+
+[piper]
+source = "github"
+github = "libratbag/piper"
+prefix = "v"
+use_max_tag = true
+
+[powerline]
+source = "github"
+github = "powerline/powerline"
+prefix = "v"
+use_max_tag = true
+
+[pychess]
+source = "github"
+github = "pychess/pychess"
+prefix = "v"
+use_max_tag = true
+
+[python-ansible-compat]
+source = "github"
+github = "ansible/ansible-compat"
+prefix = "v"
+use_max_tag = true
+
+[python-fastapi]
+source = "github"
+github = "tiangolo/fastapi"
+prefix = "v"
+use_max_tag = true
+
+[python-gnupg]
+source = "github"
+github = "vsajip/python-gnupg"
+prefix = "v"
+use_max_tag = true
+
+[python-mistune]
+source = "github"
+github = "lepture/mistune"
+prefix = "v"
+use_max_tag = true
+
+[python-pymupdf]
+source = "github"
+github = "pymupdf/PyMuPDF"
+prefix = "v"
+use_max_tag = true
+
+[python-sentry_sdk]
+source = "github"
+github = "getsentry/sentry-python"
+prefix = "v"
+use_max_tag = true
+
+[python-starlette]
+source = "github"
+github = "encode/starlette"
+prefix = "v"
+use_max_tag = true
+
+[python-tabulate]
+source = "github"
+github = "astanin/python-tabulate"
+prefix = "v"
+use_max_tag = true
+
+[python-tqdm]
+source = "github"
+github = "tqdm/tqdm"
+prefix = "v"
+use_max_tag = true
+
+[python-userpath]
+source = "github"
+github = "ofek/userpath"
+prefix = "v"
+use_max_tag = true
+
+[py3status]
+source = "github"
+github = "ultrabug/py3status"
+prefix = "v"
+use_max_tag = true
+
+[redshit]
+source = "github"
+github = "jonls/redshift"
+prefix = "v"
+use_max_tag = true
+
+[retsnoop]
+source = "github"
+github = "anakryiko/retsnoop"
+prefix = "v"
+use_max_tag = true
+
+[rofi]
+source = "github"
+github = "davatorium/rofi"
+prefix = "v"
+use_max_tag = true
+
+[systray-x]
+source = "github"
+github = "Ximi1970/systray-x"
+prefix = "v"
+use_max_tag = true
+
+[timeshift]
+source = "github"
+github = "linuxmint/timeshift"
+prefix = "v"
+use_max_tag = true
+
+[touchegg]
+source = "github"
+github = "JoseExposito/touchegg"
+prefix = "v"
+use_max_tag = true
+
+[urlwatch]
+source = "github"
+github = "thp/urlwatch"
+prefix = "v"
+use_max_tag = true
+
+[vim-ansible]
+source = "github"
+github = "pearofducks/ansible-vim"
+prefix = "v"
+use_max_tag = true
+
+[wakeonlan]
+source = "github"
+github = "jpoliv/wakeonlan"
+prefix = "v"
+use_max_tag = true
+
+[yubico-piv-tool]
+source = "github"
+github = "Yubico/yubico-piv-tool"
+prefix = "v"
+use_max_tag = true
+
+[zabbix]
+source = "github"
+github = "zabbix/zabbix"
+prefix = "v"
+use_max_tag = true
+
+[zaman]
+source = "github"
+github = "Antiz96/zaman"
+prefix = "v"
+use_max_tag = true
+
+# GitLab
+
+[ame]
+source = "gitlab"
+gitlab = "crystal-linux/software/amethyst"
+prefix = "v"
+use_max_tag = true
+
+[gajim]
+source = "gitlab"
+host = "dev.gajim.org"
+gitlab = "gajim/gajim"
+prefix = "v"
+use_max_tag = true
+
+[girara]
+source = "gitlab"
+host = "git.pwmt.org"
+gitlab = "pwmt/girara"
+prefix = "v"
+use_max_tag = true
+
+[kea]
+source = "gitlab"
+host = "gitlab.isc.org"
+gitlab = "isc-projects/kea"
+prefix = "v"
+use_max_tag = true
+
+[libplacebo]
+source = "gitlab"
+host = "code.videolan.org"
+gitlab = "videolan/libplacebo"
+prefix = "v"
+use_max_tag = true
+
+[malachite]
+source = "gitlab"
+gitlab = "crystal-linux/software/malachite"
+prefix = "v"
+use_max_tag = true
+
+[notification-daemon]
+source = "gitlab"
+host = "gitlab.gnome.org"
+gitlab = "Archive/notification-daemon"
+prefix = "v"
+use_max_tag = true
+
+[python-nbxmpp]
+source = "gitlab"
+host = "dev.gajim.org"
+gitlab = "gajim/python-nbxmpp"
+prefix = "v"
+use_max_tag = true
+
+[python-omemo-dr]
+source = "gitlab"
+host = "dev.gajim.org"
+gitlab = "gajim/omemo-dr"
+prefix = "v"
+use_max_tag = true
+
+[remmina]
+source = "gitlab"
+gitlab = "Remmina/Remmina"
+prefix = "v"
+use_max_tag = true
+
+[tint2]
+source = "gitlab"
+gitlab = "o9000/tint2"
+prefix = "v"
+use_max_tag = true
+
+[unrar-free]
+source = "gitlab"
+gitlab = "bgermann/unrar-free"
+prefix = "v"
+use_max_tag = true
+
+[zathura]
+source = "gitlab"
+host = "git.pwmt.org"
+gitlab = "pwmt/zathura"
+prefix = "v"
+use_max_tag = true
+
+[zathura-cb]
+source = "gitlab"
+host = "git.pwmt.org"
+gitlab = "pwmt/zathura-cb"
+prefix = "v"
+use_max_tag = true
+
+[zathura-djvu]
+source = "gitlab"
+host = "git.pwmt.org"
+gitlab = "pwmt/zathura-djvu"
+prefix = "v"
+use_max_tag = true
+
+[zathura-pdf-mupdf]
+source = "gitlab"
+host = "git.pwmt.org"
+gitlab = "pwmt/zathura-pdf-mupdf"
+prefix = "v"
+use_max_tag = true
+
+[zathura-pdf-poppler]
+source = "gitlab"
+host = "git.pwmt.org"
+gitlab = "pwmt/zathura-pdf-poppler"
+prefix = "v"
+use_max_tag = true
+
+[zathura-ps]
+source = "gitlab"
+host = "git.pwmt.org"
+gitlab = "pwmt/zathura-ps"
+prefix = "v"
+use_max_tag = true
+
+# Pypi
+
+[ansible]
+source = "pypi"
+pypi = "ansible"
+prefix = "v"
+
+[python-zabbix-api]
+source = "pypi"
+pypi = "zabbix-api"
+prefix = "v"
+
+# Other
+
+[bluez]
+source = "git"
+git = "https://git.kernel.org/pub/scm/bluetooth/bluez.git"
+prefix = "v"
+use_max_tag = true
+
+[spotify]
+source = "apt"
+mirror = "http://repository.spotify.com/"
+pkg = "spotify-client"
+suite = "testing"
+repo = "non-free"
