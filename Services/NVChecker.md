@@ -43,17 +43,17 @@ Withi both the smtp relay and my nvchecker configuration properly configured on 
 #!/bin/bash
 
 if [ "${1}" == "--update-config" ]; then
-        curl -s https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Services/nvchecker.toml -o /home/ansible/.config/nvchecker/nvchecker.toml
+        curl -s https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Services/nvchecker.toml -o /home/ansible/.config/nvchecker/nvchecker.toml && echo -e "\nConfiguration updated" || exit 1
 fi
 
 nvchecker_output="$(nvchecker 2>&1)"
 
 if [ -n "${nvchecker_output}" ]; then
-        echo "${nvchecker_output}"
-        echo -e "Subject:NVChecker - New upstream releases\n\n${nvchecker_output}" | sendmail youremailaddress@mail.com || exit 1
+        echo -e "\n${nvchecker_output}\n"
+        echo -e "Subject:NVChecker - New upstream releases\n\n${nvchecker_output}" | sendmail antiz@archlinux.org || exit 1
         nvtake --all
 else
-        echo "No new upstream release"
+        echo -e "\nNo new upstream release\n"
 fi
 ```
 
