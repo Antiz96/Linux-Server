@@ -14,14 +14,14 @@
     msg: "{{ github_runner_env_clean.stdout_lines }}"
   when: github_runner_env_clean.stdout_lines
 
-## Clean orphaned docker volumes and unused docker resources by gitlab-runners
+# Clean orphaned docker volumes and unused docker resources by gitlab-runners
 #- name: Clean unused docker resources
 #  ansible.builtin.shell:
 #    cmd: docker system prune --volumes -af
 #  register: docker_clean
 #  changed_when: docker_clean.rc == 0
 #
-## Print the output of the docker clean (to see what have been deleted)
+# Print the output of the docker clean (to see what have been deleted)
 #- name: Docker clean output
 #  ansible.builtin.debug:
 #    msg: "{{ docker_clean.stdout_lines }}"
