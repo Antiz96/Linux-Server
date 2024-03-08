@@ -17,7 +17,7 @@
   register: list_old_dumps_zabbix
 
 # Delete dumps older than a week for the Zabbix database
-- name: Delete old dumps of Zabbix database 
+- name: Delete old dumps of Zabbix database
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
