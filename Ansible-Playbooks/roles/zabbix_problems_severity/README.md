@@ -1,2 +1,0 @@
-Zabbix Problems Severity
-=========

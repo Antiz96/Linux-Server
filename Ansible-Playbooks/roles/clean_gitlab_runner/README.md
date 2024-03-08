@@ -1,2 +1,0 @@
-Clean Gitlab Runner
-=========
