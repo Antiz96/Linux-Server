@@ -1,15 +1,28 @@
 ---
 # tasks file for clean_runners
 
-# Clean orphaned docker volumes and unused docker resources on gitlab-runners
-- name: Clean unused docker resources
+# Clean GitHub runners working environment
+- name: Clean GitHub runners env
   ansible.builtin.shell:
-    cmd: docker system prune --volumes -af
-  register: docker_clean
-  changed_when: docker_clean.rc == 0
+    cmd: rm -rvf /opt/github-runner/*/_diag/* /opt/github-runner/*/_work/*
+  register: github_runner_env_clean
+  changed_when: github_runner_env_clean.rc == 0
 
-# Print the output of the clean (to see what have been deleted)
-- name: Clean output
+# Print the output of the GitHub runners env clean (to see what have been deleted)
+- name: GitHub runners env clean output
   ansible.builtin.debug:
-    msg: "{{ docker_clean.stdout_lines }}"
-  when: docker_clean.stdout_lines
+    msg: "{{ github_runner_env_clean.stdout_lines }}"
+  when: github_runner_env_clean.stdout_lines
+
+## Clean orphaned docker volumes and unused docker resources by gitlab-runners
+#- name: Clean unused docker resources
+#  ansible.builtin.shell:
+#    cmd: docker system prune --volumes -af
+#  register: docker_clean
+#  changed_when: docker_clean.rc == 0
+#
+## Print the output of the docker clean (to see what have been deleted)
+#- name: Docker clean output
+#  ansible.builtin.debug:
+#    msg: "{{ docker_clean.stdout_lines }}"
+#  when: docker_clean.stdout_lines

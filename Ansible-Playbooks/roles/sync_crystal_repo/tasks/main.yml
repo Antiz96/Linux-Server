@@ -1,0 +1,13 @@
+---
+# tasks file for sync_crystal_repo
+
+# Sync Crystal Repo with rsync
+- name: Sync Crystal Repo with rsync
+  ansible.posix.synchronize:
+    mode: pull
+    src: rsync://getcryst.al/repo
+    dest: /opt/crystal/repo/
+    archive: true
+    compress: true
+    delete: true
+  delegate_to: "{{ inventory_hostname }}"
