@@ -267,8 +267,8 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [jenkins]
 source = "github"
 github = "jenkinsci/jenkins"
-prefix = "v"
-use_max_tag = true
+prefix = "jenkins-"
+use_latest_release = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [keepassxc]
