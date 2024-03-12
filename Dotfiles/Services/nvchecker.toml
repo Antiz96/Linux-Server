@@ -10,42 +10,49 @@ source = "github"
 github = "rhysd/actionlint"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [ansible-bender]
 source = "github"
 github = "ansible-community/ansible-bender"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [ansible-core]
 source = "github"
 github = "ansible/ansible"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [ansible-language-server]
 source = "github"
 github= "ansible/ansible-language-server"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [ansible-lint]
 source = "github"
 github = "ansible/ansible-lint"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [arch-update]
 source = "github"
 github = "Antiz96/arch-update"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [bash-bats]
 source = "github"
 github = "bats-core/bats-core"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [bd]
 source = "github"
@@ -58,426 +65,497 @@ source = "github"
 github = "GeopJr/BLAHAJ"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [blueman]
 source = "github"
 github = "blueman-project/blueman"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [certificate-ripper]
 source = "github"
 github = "Hakky54/certificate-ripper"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [clipboard]
 source = "github"
 github = "Slackadays/Clipboard"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [codespell]
 source = "github"
 github = "codespell-project/codespell"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [containerd]
 source = "github"
 github = "containerd/containerd"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [ddgr]
 source = "github"
 github = "jarun/ddgr"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [dino]
 source = "github"
 github = "dino/dino"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [distrobox]
 source = "github"
 github = "89luca89/distrobox"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [dnote]
 source = "github"
 github = "dnote/dnote"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [elixir]
 source = "github"
 github = "elixir-lang/elixir"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [entr]
 source = "github"
 github = "eradman/entr"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [fastfetch]
 source = "github"
 github = "fastfetch-cli/fastfetch"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [firewalld]
 source = "github"
 github = "firewalld/firewalld"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [font-awesome]
 source = "github"
 github = "FortAwesome/Font-Awesome"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gitea]
 source = "github"
 github = "go-gitea/gitea"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gitmux]
 source = "github"
 github = "arl/gitmux"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [glances]
 source = "github"
 github = "nicolargo/glances"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [glow]
 source = "github"
 github = "charmbracelet/glow"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [goverlay]
 source = "github"
 github = "benjamimgois/goverlay"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [grafana-zabbix]
 source = "github"
 github = "grafana/grafana-zabbix"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gsimplecal]
 source = "github"
 github = "dmedvinsky/gsimplecal"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [hexchat]
 source = "github"
 github = "hexchat/hexchat"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [htmlq]
 source = "github"
 github = "mgdm/htmlq"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [hugo]
 source = "github"
 github = "gohugoio/hugo"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [hyfetch]
 source = "github"
 github = "hykilpikonna/hyfetch"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [icewm]
 source = "github"
 github = "ice-wm/icewm"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [iotop-c]
 source = "github"
 github = "Tomas-M/iotop"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [jbig2dec]
 source = "github"
 github = "ArtifexSoftware/jbig2dec"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [jenkins]
 source = "github"
 github = "jenkinsci/jenkins"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [keepassxc]
 source = "github"
 github = "keepassxreboot/keepassxc"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [libcgif]
 source = "github"
 github = "dloebl/cgif"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [libconfig]
 source = "github"
 github = "hyperrealm/libconfig"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [limine]
 source = "github"
 github = "limine-bootloader/limine"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [lowcharts]
 source = "github"
 github = "juan-leon/lowcharts"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [lutris]
 source = "github"
 github = "lutris/lutris"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [malias]
 source = "github"
 github = "Antiz96/malias"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [markdownlint]
 source = "github"
 github = "markdownlint/markdownlint"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [molecule]
 source = "github"
 github = "ansible/molecule"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [mpv]
 source = "github"
 github = "mpv-player/mpv"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [mupdf]
 source = "github"
 github = "ArtifexSoftware/mupdf"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [only-office]
 source = "github"
 github = "ONLYOFFICE/DesktopEditors"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [pasystray]
 source = "github"
 github = "christophgysin/pasystray"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [pdfjs_pdfjs-legacy]
 source = "github"
 github = "mozilla/pdf.js"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [picom]
 source = "github"
 github = "yshui/picom"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [piper]
 source = "github"
 github = "libratbag/piper"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [powerline]
 source = "github"
 github = "powerline/powerline"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [pychess]
 source = "github"
 github = "pychess/pychess"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-ansible-compat]
 source = "github"
 github = "ansible/ansible-compat"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-fastapi]
 source = "github"
 github = "tiangolo/fastapi"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-gnupg]
 source = "github"
 github = "vsajip/python-gnupg"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-mistune]
 source = "github"
 github = "lepture/mistune"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-pymupdf]
 source = "github"
 github = "pymupdf/PyMuPDF"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-sentry_sdk]
 source = "github"
 github = "getsentry/sentry-python"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-starlette]
 source = "github"
 github = "encode/starlette"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-tabulate]
 source = "github"
 github = "astanin/python-tabulate"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-tqdm]
 source = "github"
 github = "tqdm/tqdm"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-userpath]
 source = "github"
 github = "ofek/userpath"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [py3status]
 source = "github"
 github = "ultrabug/py3status"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [redshit]
 source = "github"
 github = "jonls/redshift"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [retsnoop]
 source = "github"
 github = "anakryiko/retsnoop"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [rofi]
 source = "github"
 github = "davatorium/rofi"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [systray-x]
 source = "github"
 github = "Ximi1970/systray-x"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [timeshift]
 source = "github"
 github = "linuxmint/timeshift"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [touchegg]
 source = "github"
 github = "JoseExposito/touchegg"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [urlwatch]
 source = "github"
 github = "thp/urlwatch"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [vim-ansible]
 source = "github"
 github = "pearofducks/ansible-vim"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [wakeonlan]
 source = "github"
 github = "jpoliv/wakeonlan"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [yubico-piv-tool]
 source = "github"
 github = "Yubico/yubico-piv-tool"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zabbix]
 source = "github"
 github = "zabbix/zabbix"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zaman]
 source = "github"
 github = "Antiz96/zaman"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # GitLab
 
@@ -486,6 +564,7 @@ source = "gitlab"
 gitlab = "crystal-linux/software/amethyst"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gajim]
 source = "gitlab"
@@ -493,6 +572,7 @@ host = "dev.gajim.org"
 gitlab = "gajim/gajim"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [girara]
 source = "gitlab"
@@ -500,6 +580,7 @@ host = "git.pwmt.org"
 gitlab = "pwmt/girara"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [kea]
 source = "gitlab"
@@ -507,6 +588,7 @@ host = "gitlab.isc.org"
 gitlab = "isc-projects/kea"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [libplacebo]
 source = "gitlab"
@@ -514,12 +596,14 @@ host = "code.videolan.org"
 gitlab = "videolan/libplacebo"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [malachite]
 source = "gitlab"
 gitlab = "crystal-linux/software/malachite"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [notification-daemon]
 source = "gitlab"
@@ -527,6 +611,7 @@ host = "gitlab.gnome.org"
 gitlab = "Archive/notification-daemon"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-nbxmpp]
 source = "gitlab"
@@ -534,6 +619,7 @@ host = "dev.gajim.org"
 gitlab = "gajim/python-nbxmpp"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-omemo-dr]
 source = "gitlab"
@@ -541,24 +627,28 @@ host = "dev.gajim.org"
 gitlab = "gajim/omemo-dr"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [remmina]
 source = "gitlab"
 gitlab = "Remmina/Remmina"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [tint2]
 source = "gitlab"
 gitlab = "o9000/tint2"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [unrar-free]
 source = "gitlab"
 gitlab = "bgermann/unrar-free"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zathura]
 source = "gitlab"
@@ -566,6 +656,7 @@ host = "git.pwmt.org"
 gitlab = "pwmt/zathura"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zathura-cb]
 source = "gitlab"
@@ -573,6 +664,7 @@ host = "git.pwmt.org"
 gitlab = "pwmt/zathura-cb"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zathura-djvu]
 source = "gitlab"
@@ -580,6 +672,7 @@ host = "git.pwmt.org"
 gitlab = "pwmt/zathura-djvu"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zathura-pdf-mupdf]
 source = "gitlab"
@@ -587,6 +680,7 @@ host = "git.pwmt.org"
 gitlab = "pwmt/zathura-pdf-mupdf"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zathura-pdf-poppler]
 source = "gitlab"
@@ -594,6 +688,7 @@ host = "git.pwmt.org"
 gitlab = "pwmt/zathura-pdf-poppler"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [zathura-ps]
 source = "gitlab"
@@ -601,6 +696,7 @@ host = "git.pwmt.org"
 gitlab = "pwmt/zathura-ps"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Pypi
 
@@ -608,11 +704,13 @@ use_max_tag = true
 source = "pypi"
 pypi = "ansible"
 prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [python-zabbix-api]
 source = "pypi"
 pypi = "zabbix-api"
 prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Other
 
@@ -621,6 +719,7 @@ source = "git"
 git = "https://git.kernel.org/pub/scm/bluetooth/bluez.git"
 prefix = "v"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [spotify]
 source = "apt"
@@ -628,3 +727,4 @@ mirror = "http://repository.spotify.com/"
 pkg = "spotify-client"
 suite = "testing"
 repo = "non-free"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
