@@ -47,6 +47,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[autorandr]
+source = "github"
+github = "phillipberndt/autorandr"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [bash-bats]
 source = "github"
 github = "bats-core/bats-core"
@@ -348,6 +355,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[nfoview]
+source = "github"
+github = "otsaloma/nfoview"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [only-office]
 source = "github"
 github = "ONLYOFFICE/DesktopEditors"
@@ -579,6 +593,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 source = "gitlab"
 host = "git.pwmt.org"
 gitlab = "pwmt/girara"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[irker]
+source = "gitlab"
+gitlab = "esr/irker"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
