@@ -1,0 +1,67 @@
+---
+# tasks file for vps_system_backup
+
+# Perform a full system backup of my VPS
+- name: VPS System Backup
+  ansible.builtin.shell:
+    cmd: cd /opt/VPS_Backup && rsync -aAXHv --exclude='/dev/*' --exclude='/proc/*' --exclude='/sys/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude='/lost+found/' --exclude='/swap/' --exclude='/var/cache/pacman/pkg/*' --exclude='/opt/VPS_Backup/*' / $(date +%d-%m-%Y) && tar -czvf $(date +%d-%m-%Y).tar.gz $(date +%d-%m-%Y) && gpg --symmetric --batch --passphrase-file .passwd --cipher-algo AES256 -c $(date +%d-%m-%Y).tar.gz && rm -rf $(date +%d-%m-%Y) $(date +%d-%m-%Y).tar.gz && ls -ltrh
+  register: vps_system_backup
+  changed_when: vps_system_backup.rc == 0
+
+# Print the output of the backup (to check that the backup went correctly and to see the size of the backup archive)
+- name: VPS System Backup output
+  ansible.builtin.debug:
+    msg: "{{ vps_system_backup.stdout_lines }}"
+  when: vps_system_backup.stdout_lines
+
+# Get the list of the backup archives
+- name: List backup archives
+  ansible.builtin.find:
+    paths: /opt/VPS_Backup
+    patterns: '*.gpg'
+  register: list_backup_archives
+
+# Only keep the last 3 backup archives
+- name: Keep the last 3 backup archives
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ (list_backup_archives.files | sort(attribute='ctime'))[:-3] }}"
+
+# Copy the backup to my FileBrowser instance
+- name: Copy Backup to FileBrowser
+  ansible.posix.synchronize:
+    mode: pull
+    src: /opt/VPS_Backup
+    dest: /data/FileBrowser/data
+    delete: true
+    recursive: true
+    rsync_opts:
+      - "--ignore-existing"
+      - "--exclude='.*'"
+  delegate_to: fsprd01.rc
+
+# Change permissionis of the backup archives on the FileBrowser instance
+- name: Change permissions of the backup archives in FileBrowser
+  ansible.builtin.file:
+    path: /data/FileBrowser/data/VPS_Backup
+    state: directory
+    owner: antiz
+    group: antiz
+    recurse: true
+  delegate_to: fsprd01.rc
+
+# List backup archives on the FileBrowser instance
+- name: List backup archives in FileBrowser
+  ansible.builtin.shell:
+    cmd: ls -ltrh /data/FileBrowser/data/VPS_Backup
+  register: list_backup_archives_filebrowser
+  changed_when: list_backup_archives_filebrowser.rc == 0
+  delegate_to: fsprd01.rc
+
+# Print the output of the list (to check that the backup archives have correctly been copied to FileBrowser with the correct permissions)
+- name: List backup archives in FileBrowser output
+  ansible.builtin.debug:
+    msg: "{{ list_backup_archives_filebrowser.stdout_lines }}"
+  when: list_backup_archives_filebrowser.stdout_lines
+  delegate_to: fsprd01.rc
