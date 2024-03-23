@@ -48,7 +48,7 @@
     state: directory
     owner: antiz
     group: antiz
-    recurse: yes
+    recurse: true
   delegate_to: fsprd01.rc
 
 # List backup archives on the FileBrowser instance
