@@ -1,0 +1,5 @@
+---
+- name: "VPS System Backup"
+  hosts: all
+  roles:
+    - role: "vps_system_backup"
