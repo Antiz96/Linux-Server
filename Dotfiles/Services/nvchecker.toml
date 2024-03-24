@@ -54,7 +54,7 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[bash-bats]
+[bats]
 source = "github"
 github = "bats-core/bats-core"
 prefix = "v"
