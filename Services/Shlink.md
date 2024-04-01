@@ -40,13 +40,13 @@ sudo docker run -d --restart="unless-stopped" \
     shlinkio/shlink-web-client:stable
 ```
 
-### Access Shlink WebUI
+#### Access Shlink WebUI
 
 You can now access shlink WebUI at `http://[HOSTNAME]:8080`
 
 ## Update/Upgrade procedure
 
-### Shlink Server
+### Update Shlink Server
 
 ```bash
 sudo docker pull shlinkio/shlink:stable
@@ -61,7 +61,7 @@ sudo docker run -d --restart="unless-stopped" \
     shlinkio/shlink:stable
 ```
 
-### Shlink WebUI
+### Update Shlink WebUI
 
 ```bash
 sudo docker pull shlinkio/shlink-web-client:stable
