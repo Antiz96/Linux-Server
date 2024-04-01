@@ -40,7 +40,7 @@ sudo docker run -d --restart="unless-stopped" \
     shlinkio/shlink-web-client:stable
 ```
 
-### Acess Shlink WebUI
+### Access Shlink WebUI
 
 You can now access shlink WebUI at `http://[HOSTNAME]:8080`
 
