@@ -21,7 +21,7 @@ sudo docker run -d -p 9001:9001 --name portainer-agent --hostname portainer-agen
 
 ### Add the agent to the Portainer Server
 
-Add the following URL to the environment tab in your portainer server's web interface (you don't have to specify the `https://`):  
+Add the following URL to the environment tab in your portainer server's web interface (you don't have to specify `tcp://`):  
 `[HOSTNAME]:9001`
 
 ## Update/Upgrade procedure
