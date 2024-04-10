@@ -42,14 +42,14 @@ sudo -e /etc/postfix/main.cf
 [...]
 # SMTP relay GMail
 relayhost = [smtp.gmail.com]:587
-smtp_use_tls = yes
+smtp_tls_security_level = secure
 smtp_sasl_auth_enable = yes
-smtp_sasl_password_maps = hash:/etc/postfix/.sasl_passwd
+smtp_sasl_password_maps = lmdb:/etc/postfix/.sasl_passwd
 smtp_sasl_security_options = noanonymous
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 ```
 
-Create the sasl_passwd file containing login information (with secured permissions):
+Create the sasl_passwd file containing login information (with secured permissions) and generate the db file for it via `postmap`:
 
 ```bash
 sudo -e /etc/postfix/.sasl_passwd
@@ -64,7 +64,7 @@ sudo chmod 400 /etc/postfix/.sasl_passwd
 sudo postmap /etc/postfix/.sasl_passwd
 ```
 
-### Restart service to apply and send a test email
+### Restart service to apply changes and send a test email
 
 ```bash
 sudo systemctl restart postfix.service
