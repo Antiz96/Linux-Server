@@ -70,6 +70,20 @@
     msg: "{{ arch_orphan_packages.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_orphan_packages.stdout_lines
 
+# Delete uninstalled packages from cache on Arch servers
+- name: Delete uninstalled packages from cache - Arch
+  ansible.builtin.shell:
+    cmd: paccache -ruk0
+  register: arch_uninstalled_packages_cache
+  changed_when: arch_uninstalled_packages_cache.rc == 0
+  when: ansible_facts['distribution'] == "Archlinux"
+
+# Print the paccache output on Arch servers
+- name: paccache output - Arch
+  ansible.builtin.debug:
+    msg: "{{ arch_uninstalled_packages_cache.stdout_lines }}"
+  when: ansible_facts['distribution'] == "Archlinux" and arch_uninstalled_packages_cache.stdout_lines
+
 # Check for pacnew files on Arch servers (requires the "pacman-contrib" package)
 - name: Check pacnew files - Arch
   ansible.builtin.shell:
