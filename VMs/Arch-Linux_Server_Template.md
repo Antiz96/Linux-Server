@@ -18,12 +18,6 @@ I basically follow my [Arch-Linux base installation guide](https://github.com/An
 
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#preparing-the-disk>
 
-- Personal context:
-
-> EFI partition mounted on /boot/EFI --> 1G - ESP  
-> Swap partition --> 4G - SWAP  
-> Root partition mounted on / --> Left free space - EXT4
-
 - Professional context:
 
 > EFI partition mounted on /boot --> 1G - FAT32  

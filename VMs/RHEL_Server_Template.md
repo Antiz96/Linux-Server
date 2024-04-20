@@ -15,12 +15,6 @@ I basically follow each installation steps normally with the following exception
 
 ### Partition scheme
 
-- Personal context:
-
-> EFI partition mounted on /boot/EFI --> 1G - ESP  
-> Swap partition --> 4G - SWAP  
-> Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)
-
 - Professional context:
 
 > EFI partition mounted on /boot --> 1G - ESP  

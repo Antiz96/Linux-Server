@@ -17,12 +17,6 @@ I basically follow my [Gentoo base installation guide](https://github.com/Antiz9
 
 Replaces the fdisk part in: <https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#partitioning-the-disk-create-filesystem-and-mount-the-root-and-boot-partitions>
 
-- Personal context:
-
-> EFI partition mounted on /boot/EFI --> 1G - ESP  
-> Swap partition --> 4G - SWAP  
-> Root partition mounted on / --> Left free space - EXT4 (0% Reserved block)
-
 - Professional context:
 
 > EFI partition mounted on /boot --> 1G - FAT32  
