@@ -362,6 +362,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[nwg-look]
+source = "github"
+github = "nwg-piotr/nwg-look"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [only-office]
 source = "github"
 github = "ONLYOFFICE/DesktopEditors"
@@ -516,6 +523,55 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[sway]
+source = "github"
+github = "swaywm/sway"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[swaybg]
+source = "github"
+github = "swaywm/swaybg"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[sway-contrib]
+source = "github"
+github = "OctopusET/sway-contrib"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[swayidle]
+source = "github"
+github = "swaywm/swayidle"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[swayimg]
+source = "github"
+github = "artemsen/swayimg"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[swaylock]
+source = "github"
+github = "swaywm/swaylock"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[swaync]
+source = "github"
+github = "ErikReider/SwayNotificationCenter"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [systray-x]
 source = "github"
 github = "Ximi1970/systray-x"
@@ -554,6 +610,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [wakeonlan]
 source = "github"
 github = "jpoliv/wakeonlan"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[waybar]
+source = "github"
+github = "Alexays/Waybar"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
