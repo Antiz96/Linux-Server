@@ -4,7 +4,7 @@
 # Perform a full system backup of my VPS
 - name: VPS System Backup
   ansible.builtin.shell:
-    cmd: cd /opt/VPS_Backup && rsync -aAXHv --exclude='/dev/*' --exclude='/proc/*' --exclude='/sys/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude='/lost+found/' --exclude='/swap/' --exclude='/var/cache/pacman/pkg/*' --exclude='/opt/crystal/*' --exclude='/opt/VPS_Backup/*' / $(date +%d-%m-%Y) && tar -czvf $(date +%d-%m-%Y).tar.gz $(date +%d-%m-%Y) && gpg --symmetric --batch --passphrase-file .passwd --cipher-algo AES256 -c $(date +%d-%m-%Y).tar.gz && rm -rf $(date +%d-%m-%Y) $(date +%d-%m-%Y).tar.gz && ls -ltrh
+    cmd: cd /opt/VPS_Backup && rsync -aAXHv --exclude='/dev/*' --exclude='/proc/*' --exclude='/sys/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude='/lost+found/' --exclude='/swap/' --exclude='/var/cache/pacman/pkg/*' --exclude='/var/lib/archbuild/*' --exclude='/var/lib/aurbuild/*' --exclude='/var/lib/docker/*' --exclude='/opt/crystal/*' --exclude='/opt/VPS_Backup/*' / $(date +%d-%m-%Y) && tar -czvf $(date +%d-%m-%Y).tar.gz $(date +%d-%m-%Y) && gpg --symmetric --batch --passphrase-file .passwd --cipher-algo AES256 -c $(date +%d-%m-%Y).tar.gz && rm -rf $(date +%d-%m-%Y) $(date +%d-%m-%Y).tar.gz && ls -ltrh
   register: vps_system_backup
   changed_when: vps_system_backup.rc == 0
 
