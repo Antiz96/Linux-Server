@@ -79,7 +79,7 @@
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Print the paccache output on Arch servers
-- name: paccache output - Arch
+- name: Paccache output - Arch
   ansible.builtin.debug:
     msg: "{{ arch_uninstalled_packages_cache.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_uninstalled_packages_cache.stdout_lines
