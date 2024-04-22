@@ -864,3 +864,8 @@ pkg = "spotify-client"
 suite = "testing"
 repo = "non-free"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[wlr-randr]
+source = "regex"
+regex = "rev/v([\\d.]+)?"
+url = "https://sr.ht/~emersion/wlr-randr/refs"
