@@ -22,6 +22,3 @@ jobs:
 
       - name: Run ansible-lint
         run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint_exclude_list Ansible-Playbooks/roles/*/tasks/main.yml
-
-      - name: Run nvchecker
-        run: nvchecker -c Dotfiles/Services/nvchecker.toml
