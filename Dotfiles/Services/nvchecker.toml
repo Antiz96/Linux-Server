@@ -376,6 +376,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[nebula]
+source = "github"
+github = "slackhq/nebula"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [nfoview]
 source = "github"
 github = "otsaloma/nfoview"
