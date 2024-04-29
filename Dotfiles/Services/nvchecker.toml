@@ -19,6 +19,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[android-udev]
+source = "github"
+github = "M0Rf30/android-udev-rules"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [ansible-bender]
 source = "github"
 github = "ansible-community/ansible-bender"
