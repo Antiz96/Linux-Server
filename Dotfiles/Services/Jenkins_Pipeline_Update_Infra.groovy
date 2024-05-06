@@ -2,6 +2,25 @@ pipeline {
     agent any
 
     stages {
+        stage('Update Docker Containers - VMs - Dev') {
+            steps {
+                script {
+                    def result = build(
+                        job: 'Update_Docker_Containers',
+                        parameters: [
+                            string(name: 'SERVER_TYPE', value: 'VMs'),
+                            string(name: 'ENV', value: 'dev')
+                        ],
+                        propagate: true,
+                        wait: true
+                    )
+                    if (result == 'FAILURE') {
+                        error("Update Docker Containers - VMs - Dev failed. Aborting pipeline.")
+                    }
+                }
+            }
+        }
+
         stage('Update Docker Containers - VMs - Prod') {
             steps {
                 script {
