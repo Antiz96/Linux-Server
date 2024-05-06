@@ -411,6 +411,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[oculante]
+source = "github"
+github = "woelper/oculante"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [only-office]
 source = "github"
 github = "ONLYOFFICE/DesktopEditors"
@@ -673,6 +680,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [waybar]
 source = "github"
 github = "Alexays/Waybar"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[wpaperd]
+source = "github"
+github = "danyspin97/wpaperd"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
