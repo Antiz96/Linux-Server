@@ -64,7 +64,7 @@ sudo vim "URL".conf
 ```text
 server {
 
-    listen clprd01.rc:443 ssl 
+    listen clprd01.rc:443 ssl;
     http2 on;
     server_name “URL”;
 
