@@ -103,6 +103,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[check-jsonschema]
+source = "github"
+github = "python-jsonschema/check-jsonschema"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [clipboard]
 source = "github"
 github = "Slackadays/Clipboard"
