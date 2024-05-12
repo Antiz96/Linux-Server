@@ -806,6 +806,7 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 source = "git"
 git = "https://github.com/Yubico/yubico-piv-tool.git"
 prefix = "yubico-piv-tool-"
+use_max_tag = true
 
 [yyjson]
 source = "git"
