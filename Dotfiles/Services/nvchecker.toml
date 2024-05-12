@@ -104,7 +104,7 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [bluez]
 source = "git"
-git = "https://git.kernel.org/pub/scm/bluetooth/bluez.git.git"
+git = "https://git.kernel.org/pub/scm/bluetooth/bluez.git"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
