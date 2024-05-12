@@ -48,7 +48,7 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [ansible-language-server]
 source = "git"
-git= "ansible/ansible-language-server"
+git= "https://github.com/ansible/ansible-language-server"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -104,7 +104,7 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [bluez]
 source = "git"
-git = "https://github.com/https://git.kernel.org/pub/scm/bluetooth/bluez.git.git"
+git = "https://git.kernel.org/pub/scm/bluetooth/bluez.git.git"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -790,7 +790,7 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [wlr-randr]
 source = "git"
-git = "https://github.com/https://git.sr.ht/~emersion/wlr-randr.git"
+git = "https://git.sr.ht/~emersion/wlr-randr.git"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
