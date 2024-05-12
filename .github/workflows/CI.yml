@@ -24,4 +24,4 @@ jobs:
         run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint_exclude_list Ansible-Playbooks/roles/*/tasks/main.yml
 
       - name: Run nvchecker
-        run: nvchecker -c Dotfiles/Services/nvchecker.toml > nvchecker.output 2>&1 && cat nvchecker.output && (grep "\[E" nvchecker.output && exit 1)
+        run: nvchecker -c Dotfiles/Services/nvchecker.toml > nvchecker.output 2>&1 && cat nvchecker.output && {grep "\[E" nvchecker.output && exit 1}
