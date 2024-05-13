@@ -39,7 +39,7 @@ sudo docker run -d \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
   -e ServerIP="192.168.1.1" \
-  --shm-size=500m \
+  --shm-size=1g \
   pihole/pihole:latest
 ```
 
@@ -80,7 +80,7 @@ sudo docker run -d \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
   -e ServerIP="192.168.1.2" \
-  --shm-size=500m \
+  --shm-size=1g \
   pihole/pihole:latest
 ```
 
@@ -143,7 +143,7 @@ sudo docker run -d \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
   -e ServerIP="192.168.1.1" \
-  --shm-size=500m \
+  --shm-size=1g \
   pihole/pihole:latest
 ```
 
