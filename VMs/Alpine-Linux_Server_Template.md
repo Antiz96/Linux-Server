@@ -175,7 +175,7 @@ rc-service zabbix-agentd start
 #### Configure the inactivity timeout
 
 ```bash
-sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
+vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 ```
 
 > [...]  
