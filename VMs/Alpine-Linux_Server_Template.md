@@ -142,7 +142,11 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=template.rc  
 > [...]  
-> UserParameter=fail2ban_status,rc-service fail2ban status | awk '{print $3}'  
+> TLSPSKIdentity=  
+> [...]  
+> TLSPSKFile=/etc/zabbix/.psk  
+> [...]  
+> UserParameter=fail2ban_status_openrc,rc-service fail2ban status | awk '{print $3}'  
 > UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh
 
 ```bash
