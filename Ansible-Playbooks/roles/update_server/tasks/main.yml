@@ -13,6 +13,12 @@
     update_cache: true
   when: ansible_facts['distribution'] == "Archlinux"
 
+# Update repositories on Arch servers
+- name: Update repos - Alpine
+  community.general.apk:
+    update_cache: true
+  when: ansible_facts['distribution'] == "Alpine"
+
 # Check the list of packages to update on Debian servers
 - name: Check packages to update - Debian
   ansible.builtin.shell:
@@ -30,6 +36,14 @@
   changed_when: arch_packages_update.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
 
+# Check the list of packages to update on Alpine servers
+- name: Check packages to update - Alpine
+  ansible.builtin.shell:
+    cmd: apk list --upgradable
+  register: alpine_packages_update
+  changed_when: alpine_packages_update.rc == 0
+  when: ansible_facts['distribution'] == "Alpine"
+
 # Print the list of packages to update on Debian servers
 - name: List packages to update - Debian
   ansible.builtin.debug:
@@ -41,6 +55,12 @@
   ansible.builtin.debug:
     msg: "{{ arch_packages_update.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_packages_update.stdout_lines
+
+# Print the list of packages to update on Alpine servers
+- name: List packages to update - Alpine
+  ansible.builtin.debug:
+    msg: "{{ alpine_packages_update.stdout_lines }}"
+  when: ansible_facts['distribution'] == "Alpine" and alpine_packages_update.stdout_lines
 
 # Update packages on Debian servers
 - name: Update - Debian
@@ -55,6 +75,12 @@
     upgrade: true
   when: ansible_facts['distribution'] == "Archlinux"
 
+# Update packages on Alpine servers
+- name: Update - Alpine
+  community.general.apk:
+    upgrade: true
+  when: ansible_facts['distribution'] == "Alpine"
+
 # Check for orphan packages on Arch server
 - name: Check orphan packages - Arch
   ansible.builtin.shell:
@@ -64,25 +90,25 @@
   changed_when: arch_orphan_packages.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
 
+# Check for orphan packages on Alpine server
+- name: Check orphan packages - Alpine
+  ansible.builtin.shell:
+    cmd: apk list --orphaned
+  register: alpine_orphan_packages
+  changed_when: alpine_orphan_packages.rc == 0
+  when: ansible_facts['distribution'] == "Alpine"
+
 # Print the list of orphan packages (if there are) on Arch servers
 - name: List orphan packages - Arch
   ansible.builtin.debug:
     msg: "{{ arch_orphan_packages.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_orphan_packages.stdout_lines
 
-# Delete uninstalled packages from cache on Arch servers
-- name: Delete uninstalled packages from cache - Arch
-  ansible.builtin.shell:
-    cmd: paccache -ruk0
-  register: arch_uninstalled_packages_cache
-  changed_when: arch_uninstalled_packages_cache.rc == 0
-  when: ansible_facts['distribution'] == "Archlinux"
-
-# Print the paccache output on Arch servers
-- name: Paccache output - Arch
+# Print the list of orphan packages (if there are) on Alpine servers
+- name: List orphan packages - Alpine
   ansible.builtin.debug:
-    msg: "{{ arch_uninstalled_packages_cache.stdout_lines }}"
-  when: ansible_facts['distribution'] == "Archlinux" and arch_uninstalled_packages_cache.stdout_lines
+    msg: "{{ alpine_orphan_packages.stdout_lines }}"
+  when: ansible_facts['distribution'] == "Alpine" and alpine_orphan_packages.stdout_lines
 
 # Check for pacnew files on Arch servers (requires the "pacman-contrib" package)
 - name: Check pacnew files - Arch

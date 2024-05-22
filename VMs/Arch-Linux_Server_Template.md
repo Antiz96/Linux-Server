@@ -1,4 +1,4 @@
-# Arch-Linux Server Template
+# Arch Linux Server Template
 
 Just a quick reminder on how I install a minimal Arch Server environment to work with.  
 It aims to be turned as a Template.
@@ -36,7 +36,7 @@ Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/B
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages>
 
 ```bash
-pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync zip unzip diffutils mlocate htop logrotate pacman-contrib fail2ban
+pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync zip unzip diffutils mlocate htop logrotate pacman-contrib fail2ban python-passlib
 ```
 
 ### Configure various things
@@ -44,7 +44,7 @@ pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync z
 #### Enable services/timers
 
 ```bash
-systemctl enable --now sshd paccache.timer logrotate.timer fstrim.timer
+systemctl enable --now sshd logrotate.timer
 ```
 
 #### Secure SSH connection
@@ -95,8 +95,16 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=template.rc  
 > [...]  
+> TLSPSKIdentity=  
+> [...]  
+> TLSPSKFile=/etc/zabbix/.psk  
+> [...]  
 > UserParameter=fail2ban_status,systemctl is-active fail2ban  
-> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh
+> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh  
+> [...]  
+> TLSConnect=psk  
+> [...]  
+> TLSAccept=psk
 
 ```bash
 mkdir /etc/zabbix/scripts
@@ -127,7 +135,7 @@ systemctl enable --now zabbix-agent
 #### Configure the inactivity timeout
 
 ```bash
-sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
+vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 ```
 
 > [...]  
@@ -158,12 +166,7 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 ### Setup static IP Address
 
 ```bash
-nmcli con show
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.addresses 192.168.1.100/24
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.gateway 192.168.1.254
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.1
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
-nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
+nmtui
 ```
 
 ## Reboot

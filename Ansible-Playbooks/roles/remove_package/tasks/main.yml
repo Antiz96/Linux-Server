@@ -1,11 +1,11 @@
 ---
 # tasks file for add_package
 
-# Stop the playbook if both the "package_debian" and the "package_arch" variables are empty or undefined
+# Stop the playbook if the "package_debian", the "package_arch" or the "package_alpine" variables are all empty or undefined
 - name: Fail if the "package_debian" and the "package_arch" variables are empty or undefined
   ansible.builtin.fail:
-    msg: The 'package_debian' and the 'package_arch' variables are both empty
-  when: not package_debian and not package_arch
+    msg: The 'package_debian', the 'package_arch' and the 'package_alpine' variables are all empty
+  when: not package_debian and not package_arch and not package_alpine
 
 # Remove package(s) on Debian servers
 - name: Remove package(s) - Debian
@@ -22,3 +22,10 @@
     state: absent
     extra_args: --recursive
   when: ansible_facts['distribution'] == "Archlinux" and package_arch
+
+# Remove package(s) on Alpine servers
+- name: Remove package(s) - Alpine
+  community.general.apk:
+    name: "{{ package_alpine }}"
+    state: absent
+  when: ansible_facts['distribution'] == "Alpine" and package_alpine

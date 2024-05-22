@@ -36,12 +36,12 @@
     groups: sudo
   when: ansible_facts['distribution'] == "Debian" and sudo | bool
 
-# If the "sudo" var is set to "true", add sudo privileges on Arch servers
-- name: Add sudo privileges - Arch
+# If the "sudo" var is set to "true", add sudo privileges on Arch and Alpine servers
+- name: Add sudo privileges - Arch or Alpine
   ansible.builtin.user:
     name: "{{ username }}"
     groups: wheel
-  when: ansible_facts['distribution'] == "Archlinux" and sudo | bool
+  when: (ansible_facts['distribution'] == "Archlinux" or ansible_facts['distribution'] == "Alpine") and sudo | bool
 
 # If the "sudo" var is set to "false", remove sudo privileges on Debian servers
 - name: Remove sudo privileges - Debian
@@ -52,14 +52,14 @@
   changed_when: remove_sudo_debian.rc == 0
   when: ansible_facts['distribution'] == "Debian" and not sudo | bool
 
-# If the "sudo" var is set to "false", remove sudo privileges on Arch servers
-- name: Remove sudo privileges - Arch
+# If the "sudo" var is set to "false", remove sudo privileges on Arch or Alpine servers
+- name: Remove sudo privileges - Arch or Alpine
   ansible.builtin.shell:
     cmd: gpasswd -d "{{ username }}" wheel
-  register: remove_sudo_arch
-  failed_when: remove_sudo_arch.rc != 0 and remove_sudo_arch.rc != 3 # return code 3 means the user isn't a member of the specified group
-  changed_when: remove_sudo_arch.rc == 0
-  when: ansible_facts['distribution'] == "Archlinux" and not sudo | bool
+  register: remove_sudo_arch_alpine
+  failed_when: remove_sudo_arch_alpine.rc != 0 and remove_sudo_arch_alpine.rc != 3 # return code 3 means the user isn't a member of the specified group
+  changed_when: remove_sudo_arch_alpine.rc == 0
+  when: (ansible_facts['distribution'] == "Archlinux" or ansible_facts['distribution'] == "Alpine") and not sudo | bool
 
 # Create the ".ssh" directory in the user's home folder (if it does not already exists)
 - name: Create ".ssh" directory

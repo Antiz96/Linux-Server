@@ -35,7 +35,7 @@ Replaces the fdisk part in: <https://github.com/Antiz96/Linux-Configuration/blob
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#install-additional-useful-packages>
 
 ```bash
-emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop logrotate fail2ban
+emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop logrotate fail2ban passlib
 ```
 
 ### Configure various things
@@ -94,8 +94,16 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=template.rc  
 > [...]  
+> TLSPSKIdentity=  
+> [...]  
+> TLSPSKFile=/etc/zabbix/.psk  
+> [...]  
 > UserParameter=fail2ban_status,systemctl is-active fail2ban  
-> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh
+> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh  
+> [...]  
+> TLSConnect=psk  
+> [...]  
+> TLSAccept=psk
 
 ```bash
 mkdir /etc/zabbix/scripts
@@ -126,7 +134,7 @@ systemctl enable --now zabbix-agent
 #### Configure the inactivity timeout
 
 ```bash
-sudo vim /etc/bash/bashrc #Set the inactivity timeout to 15 min
+vim /etc/bash/bashrc #Set the inactivity timeout to 15 min
 ```
 
 > [...]  
@@ -157,12 +165,7 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 ### Setup static IP Address
 
 ```bash
-nmcli con show
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.addresses 192.168.1.100/24
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.gateway 192.168.1.254
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.1
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
-nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
+nmtui
 ```
 
 ## Reboot

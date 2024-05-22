@@ -31,7 +31,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```bash
-apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate fail2ban
+apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate fail2ban python3-passlib
 ```
 
 ### Configure various things
@@ -98,8 +98,16 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=template.rc  
 > [...]  
+> TLSPSKIdentity=  
+> [...]  
+> TLSPSKFile=/etc/zabbix/.psk  
+> [...]  
 > UserParameter=fail2ban_status,systemctl is-active fail2ban  
-> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh
+> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh  
+> [...]  
+> TLSConnect=psk  
+> [...]  
+> TLSAccept=psk
 
 ```bash
 mkdir /etc/zabbix/scripts
@@ -130,7 +138,7 @@ systemctl enable --now zabbix-agent
 #### Configure the inactivity timeout
 
 ```bash
-sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
+vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 ```
 
 > [...]  

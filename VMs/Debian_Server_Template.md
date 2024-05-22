@@ -31,7 +31,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```bash
-apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate fail2ban
+apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate fail2ban python3-passlib
 ```
 
 ### Configure various things
@@ -39,7 +39,7 @@ apt update && apt install sudo vim man bash-completion openssh-server dnsutils t
 #### Enable services
 
 ```bash
-systemctl enable --now ssh logrotate.timer fstrim.timer
+systemctl enable --now ssh chronyd logrotate.timer fstrim.timer
 ```
 
 #### Secure SSH connection
@@ -98,8 +98,16 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=template.rc  
 > [...]  
+> TLSPSKIdentity=  
+> [...]  
+> TLSPSKFile=/etc/zabbix/.psk  
+> [...]  
 > UserParameter=fail2ban_status,systemctl is-active fail2ban  
-> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh
+> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh  
+> [...]  
+> TLSConnect=psk  
+> [...]  
+> TLSAccept=psk
 
 ```bash
 mkdir /etc/zabbix/scripts
@@ -130,7 +138,7 @@ systemctl enable --now zabbix-agent
 #### Configure the inactivity timeout
 
 ```bash
-sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
+vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 ```
 
 > [...]  
@@ -158,11 +166,8 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 > Copy the ansible master server's SSH public key here (ansible@ansible-server)
 
 ```bash
-vim /etc/passwd #Set the default ansible's shell to /bin/bash
+chsd ansible -s /bin/bash #Set the default ansible's shell to /bin/bash
 ```
-
-> [...]  
-> ansible:x:1001:1001::/home/ansible:/bin/**bash**
 
 ## Setup static IP Address
 
@@ -174,7 +179,7 @@ vi /etc/network/interfaces
 > iface ens18 inet static  
 > > address 192.168.1.100/24  
 > > gateway 192.168.1.254  
-> > dns-nameservers 192.168.1.1
+> > dns-nameservers 192.168.1.1 192.168.1.2
 
 ## Reboot
 
