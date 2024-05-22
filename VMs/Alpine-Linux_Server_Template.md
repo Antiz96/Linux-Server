@@ -132,6 +132,10 @@ In [sshd] block:
 > filter  = alpine-sshd  
 > [...]
 
+```bash
+rc-service fail2ban restart
+```
+
 #### Install qemu-guest-agent (for proxmox)
 
 ```bash
