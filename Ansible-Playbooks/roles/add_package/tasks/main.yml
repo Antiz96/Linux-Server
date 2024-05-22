@@ -1,7 +1,7 @@
 ---
 # tasks file for add_package
 
-# Stop the playbook if the "package_debian", the "package_arch" or the "package_alpine" variables are all empty or undefined
+# Stop the playbook if the "package_debian", the "package_arch" and the "package_alpine" variables are all empty or undefined
 - name: Fail if the "package_debian", the "package_arch" or the "package_alpine" variables are all empty or undefined
   ansible.builtin.fail:
     msg: The 'package_debian', the 'package_arch' and the 'package_alpine' variables are all empty
