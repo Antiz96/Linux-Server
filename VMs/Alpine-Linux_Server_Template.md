@@ -71,8 +71,8 @@ visudo
 ```bash
 rc-update add sshd
 rc-service sshd start
-rc-update add chrony
-rc-service chrony start
+rc-update add chronyd
+rc-service chronyd start
 rc-update add firewalld
 rc-service firewalld start
 ```
