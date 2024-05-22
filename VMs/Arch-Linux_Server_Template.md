@@ -44,7 +44,7 @@ pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync z
 #### Enable services/timers
 
 ```bash
-systemctl enable --now sshd paccache.timer logrotate.timer fstrim.timer
+systemctl enable --now sshd logrotate.timer
 ```
 
 #### Secure SSH connection

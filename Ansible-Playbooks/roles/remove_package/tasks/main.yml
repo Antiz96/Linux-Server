@@ -22,3 +22,10 @@
     state: absent
     extra_args: --recursive
   when: ansible_facts['distribution'] == "Archlinux" and package_arch
+
+# Remove package(s) on Alpine servers
+- name: Remove package(s) - Alpine
+  community.general.apk:
+    name: "{{ package_alpine }}"
+    state: absent
+  when: ansible_facts['distribution'] == "Alpine" and package_alpine

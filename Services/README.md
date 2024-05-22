@@ -5,7 +5,6 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 ## OS
 
 - [Debian - OS I use on my physical server that hosts my Proxmox instance](https://github.com/Antiz96/Linux-Server/blob/main/Services/Debian.md)
-- [Arch Linux (ARM) - OS I use on my Raspberry PI server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Arch-Linux-ARM.md)
 
 ## Services that run directly on the host
 

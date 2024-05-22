@@ -19,13 +19,13 @@
     msg: The 'root_passwd' variable is empty
   when: not root_passwd
 
-# If the server is a Debian Server, change the IP by modifying the "interfaces" file
-- name: Modify IP - Debian
+# If the server is a Debian or an Alpine Server, change the IP by modifying the "interfaces" file
+- name: Modify IP - Debian or Alpine
   ansible.builtin.replace:
     path: /etc/network/interfaces
     regexp: "192.168.1.100"
     replace: "{{ ip }}"
-  when: ansible_facts['distribution'] == "Debian"
+  when: ansible_facts['distribution'] == "Debian" or ansible_facts['distribution'] == "Alpine"
 
 # If the server is an Arch Server, change the IP by modifying the "nmconnection" file
 - name: Modify IP - Arch
@@ -81,6 +81,13 @@
     update_cache: true
     upgrade: true
   when: ansible_facts['distribution'] == "Archlinux"
+
+# If the server is an Alpine Server, update it via "apk" (apk update && apk upgrade)
+- name: Update - Alpine
+  community.general.apk:
+    update_cache: true
+    upgrade: true
+  when: ansible_facts['distribution'] == "Alpine"
 
 # Tell the user the configuration is over and that he needs to reboot the machine to finish
 - name: Configuration done
