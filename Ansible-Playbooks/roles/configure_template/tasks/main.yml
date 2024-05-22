@@ -69,12 +69,6 @@
     regexp: "template.rc"
     replace: "{{ hostname }}.rc"
 
-# Restart Zabbix Agent to apply changes
-- name: Restart Zabbix Agent
-  ansible.builtin.service:
-    name: zabbix-agent
-    state: restarted
-
 # If the server is a Debian Server, update it via "apt" (apt update && apt full-upgrade && apt autoremove)
 - name: Update - Debian
   ansible.builtin.apt:
