@@ -38,6 +38,10 @@ vi /etc/apk/repositories
 > "repo_url"/pub/alpine/**edge**/community  
 > "repo_url"/pub/alpine/**edge/testing**
 
+```bash
+apk update && apk upgrade
+```
+
 ### Install useful packages
 
 ```bash
