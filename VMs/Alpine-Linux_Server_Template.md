@@ -118,6 +118,20 @@ rc-service sshd restart
 
 Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
+Alpine specific:
+
+```bash
+rm -f /etc/fail2ban/jail.d/alpine-ssh.conf
+vim /etc/fail2ban/jail.conf
+```
+
+In [sshd] block:
+
+> [...]  
+> logpath = /var/log/messages  
+> filter  = alpine-sshd  
+> [...]
+
 #### Install qemu-guest-agent (for proxmox)
 
 ```bash
