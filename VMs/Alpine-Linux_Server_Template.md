@@ -179,6 +179,7 @@ vim /etc/profile
 ```
 
 ```text
+[...]
 # Source global bash config, when interactive but not posix or sh mode
 if test "$BASH" &&\
    test "$PS1" &&\
