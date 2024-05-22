@@ -31,7 +31,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```bash
-dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate curl openssl telnet chrony wget fail2ban epel-release && dnf install htop logrotate
+dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate curl openssl telnet chrony wget fail2ban epel-release && dnf install htop logrotate python3-passlib
 ```
 
 ### Configure various things
