@@ -161,13 +161,14 @@ echo "${ban_number}"
 
 ```bash
 chmod +x /etc/zabbix/scripts/fail2ban_num.sh
-vim /etc/sudoers.d/zabbix-agent
+vim /etc/sudoers.d/zabbix
 ```
 
-> zabbix-agent ALL=(ALL) NOPASSWD:/etc/zabbix/scripts/fail2ban_num.sh
+> zabbix ALL=(ALL) NOPASSWD:/etc/zabbix/scripts/fail2ban_num.sh
 
 ```bash
 rc-update add zabbix-agent
+rc-service zabbix-agent start
 ```
 
 #### Configure the inactivity timeout
