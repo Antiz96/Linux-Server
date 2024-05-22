@@ -1,4 +1,4 @@
-# Arch-Linux Server Template
+# Arch Linux Server Template
 
 Just a quick reminder on how I install a minimal Arch Server environment to work with.  
 It aims to be turned as a Template.
@@ -158,12 +158,7 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 ### Setup static IP Address
 
 ```bash
-nmcli con show
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.addresses 192.168.1.100/24
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.gateway 192.168.1.254
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.1
-nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
-nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
+nmtui
 ```
 
 ## Reboot
