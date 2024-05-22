@@ -147,7 +147,11 @@ vim /etc/zabbix/zabbix_agentd.conf
 > TLSPSKFile=/etc/zabbix/.psk  
 > [...]  
 > UserParameter=fail2ban_status_openrc,rc-service fail2ban status | awk '{print $3}'  
-> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh
+> UserParameter=fail2ban_num,sudo /etc/zabbix/scripts/fail2ban_num.sh  
+> [...]  
+> TLSConnect=psk  
+> [...]  
+> TLSAccept=psk
 
 ```bash
 mkdir /etc/zabbix/scripts
