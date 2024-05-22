@@ -224,15 +224,7 @@ chsh ansible -s /bin/bash #Set the default ansible's shell to /bin/bash
 
 ## Setup static IP Address
 
-```bash
-vim /etc/network/interfaces
-```
-
-> [...]  
-> iface ens18 inet static  
-> > address 192.168.1.100/24  
-> > gateway 192.168.1.254  
-> > dns-nameservers 192.1681.1 192.168.1.2
+Done during `setup-alpine`.
 
 ## Reboot
 
