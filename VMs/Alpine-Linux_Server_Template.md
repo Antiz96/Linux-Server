@@ -73,6 +73,20 @@ rc-update add firewalld
 rc-service firewalld start
 ```
 
+#### Auto clean packages cache on reboot
+
+```bash
+vim /etc/local.d/cache.stop
+```
+
+```bash
+#!/bin/sh
+
+apk cache -v sync
+
+return 0
+```
+
 #### Secure SSH connection
 
 ```bash
