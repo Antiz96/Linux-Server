@@ -19,6 +19,14 @@
     msg: The 'root_passwd' variable is empty
   when: not root_passwd
 
+# Clean known template.rc SSH hosts (to avoid potential errors)
+- name: Clean known template.rc SSH hosts
+  ansible.builtin.lineinfile:
+    path: /home/ansible/.ssh/known_hosts
+    regexp: '^[template.rc]'
+    state: absent
+  delegate_to: 127.0.0.1
+
 # If the server is a Debian or an Alpine Server, change the IP by modifying the "interfaces" file
 - name: Modify IP - Debian or Alpine
   ansible.builtin.replace:
