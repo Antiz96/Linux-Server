@@ -127,22 +127,6 @@ systemctl enable --now zabbix-agent
 #### Configure the inactivity timeout
 
 ```bash
-vim /etc/profile
-```
-
-```text
-# Source global bash config, when interactive but not posix or sh mode  
-if test "$BASH" &&\
-   test "$PS1" &&\
-   test -z "$POSIXLY_CORRECT" &&\
-   test "${0#-}" != sh &&\
-   test -r /etc/bash.bashrc
-then
-	. /etc/bash.bashrc
-fi
-```
-
-```bash
 vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 ```
 
