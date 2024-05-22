@@ -130,6 +130,7 @@ rc-update add qemu-guest-agent
 ```bash
 firewall-cmd --add-port=10050/tcp --permanent
 firewall-cmd --reload
+echo "readproc:x:30:zabbix" >> /etc/group
 apk add zabbix-agent
 vim /etc/zabbix/zabbix_agentd.conf
 ```
@@ -167,8 +168,8 @@ vim /etc/sudoers.d/zabbix
 > zabbix ALL=(ALL) NOPASSWD:/etc/zabbix/scripts/fail2ban_num.sh
 
 ```bash
-rc-update add zabbix-agent
-rc-service zabbix-agent start
+rc-update add zabbix-agentd
+rc-service zabbix-agentd start
 ```
 
 #### Configure the inactivity timeout
