@@ -25,7 +25,7 @@ I basically follow installation steps normally (`setup-alpine`) with the followi
 > > /var --> 1G  
 > > /var/log --> 4G
 
-### Switch to the edge branch and active testing repo - Optional
+### Optional - Switch to the edge branch and active testing repo
 
 I personally depends on a few packages that are still currently in the testing repositories.  
 As such, I currently switch to the edge branch of the repositories (which basically turns Alpine into a rolling release) and I activate the testing repositories.
