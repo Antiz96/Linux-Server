@@ -136,6 +136,7 @@ Alpine specific:
 ```bash
 sed -i "s/10/3/g" /etc/fail2ban/jail.d/alpine-ssh.conf
 sed -i "s/=\ ssh/=\ 'your_custom_ssh_port'/g" /etc/fail2ban/jail.d/alpine-ssh.conf
+touch /var/log/fail2ban.log
 rc-service fail2ban restart
 ```
 
