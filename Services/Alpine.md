@@ -12,8 +12,8 @@ I personally want a regular/sys install on my Raspberry Pi, which can be done so
 Create the following partition on the SD Card via `fdisk`:
 
 - Boot  --> /dev/mmcblk0p1, 550M, type c (FAT32 LBA)
-- Root  --> /dev/mmcblk0p2, 11G, type linux filesystem
-- Swap  --> /dev/mmcblk0p3, 4G, tpye 82 (SWAP)
+- Root  --> /dev/mmcblk0p2, 11G, type 83 (linux)
+- Swap  --> /dev/mmcblk0p3, 4G, type 82 (swap)
 
 Create the filesystems:
 
