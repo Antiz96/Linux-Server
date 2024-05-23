@@ -92,4 +92,9 @@ mkdir media/mmcblk0p1
 ln -s media/mmcblk0p1/boot boot # You can safely ignore errors here
 ```
 
-After that, `reboot` and perform the [post-installation](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Alpine-Linux_Server_Template.md).
+The initial configuration is over! You can now `reboot`, activate swap at boot and proceed with the [post-installation](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Alpine-Linux_Server_Template.md):
+
+```bash
+reboot
+rc-update add swap boot
+```
