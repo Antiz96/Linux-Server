@@ -145,6 +145,7 @@ rc-service fail2ban restart
 ```bash
 apk add qemu-guest-agent
 rc-update add qemu-guest-agent
+rc-service qemu-guest-agent start
 ```
 
 #### Install and configure Zabbix Agent
@@ -199,7 +200,6 @@ vim /etc/sudoers.d/zabbix
 
 ```bash
 rc-update add zabbix-agentd
-rc-service zabbix-agentd start
 ```
 
 #### Configure the inactivity timeout
