@@ -58,6 +58,7 @@ vim /etc/hosts
 
 > [...]  
 > 127.0.0.1       localhost  
+> ::1             localhost  
 > [...]
 
 #### Set bash as the default shell
