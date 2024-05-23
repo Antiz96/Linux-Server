@@ -45,7 +45,7 @@ apk update && apk upgrade
 ### Install useful packages
 
 ```bash
-apk add vim man-db sudo bash bash-completion openssh-server-pam inetutils-telnet bind-tools wget traceroute rsync zip unzip diffutils mlocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib
+apk add vim man-db sudo bash bash-completion openssh openssh-server-pam inetutils-telnet bind-tools wget traceroute rsync zip unzip diffutils mlocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib
 ```
 
 ### Configure various things
