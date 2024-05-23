@@ -45,7 +45,7 @@ apk update && apk upgrade
 ### Install useful packages
 
 ```bash
-apk add vim man-db sudo bash bash-completion openssh inetutils-telnet bind-tools wget traceroute rsync zip unzip diffutils mlocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib
+apk add vim man-db sudo bash bash-completion openssh-server-pam inetutils-telnet bind-tools wget traceroute rsync zip unzip diffutils mlocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib
 ```
 
 ### Configure various things
@@ -104,6 +104,8 @@ vim /etc/ssh/sshd_config
 > [...]  
 > PasswordAuthentication no #Disable SSH connexions via password  
 > AuthenticationMethods publickey #Authorize only SSH connexions via publickey  
+> [...]  
+> UsePAM yes  
 > [...]
 
 ```bash
@@ -246,14 +248,6 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 
 ```bash
 chsh ansible -s /bin/bash #Set the default ansible's shell to /bin/bash
-```
-
-For some reason, it seems like you cannot log to an account via SSH using a key authentication if the said account [never had a password set before](https://stackoverflow.com/questions/61833713/how-to-login-by-ssh-in-alpine-linux-without-passwords) on Alpine.  
-The workaround is to set a password to the account, and then delete it:
-
-```bash
-passwd ansible
-passwd -d ansible
 ```
 
 ## Setup static IP Address
