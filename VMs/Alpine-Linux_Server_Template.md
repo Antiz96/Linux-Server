@@ -50,6 +50,16 @@ apk add vim man-db sudo bash bash-completion openssh-server-pam inetutils-telnet
 
 ### Configure various things
 
+#### Modify hosts file
+
+```bash
+vim /etc/hosts
+```
+
+> [...]  
+> 127.0.0.1       localhost  
+> [...]
+
 #### Set bash as the default shell
 
 ```bash
@@ -123,18 +133,8 @@ Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.
 Alpine specific:
 
 ```bash
-rm -f /etc/fail2ban/jail.d/alpine-ssh.conf
-vim /etc/fail2ban/jail.conf
-```
-
-In [sshd] block:
-
-> [...]  
-> logpath = /var/log/messages  
-> filter  = alpine-sshd  
-> [...]
-
-```bash
+sed -i "s/10/3/g" /etc/fail2ban/jail.d/alpine-ssh.conf
+sed -i "s/=\ ssh/=\ 'your_custom_ssh_port'/g" /etc/fail2ban/jail.d/alpine-ssh.conf
 rc-service fail2ban restart
 ```
 
