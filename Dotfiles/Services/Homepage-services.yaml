@@ -13,6 +13,7 @@
           username:
           password:
           metric: cpu
+	  version: 4
     - RAM pmx01:
         widget:
           type: glances
@@ -20,6 +21,7 @@
           username:
           password:
           metric: memory
+	  version: 4
 
 - Monitoring pmx02:
     - Glances pmx02:
@@ -35,6 +37,7 @@
           username:
           password:
           metric: cpu
+	  version: 4
     - RAM pmx02:
         widget:
           type: glances
@@ -42,6 +45,7 @@
           username:
           password:
           metric: memory
+	  version: 4
 
 - Services:
     - Proxmox 1:
