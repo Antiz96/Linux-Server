@@ -860,7 +860,7 @@ source = "gitlab"
 host = "gitlab.isc.org"
 gitlab = "isc-projects/kea"
 prefix = "Kea-"
-use_latest_tag = true
+use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [libplacebo]
