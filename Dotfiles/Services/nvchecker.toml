@@ -131,6 +131,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[curlie]
+source = "github"
+github = "rs/curlie"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [ddgr]
 source = "github"
 github = "jarun/ddgr"
@@ -334,6 +341,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[libu2f-server]
+source = "github"
+github = "Yubico/libu2f-server"
+prefix = "libu2f-server-"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [limine]
 source = "github"
 github = "limine-bootloader/limine"
@@ -439,6 +453,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[pam_u2f]
+source = "github"
+github = "Yubico/pam-u2f"
+prefix = "pam_u2f-"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [pasystray]
 source = "github"
 github = "christophgysin/pasystray"
@@ -509,6 +530,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-i3ipc]
+source = "github"
+github = "altdesktop/i3ipc-python"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-mistune]
 source = "github"
 github = "lepture/mistune"
@@ -551,6 +579,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-textual]
+source = "github"
+github = "Textualize/textual"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-tqdm]
 source = "github"
 github = "tqdm/tqdm"
@@ -568,6 +603,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [py3status]
 source = "github"
 github = "ultrabug/py3status"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[rebuild-detector]
+source = "github"
+github = "maximbaz/rebuild-detector"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -598,7 +640,14 @@ source = "github"
 github = "lbonn/rofi"
 prefix = "v"
 use_max_tag = true
-#exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[swappy]
+source = "github"
+github = "jtheoof/swappy"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [sway]
 source = "github"
@@ -710,6 +759,13 @@ source = "github"
 github = "Yubico/yubico-piv-tool"
 prefix = "yubico-piv-tool-"
 use_latest_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[yubikey-touch-detector]
+source = "github"
+github = "maximbaz/yubikey-touch-detector"
+prefix = "v"
+use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [yyjson]
