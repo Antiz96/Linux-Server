@@ -640,7 +640,7 @@ source = "github"
 github = "lbonn/rofi"
 prefix = "v"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+#exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [swappy]
 source = "github"
@@ -859,9 +859,9 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 source = "gitlab"
 host = "gitlab.isc.org"
 gitlab = "isc-projects/kea"
-prefix = "v"
+prefix = "Kea-"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+#exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [libplacebo]
 source = "gitlab"
