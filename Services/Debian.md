@@ -51,7 +51,7 @@ sudo systemctl restart networking
 
 ```bash
 sudo apt update && sudo apt full-upgrade
-sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony parted wget logrotate
+sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate fail2ban python3-passlib fastfetch
 sudo systemctl enable --now logrotate.timer
 ```
 
@@ -127,6 +127,10 @@ sudo firewall-cmd --remove-service="ssh" --permanent #Close the default SSH port
 sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Close the dhcpv6-client port as I don't use it
 sudo firewall-cmd --reload
 ```
+
+## Configure and start fail2ban
+
+Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
 ## Enable fstrim (for SSDs only - optional)
 
