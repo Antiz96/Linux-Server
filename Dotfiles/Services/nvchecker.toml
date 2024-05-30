@@ -537,6 +537,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-lxc]
+source = "github"
+github = "lxc/python3-lxc"
+prefix = "python3-lxc-"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-mistune]
 source = "github"
 github = "lepture/mistune"
