@@ -733,6 +733,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[vale]
+source = "github"
+github = "errata-ai/vale"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [vim-ansible]
 source = "github"
 github = "pearofducks/ansible-vim"
