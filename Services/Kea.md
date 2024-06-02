@@ -61,6 +61,7 @@ sudoedit /etc/kea/kea-dhcp4.conf
 
     "subnet4": [
         {
+            "id": 1, # id has to be unique per subnet
             "subnet": "192.168.1.0/24", # Adapt to your network
             "pools": [ { "pool": "192.168.1.201 - 192.168.1.250" } ], # Adapt to your desired IP range
             "option-data": [
