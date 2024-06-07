@@ -495,6 +495,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[prontonmail-bridge]
+source = "github"
+github = "ProtonMail/proton-bridge"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [pychess]
 source = "github"
 github = "pychess/pychess"
@@ -648,6 +655,13 @@ github = "lbonn/rofi"
 prefix = "v"
 use_max_tag = true
 #exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[sentry]
+source = "github"
+github = "getsentry/sentry-native"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [swappy]
 source = "github"
