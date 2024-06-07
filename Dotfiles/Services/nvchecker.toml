@@ -495,7 +495,7 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[prontonmail-bridge]
+[protonmail-bridge]
 source = "github"
 github = "ProtonMail/proton-bridge"
 prefix = "v"
