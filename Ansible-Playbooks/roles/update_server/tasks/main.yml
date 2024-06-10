@@ -118,11 +118,25 @@
   changed_when: arch_pacnew_files.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
 
+# Check for apk-new files on Alpine servers
+- name: Check apk-new files - Alpine
+  ansible.builtin.shell:
+    cmd: update-conf -a -l
+  register: alpine_apk_new_files
+  changed_when: alpine_apk_new_files.rc == 0
+  when: ansible_facts['distribution'] == "Alpine"
+
 # Print the list of pacnew files (if there are) on Arch servers
 - name: List pacnew files - Arch
   ansible.builtin.debug:
     msg: "{{ arch_pacnew_files.stdout_lines }}"
   when: ansible_facts['distribution'] == "Archlinux" and arch_pacnew_files.stdout_lines
+
+# Print the list of apk-new files (if there are) on Alpine servers
+- name: List apk-new files - Alpine
+  ansible.builtin.debug:
+    msg: "{{ alpine_apk_new_files.stdout_lines }}"
+  when: ansible_facts['distribution'] == "Alpine" and alpine_apk_new_files.stdout_lines
 
 # Reboot servers (unless it's the Ansible server itself)
 - name: Reboot
