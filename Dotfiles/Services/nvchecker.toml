@@ -891,6 +891,14 @@ prefix = "Kea-"
 use_max_tag = true
 #exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[libdisplay-info]
+source = "gitlab"
+host = "gitlab.freedesktop.org"
+gitlab = "emersion/libdisplay-info"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [libplacebo]
 source = "gitlab"
 host = "code.videolan.org"
@@ -947,6 +955,14 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [unrar-free]
 source = "gitlab"
 gitlab = "bgermann/unrar-free"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[wlroots]
+source = "gitlab"
+host = "gitlab.freedesktop.org"
+gitlab = "wlroots/wlroots"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
