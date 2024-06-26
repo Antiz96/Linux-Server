@@ -104,7 +104,7 @@ apk cache -v sync
 return 0
 ```
 
-```
+```bash
 chmod +x /etc/local.d/cache.stop # Make the script executable
 rc-update add local default # Enable the local service
 ```
