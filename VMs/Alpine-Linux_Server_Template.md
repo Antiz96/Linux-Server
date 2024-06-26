@@ -88,18 +88,25 @@ rc-update add firewalld
 rc-service firewalld start
 ```
 
-#### Auto clean packages cache on reboot
+#### Configure apk cache
 
 ```bash
-vim /etc/local.d/cache.stop
+setup-apkcache # Setup cache, make it point to `/var/cache/apk`
+apk cache -v sync # Initialize cache by removing old packages and download missing packages
+vim /etc/local.d/cache.stop # Create a script to remove old packages and download missing packages from cache at shutdown/reboot
 ```
 
-```bash
+```text
 #!/bin/sh
 
 apk cache -v sync
 
 return 0
+```
+
+```bash
+chmod +x /etc/local.d/cache.stop # Make the script executable
+rc-update add local default # Enable the local service
 ```
 
 #### Secure SSH connection
