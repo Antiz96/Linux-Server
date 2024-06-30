@@ -320,6 +320,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[keyd]
+source = "github"
+github = "rvaiya/keyd"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [lemurs]
 source = "github"
 github = "coastalwhite/lemurs"
