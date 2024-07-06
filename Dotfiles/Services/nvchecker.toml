@@ -670,6 +670,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[stress-ng]
+source = "github"
+github = "ColinIanKing/stress-ng"
+prefix = "V"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [swappy]
 source = "github"
 github = "jtheoof/swappy"
