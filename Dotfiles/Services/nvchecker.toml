@@ -1020,6 +1020,11 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Other
 
+[discord]
+source = "httpheader"
+url = "https://discord.com/api/download?platform=linux&format=tar.gz"
+regex = "discord-(.*)\\.tar.*"
+
 [spotify]
 source = "apt"
 mirror = "http://repository.spotify.com/"
