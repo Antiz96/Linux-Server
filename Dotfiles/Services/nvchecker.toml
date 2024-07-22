@@ -40,13 +40,6 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[ansible-language-server]
-source = "github"
-github= "ansible/ansible-language-server"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
-
 [ansible-lint]
 source = "github"
 github = "ansible/ansible-lint"
@@ -1033,6 +1026,10 @@ use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Other
+
+[ansible-language-server]
+source = "npm"
+npm = "@ansible/ansible-language-server"
 
 [discord]
 source = "httpheader"
