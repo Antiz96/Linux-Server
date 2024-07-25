@@ -663,7 +663,7 @@ prefix = "v"
 use_max_tag = true
 #exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[sentry]
+[sentry-native]
 source = "github"
 github = "getsentry/sentry-native"
 prefix = "v"
