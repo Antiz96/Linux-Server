@@ -68,6 +68,20 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[autotiling]
+source = "github"
+github = "nwg-piotr/autotiling"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[azote]
+source = "github"
+github = "nwg-piotr/azote"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [bats]
 source = "github"
 github = "bats-core/bats-core"
@@ -236,6 +250,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[gopsuinfo]
+source = "github"
+github = "nwg-piotr/gopsuinfo"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [goverlay]
 source = "github"
 github = "benjamimgois/goverlay"
@@ -253,6 +274,41 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [gsimplecal]
 source = "github"
 github = "dmedvinsky/gsimplecal"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[gtk-session-lock]
+source = "github"
+github = "Cu3PO42/gtk-session-lock"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[gtklock]
+source = "github"
+github = "jovanlanik/gtklock"
+prefix = "v"
+use_latest_release = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[gtklock-playerctl-module]
+source = "github"
+github = "jovanlanik/gtklock"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[gtklock-powerbar-module]
+source = "github"
+github = "jovanlanik/gtklock"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[gtklock-userinfo-module]
+source = "github"
+github = "jovanlanik/gtklock"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -425,6 +481,55 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[nwg-bar]
+source = "github"
+github = "nwg-piotr/nwg-bar"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-clipman]
+source = "github"
+github = "nwg-piotr/nwg-clipman"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-displays]
+source = "github"
+github = "nwg-piotr/nwg-displays"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-dock]
+source = "github"
+github = "nwg-piotr/nwg-dock"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-dock-hyprland]
+source = "github"
+github = "nwg-piotr/nwg-dock-hyprland"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-drawer]
+source = "github"
+github = "nwg-piotr/nwg-drawer"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-hello]
+source = "github"
+github = "nwg-piotr/nwg-hello"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [nwg-icon-picker]
 source = "github"
 github = "nwg-piotr/nwg-icon-picker"
@@ -439,9 +544,44 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[nwg-menu]
+source = "github"
+github = "nwg-piotr/nwg-menu"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [nwg-panel]
 source = "github"
 github = "nwg-piotr/nwg-panel"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-readme-browser]
+source = "github"
+github = "nwg-piotr/nwg-readme-browser"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-shell]
+source = "github"
+github = "nwg-piotr/nwg-shell"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-shell-config]
+source = "github"
+github = "nwg-piotr/nwg-shell-config"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nwg-shell-wallpapers]
+source = "github"
+github = "nwg-piotr/nwg-shell-wallpapers"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
