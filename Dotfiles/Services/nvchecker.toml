@@ -294,21 +294,21 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gtklock-playerctl-module]
 source = "github"
-github = "jovanlanik/gtklock"
+github = "jovanlanik/gtklock-playerctl-module"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gtklock-powerbar-module]
 source = "github"
-github = "jovanlanik/gtklock"
+github = "jovanlanik/gtklock-powerbar-module"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gtklock-userinfo-module]
 source = "github"
-github = "jovanlanik/gtklock"
+github = "jovanlanik/gtklock-userinfo-module"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
