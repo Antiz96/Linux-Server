@@ -51,7 +51,7 @@ sudo systemctl restart networking
 
 ```bash
 sudo apt update && sudo apt full-upgrade
-sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony wget logrotate fail2ban python3-passlib fastfetch
+sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld plocate htop curl openssl telnet chrony wget logrotate fail2ban python3-passlib fastfetch
 sudo systemctl enable --now logrotate.timer
 ```
 
