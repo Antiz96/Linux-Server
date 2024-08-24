@@ -35,7 +35,7 @@ Replaces the fdisk part in: <https://github.com/Antiz96/Linux-Configuration/blob
 Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Gentoo/Base_installation.md#install-additional-useful-packages>
 
 ```bash
-emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils mlocate htop logrotate fail2ban passlib fastfetch
+emerge -a bash-completion openssh ssh netkit-telnetd bind-tools wget traceroute rsync zip unzip cronie diffutils plocate htop logrotate fail2ban passlib fastfetch
 ```
 
 ### Configure various things
