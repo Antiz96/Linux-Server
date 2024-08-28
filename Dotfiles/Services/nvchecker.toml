@@ -208,6 +208,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[flameshot]
+source = "github"
+github = "flameshot-org/flameshot"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [font-awesome]
 source = "github"
 github = "FortAwesome/Font-Awesome"
