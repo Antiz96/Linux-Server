@@ -1155,18 +1155,19 @@ gitlab = "apps/ristretto"
 prefix = "ristretto-"
 use_max_tag = true
 
-[thunar-archive-plugin]
-source = "gitlab"
-host = "gitlab.xfce.org"
-gitlab = "thunar-plugins/thunar-archive-plugin"
-prefix = "thunar-archive-plugin-"
-use_max_tag = true
-
 [thunar]
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "xfce/thunar"
 prefix = "thunar-"
+use_max_tag = true
+exclude_regex = ".*xfce-.*|thunar-[0-9]+\\.[0-9]?[13579]\\.[0-9]+"
+
+[thunar-archive-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "thunar-plugins/thunar-archive-plugin"
+prefix = "thunar-archive-plugin-"
 use_max_tag = true
 
 [tint2]
