@@ -187,6 +187,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[engrampa]
+source = "github"
+github = "mate-desktop/engrampa"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [entr]
 source = "github"
 github = "eradman/entr"
@@ -1058,6 +1065,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[gammastep]
+source = "gitlab"
+gitlab = "chinstrap/gammastep"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [irker]
 source = "gitlab"
 gitlab = "esr/irker"
@@ -1096,6 +1110,14 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[mousepad]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/mousepad"
+prefix = "mousepad-"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [notification-daemon]
 source = "gitlab"
 host = "gitlab.gnome.org"
@@ -1127,6 +1149,30 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[ristretto]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/ristretto"
+prefix = "ristretto-"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[thunar-archive-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "thunar-plugins/thunar-archive-plugin"
+prefix = "thunar-archive-plugin"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[thunar]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/thunar"
+prefix = "thunar-"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [tint2]
 source = "gitlab"
 gitlab = "o9000/tint2"
@@ -1146,6 +1192,14 @@ source = "gitlab"
 host = "gitlab.freedesktop.org"
 gitlab = "wlroots/wlroots"
 prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[xfce4-terminal]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-terminal"
+prefix = "xfce4-terminal-"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
