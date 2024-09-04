@@ -1116,7 +1116,6 @@ host = "gitlab.xfce.org"
 gitlab = "apps/mousepad"
 prefix = "mousepad-"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [notification-daemon]
 source = "gitlab"
@@ -1155,15 +1154,13 @@ host = "gitlab.xfce.org"
 gitlab = "apps/ristretto"
 prefix = "ristretto-"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [thunar-archive-plugin]
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "thunar-plugins/thunar-archive-plugin"
-prefix = "thunar-archive-plugin"
+prefix = "thunar-archive-plugin-"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [thunar]
 source = "gitlab"
@@ -1171,7 +1168,6 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/thunar"
 prefix = "thunar-"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [tint2]
 source = "gitlab"
@@ -1201,7 +1197,6 @@ host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-terminal"
 prefix = "xfce4-terminal-"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Pypi
 
