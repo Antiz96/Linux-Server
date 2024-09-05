@@ -250,6 +250,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[glad]
+source = "github"
+github = "Dav1dde/glad"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [glances]
 source = "github"
 github = "nicolargo/glances"
