@@ -1064,6 +1064,20 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[catfish]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/catfish"
+prefix = "catfish-"
+use_max_tag = true
+
+[exo]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/exo"
+prefix = "exo-"
+use_max_tag = true
+
 [gajim]
 source = "gitlab"
 host = "dev.gajim.org"
@@ -1078,6 +1092,20 @@ gitlab = "chinstrap/gammastep"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[garcon]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/garcon"
+prefix = "garcon-"
+use_max_tag = true
+
+[gigolo]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/gigolo"
+prefix = "gigolo-"
+use_max_tag = true
 
 [irker]
 source = "gitlab"
@@ -1110,6 +1138,27 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[libxfce4ui]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/libxfce4ui"
+prefix = "libxfce4ui-"
+use_max_tag = true
+
+[libxfce4util]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/libxfce4util"
+prefix = "libxfce4util-"
+use_max_tag = true
+
+[libxfce4windowing]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/libxfce4windowing"
+prefix = "libxfce4windowing-"
+use_max_tag = true
+
 [malachite]
 source = "gitlab"
 gitlab = "crystal-linux/software/malachite"
@@ -1131,6 +1180,20 @@ gitlab = "Archive/notification-daemon"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[orage]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/orage"
+prefix = "orage-"
+use_max_tag = true
+
+[parole]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/parole"
+prefix = "parole-"
+use_max_tag = true
 
 [python-nbxmpp]
 source = "gitlab"
@@ -1177,6 +1240,41 @@ gitlab = "thunar-plugins/thunar-archive-plugin"
 prefix = "thunar-archive-plugin-"
 use_max_tag = true
 
+[thunar-media-tags-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "thunar-plugins/thunar-media-tags-plugin"
+prefix = "thunar-media-tags-plugin-"
+use_max_tag = true
+
+[thunar-shares-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "thunar-plugins/thunar-shares-plugin"
+prefix = "thunar-shares-plugin-"
+use_max_tag = true
+
+[thunar-vcs-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "thunar-plugins/thunar-vcs-plugin"
+prefix = "thunar-vcs-plugin-"
+use_max_tag = true
+
+[thunar-volman]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/thunar-volman"
+prefix = "thunar-volman-"
+use_max_tag = true
+
+[tumbler]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/tumbler"
+prefix = "tumbler-"
+use_max_tag = true
+
 [tint2]
 source = "gitlab"
 gitlab = "o9000/tint2"
@@ -1199,11 +1297,382 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[xfburn]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfburn"
+prefix = "xfburn-"
+use_max_tag = true
+
+[xfce4-appfinder]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfce4-appfinder"
+prefix = "xfce4-appfinder-"
+use_max_tag = true
+
+[xfce4-battery-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-battery-plugin"
+prefix = "xfce4-battery-plugin-"
+use_max_tag = true
+
+[xfce4-calculator-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-calculator-plugin"
+prefix = "xfce4-calculator-plugin-"
+use_max_tag = true
+
+[xfce4-clipman-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-clipman-plugin"
+prefix = "xfce4-clipman-plugin-"
+use_max_tag = true
+
+[xfce4-cpufreq-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-cpufreq-plugin"
+prefix = "xfce4-cpufreq-plugin-"
+use_max_tag = true
+
+[xfce4-cpugraph-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-cpugrah-plugin"
+prefix = "xfce4-cpugraph-plugin-"
+use_max_tag = true
+
+[xfce4-docklike-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-docklike-plugin"
+prefix = "xfce4-docklike-plugin-"
+use_max_tag = true
+
+[xfce4-dev-tools]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfce4-dev-tools"
+prefix = "xfce4-dev-tools-"
+use_max_tag = true
+
+[xfce4-dict]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-dict"
+prefix = "xfce4-dict-"
+use_max_tag = true
+
+[xfce4-diskperf-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-diskperf-plugin"
+prefix = "xfce4-diskperf-plugin-"
+use_max_tag = true
+
+[xfce4-embed-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-embed-plugin"
+prefix = "xfce4-embed-plugin-"
+use_max_tag = true
+
+[xfce4-eyes-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-eyes-plugin"
+prefix = "xfce4-eyes-plugin-"
+use_max_tag = true
+
+[xfce4-fsguard-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-fsguard-plugin"
+prefix = "xfce4-eyes-plugin-"
+use_max_tag = true
+
+[xfce4-generic-slider]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-generic-slider"
+prefix = "xfce4-generic-slider-"
+use_max_tag = true
+
+[xfce4-genmon-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-genmon-plugin"
+prefix = "xfce4-genmon-plugin-"
+use_max_tag = true
+
+[xfce4-indicator-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-indicator-plugin"
+prefix = "xfce4-indicator-plugin-"
+use_max_tag = true
+
+[xfce4-mailwatch-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-mailwatch-plugin"
+prefix = "xfce4-mailwatch-plugin-"
+use_max_tag = true
+
+[xfce4-mixer]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-mixer"
+prefix = "xfce4-mixer-"
+use_max_tag = true
+
+[xfce4-mount-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-mount-plugin"
+prefix = "xfce4-mount-plugin-"
+use_max_tag = true
+
+[xfce4-mpc-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-mpc-plugin"
+prefix = "xfce4-mpc-plugin-"
+use_max_tag = true
+
+[xfce4-netload-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-netload-plugin"
+prefix = "xfce4-netload-plugin-"
+use_max_tag = true
+
+[xfce4-notes-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-notes-plugin"
+prefix = "xfce4-notes-plugin-"
+use_max_tag = true
+
+[xfce4-notidyf]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-notifyd"
+prefix = "xfce4-notifyd-"
+use_max_tag = true
+
+[xfce4-panel]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfce4-panel"
+prefix = "xfce4-panel-"
+use_max_tag = true
+
+[xfce4-panel-profiles]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-panel-profiles"
+prefix = "xfce4-panel-profiles-"
+use_max_tag = true
+
+[xfce4-places-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-places-plugin"
+prefix = "xfce4-places-plugin-"
+use_max_tag = true
+
+[xfce4-power-manager]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfce4-power-manager"
+prefix = "xfce4-power-manager-"
+use_max_tag = true
+
+[xfce4-pulseaudio-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-pulseaudio-plugin"
+prefix = "xfce4-pulseaudio-plugin-"
+use_max_tag = true
+
+[xfce4-sample-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-places-plugin"
+prefix = "xfce4-places-plugin-"
+use_max_tag = true
+
+[xfce4-screensaver]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-screensaver"
+prefix = "xfce4-sreensaver-"
+use_max_tag = true
+
+[xfce4-screenshooter]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-screenshooter"
+prefix = "xfce4-sreenshooter-"
+use_max_tag = true
+
+[xfce4-sensors-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-sensors-plugin"
+prefix = "xfce4-sensors-plugin-"
+use_max_tag = true
+
+[xfce4-session]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfce4-session"
+prefix = "xfce4-session-"
+use_max_tag = true
+
+[xfce4-settings]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfce4-settings"
+prefix = "xfce4-settings-"
+use_max_tag = true
+
+[xfce4-smartbook-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-smartbook-plugin"
+prefix = "xfce4-smartbook-plugin-"
+use_max_tag = true
+
+[xfce4-stopwatch-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-stopwatch-plugin"
+prefix = "xfce4-stopwatch-plugin-"
+use_max_tag = true
+
+[xfce4-systemload-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-systemload-plugin"
+prefix = "xfce4-systemload-plugin-"
+use_max_tag = true
+
+[xfce4-taskmanager]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-taskmanager"
+prefix = "xfce4-taskmanager-"
+use_max_tag = true
+
 [xfce4-terminal]
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-terminal"
 prefix = "xfce4-terminal-"
+use_max_tag = true
+
+[xfce4-time-out-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-time-out-plugin"
+prefix = "xfce4-time-out-plugin-"
+use_max_tag = true
+
+[xfce4-timer-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-timer-plugin"
+prefix = "xfce4-timer-plugin-"
+use_max_tag = true
+
+[xfce4-verve-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-verve-plugin"
+prefix = "xfce4-verve-plugin-"
+use_max_tag = true
+
+[xfce4-volumed-pulse]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfce4-volumed-pulse"
+prefix = "xfce4-volumed-pulse-"
+use_max_tag = true
+
+[xfce4-wavelan-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-wavelan-plugin"
+prefix = "xfce4-wavelan-plugin-"
+use_max_tag = true
+
+[xfce4-weather-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-weather-plugin"
+prefix = "xfce4-weather-plugin-"
+use_max_tag = true
+
+[xfce4-whiskermenu-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-whiskermenu-plugin"
+prefix = "xfce4-whiskermenu-plugin-"
+use_max_tag = true
+
+[xfce4-windowck-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-windowck-plugin"
+prefix = "xfce4-windowck-plugin-"
+use_max_tag = true
+
+[xfce4-xkb-plugin]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "panel-plugins/xfce4-xkb-plugin"
+prefix = "xfce4-xkb-plugin-"
+use_max_tag = true
+
+[xfconf]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfconf"
+prefix = "xfconf-"
+use_max_tag = true
+
+[xfdashboard]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfdashboard"
+prefix = "xfdashboard-"
+use_max_tag = true
+
+[xfdesktop]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfdesktop"
+prefix = "xfdesktop-"
+use_max_tag = true
+
+[xfmpc]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "apps/xfmpc"
+prefix = "xfmpc-"
+use_max_tag = true
+
+[xfwm4]
+source = "gitlab"
+host = "gitlab.xfce.org"
+gitlab = "xfce/xfwm4"
+prefix = "xfwm4-"
 use_max_tag = true
 
 # Pypi
