@@ -1077,6 +1077,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/exo"
 prefix = "exo-"
 use_max_tag = true
+exclude_regex = ".*pre.*|.*4.19.*"
 
 [gajim]
 source = "gitlab"
@@ -1099,6 +1100,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/garcon"
 prefix = "garcon-"
 use_max_tag = true
+exclude_regex = ".*pre.*|.*4.19.*"
 
 [gigolo]
 source = "gitlab"
@@ -1106,6 +1108,7 @@ host = "gitlab.xfce.org"
 gitlab = "apps/gigolo"
 prefix = "gigolo-"
 use_max_tag = true
+exclude_regex = "sion-.*"
 
 [irker]
 source = "gitlab"
@@ -1144,6 +1147,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/libxfce4ui"
 prefix = "libxfce4ui-"
 use_max_tag = true
+exclude_regex = ".*pre.*|.*4.19.*"
 
 [libxfce4util]
 source = "gitlab"
@@ -1151,6 +1155,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/libxfce4util"
 prefix = "libxfce4util-"
 use_max_tag = true
+exclude_regex = ".*pre.*|.*4.19.*"
 
 [libxfce4windowing]
 source = "gitlab"
@@ -1187,6 +1192,7 @@ host = "gitlab.xfce.org"
 gitlab = "apps/orage"
 prefix = "orage-"
 use_max_tag = true
+exclude_regex = "xfce-.*|.*KORBINUS.*|.*BMEURER.*"
 
 [parole]
 source = "gitlab"
@@ -1194,6 +1200,7 @@ host = "gitlab.xfce.org"
 gitlab = "apps/parole"
 prefix = "parole-"
 use_max_tag = true
+exclude_regex = "0.*|1.*"
 
 [python-nbxmpp]
 source = "gitlab"
@@ -1231,7 +1238,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/thunar"
 prefix = "thunar-"
 use_max_tag = true
-exclude_regex = ".*xfce-.*|thunar-[0-9]+\\.[0-9]?[13579]\\.[0-9]+"
+exclude_regex = "xfce-.*|.*4.19.*"
 
 [thunar-archive-plugin]
 source = "gitlab"
@@ -1267,6 +1274,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/thunar-volman"
 prefix = "thunar-volman-"
 use_max_tag = true
+exclude_regex = ".*pre.*|xfce-.*"
 
 [tumbler]
 source = "gitlab"
@@ -1274,6 +1282,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/tumbler"
 prefix = "tumbler-"
 use_max_tag = true
+exclude_regex = ".*pre.*|.*4.19.*|xfce-.*"
 
 [tint2]
 source = "gitlab"
@@ -1310,6 +1319,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfce4-appfinder"
 prefix = "xfce4-appfinder-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfce4-battery-plugin]
 source = "gitlab"
@@ -1317,6 +1327,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-battery-plugin"
 prefix = "xfce4-battery-plugin-"
 use_max_tag = true
+exclude_regex = ".*BMEURER_.*|0.*|1.*"
 
 [xfce4-calculator-plugin]
 source = "gitlab"
@@ -1331,6 +1342,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-clipman-plugin"
 prefix = "xfce4-clipman-plugin-"
 use_max_tag = true
+exclude_regex = "1.*"
 
 [xfce4-cpufreq-plugin]
 source = "gitlab"
@@ -1345,6 +1357,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-cpugraph-plugin"
 prefix = "xfce4-cpugraph-plugin-"
 use_max_tag = true
+exclude_regex = "1.*|D20040606.*|v.*"
 
 [xfce4-docklike-plugin]
 source = "gitlab"
@@ -1352,6 +1365,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-docklike-plugin"
 prefix = "xfce4-docklike-plugin-"
 use_max_tag = true
+exclude_regex = "v.*"
 
 [xfce4-dev-tools]
 source = "gitlab"
@@ -1359,6 +1373,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfce4-dev-tools"
 prefix = "xfce4-dev-tools-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfce4-dict]
 source = "gitlab"
@@ -1373,6 +1388,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-diskperf-plugin"
 prefix = "xfce4-diskperf-plugin-"
 use_max_tag = true
+exclude_regex = "2.*|v.*"
 
 [xfce4-embed-plugin]
 source = "gitlab"
@@ -1387,13 +1403,15 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-eyes-plugin"
 prefix = "xfce4-eyes-plugin-"
 use_max_tag = true
+exclude_regex = "4.*|"
 
 [xfce4-fsguard-plugin]
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-fsguard-plugin"
-prefix = "xfce4-eyes-plugin-"
+prefix = "xfce4-fsguard-plugin-"
 use_max_tag = true
+exclude_regex = "start.*|0.*|1.*"
 
 [xfce4-generic-slider]
 source = "gitlab"
@@ -1408,6 +1426,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-genmon-plugin"
 prefix = "xfce4-genmon-plugin-"
 use_max_tag = true
+exclude_regex = "4.0.2.*|V.*|v.*"
 
 [xfce4-indicator-plugin]
 source = "gitlab"
@@ -1422,6 +1441,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-mailwatch-plugin"
 prefix = "xfce4-mailwatch-plugin-"
 use_max_tag = true
+exclude_regex = "1.*"
 
 [xfce4-mixer]
 source = "gitlab"
@@ -1429,6 +1449,7 @@ host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-mixer"
 prefix = "xfce4-mixer-"
 use_max_tag = true
+exclude_regex = ".*alpha.*|.*beta.*|.*rc.*|xfce-.*"
 
 [xfce4-mount-plugin]
 source = "gitlab"
@@ -1443,6 +1464,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-mpc-plugin"
 prefix = "xfce4-mpc-plugin-"
 use_max_tag = true
+exclude_regex = "0.*"
 
 [xfce4-netload-plugin]
 source = "gitlab"
@@ -1457,6 +1479,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-notes-plugin"
 prefix = "xfce4-notes-plugin-"
 use_max_tag = true
+exclude_regex = "1.*|xfce-.*"
 
 [xfce4-notifyd]
 source = "gitlab"
@@ -1471,6 +1494,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfce4-panel"
 prefix = "xfce4-panel-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfce4-panel-profiles]
 source = "gitlab"
@@ -1478,6 +1502,7 @@ host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-panel-profiles"
 prefix = "xfce4-panel-profiles-"
 use_max_tag = true
+exclude_regex = "xfpanel-switch-.*"
 
 [xfce4-places-plugin]
 source = "gitlab"
@@ -1485,6 +1510,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-places-plugin"
 prefix = "xfce4-places-plugin-"
 use_max_tag = true
+exclude_regex = "0.*|1.*"
 
 [xfce4-power-manager]
 source = "gitlab"
@@ -1492,6 +1518,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfce4-power-manager"
 prefix = "xfce4-power-manager-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfce4-pulseaudio-plugin]
 source = "gitlab"
@@ -1500,26 +1527,20 @@ gitlab = "panel-plugins/xfce4-pulseaudio-plugin"
 prefix = "xfce4-pulseaudio-plugin-"
 use_max_tag = true
 
-[xfce4-sample-plugin]
-source = "gitlab"
-host = "gitlab.xfce.org"
-gitlab = "panel-plugins/xfce4-places-plugin"
-prefix = "xfce4-places-plugin-"
-use_max_tag = true
-
 [xfce4-screensaver]
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-screensaver"
-prefix = "xfce4-sreensaver-"
+prefix = "xfce4-screensaver-"
 use_max_tag = true
 
 [xfce4-screenshooter]
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-screenshooter"
-prefix = "xfce4-sreenshooter-"
+prefix = "xfce4-screenshooter-"
 use_max_tag = true
+exclude_regex = "show.*"
 
 [xfce4-sensors-plugin]
 source = "gitlab"
@@ -1527,6 +1548,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-sensors-plugin"
 prefix = "xfce4-sensors-plugin-"
 use_max_tag = true
+exclude_regex = ".*BMEURER_.*|1.*|Release.*|release_.*|help.*"
 
 [xfce4-session]
 source = "gitlab"
@@ -1534,6 +1556,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfce4-session"
 prefix = "xfce4-session-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfce4-settings]
 source = "gitlab"
@@ -1541,6 +1564,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfce4-settings"
 prefix = "xfce4-settings-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfce4-smartbookmark-plugin]
 source = "gitlab"
@@ -1548,6 +1572,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-smartbookmark-plugin"
 prefix = "xfce4-smartbookmark-plugin-"
 use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [xfce4-stopwatch-plugin]
 source = "gitlab"
@@ -1555,6 +1580,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-stopwatch-plugin"
 prefix = "xfce4-stopwatch-plugin-"
 use_max_tag = true
+exclude_regex = "0.*"
 
 [xfce4-systemload-plugin]
 source = "gitlab"
@@ -1562,6 +1588,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-systemload-plugin"
 prefix = "xfce4-systemload-plugin-"
 use_max_tag = true
+exclude_regex = ".*BMEURER.*|0.*|1.*"
 
 [xfce4-taskmanager]
 source = "gitlab"
@@ -1569,6 +1596,7 @@ host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-taskmanager"
 prefix = "xfce4-taskmanager-"
 use_max_tag = true
+exclude_regex = "0.*|1.*"
 
 [xfce4-terminal]
 source = "gitlab"
@@ -1583,6 +1611,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-time-out-plugin"
 prefix = "xfce4-time-out-plugin-"
 use_max_tag = true
+exclude_regex = "0.*|1.*"
 
 [xfce4-timer-plugin]
 source = "gitlab"
@@ -1597,6 +1626,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-verve-plugin"
 prefix = "xfce4-verve-plugin-"
 use_max_tag = true
+exclude_regex = "0.*|1.*|2.*"
 
 [xfce4-volumed-pulse]
 source = "gitlab"
@@ -1611,6 +1641,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-wavelan-plugin"
 prefix = "xfce4-wavelan-plugin-"
 use_max_tag = true
+exclude_regex = ".*BMEURER_.*|0.5.11.*|.*master.*"
 
 [xfce4-weather-plugin]
 source = "gitlab"
@@ -1623,7 +1654,7 @@ use_max_tag = true
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-whiskermenu-plugin"
-prefix = "xfce4-whiskermenu-plugin-"
+prefix = "v"
 use_max_tag = true
 
 [xfce4-windowck-plugin]
@@ -1632,6 +1663,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-windowck-plugin"
 prefix = "xfce4-windowck-plugin-"
 use_max_tag = true
+exclude_regex = "v.*"
 
 [xfce4-xkb-plugin]
 source = "gitlab"
@@ -1639,6 +1671,7 @@ host = "gitlab.xfce.org"
 gitlab = "panel-plugins/xfce4-xkb-plugin"
 prefix = "xfce4-xkb-plugin-"
 use_max_tag = true
+exclude_regex = "0.*|V.*"
 
 [xfconf]
 source = "gitlab"
@@ -1646,6 +1679,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfconf"
 prefix = "xfconf-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfdashboard]
 source = "gitlab"
@@ -1660,6 +1694,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfdesktop"
 prefix = "xfdesktop-"
 use_max_tag = true
+exclude_regex = ".*4.19.*"
 
 [xfmpc]
 source = "gitlab"
@@ -1667,6 +1702,7 @@ host = "gitlab.xfce.org"
 gitlab = "apps/xfmpc"
 prefix = "xfmpc-"
 use_max_tag = true
+exclude_regex = "0.*"
 
 [xfwm4]
 source = "gitlab"
@@ -1674,6 +1710,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/xfwm4"
 prefix = "xfwm4-"
 use_max_tag = true
+exclude_regex = ".*pre.*"
 
 # Pypi
 
