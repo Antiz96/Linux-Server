@@ -1300,7 +1300,7 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [xfburn]
 source = "gitlab"
 host = "gitlab.xfce.org"
-gitlab = "xfce/xfburn"
+gitlab = "apps/xfburn"
 prefix = "xfburn-"
 use_max_tag = true
 
@@ -1342,7 +1342,7 @@ use_max_tag = true
 [xfce4-cpugraph-plugin]
 source = "gitlab"
 host = "gitlab.xfce.org"
-gitlab = "panel-plugins/xfce4-cpugrah-plugin"
+gitlab = "panel-plugins/xfce4-cpugraph-plugin"
 prefix = "xfce4-cpugraph-plugin-"
 use_max_tag = true
 
@@ -1542,11 +1542,11 @@ gitlab = "xfce/xfce4-settings"
 prefix = "xfce4-settings-"
 use_max_tag = true
 
-[xfce4-smartbook-plugin]
+[xfce4-smartbookmark-plugin]
 source = "gitlab"
 host = "gitlab.xfce.org"
-gitlab = "panel-plugins/xfce4-smartbook-plugin"
-prefix = "xfce4-smartbook-plugin-"
+gitlab = "panel-plugins/xfce4-smartbookmark-plugin"
+prefix = "xfce4-smartbookmark-plugin-"
 use_max_tag = true
 
 [xfce4-stopwatch-plugin]
@@ -1657,7 +1657,7 @@ use_max_tag = true
 [xfdesktop]
 source = "gitlab"
 host = "gitlab.xfce.org"
-gitlab = "apps/xfdesktop"
+gitlab = "xfce/xfdesktop"
 prefix = "xfdesktop-"
 use_max_tag = true
 
