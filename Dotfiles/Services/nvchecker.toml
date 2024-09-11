@@ -1458,7 +1458,7 @@ gitlab = "panel-plugins/xfce4-notes-plugin"
 prefix = "xfce4-notes-plugin-"
 use_max_tag = true
 
-[xfce4-notidyf]
+[xfce4-notifyd]
 source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "apps/xfce4-notifyd"
