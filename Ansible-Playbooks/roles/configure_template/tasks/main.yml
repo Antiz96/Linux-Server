@@ -5,19 +5,19 @@
 - name: Fail if the "ip" variable is empty or undefined
   ansible.builtin.fail:
     msg: The 'ip' variable is empty
-  when: not ip
+  when: ip is undefined or ip | length == 0
 
 # Stop the playbook if the "hostname" var is empty or undefined
 - name: Fail if the "hostname" variable is empty or undefined
   ansible.builtin.fail:
     msg: The 'hostname' variable is empty
-  when: not hostname
+  when: hostname is undefined or hostname | length == 0
 
 # Stop the playbook if the "root_passwd" var is empty or undefined
 - name: Fail if the "root_passwd" variable is empty or undefined
   ansible.builtin.fail:
     msg: The 'root_passwd' variable is empty
-  when: not root_passwd
+  when: root_passwd is undefined or root_passwd | length == 0
 
 # Clean known template.rc SSH hosts (to avoid potential errors)
 - name: Clean known template.rc SSH hosts

@@ -12,7 +12,7 @@
 - name: GitHub runners env clean output
   ansible.builtin.debug:
     msg: "{{ github_runner_env_clean.stdout_lines }}"
-  when: github_runner_env_clean.stdout_lines
+  when: github_runner_env_clean.stdout_lines | length > 0
 
 # # Clean orphaned docker volumes and unused docker resources by gitlab-runners
 # - name: Clean unused docker resources
@@ -25,4 +25,4 @@
 # - name: Docker clean output
 #   ansible.builtin.debug:
 #     msg: "{{ docker_clean.stdout_lines }}"
-#   when: docker_clean.stdout_lines
+#   when: docker_clean.stdout_lines | length > 0

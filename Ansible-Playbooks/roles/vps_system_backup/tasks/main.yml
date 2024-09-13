@@ -12,7 +12,7 @@
 - name: VPS System Backup output
   ansible.builtin.debug:
     msg: "{{ vps_system_backup.stdout_lines }}"
-  when: vps_system_backup.stdout_lines
+  when: vps_system_backup.stdout_lines | length > 0
 
 # Get the list of the backup archives
 - name: List backup archives

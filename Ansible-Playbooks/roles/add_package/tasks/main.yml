@@ -5,7 +5,7 @@
 - name: Fail if the "package_debian", the "package_arch" and the "package_alpine" variables are all empty or undefined
   ansible.builtin.fail:
     msg: The 'package_debian', the 'package_arch' and the 'package_alpine' variables are all empty
-  when: not package_debian and not package_arch and not package_alpine
+  when: (package_debian is undefined or package_debian | length == 0) and (package_arch is undefined or package_arch | length == 0) and (package_alpine is undefined or package_alpine | length == 0)
 
 # Install package(s) on Debian servers
 - name: Install package(s) - Debian
@@ -13,7 +13,7 @@
     update_cache: true
     name: "{{ package_debian }}"
     state: present
-  when: ansible_facts['distribution'] == "Debian" and package_debian
+  when: ansible_facts['distribution'] == "Debian" and (package_debian is defined and package_debian | length > 0)
 
 # Install package(s) on Arch servers
 - name: Install package(s) - Arch
@@ -21,7 +21,7 @@
     update_cache: true
     name: "{{ package_arch }}"
     state: present
-  when: ansible_facts['distribution'] == "Archlinux" and package_arch
+  when: ansible_facts['distribution'] == "Archlinux" and (package_arch is defined and package_arch | length > 0)
 
 # Install package(s) on Alpine servers
 - name: Install package(s) - Alpine
@@ -29,4 +29,4 @@
     update_cache: true
     name: "{{ package_alpine }}"
     state: present
-  when: ansible_facts['distribution'] == "Alpine" and package_alpine
+  when: ansible_facts['distribution'] == "Alpine" and (package_alpine is defined and package_alpine | length > 0)
