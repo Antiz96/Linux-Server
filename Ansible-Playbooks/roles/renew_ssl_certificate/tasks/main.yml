@@ -12,7 +12,7 @@
 - name: Renew certificate output
   ansible.builtin.debug:
     msg: "{{ renew_certificate.stdout_lines }}"
-  when: renew_certificate.stdout_lines
+  when: renew_certificate.stdout_lines | length > 0
 
 # Check the certificate modulus
 - name: Check certificate modulus
@@ -25,7 +25,7 @@
 - name: Check certificate modulus
   ansible.builtin.debug:
     msg: "{{ certificate_modulus.stdout_lines }}"
-  when: certificate_modulus.stdout_lines
+  when: certificate_modulus.stdout_lines | length > 0
 
 # Check the certificate expiration date
 - name: Check certificate expiration date
@@ -38,4 +38,4 @@
 - name: Check certificate expiration date output
   ansible.builtin.debug:
     msg: "{{ certificate_exp.stdout_lines }}"
-  when: certificate_exp.stdout_lines
+  when: certificate_exp.stdout_lines | length > 0
