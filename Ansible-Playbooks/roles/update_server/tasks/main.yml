@@ -24,7 +24,7 @@
   ansible.builtin.shell:
     cmd: apt list --upgradable
   register: debian_packages_update
-  changed_when: debian_packages_update.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Debian"
 
 # Check the list of packages to update on Arch servers (requires the "pacman-contrib" package)
@@ -33,7 +33,7 @@
     cmd: checkupdates
   ignore_errors: true
   register: arch_packages_update
-  changed_when: arch_packages_update.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Check the list of packages to update on Alpine servers
@@ -41,7 +41,7 @@
   ansible.builtin.shell:
     cmd: apk list --upgradable
   register: alpine_packages_update
-  changed_when: alpine_packages_update.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Alpine"
 
 # Print the list of packages to update on Debian servers
@@ -87,7 +87,7 @@
     cmd: pacman -Qtdq
   ignore_errors: true
   register: arch_orphan_packages
-  changed_when: arch_orphan_packages.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Check for orphan packages on Alpine server
@@ -95,7 +95,7 @@
   ansible.builtin.shell:
     cmd: apk list --orphaned
   register: alpine_orphan_packages
-  changed_when: alpine_orphan_packages.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Alpine"
 
 # Print the list of orphan packages (if there are) on Arch servers
@@ -115,7 +115,7 @@
   ansible.builtin.shell:
     cmd: pacdiff -o
   register: arch_pacnew_files
-  changed_when: arch_pacnew_files.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Archlinux"
 
 # Check for apk-new files on Alpine servers
@@ -123,7 +123,7 @@
   ansible.builtin.shell:
     cmd: update-conf -a -l
   register: alpine_apk_new_files
-  changed_when: alpine_apk_new_files.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Alpine"
 
 # Print the list of pacnew files (if there are) on Arch servers
