@@ -1240,7 +1240,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/thunar"
 prefix = "thunar-"
 use_max_tag = true
-exclude_regex = "xfce-.*|thunar-4\.[12][13579]\.[0-9]+"
+exclude_regex = 'xfce-.*|thunar-4\.[12][13579]\.[0-9]+'
 
 [thunar-archive-plugin]
 source = "gitlab"
