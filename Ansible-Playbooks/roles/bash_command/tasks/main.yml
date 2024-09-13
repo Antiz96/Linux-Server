@@ -20,7 +20,7 @@
   ansible.builtin.shell:
     cmd: "{{ cmd_arch }}"
   register: run_cmd_arch
-  changed_when: run_cmd_arch.rc == 0
+  changed_when: false
   when: ansible_facts['distribution'] == "Archlinux" and cmd_arch
 
 # Run the specified bash command on Alpine servers
