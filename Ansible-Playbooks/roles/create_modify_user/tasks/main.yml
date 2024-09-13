@@ -84,4 +84,4 @@
   ansible.builtin.shell:
     cmd: echo "{{ pubkey }}" > "/home/{{ username }}/.ssh/authorized_keys"
   register: set_ssh_key
-  changed_when: set_ssh_key.rc == 0
+  changed_when: true

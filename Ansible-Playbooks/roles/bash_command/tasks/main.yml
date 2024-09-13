@@ -12,7 +12,7 @@
   ansible.builtin.shell:
     cmd: "{{ cmd_debian }}"
   register: run_cmd_debian
-  changed_when: run_cmd_debian.rc == 0
+  changed_when: true
   when: ansible_facts['distribution'] == "Debian" and cmd_debian
 
 # Run the specified bash command on Arch servers
@@ -28,7 +28,7 @@
   ansible.builtin.shell:
     cmd: "{{ cmd_alpine }}"
   register: run_cmd_alpine
-  changed_when: run_cmd_alpine.rc == 0
+  changed_when: true
   when: ansible_facts['distribution'] == "Alpine" and cmd_alpine
 
 # Print the standard output of the command (if there is one) for Debian servers

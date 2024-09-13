@@ -6,7 +6,7 @@
   ansible.builtin.shell:
     cmd: cd /opt/antiz.fr && git fetch origin && git checkout origin/dev -- public
   register: update_antiz_fr_dev
-  changed_when: update_antiz_fr_dev.rc == 0
+  changed_when: true
   when: env == "dev"
 
 # Update the antiz.fr website on the prod environment
@@ -14,5 +14,5 @@
   ansible.builtin.shell:
     cmd: cd /opt/antiz.fr && git fetch origin && git checkout origin/main -- public
   register: update_antiz_fr_prd
-  changed_when: update_antiz_fr_prd.rc == 0
+  changed_when: true
   when: env == "prod"

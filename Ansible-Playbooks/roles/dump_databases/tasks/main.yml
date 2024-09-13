@@ -6,7 +6,7 @@
   ansible.builtin.shell:
     cmd: set -o pipefail && docker exec -t postgres-zabbix pg_dumpall -c -U $(cat /opt/postgres/zabbix/env/user) -l $(cat /opt/postgres/zabbix/env/database) | tee /opt/postgres/zabbix/backup/$(date +%d-%m-%Y).dump
   register: dump_zabbix_database
-  changed_when: dump_zabbix_database.rc == 0
+  changed_when: true
 
 # Find dumps older than a week for the Zabbix database
 - name: List old dumps of Zabbix database

@@ -6,7 +6,7 @@
   ansible.builtin.shell:
     cmd: docker pull containrrr/watchtower
   register: pull_watchtower
-  changed_when: pull_watchtower.rc == 0
+  changed_when: true
 
 # Print the output of the pull (to see if there was an update of the image)
 - name: Pull watchtower output
@@ -19,7 +19,7 @@
   ansible.builtin.shell:
     cmd: docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --porcelain v1 --cleanup --run-once
   register: update_watchtower
-  changed_when: update_watchtower.rc == 0
+  changed_when: true
 
 # Print the output of the update (to see what services have been updated)
 - name: Update docker containers output

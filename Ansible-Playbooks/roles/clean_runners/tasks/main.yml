@@ -6,7 +6,7 @@
   ansible.builtin.shell:
     cmd: rm -rvf /opt/github-runner/*/_diag/* /opt/github-runner/*/_work/*
   register: github_runner_env_clean
-  changed_when: github_runner_env_clean.rc == 0
+  changed_when: true
 
 # Print the output of the GitHub runners env clean (to see what have been deleted)
 - name: GitHub runners env clean output
@@ -19,7 +19,7 @@
 #   ansible.builtin.shell:
 #     cmd: docker system prune --volumes -af
 #   register: docker_clean
-#   changed_when: docker_clean.rc == 0
+#   changed_when: true
 
 # # Print the output of the docker clean (to see what have been deleted)
 # - name: Docker clean output
