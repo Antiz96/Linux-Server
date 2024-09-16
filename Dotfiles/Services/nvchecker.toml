@@ -1399,13 +1399,6 @@ prefix = "xfce4-diskperf-plugin-"
 use_max_tag = true
 exclude_regex = "2.*|v.*"
 
-[xfce4-embed-plugin]
-source = "gitlab"
-host = "gitlab.xfce.org"
-gitlab = "panel-plugins/xfce4-embed-plugin"
-prefix = "xfce4-embed-plugin-"
-use_max_tag = true
-
 [xfce4-eyes-plugin]
 source = "gitlab"
 host = "gitlab.xfce.org"
