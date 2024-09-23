@@ -13,7 +13,6 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [Ansible - Automation platform](https://github.com/Antiz96/Linux-Server/blob/main/Services/Ansible.md)
 - [Jenkins - Orchestration and continuous integration server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Jenkins.md)
 - [Docker - Container manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md)
-- [Pi-hole - DNS, DHCP and global Ad-Blocking server (AUR Package)](https://github.com/Antiz96/Linux-Server/blob/main/Services/Pi-hole-AUR.md)
 - [Nginx - Reverse Proxy](https://github.com/Antiz96/Linux-Server/blob/main/Services/Nginx.md)
 - [Kea - DHCP Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Kea.md)
 - [Gitea - Git Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Gitea.md)

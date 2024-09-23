@@ -37,6 +37,7 @@ Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/B
 
 ```bash
 pacman -S man bash-completion openssh inetutils dnsutils wget traceroute rsync zip unzip diffutils plocate htop logrotate pacman-contrib fail2ban python-passlib fastfetch
+pacman -S --asdeps fakeroot # required for `checkupdates`
 ```
 
 ### Configure various things
