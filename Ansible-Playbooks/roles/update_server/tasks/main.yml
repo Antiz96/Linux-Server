@@ -27,7 +27,7 @@
   changed_when: false
   when: ansible_facts['distribution'] == "Debian"
 
-# Check the list of packages to update on Arch servers (requires the "pacman-contrib" package)
+# Check the list of packages to update on Arch servers (requires the "pacman-contrib" and "fakeroot" packages)
 - name: Check packages to update - Arch
   ansible.builtin.shell:
     cmd: checkupdates
