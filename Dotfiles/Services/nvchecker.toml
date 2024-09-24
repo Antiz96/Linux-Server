@@ -425,6 +425,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[libratbag]
+source = "github"
+github = "libratbag/libratbag"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [libu2f-server]
 source = "github"
 github = "Yubico/libu2f-server"
