@@ -84,10 +84,11 @@
     upgrade: true
   when: ansible_facts['distribution'] == "Archlinux"
 
-# If the server is an Alpine Server, update it via "apk" (apk update && apk upgrade)
+# If the server is an Alpine Server, update it via "apk" (apk update && apk upgrade -a)
 - name: Update - Alpine
   community.general.apk:
     update_cache: true
+    available: true
     upgrade: true
   when: ansible_facts['distribution'] == "Alpine"
 

@@ -78,6 +78,7 @@
 # Update packages on Alpine servers
 - name: Update - Alpine
   community.general.apk:
+    available: true
     upgrade: true
   when: ansible_facts['distribution'] == "Alpine"
 
