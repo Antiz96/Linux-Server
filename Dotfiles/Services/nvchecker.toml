@@ -754,6 +754,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-sqlmodel]
+source = "github"
+github = "fastapi/sqlmodel"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-starlette]
 source = "github"
 github = "encode/starlette"
