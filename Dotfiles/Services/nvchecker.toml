@@ -1071,9 +1071,33 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # GitLab
 
+[abuild]
+source = "gitlab"
+host = "gitlab.alpinelinux.org"
+gitlab = "alpine/abuild"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[apk-tools]
+source = "gitlab"
+host = "gitlab.alpinelinux.org"
+gitlab = "alpine/apk-tools"
+use_max_tag = true
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [ame]
 source = "gitlab"
 gitlab = "crystal-linux/software/amethyst"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[atools]
+source = "gitlab"
+host = "gitlab.alpinelinux.org"
+gitlab = "Leo/atools"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -1753,6 +1777,11 @@ use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Other
+
+[alpine-keyring]
+source = "regex"
+url = "https://pkgs.alpinelinux.org/package/edge/main/x86_64/alpine-keys"
+regex = "alpine-keys-([^-]+)-r\\d+\\.log"
 
 [ansible-language-server]
 source = "npm"
