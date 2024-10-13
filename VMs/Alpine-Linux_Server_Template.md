@@ -25,6 +25,12 @@ I basically follow installation steps normally (`setup-alpine`) with the followi
 > > /var --> 1G  
 > > /var/log --> 4G
 
+### Switch to https repositories
+
+```bash
+sed -i "s/http/https/g" /etc/apk/repositories
+```
+
 ### Optional - Switch to the edge branch and enable testing repo
 
 I personally depends on a few packages that are still currently in the testing repositories.  
@@ -45,7 +51,7 @@ apk update && apk upgrade
 ### Install useful packages
 
 ```bash
-apk add vim man-db sudo bash bash-completion openssh openssh-server-pam inetutils-telnet bind-tools wget traceroute rsync zip unzip diffutils plocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib fastfetch
+apk add vim vimdiff man-db sudo bash bash-completion openssh openssh-server-pam inetutils-telnet bind-tools wget traceroute rsync zip unzip diffutils plocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib fastfetch
 ```
 
 ### Configure various things
