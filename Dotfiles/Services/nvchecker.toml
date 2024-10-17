@@ -691,6 +691,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-cart]
+source = "github"
+github = "CybercentreCanada/cart"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-dasbus]
 source = "github"
 github = "dasbus-project/dasbus"
