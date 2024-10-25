@@ -31,6 +31,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [Dashy - Dashboard with widgets support](https://github.com/Antiz96/Linux-Server/blob/main/Services/Dashy.md)
 - [Nextcloud - Personal cloud, file sharing and collaborative platform](https://github.com/Antiz96/Linux-Server/blob/main/Services/Nextcloud.md)
 - [FileBrowser - Personal cloud and file sharing](https://github.com/Antiz96/Linux-Server/blob/main/Services/FileBrowser.md)
+- [Hedgedoc - Collaborative note taking](https://github.com/Antiz96/Linux-Server/blob/main/Services/Hedgedoc.md)
 - [Glances - Monitoring tool](https://github.com/Antiz96/Linux-Server/blob/main/Services/Glances.md)
 - [Wireguard - VPN](https://github.com/Antiz96/Linux-Server/blob/main/Services/Wireguard.md)
 - [Portainer Server - Web interface to manage Docker](https://github.com/Antiz96/Linux-Server/blob/main/Services/Portainer-Server.md)

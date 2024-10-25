@@ -13,7 +13,7 @@
           username:
           password:
           metric: cpu
-	  version: 4
+          version: 4
     - RAM pmx01:
         widget:
           type: glances
@@ -21,7 +21,7 @@
           username:
           password:
           metric: memory
-	  version: 4
+          version: 4
 
 - Monitoring pmx02:
     - Glances pmx02:
@@ -37,7 +37,7 @@
           username:
           password:
           metric: cpu
-	  version: 4
+          version: 4
     - RAM pmx02:
         widget:
           type: glances
@@ -45,7 +45,7 @@
           username:
           password:
           metric: memory
-	  version: 4
+          version: 4
 
 - Services:
     - Proxmox 1:
@@ -83,6 +83,12 @@
         icon: jenkins
         description: Automation - Orchestrator
         siteMonitor: https://jenkins.home-infra.rc
+        statusStyle: dot
+    - Hedgedoc:
+        href: https://hedgedoc.home-infra.rc
+        icon: hedgedoc
+        description: Collaborative note taking
+        siteMonitor: https://hedgedoc.home-infra.rc
         statusStyle: dot
     - Gitea:
         href: https://gitea.home-infra.rc
