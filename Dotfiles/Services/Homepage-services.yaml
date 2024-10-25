@@ -1,11 +1,5 @@
 ---
 - Monitoring pmx01:
-    - Glances pmx01:
-        href: https://glances-pmx01.home-infra.rc
-        icon: glances
-        description: Monitoring tool
-        siteMonitor: https://glances-pmx01.home-infra.rc
-        statusStyle: dot
     - CPU pmx01:
         widget:
           type: glances
@@ -24,12 +18,6 @@
           version: 4
 
 - Monitoring pmx02:
-    - Glances pmx02:
-        href: https://glances-pmx02.home-infra.rc
-        icon: glances
-        description: Monitoring tool
-        siteMonitor: https://glances-pmx02.home-infra.rc
-        statusStyle: dot
     - CPU pmx02:
         widget:
           type: glances
@@ -66,6 +54,18 @@
         description: DNS - Adblocker
         siteMonitor: https://pihole1.home-infra.rc
         statusStyle: dot
+    - Glances pmx01:
+        href: https://glances-pmx01.home-infra.rc
+        icon: glances
+        description: Monitoring tool
+        siteMonitor: https://glances-pmx01.home-infra.rc
+        statusStyle: dot
+    - Glances pmx02:
+        href: https://glances-pmx02.home-infra.rc
+        icon: glances
+        description: Monitoring tool
+        siteMonitor: https://glances-pmx02.home-infra.rc
+        statusStyle: dot
     - Pihole 2:
         href: https://pihole2.home-infra.rc
         icon: pi-hole
@@ -77,6 +77,18 @@
         icon: zabbix
         description: Monitoring Server
         siteMonitor: https://zabbix.home-infra.rc
+        statusStyle: dot
+    - Uptime Kuma:
+        href: https://uptime-kuma.home-infra.rc
+        icon: uptime-kuma
+        description: Uptime Monitoring
+        siteMonitor: https://uptime-kuma.home-infra.rc
+        statusStyle: dot
+    - FileBrowser:
+        href: https://filebrowser.home-infra.rc
+        icon: filebrowser
+        description: Private Cloud
+        siteMonitor: https://filebrowser.home-infra.rc
         statusStyle: dot
     - Jenkins:
         href: https://jenkins.home-infra.rc
@@ -96,23 +108,11 @@
         description: Git Server
         siteMonitor: https://gitea.home-infra.rc
         statusStyle: dot
-    - FileBrowser:
-        href: https://filebrowser.home-infra.rc
-        icon: filebrowser
-        description: Private Cloud
-        siteMonitor: https://filebrowser.home-infra.rc
-        statusStyle: dot
     - Portainer:
         href: https://portainer.home-infra.rc
         icon: portainer
         description: Docker Container Manager
         siteMonitor: https://portainer.home-infra.rc
-        statusStyle: dot
-    - Uptime Kuma:
-        href: https://uptime-kuma.home-infra.rc
-        icon: uptime-kuma
-        description: Uptime Monitoring
-        siteMonitor: https://uptime-kuma.home-infra.rc
         statusStyle: dot
     - The Lounge:
         href: https://the-lounge.home-infra.rc
