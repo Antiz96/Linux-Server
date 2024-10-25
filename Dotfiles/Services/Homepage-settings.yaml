@@ -20,4 +20,4 @@ layout:
   - Services Health:
   - Services:
       style: row
-      columns: 4
+      columns: 3
