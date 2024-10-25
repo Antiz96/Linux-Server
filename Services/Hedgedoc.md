@@ -12,7 +12,6 @@
 
 *Note that I'm using `sqlite` as the database for my own simple need. For production usage, you should consider using another database engine such as postgreSQL or MariaDB.*
 
-
 ### Create a local folder for persistent database
 
 ```bash
@@ -48,7 +47,7 @@ lscr.io/linuxserver/hedgedoc:latest
 ### Access
 
 You can now access and configure Hedgedoc on this URL:  
-http://[HOSTNAME]:3000/
+<http://[HOSTNAME]:3000/>
 
 ## Update/Upgrade procedure
 
