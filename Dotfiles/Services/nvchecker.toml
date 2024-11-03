@@ -663,6 +663,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[pkcs11-provider]
+source = "github"
+github = "latchset/pkcs11-provider"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [powerline]
 source = "github"
 github = "powerline/powerline"
