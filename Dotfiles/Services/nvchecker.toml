@@ -110,6 +110,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[capitaine-cursors]
+source = "github"
+github = "keeferrourke/capitaine-cursors"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [certificate-ripper]
 source = "github"
 github = "Hakky54/certificate-ripper"
@@ -628,6 +635,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[orchis-theme]
+source = "github"
+github = "vinceliuice/orchis-theme"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [pam_u2f]
 source = "github"
 github = "Yubico/pam-u2f"
@@ -929,6 +943,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[tela-circle-icon-theme]
+source = "github"
+github = "vinceliuice/Tela-circle-icon-theme"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [timeshift]
 source = "github"
 github = "linuxmint/timeshift"
@@ -957,9 +978,30 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[vimix-cursors]
+source = "github"
+github = "vinceliuice/Vimix-cursors"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [vim-ansible]
 source = "github"
 github = "pearofducks/ansible-vim"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[vim-auto-pairs]
+source = "github"
+github = "jiangmiao/auto-pairs"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[vim-devicons]
+source = "github"
+github = "ryanoasis/vim-devicons"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
