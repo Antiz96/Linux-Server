@@ -1,0 +1,63 @@
+"Syntax highlighting
+syntax on
+
+"Colorscheme
+colorscheme ghdark
+hi Normal guibg=NONE ctermbg=NONE
+
+"Always show command
+set showcmd
+
+"Show matching special characters (parentheses, brackets, etc...)
+set showmatch
+
+"Enable the wildmenu (auto completion for vim command)
+set wildmenu
+
+"Highlight the line where cursor is
+set cursorline
+highlight CursorLine ctermbg=black
+
+"Show line numbers
+set nu
+
+"Enable incremental searching
+set is
+
+"Highlight searched patterns
+set hls
+
+"Press space to turn off highlighting after a search
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+"Auto indentation (cursor goes at the same level as the beginning of the previous line)
+set autoindent
+
+"Smart indentation (automatic tab when writing code)
+set smartindent
+
+"Enable mouse support
+set mouse=a
+
+"Enable code folding support
+set foldmethod=manual
+set foldcolumn=1
+highlight FoldColumn ctermbg=none
+
+"Increase the default number of lines saved in the buffer
+set viminfo='100,<10000,s10,h
+
+"Toggle English spell checking with F5
+:map <F5> :setlocal spell! spelllang=en_us<CR>
+
+"Toggle French spell checking with F6
+:map <F6> :setlocal spell! spelllang=fr<CR>
+
+"Get back to the last known cursor position in file
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+"Change 'conf' filetype to 'confini' for a better syntax highlighting
+autocmd FileType conf set ft=confini
+
+"Automatically set list for markdown files (useful to see double spaces at the end of a line to insert a new line)
+autocmd FileType markdown set list
