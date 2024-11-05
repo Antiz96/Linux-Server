@@ -115,7 +115,7 @@ source = "github"
 github = "keeferrourke/capitaine-cursors"
 prefix = "r"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
 
 [certificate-ripper]
 source = "github"
