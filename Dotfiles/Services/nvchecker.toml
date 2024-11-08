@@ -1305,6 +1305,13 @@ prefix = "parole-"
 use_max_tag = true
 exclude_regex = '0.*|1.*|parole-4\.[12][13579]\.[0-9]+'
 
+[poppler]
+source = "gitlab"
+host = "gitlab.freedesktop.org"
+gitlab = "poppler/poppler"
+prefix = "poppler-"
+use_max_tag = true
+
 [python-nbxmpp]
 source = "gitlab"
 host = "dev.gajim.org"
