@@ -52,7 +52,7 @@ You can now access and configure Hedgedoc on this URL:
 ## Update/Upgrade procedure
 
 ```bash
-sudo docker lscr.io/linuxserver/hedgedoc:latest
+sudo docker pull lscr.io/linuxserver/hedgedoc:latest
 sudo docker stop hedgedoc
 sudo docker rm hedgedoc
 sudo docker run -d \
