@@ -923,7 +923,6 @@ use_max_tag = true
 include_regex = ".*-contrib.*"
 from_pattern = "-contrib"
 to_pattern = ""
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [swayidle]
 source = "github"
