@@ -920,7 +920,9 @@ source = "github"
 github = "OctopusET/sway-contrib"
 prefix = "v"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+include_regex = ".*-contrib.*"
+from_pattern = "-contrib"
+to_pattern = ""
 
 [swayidle]
 source = "github"
