@@ -5,7 +5,7 @@
 - name: Proxmox System Backup
   ansible.builtin.shell:
     cmd: system-backup --create --scheduled
-    register: proxmox_system_backup
+  register: proxmox_system_backup
   changed_when: true
 
 # Print the output of the backup (to check that the backup went correctly)
