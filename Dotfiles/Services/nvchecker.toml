@@ -1460,6 +1460,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[wget]
+source = "gitlab"
+gitlab = "gnuwget/wget"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [wlroots]
 source = "gitlab"
 host = "gitlab.freedesktop.org"
@@ -1936,8 +1943,3 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 source = "regex"
 regex = "traceroute-([\\d.]+)\\."
 url = "https://sourceforge.net/projects/traceroute/files/traceroute"
-
-[wget]
-source = "git"
-git = "https://gitlab.com/gnuwget/wget.git"
-prefix = "v"
