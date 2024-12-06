@@ -80,9 +80,9 @@ sudo cat "path_to_the_dump" | sudo docker exec -i postgres psql -U $(sudo cat /o
 
 ### Upgrade postgres from one major release to another
 
-1 - Make a proper backup of the current state of the machine running the postgreSQL container (e.g. a snapshot of the VM).
+1 - Stop services using the postgres database, so data are not being written anymore.
 
-2 - Stop services using the postgres database, so data are not being written anymore.
+2 - Make a proper backup of the current state of the machine running the postgreSQL container (e.g. a snapshot of the VM).
 
 3 - Perform a dump of the database:
 
@@ -99,7 +99,7 @@ sudo docker rm -f postgres
 5 - Delete the content of the "data" directory (there are structure changes from one major version to another which prevent a major release to use the data structure of the previous one):
 
 ```bash
-sudo rm -rf /opt/postgres/data/*
+sudo find /opt/postgres/data -mindepth 1 -delete
 ```
 
 6 - Deploy the new container using the new major release as a tag:
