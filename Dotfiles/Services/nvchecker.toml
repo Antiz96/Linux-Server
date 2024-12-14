@@ -768,6 +768,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-httpx]
+source = "github"
+github = "encode/httpx"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-i3ipc]
 source = "github"
 github = "altdesktop/i3ipc-python"
