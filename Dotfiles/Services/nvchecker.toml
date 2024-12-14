@@ -803,6 +803,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-python-multipart]
+source = "github"
+github = "Kludex/python-multipart"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-sentry_sdk]
 source = "github"
 github = "getsentry/sentry-python"
