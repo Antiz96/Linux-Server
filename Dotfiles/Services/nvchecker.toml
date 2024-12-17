@@ -1351,7 +1351,7 @@ host = "gitlab.xfce.org"
 gitlab = "xfce/libxfce4windowing"
 prefix = "libxfce4windowing-"
 use_max_tag = true
-#exclude_regex = 'libxfce4windowing-4\.[12][13579]\.[0-9]+'
+exclude_regex = '.*pre.*|libxfce4windowing-4\.[12][13579]\.[0-9]+'
 
 [malachite]
 source = "gitlab"
