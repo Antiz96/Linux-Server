@@ -21,4 +21,4 @@
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
-  with_items: "{{ list_old_dumps_zabbix.files }}"
+  loop: "{{ list_old_dumps_zabbix.files }}"

@@ -26,7 +26,7 @@
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
-  with_items: "{{ (list_backup_archives.files | sort(attribute='ctime'))[:-3] }}"
+  loop: "{{ (list_backup_archives.files | sort(attribute='ctime'))[:-3] }}"
 
 # Copy the backup to my FileBrowser instance
 - name: Copy Backup to FileBrowser
