@@ -1161,13 +1161,6 @@ prefix = "v"
 use_latest_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[zabbix]
-source = "github"
-github = "zabbix/zabbix"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
-
 [zaman]
 source = "github"
 github = "Antiz96/zaman"
@@ -1950,7 +1943,6 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 source = "git"
 git = "https://git.kernel.org/pub/scm/bluetooth/bluez.git"
 prefix = "v"
-use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [ssh-openpgp-auth]
@@ -1969,7 +1961,11 @@ include_regex = "sshd-openpgp-auth/.*"
 source = "git"
 git = "https://git.sr.ht/~emersion/wlr-randr"
 prefix = "v"
-use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[zabbix]
+source = "git"
+git = "https://git.zabbix.com/scm/zbx/zabbix.git"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Other
