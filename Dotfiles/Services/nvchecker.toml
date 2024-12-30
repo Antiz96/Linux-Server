@@ -810,6 +810,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-netifaces2]
+source = "github"
+github = "SamuelYvon/netifaces-2"
+prefix = "V"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-precis_i18n]
 source = "github"
 github = "byllyfish/precis_i18n"
