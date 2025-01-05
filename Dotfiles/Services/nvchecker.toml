@@ -761,6 +761,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-docs]
+source = "github"
+github = "python/cpython"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(a|b|rc).*"
+
 [python-fastapi]
 source = "github"
 github = "tiangolo/fastapi"
