@@ -956,6 +956,13 @@ github = "KhronosGroup/SPIRV-Tools"
 prefix = "v"
 use_max_tag = true
 
+[sqlitebrowser]
+source = "github"
+github = "sqlitebrowser/sqlitebrowser"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [stress-ng]
 source = "github"
 github = "ColinIanKing/stress-ng"
