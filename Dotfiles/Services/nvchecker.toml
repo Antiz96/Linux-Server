@@ -963,6 +963,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[sshs]
+source = "github"
+github = "quantumsheep/sshs"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [stress-ng]
 source = "github"
 github = "ColinIanKing/stress-ng"
