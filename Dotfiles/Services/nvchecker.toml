@@ -831,6 +831,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-pytest-instafail]
+source = "github"
+github = "pytest-dev/pytest-instafail"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-python-multipart]
 source = "github"
 github = "Kludex/python-multipart"
