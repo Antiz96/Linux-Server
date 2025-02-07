@@ -1477,6 +1477,12 @@ gitlab = "apps/ristretto"
 prefix = "ristretto-"
 use_max_tag = true
 
+[strip-nondeterminism]
+source = "gitlab"
+host = "salsa.debian.org"
+gitlab = "reproducible-builds/strip-nondeterminism"
+use_max_tag = true
+
 [thunar]
 source = "gitlab"
 host = "gitlab.xfce.org"
