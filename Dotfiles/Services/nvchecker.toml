@@ -1347,6 +1347,12 @@ prefix = "gigolo-"
 use_max_tag = true
 exclude_regex = "sion-.*"
 
+[highlight]
+source = "gitlab"
+gitlab = "saalen/highlight"
+prefix = "v"
+use_max_tag = true
+
 [irker]
 source = "gitlab"
 gitlab = "esr/irker"
