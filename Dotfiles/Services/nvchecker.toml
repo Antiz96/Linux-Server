@@ -2070,7 +2070,7 @@ url = "https://high5.nl/mirrors/postfix-release/official/"
 
 [spotify]
 source = "apt"
-mirror = "http://repository.spotify.com/"
+mirror = "http://repository.spotify.com"
 pkg = "spotify-client"
 suite = "testing"
 repo = "non-free"
