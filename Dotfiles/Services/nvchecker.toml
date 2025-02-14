@@ -1489,6 +1489,13 @@ host = "salsa.debian.org"
 gitlab = "reproducible-builds/strip-nondeterminism"
 use_max_tag = true
 
+[syd]
+source = "gitlab"
+host = "gitlab.exherbo.org"
+gitlab = "sydbox/sydbox"
+prefix = "v"
+use_max_tag = true
+
 [thunar]
 source = "gitlab"
 host = "gitlab.xfce.org"
