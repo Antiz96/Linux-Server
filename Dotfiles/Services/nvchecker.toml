@@ -1077,6 +1077,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[typobuster]
+source = "github"
+github = "nwg-piotr/typobuster"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [urlwatch]
 source = "github"
 github = "thp/urlwatch"
