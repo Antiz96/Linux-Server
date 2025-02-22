@@ -530,6 +530,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[mugshot]
+source = "github"
+github = "bluesabre/mugshot"
+prefix = "mugshot-"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [mupdf]
 source = "github"
 github = "ArtifexSoftware/mupdf"
