@@ -460,6 +460,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[libtlsrpt]
+source = "github"
+github = "sys4/libtlsrpt"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [libu2f-server]
 source = "github"
 github = "Yubico/libu2f-server"
@@ -708,6 +715,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [pkcs11-provider]
 source = "github"
 github = "latchset/pkcs11-provider"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[postfix-tlspol]
+source = "github"
+github = "Zuplu/postfix-tlspol"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -1067,6 +1081,13 @@ github = "linuxmint/timeshift"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|master).*"
+
+[tlsrpt-reporter]
+source = "github"
+github = "sys4/tlsrpt-reporter"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [touchegg]
 source = "github"
