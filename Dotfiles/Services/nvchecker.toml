@@ -981,7 +981,7 @@ include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 [spirv-tools_lib32-spirv-tools]
 source = "github"
 github = "KhronosGroup/SPIRV-Tools"
-prefix = "v"
+prefix = "vulkan-sdk-"
 use_max_tag = true
 include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 
