@@ -976,13 +976,14 @@ source = "github"
 github = "KhronosGroup/SPIRV-Headers"
 prefix = "vulkan-sdk-"
 use_max_tag = true
-exclude_regex = "1.5.*|1.4.*|1.3.*|.*-rc.*"
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 
 [spirv-tools_lib32-spirv-tools]
 source = "github"
 github = "KhronosGroup/SPIRV-Tools"
 prefix = "v"
 use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 
 [sqlitebrowser]
 source = "github"
