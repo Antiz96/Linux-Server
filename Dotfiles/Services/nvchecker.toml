@@ -1480,6 +1480,14 @@ prefix = "parole-"
 use_max_tag = true
 exclude_regex = '0.*|1.*|parole-4\.[12][13579]\.[0-9]+'
 
+[pmbootstrap]
+source = "gitlab"
+host = "gitlab.postmarketos.org"
+gitlab = "postmarketOS/pmbootstrap"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [poppler]
 source = "gitlab"
 host = "gitlab.freedesktop.org"
