@@ -23,8 +23,11 @@ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/S
 
 ## Pull and run the container
 
+Modify the "HOMEPAGE_ALLOWED_HOSTS" environment variable to point to the server that will expose the Homepage service.
+
 ```bash
 sudo docker run -d --name homepage \
+  -e HOMEPAGE_ALLOWED_HOSTS=asprd01.rc:3000 \
   -e PUID=1000 \
   -e PGID=1000 \
   -p 3000:3000 \
@@ -50,6 +53,7 @@ sudo docker pull ghcr.io/gethomepage/homepage:latest
 sudo docker stop homepage
 sudo docker rm homepage
 sudo docker run -d --name homepage \
+  -e HOMEPAGE_ALLOWED_HOSTS=asprd01.rc:3000 \
   -e PUID=1000 \
   -e PGID=1000 \
   -p 3000:3000 \
