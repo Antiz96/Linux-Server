@@ -838,6 +838,13 @@ prefix = "V"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-pillow-jpegxl-plugin]
+source = "github"
+github = "Isotr0py/pillow-jpegxl-plugin"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-precis_i18n]
 source = "github"
 github = "byllyfish/precis_i18n"
