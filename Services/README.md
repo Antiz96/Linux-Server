@@ -1,15 +1,9 @@
-# Server
+# Services
 
 This is a (non-exhaustive) list of installation and configuration procedures of various services that I set up on Linux servers (either for my personal use or in a professional context).
 
-## OS
-
-- [Debian - OS I use on my physical server that hosts my Proxmox instance](https://github.com/Antiz96/Linux-Server/blob/main/Services/Debian.md)
-- [Alpine - OS I use on my Raspberry Pi server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Alpine.md)
-
 ## Services that run directly on the host
 
-- [Proxmox - Hypervisor/Virtualization platform](https://github.com/Antiz96/Linux-Server/blob/main/Services/Proxmox.md)
 - [Ansible - Automation platform](https://github.com/Antiz96/Linux-Server/blob/main/Services/Ansible.md)
 - [Jenkins - Orchestration and continuous integration server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Jenkins.md)
 - [Docker - Container manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md)
