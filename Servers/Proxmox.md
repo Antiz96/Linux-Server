@@ -347,7 +347,7 @@ My ZFS pool is 1 TiB, so I allocate 3 GiB of memory for the ARC:
 
 ```bash
 echo "$[3 * 1024*1024*1024]" | sudo tee /sys/module/zfs/parameters/zfs_arc_max # Modify the value for the current boot
-sudo vim /etc/modprobe.d/zfs.conf # Modify the value permanentely (this file may not exists yet)
+sudo vim /etc/modprobe.d/zfs.conf # Modify the value permanently (this file may not exists yet)
 ```
 
 > [...]  
