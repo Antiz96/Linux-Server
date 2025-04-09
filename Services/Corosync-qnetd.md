@@ -32,6 +32,13 @@ Set `~/.ssh/config` if needed.
 
 **Important:** Note that all nodes should also be able to login via ssh (passwordless) to themselves, so adapt your config if needed (see [this](https://forum.proxmox.com/threads/qdevice-is-not-voting.84976/#post-527855)).
 
+## Open the required port on the firewall
+
+```bash
+sudo firewall-cmd --add-port=5403/tcp --permanent
+sudo firewall-cmd --reload
+```
+
 ## Setup the container
 
 Run a Debian container, install the required `corosync-qnetd` package and start the daemon (to generate the related files):
