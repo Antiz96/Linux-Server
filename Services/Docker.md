@@ -9,6 +9,16 @@ sudo pacman -S docker
 sudo systemctl enable --now docker containerd
 ```
 
+## Install Docker on Alpine
+
+```bash
+sudo apk add docker
+sudo rc-update add docker
+sudo rc-update add containerd
+sudo rc-service docker start
+sudo rc-service containerd start
+```
+
 ## Install Docker on Debian
 
 <https://www.linode.com/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/>

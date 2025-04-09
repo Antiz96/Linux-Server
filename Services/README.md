@@ -38,3 +38,4 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [Uptime Kuma - Uptime monitoring](https://github.com/Antiz96/Linux-Server/blob/main/Services/Uptime-Kuma.md)
 - [Homepage - Dashboard](https://github.com/Antiz96/Linux-Server/blob/main/Services/Homepage.md)
 - [Shlink - URL Shortener](https://github.com/Antiz96/Linux-Server/blob/main/Services/Shlink.md)
+- [Corosync-qnetd - Corosync qdevice external voter for Proxmox cluster](https://github.com/Antiz96/Linux-Server/blob/main/Services/Corosync-qnetd.md)
