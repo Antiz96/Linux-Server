@@ -336,7 +336,7 @@ To setup HA, from the WebUI:
 
 ### Limit ZFS Memory Usage (optional)
 
-ZFS uses 50% of the host memory for the Adaptive Replacement Cache (ARC) by default (see [this link](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_zfs_limit_memory_usage) for details.
+ZFS uses 50% of the host memory for the Adaptive Replacement Cache (ARC) by default, see [this link](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_zfs_limit_memory_usage) for details.
 
 You can see the current amount of ZFS memory usage by running:
 
