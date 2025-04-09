@@ -32,39 +32,37 @@ Set `~/.ssh/config` if needed.
 
 ## Setup the container
 
-Run a Debian container and install the required `corosync-qnetd` package in it:
+Run a Debian container, install the required `corosync-qnetd` package and start the daemon (to generate the related files):
 
 ```bash
 sudo docker run -dit --restart=unless-stopped --network host --hostname debian --name debian debian:bookworm-slim bash
-sudo docker exec -it debian bash -c "apt update && apt install corosync-qnetd"
+sudo docker exec -it debian bash -c "apt update && apt install corosync-qnetd && corosync-qnetd -f" # Press `ctrl + c` once fully started
 ```
 
-Create a custom image from that container (in order to get an image which includes `corosync-qnetd` to run from the host):
+Copy the generated files to the host:
+
+```bash
+sudo docker cp debian:/etc/corosync /etc/
+```
+
+Create a custom image from the Debian container (in order to get an image which includes the `corosync-qnetd` package and the related files to run from the host):
 
 ```bash
 sudo docker commit debian qnetd:latest
 ```
 
-Run the new custom image once and start the `corosync-qnetd` server from it to generate the related files, then copy them to the host:
-
-```bash
-sudo docker run -dit --restart=unless-stopped --network host --hostname qnetd --name qnetd qnetd corosync-qnetd -f
-sudo docker cp qnetd:/etc/corosync /etc/
-```
-
-Delete the custom image container and re-run it with the proper mapping (now that the files have been copied to the host):
+Delete the debian container and run the custom image with the proper volume mapping:
 
 *Exposing `/tmp` is required for the `qdevice` setup.*
 
 ```bash
-sudo docker rm -f qnetd
+sudo docker rm -f debian
 sudo docker run -dit --restart=unless-stopped --network host -v /etc/corosync:/etc/corosync -v /tmp:/tmp --hostname qnetd --name qnetd qnetd corosync-qnetd -f
 ```
 
-Delete the Debian container and remove dangling images (not strictly required, just basic cleanup):
+Remove dangling images (not strictly required, just basic cleanup):
 
 ```bash
-sudo docker rm -f debian
 sudo docker image prune -a
 ```
 
