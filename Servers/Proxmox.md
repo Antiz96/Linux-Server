@@ -334,6 +334,25 @@ To setup HA, from the WebUI:
 
 "Datacenter" --> "HA" --> "Add" (select the VM to add to HA, then click "Add").
 
+### Limit ZFS Memory Usage (optional)
+
+ZFS uses 50% of the host memory for the Adaptive Replacement Cache (ARC) by default (see [this link](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_zfs_limit_memory_usage) for details.
+
+If wanted / needed, you can limit ZFS memory usage. But be aware that allocating enough memory for the ARC is crucial for IO performance, so reduce it with caution.  
+As a general rule of thumb, it is advised to allocate at least 2 GiB + 1 GiB per TiB of storage in the ZFS pool. For instance, a ZFS pool of 8 TiB storage should use 10 GiB (2 GiB base + 8 GiB as there is 8 TiB storage in the pool).
+
+My ZFS pool is 1 TiB, so I allocate 3 GiB of memory for the ARC *(modify the first number (3) to the desired amount of allocated memory (in GiB)*:
+
+```bash
+echo "$[3 * 1024*1024*1024]" | sudo tee /sys/module/zfs/parameters/zfs_arc_max # Modify the value for the current boot
+sudo vim /etc/modprobe.d/zfs.conf # Modify the value permanently (this file may not exists yet)
+```
+
+> [...]  
+> options zfs zfs_arc_max=3221225472 # Result value of `echo "$[3 * 1024*1024*1024]"`
+
+If you have ZFS as your root file system, you have to rebuild your initramfs and reboot as well, see [this link](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_zfs_limit_memory_usage) for details.
+
 ### Create Backup / ISO storage
 
 ```bash
@@ -365,7 +384,7 @@ This should be done for both the `/data/proxmox/backup` directory (content: "VZD
 
 To create automatic backup jobs for VMs, from the WebUI:
 
-"Datacenter" --> "Backup" --> "Add" (select the node, backup storage, schedule, VMs to backup, etc..., then click "Create").
+"Datacenter" --> "Backup" --> "Add" (select the node, backup storage, schedule, VMs to backup, retention threshold from the retention tab, etc..., then click "Create").
 
 ### Create a dedicated admin user (and disable the default root pam user access)
 
