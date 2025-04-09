@@ -38,7 +38,7 @@ Run a Debian container, install the required `corosync-qnetd` package and start 
 
 ```bash
 sudo docker run -dit --restart=unless-stopped --network host --hostname debian --name debian debian:bookworm-slim bash
-sudo docker exec -it debian bash -c "apt update && apt install corosync-qnetd && corosync-qnetd -f" # Press `ctrl + c` once fully started
+sudo docker exec -it debian bash -c "apt update && apt install corosync-qnetd && corosync-qnetd -fd" # Press `ctrl + c` once fully started
 ```
 
 Copy the generated files to the host:
@@ -59,7 +59,7 @@ Delete the debian container and run the custom image with the proper volume mapp
 
 ```bash
 sudo docker rm -f debian
-sudo docker run -dit --restart=unless-stopped --network host -v /etc/corosync:/etc/corosync -v /tmp:/tmp --hostname qnetd --name qnetd qnetd corosync-qnetd -f
+sudo docker run -dit --restart=unless-stopped --network host -v /etc/corosync:/etc/corosync -v /tmp:/tmp --hostname qnetd --name qnetd qnetd corosync-qnetd -fd
 ```
 
 Remove dangling images (not strictly required, just basic cleanup):
