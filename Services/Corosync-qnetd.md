@@ -93,7 +93,7 @@ sudo apt install corosync-qdevice
 
 - From **one** of the Proxmox (PVE) nodes:
 
-**Warning:** The setup command expects **all** nodes (including the QDEVICE) to use the default 22 SSH port.  
+**Warning:** The setup command expects **all** nodes (including the QDEVICE) to use the default `22` SSH port.  
 If you use a custom port, you have to switch back to the default `22` one for the setup to succeed (you can switch back to your custom port afterwards).
 
 ```bash
