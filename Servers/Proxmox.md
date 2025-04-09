@@ -338,6 +338,12 @@ To setup HA, from the WebUI:
 
 ZFS uses 50% of the host memory for the Adaptive Replacement Cache (ARC) by default (see [this link](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_zfs_limit_memory_usage) for details.
 
+You can see the current amount of ZFS memory usage by running:
+
+```bash
+sudo arc_summary
+```
+
 If wanted / needed, you can limit ZFS memory usage. But be aware that allocating enough memory for the ARC is crucial for IO performance, so reduce it with caution.  
 As a general rule of thumb, it is advised to allocate at least 2 GiB + 1 GiB per TiB of storage in the ZFS pool. For instance, a ZFS pool of 8 TiB storage should use 10 GiB (2 GiB base + 8 GiB as there is 8 TiB storage in the pool).
 
