@@ -30,6 +30,8 @@ sudo rc-service sshd restart
 Proceed to SSH key exchange with every nodes (for the `root` user).  
 Set `~/.ssh/config` if needed.
 
+**Important:** Note that all nodes should also be able to login via ssh (passwordless) to themselves, so adapt your config if needed (see [this](https://forum.proxmox.com/threads/qdevice-is-not-voting.84976/#post-527855)).
+
 ## Setup the container
 
 Run a Debian container, install the required `corosync-qnetd` package and start the daemon (to generate the related files):

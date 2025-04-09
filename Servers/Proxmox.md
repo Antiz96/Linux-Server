@@ -295,6 +295,8 @@ sudoedit /root/.ssh/config
 Then copy the public key of each nodes to the `/root/.ssh/authorized_keys` files (a key pair is automatically created for the `root` during Proxmox's installation).  
 Do this between every nodes so they can all connect to each other via `ssh` on the `root` account.
 
+**Important:** Note that all nodes should also be able to login via ssh (passwordless) to themselves, so adapt your config if needed (see [this](https://forum.proxmox.com/threads/qdevice-is-not-voting.84976/#post-527855)).
+
 ### Setup ZFS pool (for VMs disks)
 
 We're going to create a ZFS pool for VMs disks (allowing to replicate them between the cluster nodes for *semi* HA).
