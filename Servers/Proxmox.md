@@ -341,9 +341,7 @@ ZFS uses 50% of the host memory for the Adaptive Replacement Cache (ARC) by defa
 If wanted / needed, you can limit ZFS memory usage. But be aware that allocating enough memory for the ARC is crucial for IO performance, so reduce it with caution.  
 As a general rule of thumb, it is advised to allocate at least 2 GiB + 1 GiB per TiB of storage in the ZFS pool. For instance, a ZFS pool of 8 TiB storage should use 10 GiB (2 GiB base + 8 GiB as there is 8 TiB storage in the pool).
 
-My ZFS pool is 1 TiB, so I allocate 3 GiB of memory for the ARC:
-
-*Modify the first number (3) to the desired amount of allocated memory (in GiB)*
+My ZFS pool is 1 TiB, so I allocate 3 GiB of memory for the ARC *(modify the first number (3) to the desired amount of allocated memory (in GiB)*:
 
 ```bash
 echo "$[3 * 1024*1024*1024]" | sudo tee /sys/module/zfs/parameters/zfs_arc_max # Modify the value for the current boot

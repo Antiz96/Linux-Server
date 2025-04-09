@@ -56,7 +56,7 @@ Delete the custom image container and re-run it with the proper mapping (now tha
 
 *Exposing `/tmp` is required for the `qdevice` setup.*
 
-```
+```bash
 sudo docker rm -f qnetd
 sudo docker run -dit --restart=unless-stopped --network host -v /etc/corosync:/etc/corosync -v /tmp:/tmp --hostname qnetd --name qnetd qnetd corosync-qnetd -f
 ```
