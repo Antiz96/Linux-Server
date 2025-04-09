@@ -3,7 +3,7 @@
 I use this to setup a third / external corosync voter for my Proxmox cluster (which only has to 2 nodes) to ensure a quorum is reached.
 
 <https://pve.proxmox.com/wiki/Cluster_Manager#_corosync_external_vote_support>
-
+..
 **Disclaimer:** The proper way to setup `corosync-qnetd` (as described in the above link) expects / assumes a Debian system.  
 The solution described below shows how to run it inside a Debian container from another OS (from my Alpine Linux Raspberry PI server in that case). While this is handy in case you don't have (or don't want) a Debian system just for this, it's fair to say that this is a bit of an hacky-ish solution (as compared to running it directly on a Debian host).
 
@@ -72,7 +72,7 @@ sudo docker image prune -a
 
 - On the QDEVICE node:
 
-Create a wrapper script the `corosync-qnetd-certutils` command so it gets executed within the container (required for the `qdevice` setup).
+Create a wrapper script around the `corosync-qnetd-certutils` command so it gets executed within the container (required for the `qdevice` setup).
 
 ```bash
 sudo vim /usr/local/bin/corosync-qnetd-certutil
