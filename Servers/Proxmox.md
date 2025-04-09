@@ -336,6 +336,12 @@ To setup HA, from the WebUI:
 
 "Datacenter" --> "HA" --> "Add" (select the VM to add to HA, then click "Add").
 
+You can also create HA groups to assign to specific VMs to define nodes priority for migrations. This is useful to avoid having different nodes of a (virtual) cluster running on the same physical server or to migrate back VMs to their initial physical node once they're up again.
+
+"Datacenter" --> "HA" --> "Groups" --> "Create" (give it a name / ID, select nodes and set their priority, then click "Create").
+
+You can then assign VMs to groups in the main "HA" tab.
+
 ### Limit ZFS Memory Usage (optional)
 
 ZFS uses 50% of the host memory for the Adaptive Replacement Cache (ARC) by default, see [this link](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_zfs_limit_memory_usage) for details.
