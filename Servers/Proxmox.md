@@ -365,6 +365,8 @@ sudo vim /etc/modprobe.d/zfs.conf # Modify the value permanently (this file may 
 > [...]  
 > options zfs zfs_arc_max=3221225472 # Result value of `echo "$[3 * 1024*1024*1024]"`
 
+This should be done on **all** nodes.
+
 If you have ZFS as your root file system, you have to rebuild your initramfs and reboot as well, see [this link](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_zfs_limit_memory_usage) for details.
 
 ### Create Backup / ISO storage
