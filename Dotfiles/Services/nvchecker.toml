@@ -96,13 +96,6 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[blahaj]
-source = "github"
-github = "GeopJr/BLAHAJ"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
-
 [blueman]
 source = "github"
 github = "blueman-project/blueman"
@@ -2049,6 +2042,12 @@ prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Git
+
+[blahaj]
+source = "git"
+git = "https://codeberg.org/GeopJr/BLAHAJ"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [bluez]
 source = "git"
