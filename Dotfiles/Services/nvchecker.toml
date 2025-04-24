@@ -2072,18 +2072,6 @@ source = "git"
 git = "https://git.sr.ht/~sircmpwn/scdoc"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[ssh-openpgp-auth]
-source = "git"
-git = "https://codeberg.org/wiktor/ssh-openpgp-auth"
-prefix = "ssh-openpgp-auth/"
-include_regex = "ssh-openpgp-auth/.*"
-
-[sshd-openpgp-auth]
-source = "git"
-git = "https://codeberg.org/wiktor/ssh-openpgp-auth"
-prefix = "sshd-openpgp-auth/"
-include_regex = "sshd-openpgp-auth/.*"
-
 [zabbix]
 source = "git"
 git = "https://git.zabbix.com/scm/zbx/zabbix.git"
