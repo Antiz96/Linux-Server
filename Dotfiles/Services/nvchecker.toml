@@ -288,9 +288,9 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [glslang]
 source = "github"
 github = "KhronosGroup/glslang"
-prefix = "v"
+prefix = "vulkan-sdk-"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 
 [gopsuinfo]
 source = "github"
