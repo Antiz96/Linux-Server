@@ -134,6 +134,8 @@ sudo nginx -s reload
 
 ## Specific extra configurations for the Proxmox Spice Proxy
 
+This requires the nginx stream module, which can be installed with the `nginx-mod-stream` package in Arch Linux & Alpine Linux or the `libnginx-mod-stream` package in Debian.
+
 ```bash
 sudo vim /etc/nginx/nginx.conf
 ```
