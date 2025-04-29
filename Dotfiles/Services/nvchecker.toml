@@ -831,6 +831,20 @@ prefix = "V"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-pillow-avif-plugin]
+source = "github"
+github = "fdintino/pillow-avif-plugin"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[python-pillow-heif]
+source = "github"
+github = "bigcat88/pillow_heif"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-pillow-jpegxl-plugin]
 source = "github"
 github = "Isotr0py/pillow-jpegxl-plugin"
