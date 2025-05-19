@@ -52,6 +52,7 @@ vim /etc/ansible/ansible.cfg
 > [defaults]  
 > force_color = True # Force colored output (even in non TTY env)  
 > host_key_checking = False # Disable ssh key checking when connection to a new host  
+> interpreter_python = "/usr/bin/python"  
 > retry_files_enabled = True # Enable retry files in case of a failure during a playbook execution
 
 ## Playbooks
