@@ -1,5 +1,5 @@
 ---
 - name: "Remove package(s) from hosts"
-  hosts: "{{ hosts }}"
+  hosts: "{{ servers }}"
   roles:
     - role: "remove_package"
