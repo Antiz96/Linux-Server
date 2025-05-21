@@ -1902,7 +1902,6 @@ gitlab = "panel-plugins/xfce4-smartbookmark-plugin"
 prefix = "xfce4-smartbookmark-plugin-"
 use_max_tag = true
 include_regex = "xfce4-smartbookmark-plugin-.*"
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [xfce4-stopwatch-plugin]
 source = "gitlab"
