@@ -67,7 +67,7 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VMs'),
                             string(name: 'ENV', value: 'dev'),
-                            string(name: 'HOSTS', value: 'all')
+                            string(name: 'SERVERS', value: 'all')
                         ],
                         propagate: true,
                         wait: true
@@ -87,7 +87,7 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VMs'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'HOSTS', value: 'pmx01')
+                            string(name: 'SERVERS', value: 'pmx01')
                         ],
                         propagate: true,
                         wait: true
@@ -107,7 +107,7 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VMs'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'HOSTS', value: 'pmx02')
+                            string(name: 'SERVERS', value: 'pmx02')
                         ],
                         propagate: true,
                         wait: true
@@ -127,7 +127,7 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VPS'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'HOSTS', value: 'all')
+                            string(name: 'SERVERS', value: 'all')
                         ],
                         propagate: true,
                         wait: true
@@ -147,7 +147,7 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'Rasp'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'HOSTS', value: 'all')
+                            string(name: 'SERVERS', value: 'all')
                         ],
                         propagate: true,
                         wait: true
@@ -167,7 +167,7 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'Proxmox'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'HOSTS', value: 'pmx02')
+                            string(name: 'SERVERS', value: 'pmx02')
                         ],
                         propagate: true,
                         wait: true
@@ -189,7 +189,7 @@ pipeline {
                             parameters: [
                                 string(name: 'SERVER_TYPE', value: 'Proxmox'),
                                 string(name: 'ENV', value: 'prod'),
-                                string(name: 'HOSTS', value: 'pmx01')
+                                string(name: 'SERVERS', value: 'pmx01')
                             ],
                             propagate: true,
                             wait: true
