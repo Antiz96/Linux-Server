@@ -38,7 +38,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.1" \
+  -e ServerIP="192.168.96.1" \
   --shm-size=1g \
   pihole/pihole:latest
 ```
@@ -79,7 +79,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.2" \
+  -e ServerIP="192.168.96.2" \
   --shm-size=1g \
   pihole/pihole:latest
 ```
@@ -110,7 +110,7 @@ The web interface doesn't provide an option to add multiple DNS in the DHCP conf
 sudoedit /opt/pihole/etc-dnsmasq.d/99-secondary-DNS.conf
 ```
 
-> dhcp-option=option:dns-server,192.168.1.2,192.168.1.102 #Modify IPs to match your primary and secondary DNS
+> dhcp-option=option:dns-server,192.168.96.2,192.168.96.102 #Modify IPs to match your primary and secondary DNS
 
 ## Update/Upgrade and reinstall procedure
 
@@ -142,7 +142,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.1.1" \
+  -e ServerIP="192.168.96.1" \
   --shm-size=1g \
   pihole/pihole:latest
 ```

@@ -31,7 +31,7 @@
 - name: Modify IP - Debian or Alpine
   ansible.builtin.replace:
     path: /etc/network/interfaces
-    regexp: "192.168.1.100"
+    regexp: "192.168.96.100"
     replace: "{{ ip }}"
   when: ansible_facts['distribution'] == "Debian" or ansible_facts['distribution'] == "Alpine"
 
@@ -39,7 +39,7 @@
 - name: Modify IP - Arch
   ansible.builtin.replace:
     path: /etc/NetworkManager/system-connections/Connexion filaire 1.nmconnection
-    regexp: "192.168.1.100"
+    regexp: "192.168.96.100"
     replace: "{{ ip }}"
   when: ansible_facts['distribution'] == "Archlinux"
 
@@ -59,7 +59,7 @@
 - name: Modify "hosts" file (ip)
   ansible.builtin.lineinfile:
     path: /etc/hosts
-    regexp: "^192.168.1.100"
+    regexp: "^192.168.96.100"
     line: "{{ ip }}\t{{ hostname }}.rc {{ hostname }}"
 
 # Change the root password
