@@ -102,10 +102,10 @@ sudo fail2ban-client banned
 ```
 
 You can manually unban an IP for a specific jail with:  
-*Example with the sshd jail and the 192.168.1.250 IP*
+*Example with the sshd jail and the 192.168.96.250 IP*
 
 ```bash
-sudo fail2ban-client set sshd unbanip 192.168.1.250
+sudo fail2ban-client set sshd unbanip 192.168.96.250
 ```
 
 ## Tips and tricks

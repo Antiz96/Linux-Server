@@ -60,7 +60,7 @@ sudo vim /opt/keepalived/keepalived_check.sh
 ```bash
 #!/bin/bash
 
-MASTER=$(ip a | grep -w "192.168.1.20") # The MASTER is the node that has the VIP assigned
+MASTER=$(ip a | grep -w "192.168.96.20") # The MASTER is the node that has the VIP assigned
 
 if [ -n "$MASTER" ]; then # If the node is the MASTER, check that it is a "good" MASTER (in this case, that the nginx service is running) or put it in FAULT state
         pidof nginx || exit 1
@@ -158,7 +158,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > }  
 > >
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24 # Adapt to your VIP ip  
+> > > 192.168.96.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
@@ -204,7 +204,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > }  
 > >
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24 # Adapt to your VIP ip  
+> > > 192.168.96.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
@@ -261,7 +261,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > }  
 > >  
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24 # Adapt to your VIP ip  
+> > > 192.168.96.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
@@ -308,7 +308,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > }  
 > >
 > > virtual_ipaddress {  
-> > > 192.168.1.20/24 # Adapt to your VIP ip  
+> > > 192.168.96.20/24 # Adapt to your VIP ip  
 > >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  

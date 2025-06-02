@@ -56,11 +56,11 @@ sudo vim /etc/network/interfaces
 > [...]  
 > auto enp3s0
 > iface enp3s0 inet manual  
-> > **dns-nameservers 192.168.1.1 192.168.1.2**  
+> > **dns-nameservers 192.168.96.1 192.168.96.2**  
 > [...]
 
 ```bash
-echo "nameserver 192.168.1.2" | sudo tee -a /etc/resolv.conf
+echo "nameserver 192.168.96.2" | sudo tee -a /etc/resolv.conf
 sudo systemctl restart networking
 ```
 

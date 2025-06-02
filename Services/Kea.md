@@ -50,7 +50,7 @@ sudoedit /etc/kea/kea-dhcp4.conf
     "option-data": [
         {
             "name": "domain-name-servers",
-            "data": "192.168.1.1, 192.168.1.2" # Adapt to your desired DNS servers
+            "data": "192.168.96.1, 192.168.96.2" # Adapt to your desired DNS servers
         },
 
         {
@@ -62,12 +62,12 @@ sudoedit /etc/kea/kea-dhcp4.conf
     "subnet4": [
         {
             "id": 1, # id has to be unique per subnet
-            "subnet": "192.168.1.0/24", # Adapt to your network
-            "pools": [ { "pool": "192.168.1.201 - 192.168.1.250" } ], # Adapt to your desired IP range
+            "subnet": "192.168.96.0/24", # Adapt to your network
+            "pools": [ { "pool": "192.168.96.201 - 192.168.96.250" } ], # Adapt to your desired IP range
             "option-data": [
                 {
                     "name": "routers",
-                    "data": "192.168.1.254" # Adapt to your router's IP
+                    "data": "192.168.96.254" # Adapt to your router's IP
                 }
             ]
         }
