@@ -53,14 +53,14 @@
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: "^127.0.1.1"
-    line: "127.0.1.1       {{ hostname }}.rc {{ hostname }}"
+    line: "127.0.1.1\t{{ hostname }}.rc {{ hostname }}"
 
 # Change the "hosts" file of the server (ip)
 - name: Modify "hosts" file (ip)
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: "^192.168.1.100"
-    line: "{{ ip }}       {{ hostname }}.rc {{ hostname }}"
+    line: "{{ ip }}\t{{ hostname }}.rc {{ hostname }}"
 
 # Change the root password
 - name: Modify root password
