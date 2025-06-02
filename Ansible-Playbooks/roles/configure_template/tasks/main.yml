@@ -25,7 +25,7 @@
     path: /home/ansible/.ssh/known_hosts
     regexp: '^[template.rc]'
     state: absent
-  delegate_to: 127.0.0.1
+  delegate_to: localhost
 
 # If the server is a Debian or an Alpine Server, change the IP by modifying the "interfaces" file
 - name: Modify IP - Debian or Alpine
@@ -48,12 +48,19 @@
   ansible.builtin.hostname:
     name: "{{ hostname }}.rc"
 
-# Change the "hosts" file of the server accordingly
-- name: Modify "hosts" file
+# Change the "hosts" file of the server (loopback)
+- name: Modify "hosts" file (loopback)
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: "^127.0.1.1"
     line: "127.0.1.1       {{ hostname }}.rc {{ hostname }}"
+
+# Change the "hosts" file of the server (ip)
+- name: Modify "hosts" file (ip)
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: "^192.168.1.100"
+    line: "{{ ip }}       {{ hostname }}.rc {{ hostname }}"
 
 # Change the root password
 - name: Modify root password
