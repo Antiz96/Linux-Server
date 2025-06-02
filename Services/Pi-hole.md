@@ -20,7 +20,7 @@ sudo mkdir /opt/pihole
 
 #### Without DHCP
 
-If you don't plan to use Pi-hole as your DHCP (i.e. you still want to use your router's DHCP), you can run the container this way, only exposing ports for DNS and the web interface:
+If you don't plan to use Pi-hole as your DHCP (e.g. if you already have a dedicated DHCP server, such as [`kea`](https://github.com/Antiz96/Linux-Server/blob/main/Services/Kea.md)), you can run the container this way, only exposing ports for DNS and the web interface:
 
 *"ServerIP" should be replaced with your IP.*
 
@@ -45,11 +45,11 @@ sudo docker run -d \
 
 #### With DHCP
 
-If you plan to use Pi-hole as your DHCP as well, you'll need some additional configurations.  
+If you plan to use Pi-hole as your DHCP, you'll need some additional configurations.  
 There are multiple different ways to run DHCP from within the Docker Pi-hole container.  
 All of that is well explained [here](https://docs.pi-hole.net/docker/dhcp/)
 
-I personally use the simple and easy method which consists of running the container with the "host" network mode.  
+The "straightforward" method consists of running the container with the "host" network mode.  
 *Be aware that this will make the container run on your LAN Network (just like a regular server) instead of being bridged and isolated from the host like it would normally be*
 
 As the container will run directly on the host's network, we need to manually open the necessary port on the firewall:
@@ -79,7 +79,7 @@ sudo docker run -d \
   --hostname pi.hole \
   -e VIRTUAL_HOST="pi.hole" \
   -e PROXY_LOCATION="pi.hole" \
-  -e ServerIP="192.168.96.2" \
+  -e ServerIP="192.168.96.1" \
   --shm-size=1g \
   pihole/pihole:latest
 ```
