@@ -18,7 +18,7 @@ sudo systemctl enable --now adguardhome
 
 ## Access
 
-You can access AdguardHome firt setup page on this URL:  
+You can access AdguardHome first setup page on this URL:  
 `http://[HOSTNAME]:3000/`
 
 Once first setup is done, you can access the Web interface on this URL:  
