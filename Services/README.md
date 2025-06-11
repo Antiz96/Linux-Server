@@ -17,6 +17,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [UrlWatch - Watch changes in webpages and get notified](https://github.com/Antiz96/Linux-Server/blob/main/Services/UrlWatch.md)
 - [NVChecker - Watch changes new upstream releases for software and get notified](https://github.com/Antiz96/Linux-Server/blob/main/Services/NVChecker.md)
 - [Postfix - Mail Server/SMTP Relay](https://github.com/Antiz96/Linux-Server/blob/main/Services/Postfix.md)
+- [AdguardHome - DNS, DHCP and global Ad-Blocking server](https://github.com/Antiz96/Linux-Server/blob/main/Services/AdguardHome.md)
 
 ## Services that run inside a docker container
 
