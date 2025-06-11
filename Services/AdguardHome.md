@@ -11,7 +11,7 @@ sudo pacman -S adguardhome
 ## Configuration
 
 ```bash
-sudo firewall-cmd --add-port=3000/tcp --add-port=80/tcp --add-port=53/tcp --permanent
+sudo firewall-cmd --add-port=3000/tcp --add-port=80/tcp --add-port=53/tcp --add-port=53/udp --permanent
 sudo firewall-cmd --reload
 sudo systemctl enable --now adguardhome
 ```
