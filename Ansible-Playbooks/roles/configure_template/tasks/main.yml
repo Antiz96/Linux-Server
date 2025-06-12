@@ -38,7 +38,7 @@
 # If the server is an Arch Server, change the IP by modifying the "nmconnection" file
 - name: Modify IP - Arch
   ansible.builtin.replace:
-    path: /etc/NetworkManager/system-connections/Connexion filaire 1.nmconnection
+    path: /etc/NetworkManager/system-connections/Wired connection 1.nmconnection
     regexp: "192.168.96.100"
     replace: "{{ ip }}"
   when: ansible_facts['distribution'] == "Archlinux"
