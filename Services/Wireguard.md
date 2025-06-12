@@ -108,7 +108,7 @@ sudo docker run -d \
 -e SERVERURL=$(sudo cat /opt/wireguard/env/server_url) \
 -e SERVERPORT=51820 \
 -e PEERS=$(sudo cat /opt/wireguard/env/peers) \
--e PEERDNS=192.168.96.1,192.168.96.2 \
+-e PEERDNS=192.168.96.1 \
 -e INTERNAL_SUBNET=10.10.10.0 \
 -e ALLOWEDIPS=0.0.0.0/0 \
 -p 51820:51820/udp \
@@ -167,7 +167,7 @@ sudo docker run -d \
 -e SERVERURL=$(sudo cat /opt/wireguard/env/server_url) \
 -e SERVERPORT=51820 \
 -e PEERS=$(sudo cat /opt/wireguard/env/peers) \
--e PEERDNS=192.168.96.1,192.168.96.2 \
+-e PEERDNS=192.168.96.1 \
 -e INTERNAL_SUBNET=10.10.10.0 \
 -e ALLOWEDIPS=0.0.0.0/0 \
 -p 51820:51820/udp \

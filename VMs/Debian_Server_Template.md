@@ -179,7 +179,7 @@ vi /etc/network/interfaces
 > iface ens18 inet static  
 > > address 192.168.96.100/24  
 > > gateway 192.168.96.254  
-> > dns-nameservers 192.168.96.1 192.168.96.2
+> > dns-nameservers 192.168.96.1
 
 ## Reboot
 
