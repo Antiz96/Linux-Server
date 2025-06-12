@@ -12,14 +12,6 @@
 sudo mkdir /opt/dashy
 ```
 
-## Download my dashy config file
-
-Remember to fill in the "username" and "password" fields for the monitoring sections
-
-```bash
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Services/Dashy-conf.yml -o /opt/dashy/conf.yml
-```
-
 ## Pull and run the container
 
 ```bash

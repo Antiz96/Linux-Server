@@ -6,19 +6,10 @@
 
 <https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md>
 
-## Create a dedicated dashy directory
+## Create dedicated directories
 
 ```bash
 sudo mkdir -p /opt/homepage/{config,images}
-```
-
-## Download my homepage config files
-
-Remember to fill in the "username" and "password" fields for the glances/pmx monitoring sections in the `services.yaml` file.
-
-```bash
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Services/Homepage-settings.yaml -o /opt/homepage/config/settings.yaml && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Services/Homepage-widgets.yaml -o /opt/homepage/config/widgets.yaml && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Services/Homepage-services.yaml -o /opt/homepage/config/services.yaml
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Server/main/Dotfiles/Services/Homepage-background.png -o /opt/homepage/images/background.png
 ```
 
 ## Pull and run the container
