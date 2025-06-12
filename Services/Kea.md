@@ -50,7 +50,7 @@ sudoedit /etc/kea/kea-dhcp4.conf
     "option-data": [
         {
             "name": "domain-name-servers",
-            "data": "192.168.96.1, 192.168.96.2" # Adapt to your desired DNS servers
+            "data": "192.168.96.1" # Adapt to your desired DNS server
         },
 
         {

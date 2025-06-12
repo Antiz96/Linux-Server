@@ -102,16 +102,6 @@ sudo docker exec -it pihole pihole -a -p
 You can access the pihole web interface here:  
 `http://HOSTNAME/admin/"`
 
-### Add multiple DNS in the DHCP configuration
-
-The web interface doesn't provide an option to add multiple DNS in the DHCP configuration but you can do it by manually creating a related file on your server:
-
-```bash
-sudoedit /opt/pihole/etc-dnsmasq.d/99-secondary-DNS.conf
-```
-
-> dhcp-option=option:dns-server,192.168.96.2,192.168.96.102 #Modify IPs to match your primary and secondary DNS
-
 ## Update/Upgrade and reinstall procedure
 
 Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.
