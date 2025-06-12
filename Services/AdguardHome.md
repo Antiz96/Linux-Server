@@ -26,6 +26,6 @@ Once first setup is done, you can access the Web interface on this URL:
 
 ## Note
 
-Configuration can be done via the WebUI or directly on the server by editing the `/var/lib/adguardhome/AdGuardHome.yaml` (requires a restart of the service for changes to be applied).  
+Configuration can be done via the WebUI or directly on the server by editing the `/var/lib/adguardhome/AdGuardHome.yaml` file (requires a restart of the service for changes to be applied).  
 
 On my home network, I had to set the `ratelimit` parameter to `0` (otherwise DNS requests were rate limited, most likely because of Zabbix).
