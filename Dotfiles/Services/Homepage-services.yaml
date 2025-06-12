@@ -48,11 +48,11 @@
         description: Hypervisor
         siteMonitor: https://proxmox2.home-infra.rc
         statusStyle: dot
-    - Pihole 1:
-        href: https://pihole1.home-infra.rc
-        icon: pi-hole
+    - Adguard 1:
+        href: https://adguard1.home-infra.rc
+        icon: adguard-home
         description: DNS - Adblocker
-        siteMonitor: https://pihole1.home-infra.rc
+        siteMonitor: https://adguard1.home-infra.rc
         statusStyle: dot
     - Glances pmx01:
         href: https://glances-pmx01.home-infra.rc
@@ -66,11 +66,11 @@
         description: Monitoring tool
         siteMonitor: https://glances-pmx02.home-infra.rc
         statusStyle: dot
-    - Pihole 2:
-        href: https://pihole2.home-infra.rc
-        icon: pi-hole
+    - Adguard 2:
+        href: https://adguard2.home-infra.rc
+        icon: adguard-home
         description: DNS - Adblocker
-        siteMonitor: https://pihole2.home-infra.rc
+        siteMonitor: https://adguard2.home-infra.rc
         statusStyle: dot
     - Zabbix:
         href: https://zabbix.home-infra.rc
