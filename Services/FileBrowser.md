@@ -10,17 +10,29 @@
 
 <https://github.com/filebrowser/filebrowser>
 
-### Create the FileBrowser directory and the database file (with the right permission)
+### Create the FileBrowser directory, database & configuration file (with the right permission)
 
 ```bash
 sudo mkdir -p /data/FileBrowser/data && sudo chown antiz: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
-sudo touch /data/FileBrowser/database.db && sudo chown antiz: /data/FileBrowser/database.db && chmod 600 /data/FileBrowser/database.db
+sudo touch /data/FileBrowser/{filebrowser.db,settings.json} && sudo chown antiz: /data/FileBrowser/{filebrowser.db,settings.json} && chmod 600 /data/FileBrowser/{filebrowser.db,settings.json}
+vim /data/FileBrowser/settings.json # https://github.com/filebrowser/filebrowser/blob/master/settings.json
+```
+
+```text
+{
+  "port": 80,
+  "baseURL": "",
+  "address": "",
+  "log": "stdout",
+  "database": "/database/filebrowser.db",
+  "root": "/srv"
+}
 ```
 
 ### Pull and run the container
 
 ```bash
-sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
+sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser:/database -v /data/FileBrowser:/config -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
 ```
 
 ### Access
@@ -51,7 +63,7 @@ sudo docker pull filebrowser/filebrowser
 ```bash
 sudo docker stop filebrowser
 sudo docker rm filebrowser
-sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
+sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser:/database -v /data/FileBrowser:/config -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
 ```
 
 ### After an update
