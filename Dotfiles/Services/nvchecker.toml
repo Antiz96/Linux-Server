@@ -2074,6 +2074,12 @@ git = "https://github.com/dnote/dnote"
 prefix = "server-v"
 include_regex = "server-v.*"
 
+[mmc-utils]
+source = "git"
+git = "https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [scdoc]
 source = "git"
 git = "https://git.sr.ht/~sircmpwn/scdoc"
