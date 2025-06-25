@@ -1414,7 +1414,7 @@ host = "gitlab.isc.org"
 gitlab = "isc-projects/kea"
 prefix = "Kea-"
 use_max_tag = true
-exclude_regex = 'Kea-2\.[13579]\.[0-9]+'
+exclude_regex = "stable"
 
 [libdisplay-info]
 source = "gitlab"
