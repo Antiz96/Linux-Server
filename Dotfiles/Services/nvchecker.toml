@@ -54,6 +54,20 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[ansible-navigator]
+source = "github"
+github = "ansible/ansible-navigator"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[ansible-runner]
+source = "github"
+github = "ansible/ansible-runner"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [archlinux-contrib]
 source = "github"
 github = "archlinux/contrib"
@@ -835,6 +849,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 source = "github"
 github = "SamuelYvon/netifaces-2"
 prefix = "V"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[python-onigurumacffi]
+source = "github"
+github = "asottile/onigurumacffi"
+prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
@@ -2042,6 +2063,10 @@ pypi = "ansible"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-daemon]
+source = "pypi"
+pypi = "python_daemon"
+
 [python-zabbix-api]
 source = "pypi"
 pypi = "zabbix-api"
@@ -2079,6 +2104,11 @@ source = "git"
 git = "https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[python-changelog-chug]
+source = "git"
+git = "https://git.sr.ht/~bignose/changelog-chug"
+prefix = "release/"
 
 [scdoc]
 source = "git"
