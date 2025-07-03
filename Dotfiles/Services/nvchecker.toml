@@ -2150,8 +2150,8 @@ regex = "discord-(.*)\\.tar.*"
 
 [filezilla]
 source = "regex"
-url = "https://filezilla-project.org/download.php?type=client"
-regex = 'The latest stable version of FileZilla Client is (\d+\.\d+\.\d+)'
+url = "https://filezilla-project.org/versions.php?type=client"
+regex = '(\d+\.\d+\.\d+)'
 
 [libfilezilla]
 source = "regex"
