@@ -182,6 +182,12 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 
 > Copy the ansible master server's SSH public key here (ansible@ansible-server)
 
+### Setup static IP Address
+
+```bash
+nmtui
+```
+
 ## Reboot
 
 ```bash
