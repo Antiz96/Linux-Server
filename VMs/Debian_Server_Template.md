@@ -98,7 +98,7 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=template.rc  
 > [...]  
-> TLSPSKIdentity=  
+> TLSPSKIdentity=XXXX  
 > [...]  
 > TLSPSKFile=/etc/zabbix/.psk  
 > [...]  
