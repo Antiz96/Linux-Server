@@ -188,7 +188,6 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 nmtui
 ```
 
-
 ## Reboot
 
 ```bash
