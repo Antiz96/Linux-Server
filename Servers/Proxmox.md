@@ -186,7 +186,7 @@ sudo vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > Hostname=pmx01.rc # Adapt the hostname if needed  
 > [...]  
-> TLSPSKIdentity=XXXX # Should be filled in according to the "Deploying a New Server" procedure  
+> TLSPSKIdentity=XXXX  
 > [...]  
 > TLSPSKFile=/etc/zabbix/.psk  
 > [...]  
