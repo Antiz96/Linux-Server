@@ -1202,6 +1202,60 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[volk]
+source = "github"
+github = "zeux/volk"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
+[vulkan-docs]
+source = "github"
+github = "KhronosGroup/vulkan-docs"
+use_max_tag = true
+
+[vulkan-headers]
+source = "github"
+github = "KhronosGroup/vulkan-headers"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
+[vulkan-icd-loader_lib32-vulkan-icd-loader]
+source = "github"
+github = "KhronosGroup/vulkan-loader"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
+[vulkan-lunarg-tools]
+source = "github"
+github = "LunarG/VulkanTools"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
+[vulkan-tools]
+source = "github"
+github = "KhronosGroup/vulkan-tools"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
+[vulkan-utility-libraries_lib32-vulkan-utility-libraries]
+source = "github"
+github = "KhronosGroup/vulkan-utility-libraries"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
+[vulkan-validation-layers_lib32-vulkan-validation-layers]
+source = "github"
+github = "KhronosGroup/vulkan-validationlayers"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
 [wakeonlan]
 source = "github"
 github = "jpoliv/wakeonlan"
