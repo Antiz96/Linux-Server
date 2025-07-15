@@ -1219,6 +1219,8 @@ github = "KhronosGroup/vulkan-headers"
 prefix = "vulkan-sdk-"
 use_max_tag = true
 include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+from_pattern = '(\d+\.\d+\.\d+)\.\d+'
+to_pattern = '\1'
 
 [vulkan-headers]
 source = "github"
