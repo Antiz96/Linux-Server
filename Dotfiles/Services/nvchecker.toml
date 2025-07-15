@@ -1211,8 +1211,14 @@ include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 
 [vulkan-docs]
 source = "github"
-github = "KhronosGroup/vulkan-docs"
+# vulkan-docs doesn't have SDK tags
+# but we still want to keep it synced with the other vulkan packages ($pkgver wise)
+# so we point to another package of the suite instead
+#github = "KhronosGroup/vulkan-docs"
+github = "KhronosGroup/vulkan-headers"
+prefix = "vulkan-sdk-"
 use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 
 [vulkan-headers]
 source = "github"
