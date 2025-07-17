@@ -12,6 +12,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[add-determinism]
+source = "github"
+github = "keszybz/add-determinism"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [adguardhome]
 source = "github"
 github = "AdguardTeam/AdGuardHome"
