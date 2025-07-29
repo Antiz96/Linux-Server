@@ -54,6 +54,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[ansible-creator]
+source = "github"
+github = "ansible/ansible-creator"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [ansible-lint]
 source = "github"
 github = "ansible/ansible-lint"
