@@ -63,5 +63,5 @@
 - name: List backup archives in FileBrowser output
   ansible.builtin.debug:
     msg: "{{ list_backup_archives_filebrowser.stdout_lines }}"
-  when: list_backup_archives_filebrowser.stdout_lines
+  when: list_backup_archives_filebrowser.stdout_lines | length > 0
   delegate_to: fsprd01.rc
