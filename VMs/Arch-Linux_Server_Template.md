@@ -124,10 +124,10 @@ echo "${ban_number}"
 
 ```bash
 chmod +x /etc/zabbix/scripts/fail2ban_num.sh
-vim /etc/sudoers.d/zabbix-agent
+vim /etc/sudoers.d/zabbix
 ```
 
-> zabbix-agent ALL=(ALL) NOPASSWD:/etc/zabbix/scripts/fail2ban_num.sh
+> zabbix ALL=(ALL) NOPASSWD:/etc/zabbix/scripts/fail2ban_num.sh
 
 ```bash
 systemctl enable --now zabbix-agent
