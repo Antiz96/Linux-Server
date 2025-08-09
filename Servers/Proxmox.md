@@ -18,11 +18,13 @@ sed -i 's/^/#/' /etc/apt/sources.list.d/ceph.sources /etc/apt/sources.list.d/pve
 nano /etc/apt/sources.list.d/proxmox.sources
 ```
 
-> Types: deb  
-> URIs: http://download.proxmox.com/debian/pve  
-> Suites: trixie  
-> Components: pve-no-subscription  
-> Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
+``` text
+Types: deb
+URIs: http://download.proxmox.com/debian/pve
+Suites: trixie
+Components: pve-no-subscription
+Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
+```
 
 ```bash
 apt update
