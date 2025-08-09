@@ -14,8 +14,19 @@ For the first filesystem related step, select the disk dedicated to the OS and u
 ## Setup Proxmox community repositories and update the system
 
 ```bash
-sed -i '1s/^/# /' /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/pve-enterprise.list
-echo "deb http://download.proxmox.com/debian $(grep CODENAME /etc/os-release | cut -f2 -d'=') pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
+sed -i 's/^/#/' /etc/apt/sources.list.d/ceph.sources /etc/apt/sources.list.d/pve-enterprise.sources
+nano /etc/apt/sources.list.d/proxmox.sources
+```
+
+``` text
+Types: deb
+URIs: http://download.proxmox.com/debian/pve
+Suites: trixie
+Components: pve-no-subscription
+Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
+```
+
+```bash
 apt update
 ```
 
