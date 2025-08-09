@@ -44,7 +44,7 @@ sudo firewall-cmd --reload
 Run a Debian container, install the required `corosync-qnetd` package and start the daemon (to generate the related files):
 
 ```bash
-sudo docker run -dit --restart=unless-stopped --network host --hostname debian --name debian debian:bookworm-slim bash
+sudo docker run -dit --restart=unless-stopped --network host --hostname debian --name debian debian:trixie-slim bash
 sudo docker exec -it debian bash -c "apt update && apt install corosync-qnetd && corosync-qnetd -fd" # Press `ctrl + c` once fully started
 ```
 
@@ -121,4 +121,4 @@ Update packages from the container:
 sudo docker exec -it qnetd bash -c "apt update && apt full-upgrade && apt autoremove"
 ```
 
-To upgrade to a new Debian release (e.g. `trixie`), simply delete the container (`sudo docker rm -f qnetd`) and repeat all steps with the new tag for the Debian container created in the first step (e.g. `debian:trixie-slim`).
+To upgrade to a new Debian release (e.g. `forky`), simply delete the container (`sudo docker rm -f qnetd`) and repeat all steps with the new tag for the Debian container created in the first step (e.g. `debian:forky-slim`).
