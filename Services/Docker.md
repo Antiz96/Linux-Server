@@ -21,8 +21,6 @@ sudo rc-service containerd start
 
 ## Install Docker on Debian
 
-<https://www.linode.com/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/>
-
 ### Make sure docker is not already installed via the regular Debian repos
 
 ```bash
@@ -39,7 +37,15 @@ sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
 
 ```bash
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo vim /etc/apt/sources.list.d/docker.sources
+```
+
+```text
+Types: deb
+URIs: https://download.docker.com/linux/debian/
+Suites: trixie
+Components: stable
+Signed-By: /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 
 ### Update repo list and install docker
