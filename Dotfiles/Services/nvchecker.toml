@@ -1513,7 +1513,7 @@ prefix = "Kea-"
 use_max_tag = true
 exclude_regex = "stable|Kea-[0-9]+\\.[0-9]?[13579]\\.[0-9]+"
 
-[libdisplay-info]
+[libdisplay-info_lib32-libdisplay-info]
 source = "gitlab"
 host = "gitlab.freedesktop.org"
 gitlab = "emersion/libdisplay-info"
