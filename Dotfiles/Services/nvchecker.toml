@@ -2170,7 +2170,7 @@ include_regex = "server-v.*"
 
 [limine]
 source = "git"
-github = "https://codeberg.org/Limine/Limine.git"
+git = "https://codeberg.org/Limine/Limine.git"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
