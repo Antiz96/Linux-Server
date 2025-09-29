@@ -803,6 +803,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-hatch-regex-commit]
+source = "github"
+github = "frankie567/hatch-regex-commit"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-httpcore]
 source = "github"
 github = "encode/httpcore"
@@ -876,6 +883,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [python-precis_i18n]
 source = "github"
 github = "byllyfish/precis_i18n"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[python-pwdlib]
+source = "github"
+github = "frankie567/pwdlib"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
