@@ -908,6 +908,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-pytest-textual-snapshot]
+source = "github"
+github = "Textualize/pytest-textual-snapshot"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-python-multipart]
 source = "github"
 github = "Kludex/python-multipart"
