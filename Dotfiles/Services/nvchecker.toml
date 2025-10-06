@@ -2168,12 +2168,14 @@ source = "git"
 git = "https://github.com/dnote/dnote"
 prefix = "cli-v"
 include_regex = "cli-v.*"
+exclude_regex = ".*-rc.*"
 
 [dnote-server]
 source = "git"
 git = "https://github.com/dnote/dnote"
 prefix = "server-v"
 include_regex = "server-v.*"
+exclude_regex = ".*-rc.*"
 
 [limine]
 source = "git"
