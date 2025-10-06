@@ -1285,13 +1285,6 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[wkd-exporter]
-source = "github"
-github = "wiktor-k/wkd-exporter"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
-
 [wl-clipboard]
 source = "github"
 github = "bugaevc/wl-clipboard"
@@ -1711,6 +1704,14 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [wget]
 source = "gitlab"
 gitlab = "gnuwget/wget"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[wkd-exporter]
+source = "gitlab"
+host = "gitlab.archlinux.org"
+gitlab = "archlinux/wkd-exporter"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
