@@ -31,10 +31,12 @@
     dest: /data/FileBrowser/data
     delete: true
     recursive: true
+    rsync_path: "sudo rsync"
     rsync_opts:
       - "--ignore-existing"
       - "--exclude='.*'"
   delegate_to: fsprd01.rc
+  remote_user: ansible
 
 - name: "Update backup archive's permissions in FileBrowser"
   ansible.builtin.file:
