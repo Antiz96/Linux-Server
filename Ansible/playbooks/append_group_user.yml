@@ -1,0 +1,6 @@
+---
+- name: "Append group(s) to a user"
+  hosts: all
+  become: true
+  roles:
+    - role: "append_group_user"

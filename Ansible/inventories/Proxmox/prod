@@ -1,0 +1,9 @@
+[pmx01]
+pmx01.rc
+
+[pmx02]
+pmx02.rc
+
+[docker]
+pmx01.rc
+pmx02.rc

@@ -1,5 +1,0 @@
----
-- name: "Sync Crystal Repo"
-  hosts: ws
-  roles:
-    - role: "sync_crystal_repo"

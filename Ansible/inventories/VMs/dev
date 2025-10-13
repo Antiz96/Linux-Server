@@ -1,0 +1,10 @@
+# Server types
+[ws]
+wsdev02.rc
+
+[as]
+asdev02.rc
+
+# Services
+[docker]
+asdev02.rc

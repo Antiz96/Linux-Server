@@ -9,4 +9,4 @@ This repo also contains my configuration files (Dotfiles) and the Ansible Playbo
 - [VMs - Installation and configuration procedures for the various virtual Linux Servers I run on my Proxmox instance + Various tips](https://github.com/Antiz96/Linux-Server/tree/main/VMs)
 - [Services - Installation and configuration procedures for services that I set up on Linux Servers](https://github.com/Antiz96/Linux-Server/tree/main/Services)
 - [Dotfiles - My various configuration files (.bashrc, specific services config files, etc...)](https://github.com/Antiz96/Linux-Server/tree/main/Dotfiles)
-- [Ansible Playbooks - Ansible Playbooks I use to automate various administration tasks](https://github.com/Antiz96/Linux-Server/tree/main/Ansible-Playbooks)
+- [Ansible - A small collection of Ansible Playbooks I use to automate various administration tasks](https://github.com/Antiz96/Linux-Server/tree/main/Ansible)

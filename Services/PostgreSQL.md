@@ -70,7 +70,7 @@ There's multiple ways to automate that backup process. You can simply put the ab
 
 Personally, I use an Ansible Playbook that does the dump and delete every dump older than 7 days.  
 This Ansible Playbook is launched automatically each day by my Jenkins instance so it performs one dump a day and keep 7 days of dump.  
-You can see that Ansible Playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/dump_db/tasks/main.yml).
+You can see that Ansible Playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible/playbooks/roles/dump_db/tasks/main.yml).
 
 To restore a dump, you can use the following command:
 

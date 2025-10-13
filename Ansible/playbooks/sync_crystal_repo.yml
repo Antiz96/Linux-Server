@@ -1,0 +1,6 @@
+---
+- name: "Sync Crystal Repo"
+  hosts: ws
+  become: true
+  roles:
+    - role: "sync_crystal_repo"

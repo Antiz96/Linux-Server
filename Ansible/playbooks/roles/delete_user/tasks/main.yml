@@ -1,0 +1,13 @@
+---
+# tasks file for delete_user
+
+- name: "Fail if the 'username' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'username' variable is empty"
+  when: username is undefined or username | length == 0
+
+- name: "Delete user"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    state: absent
+    remove: true

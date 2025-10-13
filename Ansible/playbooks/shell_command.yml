@@ -1,0 +1,6 @@
+---
+- name: "Run a shell command"
+  hosts: all
+  become: true
+  roles:
+    - role: "shell_command"

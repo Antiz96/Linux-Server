@@ -1,0 +1,6 @@
+---
+- name: "Create or modify a user"
+  hosts: all
+  become: true
+  roles:
+    - role: "create_modify_user"

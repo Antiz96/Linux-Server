@@ -1,0 +1,24 @@
+---
+# tasks file for update_docker_container
+
+- name: "Pull watchtower"
+  ansible.builtin.shell:
+    cmd: docker pull containrrr/watchtower
+  register: pull_watchtower
+  changed_when: true
+
+- name: "Pull watchtower output"
+  ansible.builtin.debug:
+    msg: "{{ pull_watchtower.stdout_lines }}"
+  when: pull_watchtower.stdout_lines | length > 0
+
+- name: "Update docker containers"
+  ansible.builtin.shell:
+    cmd: docker run --privileged --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --porcelain v1 --cleanup --run-once
+  register: update_watchtower
+  changed_when: true
+
+- name: "Update docker containers output"
+  ansible.builtin.debug:
+    msg: "{{ update_watchtower.stdout_lines }}"
+  when: update_watchtower.stdout_lines | length > 0

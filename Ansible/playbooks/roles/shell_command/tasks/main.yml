@@ -1,0 +1,67 @@
+---
+# tasks file for shell_command
+
+- name: "Fail if the 'cmd_debian', the 'cmd_arch' and the 'cmd_alpine' variables are all empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'cmd_debian', the 'cmd_arch' and the 'cmd_alpine' variables are all empty"
+  when: (cmd_debian is undefined or cmd_debian | length == 0) and (cmd_arch is undefined or cmd_arch | length == 0) and (cmd_alpine is undefined or cmd_alpine | length == 0)
+
+- name: "Run shell command - Debian"
+  when: ansible_facts['distribution'] == "Debian" and (cmd_debian is defined and cmd_debian | length > 0)
+  block:
+
+    - name: "Run command"
+      ansible.builtin.shell:
+        cmd: "{{ cmd_debian }}"
+      register: run_cmd_debian
+      changed_when: true
+
+    - name: "Show standard output"
+      ansible.builtin.debug:
+        msg: "{{ run_cmd_debian.stdout_lines }}"
+      when: run_cmd_debian.stdout_lines | length > 0
+
+    - name: "Show error output"
+      ansible.builtin.debug:
+        msg: "{{ run_cmd_debian.stderr_lines }}"
+      when: run_cmd_debian.stderr_lines | length > 0
+
+- name: "Run shell command - Arch"
+  when: ansible_facts['distribution'] == "Archlinux" and (cmd_arch is defined and cmd_arch | length > 0)
+  block:
+
+    - name: "Run command"
+      ansible.builtin.shell:
+        cmd: "{{ cmd_arch }}"
+      register: run_cmd_arch
+      changed_when: true
+
+    - name: "Show standard output"
+      ansible.builtin.debug:
+        msg: "{{ run_cmd_arch.stdout_lines }}"
+      when: run_cmd_arch.stdout_lines | length > 0
+
+    - name: "Show error output"
+      ansible.builtin.debug:
+        msg: "{{ run_cmd_arch.stderr_lines }}"
+      when: run_cmd_arch.stderr_lines | length > 0
+
+- name: "Run shell command - Alpine"
+  when: ansible_facts['distribution'] == "Alpine" and (cmd_alpine is defined and cmd_alpine | length > 0)
+  block:
+
+    - name: "Run command"
+      ansible.builtin.shell:
+        cmd: "{{ cmd_alpine }}"
+      register: run_cmd_alpine
+      changed_when: true
+
+    - name: "Show standard output"
+      ansible.builtin.debug:
+        msg: "{{ run_cmd_alpine.stdout_lines }}"
+      when: run_cmd_alpine.stdout_lines | length > 0
+
+    - name: "Show error output"
+      ansible.builtin.debug:
+        msg: "{{ run_cmd_alpine.stderr_lines }}"
+      when: run_cmd_alpine.stderr_lines | length > 0

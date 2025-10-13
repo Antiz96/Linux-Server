@@ -1,5 +1,0 @@
----
-- name: "Clean runners"
-  hosts: runners 
-  roles:
-    - role: "clean_runners"

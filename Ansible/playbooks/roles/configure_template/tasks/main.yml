@@ -1,0 +1,92 @@
+---
+# tasks file for template
+
+- name: "Fail if the 'ip' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'ip' variable is empty"
+  when: ip is undefined or ip | length == 0
+
+- name: "Fail if the 'hostname' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'hostname' variable is empty"
+  when: hostname is undefined or hostname | length == 0
+
+- name: "Fail if the 'root_passwd' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'root_passwd' variable is empty"
+  when: root_passwd is undefined or root_passwd | length == 0
+
+- name: "Clean known template.rc SSH hosts"
+  ansible.builtin.lineinfile:
+    path: /home/ansible/.ssh/known_hosts
+    regexp: '^[template.rc]'
+    state: absent
+  delegate_to: localhost
+
+- name: "Update hostname"
+  ansible.builtin.hostname:
+    name: "{{ hostname }}.rc"
+
+- name: "Update hosts file (loopback)"
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: "^127.0.1.1"
+    line: "127.0.1.1\t{{ hostname }}.rc {{ hostname }}"
+
+- name: "Update hosts file (IP)"
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: "^192.168.96.100"
+    line: "{{ ip }}\t{{ hostname }}.rc {{ hostname }}"
+
+- name: "Update IP address - Debian & Alpine"
+  ansible.builtin.replace:
+    path: /etc/network/interfaces
+    regexp: "192.168.96.100"
+    replace: "{{ ip }}"
+  when: ansible_facts['distribution'] == "Debian" or ansible_facts['distribution'] == "Alpine"
+
+- name: "Update IP address - Arch"
+  ansible.builtin.replace:
+    path: /etc/NetworkManager/system-connections/Wired connection 1.nmconnection
+    regexp: "192.168.96.100"
+    replace: "{{ ip }}"
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: "Update Zabbix Agent configuration"
+  ansible.builtin.replace:
+    path: /etc/zabbix/zabbix_agentd.conf
+    regexp: "template.rc"
+    replace: "{{ hostname }}.rc"
+
+- name: "Update root password"
+  ansible.builtin.user:
+    name: root
+    password: "{{ root_passwd | password_hash('sha256') }}"
+    update_password: always
+
+- name: "Update server - Debian"
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: full
+    autoremove: true
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: "Update server - Arch"
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: "Update server - Alpine"
+  community.general.apk:
+    update_cache: true
+    available: true
+    upgrade: true
+  when: ansible_facts['distribution'] == "Alpine"
+
+- name: "End message"
+  ansible.builtin.debug:
+    msg:
+      - "The configuration is over!"
+      - "Reboot the server to apply changes for {{ hostname }} ({{ ip }})"

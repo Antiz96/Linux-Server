@@ -1,0 +1,84 @@
+---
+# tasks file for create_modify_user
+
+- name: "Fail if the 'username' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'username' variable is empty"
+  when: username is undefined or username | length == 0
+
+- name: "Fail if the 'user_passwd' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'user_passwd' variable is empty"
+  when: user_passwd is undefined or user_passwd | length == 0
+
+- name: "Fail if the 'pubkey' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'pubkey' variable is empty"
+  when: pubkey is undefined or pubkey | length == 0
+
+- name: "Create (or update) user"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    state: present
+    shell: /bin/bash
+    create_home: true
+    password: "{{ user_passwd | password_hash('sha256') }}"
+    update_password: always
+
+- name: "Add sudo privileges"
+  when: sudo | default(false) | bool
+  block:
+
+    - name: "Add sudo privileges - Debian"
+      ansible.builtin.user:
+        name: "{{ username }}"
+        groups: sudo
+      when: ansible_facts['distribution'] == "Debian"
+
+    - name: "Add sudo privileges - Arch & Alpine"
+      ansible.builtin.user:
+        name: "{{ username }}"
+        groups: wheel
+      when: ansible_facts['distribution'] == "Archlinux" or ansible_facts['distribution'] == "Alpine"
+
+- name: "Remove sudo privileges"
+  when: not sudo | default(false) | bool
+  block:
+
+    - name: "Remove sudo privileges - Debian"
+      ansible.builtin.shell:
+        cmd: gpasswd -d "{{ username }}" sudo
+      register: remove_sudo_debian
+      failed_when: remove_sudo_debian.rc != 0 and remove_sudo_debian.rc != 3 # return code 3 means the user isn't a member of the group already
+      changed_when: remove_sudo_debian.rc == 0
+      when: ansible_facts['distribution'] == "Debian"
+
+    - name: "Remove sudo privileges - Arch & Alpine"
+      ansible.builtin.shell:
+        cmd: gpasswd -d "{{ username }}" wheel
+      register: remove_sudo_arch_alpine
+      failed_when: remove_sudo_arch_alpine.rc != 0 and remove_sudo_arch_alpine.rc != 3 # return code 3 means the user isn't a member of the group already
+      changed_when: remove_sudo_arch_alpine.rc == 0
+      when: ansible_facts['distribution'] == "Archlinux" or ansible_facts['distribution'] == "Alpine"
+
+- name: "Create '.ssh' directory"
+  ansible.builtin.file:
+    path: "/home/{{ username }}/.ssh/"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0700"
+
+- name: "Create 'authorized_keys' file"
+  ansible.builtin.file:
+    path: "/home/{{ username }}/.ssh/authorized_keys"
+    state: touch
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0600"
+
+- name: "Update SSH key"
+  ansible.builtin.shell:
+    cmd: echo "{{ pubkey }}" > "/home/{{ username }}/.ssh/authorized_keys"
+  register: set_ssh_key
+  changed_when: true

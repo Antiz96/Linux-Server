@@ -1,0 +1,59 @@
+---
+# tasks file for vps_system_backup
+
+- name: "VPS System Backup"
+  ansible.builtin.shell:
+    cmd: cd /opt/VPS_Backup && rsync -aAXHv --delete --exclude='/dev/*' --exclude='/proc/*' --exclude='/sys/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude='/lost+found/' --exclude='/swap/' --exclude='/var/cache/pacman/pkg/*' --exclude='/var/lib/archbuild/*' --exclude='/var/lib/aurbuild/*' --exclude='/var/lib/docker/*' --exclude='/opt/crystal/*' --exclude='/opt/VPS_Backup/*' / $(date +%d-%m-%Y) && tar -czvf $(date +%d-%m-%Y).tar.gz $(date +%d-%m-%Y) && gpg --symmetric --batch --passphrase-file .passwd --cipher-algo AES256 -c $(date +%d-%m-%Y).tar.gz && rm -rf $(date +%d-%m-%Y) $(date +%d-%m-%Y).tar.gz && ls -ltrh
+  register: vps_system_backup
+  changed_when: true
+
+- name: "VPS System Backup output"
+  ansible.builtin.debug:
+    msg: "{{ vps_system_backup.stdout_lines }}"
+  when: vps_system_backup.stdout_lines | length > 0
+
+- name: "Get backup archives"
+  ansible.builtin.find:
+    paths: /opt/VPS_Backup
+    patterns: '*.gpg'
+  register: list_backup_archives
+
+- name: "Keep the last 3 backup archives"
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ (list_backup_archives.files | sort(attribute='ctime'))[:-3] }}"
+
+- name: "Copy backup archive to FileBrowser"
+  ansible.posix.synchronize:
+    mode: pull
+    src: /opt/VPS_Backup
+    dest: /data/FileBrowser/data
+    delete: true
+    recursive: true
+    rsync_opts:
+      - "--ignore-existing"
+      - "--exclude='.*'"
+  delegate_to: fsprd01.rc
+
+- name: "Update backup archive's permissions in FileBrowser"
+  ansible.builtin.file:
+    path: /data/FileBrowser/data/VPS_Backup
+    state: directory
+    owner: antiz
+    group: antiz
+    recurse: true
+  delegate_to: fsprd01.rc
+
+- name: "Get backup archives in FileBrowser"
+  ansible.builtin.shell:
+    cmd: ls -ltrh /data/FileBrowser/data/VPS_Backup
+  register: list_backup_archives_filebrowser
+  changed_when: false
+  delegate_to: fsprd01.rc
+
+- name: "Show backup archives in FileBrowser"
+  ansible.builtin.debug:
+    msg: "{{ list_backup_archives_filebrowser.stdout_lines }}"
+  when: list_backup_archives_filebrowser.stdout_lines | length > 0
+  delegate_to: fsprd01.rc
