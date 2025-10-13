@@ -21,7 +21,7 @@ jobs:
         run: mdl --style .github/workflows/mdl_style.rb .
 
       - name: Run ansible-lint
-        run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint.yml --project-dir Ansible/playbooks/
+        run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint.conf --project-dir Ansible/playbooks/
 
       - name: Run ansible-inventory
         run: error=$( { ansible-inventory --list --yaml -i Ansible/inventories/ > /dev/null; } 2>&1 ); [ -n "${error}" ] && echo "${error}" && exit 1 || exit 0
