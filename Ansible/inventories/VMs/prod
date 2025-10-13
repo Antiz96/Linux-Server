@@ -1,4 +1,4 @@
-# Server type
+# Server types
 [am]
 amprd01.rc ansible_connection=local 
 
@@ -33,7 +33,7 @@ dhprd01b.rc
 vsprd01.rc
 vsprd02.rc
 
-# Proxmox Server
+# Proxmox Servers
 [pmx01]
 amprd01.rc
 dnprd01a.rc
@@ -52,7 +52,7 @@ dnprd01b.rc
 wsprd01b.rc
 dhprd01b.rc
 
-# Service
+# Services
 [docker]
 vnprd01.rc
 fsprd01.rc
