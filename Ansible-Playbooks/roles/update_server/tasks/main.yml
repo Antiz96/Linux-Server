@@ -37,7 +37,7 @@
       ansible.builtin.shell:
         cmd: checkupdates
       ignore_errors: true
-      register: arch_packages_update
+      #register: arch_packages_update
       changed_when: false
 
     - name: "Show packages list to update"
