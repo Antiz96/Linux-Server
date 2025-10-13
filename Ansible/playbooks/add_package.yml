@@ -1,5 +1,6 @@
 ---
 - name: "Add package(s) to hosts"
   hosts: all
+  become: true
   roles:
     - role: "add_package"

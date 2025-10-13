@@ -1,5 +1,6 @@
 ---
 - name: "Proxmox System Backup"
   hosts: all
+  become: true
   roles:
     - role: "proxmox_system_backup"

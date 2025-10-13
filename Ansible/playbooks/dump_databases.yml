@@ -1,5 +1,6 @@
 ---
 - name: "Create a dump of all databases"
   hosts: db
+  become: true
   roles:
     - role: "dump_databases"

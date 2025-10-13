@@ -1,5 +1,6 @@
 ---
 - name: "Renew ssl certificate on ws hosts"
   hosts: ws
+  become: true
   roles:
     - role: "renew_ssl_certificate"
