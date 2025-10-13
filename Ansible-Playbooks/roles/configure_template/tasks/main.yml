@@ -46,7 +46,7 @@
     replace: "{{ ip }}"
   when: ansible_facts['distribution'] == "Debian" or ansible_facts['distribution'] == "Alpine"
 
-- name: "Update IP address - Arch
+- name: "Update IP address - Arch"
   ansible.builtin.replace:
     path: /etc/NetworkManager/system-connections/Wired connection 1.nmconnection
     regexp: "192.168.96.100"

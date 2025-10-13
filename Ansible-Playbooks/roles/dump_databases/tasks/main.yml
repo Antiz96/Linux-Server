@@ -3,7 +3,7 @@
 
 - name: "Dump the Zabbix database"
   ansible.builtin.shell:
-    cmd: docker exec -t postgres-zabbix pg_dumpall -c -U $(cat /opt/postgres/zabbix/env/user) -l $(cat /opt/postgres/zabbix/env/database) | tee /opt/postgres/zabbix/backup/$(date +%d-%m-%Y).dump
+    cmd: set -o pipefail && docker exec -t postgres-zabbix pg_dumpall -c -U $(cat /opt/postgres/zabbix/env/user) -l $(cat /opt/postgres/zabbix/env/database) | tee /opt/postgres/zabbix/backup/$(date +%d-%m-%Y).dump
   register: dump_zabbix_database
   changed_when: true
 

@@ -55,12 +55,12 @@
         cmd: "{{ cmd_alpine }}"
       register: run_cmd_alpine
       changed_when: true
-    
+
     - name: "Show standard output"
       ansible.builtin.debug:
         msg: "{{ run_cmd_alpine.stdout_lines }}"
       when: run_cmd_alpine.stdout_lines | length > 0
-    
+
     - name: "Show error output"
       ansible.builtin.debug:
         msg: "{{ run_cmd_alpine.stderr_lines }}"
