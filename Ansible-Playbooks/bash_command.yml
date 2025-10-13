@@ -1,5 +1,5 @@
 ---
-- name: "Run a bash command"
+- name: "Run a shell command"
   hosts: "{{ servers }}"
   roles:
-    - role: "bash_command"
+    - role: "shell_command"

@@ -1,28 +1,24 @@
 ---
 # tasks file for proxmox_system_backup
 
-# Perform a full system backup of my Proxmox servers
-- name: Proxmox System Backup
+- name: "Proxmox System Backup"
   ansible.builtin.shell:
     cmd: system-backup --create --scheduled
   register: proxmox_system_backup
   changed_when: true
 
-# Print the output of the backup (to check that the backup went correctly)
-- name: Proxmox System Backup output
+- name: "Show output"
   ansible.builtin.debug:
     msg: "{{ proxmox_system_backup.stdout_lines }}"
   when: proxmox_system_backup.stdout_lines | length > 0
 
-# List backup archives
-- name: Proxmox System Backup List Archives
+- name: "List Proxmox System Backup archives"
   ansible.builtin.shell:
     cmd: ls -ltrh /data/System_Backup
   register: proxmox_system_backup_list_archives
   changed_when: false
 
-# Print the output of the backup archives list
-- name: Proxmox System Backup List Archives output
+- name: "Show Proxmox System Backup archives list"
   ansible.builtin.debug:
     msg: "{{ proxmox_system_backup_list_archives.stdout_lines }}"
   when: proxmox_system_backup_list_archives.stdout_lines | length > 0

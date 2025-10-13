@@ -21,7 +21,7 @@ jobs:
         run: mdl --style .github/workflows/mdl_style.rb .
 
       - name: Run ansible-lint
-        run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint_exclude_list Ansible-Playbooks/roles/*/tasks/main.yml
+        run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint_exclude_list Ansible-Playbooks
 
       - name: Run nvchecker
         run: nvchecker -c Dotfiles/Services/nvchecker.toml -k /opt/github-runner/Linux-Server/nvchecker_keyfile > nvchecker.output 2>&1 ; cat nvchecker.output && if grep "\[E" nvchecker.output; then exit 1; fi

@@ -1,23 +1,20 @@
 ---
 # tasks file for dump_databases
 
-# Perform a dump of the Zabbix database
-- name: Dump Zabbix database
+- name: "Dump the Zabbix database"
   ansible.builtin.shell:
     cmd: set -o pipefail && docker exec -t postgres-zabbix pg_dumpall -c -U $(cat /opt/postgres/zabbix/env/user) -l $(cat /opt/postgres/zabbix/env/database) | tee /opt/postgres/zabbix/backup/$(date +%d-%m-%Y).dump
   register: dump_zabbix_database
   changed_when: true
 
-# Find dumps older than a week for the Zabbix database
-- name: List old dumps of Zabbix database
+- name: "List old dumps of the Zabbix database"
   ansible.builtin.find:
     paths: /opt/postgres/zabbix/backup
     patterns: '*.dump'
     age: 1w
   register: list_old_dumps_zabbix
 
-# Delete dumps older than a week for the Zabbix database
-- name: Delete old dumps of Zabbix database
+- name: "Delete old dumps of the Zabbix database"
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
