@@ -1,5 +1,5 @@
 ---
 - name: "Run a shell command"
-  hosts: "{{ servers }}"
+  hosts: all
   roles:
     - role: "shell_command"
