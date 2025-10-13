@@ -57,4 +57,4 @@ vim /etc/ansible/ansible.cfg
 
 ## Playbooks
 
-My ansible playbooks are available [here](https://github.com/Antiz96/Linux-Server/tree/main/Ansible-Playbooks).
+My ansible playbooks are available [here](https://github.com/Antiz96/Linux-Server/tree/main/Ansible/playbooks).
