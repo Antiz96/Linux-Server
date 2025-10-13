@@ -21,7 +21,10 @@ jobs:
         run: mdl --style .github/workflows/mdl_style.rb .
 
       - name: Run ansible-lint
-        run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint.yml --project-dir Ansible-Playbooks/
+        run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint.yml --project-dir Ansible/playbooks/
+
+      - name: Run ansible-inventory
+        run: error=$( { ansible-inventory --list --yaml -i Ansible/inventories/ > /dev/null; } 2>&1 ); [ -n "${error}" ] && echo "${error}" && exit 1 || exit 0
 
       - name: Run nvchecker
         run: nvchecker -c Dotfiles/Services/nvchecker.toml -k /opt/github-runner/Linux-Server/nvchecker_keyfile > nvchecker.output 2>&1 ; cat nvchecker.output && if grep "\[E" nvchecker.output; then exit 1; fi
