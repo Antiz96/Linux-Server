@@ -10,18 +10,18 @@
   when: ansible_facts['distribution'] == "Debian" and (cmd_debian is defined and cmd_debian | length > 0)
   block:
 
-    - name: "Run command"
+    - name: "Run command - Debian"
       ansible.builtin.shell:
         cmd: "{{ cmd_debian }}"
       register: run_cmd_debian
       changed_when: true
 
-    - name: "Show standard output"
+    - name: "Show standard output - Debian"
       ansible.builtin.debug:
         msg: "{{ run_cmd_debian.stdout_lines }}"
       when: run_cmd_debian.stdout_lines | length > 0
 
-    - name: "Show error output"
+    - name: "Show error output - Debian"
       ansible.builtin.debug:
         msg: "{{ run_cmd_debian.stderr_lines }}"
       when: run_cmd_debian.stderr_lines | length > 0
@@ -30,18 +30,18 @@
   when: ansible_facts['distribution'] == "Archlinux" and (cmd_arch is defined and cmd_arch | length > 0)
   block:
 
-    - name: "Run command"
+    - name: "Run command - Arch"
       ansible.builtin.shell:
         cmd: "{{ cmd_arch }}"
       register: run_cmd_arch
       changed_when: true
 
-    - name: "Show standard output"
+    - name: "Show standard output - Arch"
       ansible.builtin.debug:
         msg: "{{ run_cmd_arch.stdout_lines }}"
       when: run_cmd_arch.stdout_lines | length > 0
 
-    - name: "Show error output"
+    - name: "Show error output - Arch"
       ansible.builtin.debug:
         msg: "{{ run_cmd_arch.stderr_lines }}"
       when: run_cmd_arch.stderr_lines | length > 0
@@ -50,18 +50,18 @@
   when: ansible_facts['distribution'] == "Alpine" and (cmd_alpine is defined and cmd_alpine | length > 0)
   block:
 
-    - name: "Run command"
+    - name: "Run command - Alpine"
       ansible.builtin.shell:
         cmd: "{{ cmd_alpine }}"
       register: run_cmd_alpine
       changed_when: true
 
-    - name: "Show standard output"
+    - name: "Show standard output - Alpine"
       ansible.builtin.debug:
         msg: "{{ run_cmd_alpine.stdout_lines }}"
       when: run_cmd_alpine.stdout_lines | length > 0
 
-    - name: "Show error output"
+    - name: "Show error output - Alpine"
       ansible.builtin.debug:
         msg: "{{ run_cmd_alpine.stderr_lines }}"
       when: run_cmd_alpine.stderr_lines | length > 0
