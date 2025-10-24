@@ -243,13 +243,6 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[fastly-exporter]
-source = "github"
-github = "fastly/fastly-exporter"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
-
 [firefoxpwa]
 source = "github"
 github = "filips123/PWAsForFirefox"
@@ -750,6 +743,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [powerline]
 source = "github"
 github = "powerline/powerline"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[prometheus-fastly-exporter]
+source = "github"
+github = "fastly/fastly-exporter"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
