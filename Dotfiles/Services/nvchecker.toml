@@ -768,6 +768,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-annotated-doc]
+source = "github"
+github = "fastapi/annotated-doc"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-ansible-compat]
 source = "github"
 github = "ansible/ansible-compat"
