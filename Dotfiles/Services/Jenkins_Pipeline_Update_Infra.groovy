@@ -40,6 +40,25 @@ pipeline {
             }
         }
 
+        stage('Update Docker Containers - VPS - Prod') {
+            steps {
+                script {
+                    def result = build(
+                        job: 'Update_Docker_Containers',
+                        parameters: [
+                            string(name: 'SERVER_TYPE', value: 'VPS'),
+                            string(name: 'ENV', value: 'prod')
+                        ],
+                        propagate: true,
+                        wait: true
+                    )
+                    if (result == 'FAILURE') {
+                        error("Update Docker Containers - VPS - Prod failed. Aborting pipeline.")
+                    }
+                }
+            }
+        }
+
         stage('Update Docker Containers - Proxmox - Prod') {
             steps {
                 script {
