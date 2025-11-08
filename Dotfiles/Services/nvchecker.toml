@@ -1313,6 +1313,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[wlr-sunclock]
+source = "github"
+github = "sentriz/wlr-sunclock"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [wpaperd]
 source = "github"
 github = "danyspin97/wpaperd"
