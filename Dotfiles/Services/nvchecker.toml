@@ -2249,7 +2249,7 @@ regex = "discord-(.*)\\.tar.*"
 
 [filezilla]
 source = "regex"
-url = "https://svn.filezilla-project.org/filezilla/FileZilla3/trunk/NEWS?view=markup"
+url = "https://filezilla-project.org/download.php?type=client"
 regex = '(\d+\.\d+\.\d+)'
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
