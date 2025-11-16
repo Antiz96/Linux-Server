@@ -56,7 +56,7 @@ As such, I advise you to **not** use the `latest` tag but to point to an explici
 See [Upgrade postgres from one major release to another](#upgrade-postgres-from-one-major-release-to-another) for more details.
 
 **Important note:** Since PostgreSQL >= 18, the volume for the databases data is expected to point to `/var/lib/postgresql` within the container (as opposed to `/var/lib/postgresql/data` with < 18). If you're aiming at deploying a container for PostgreSQL < 18, change the mount point accordingly in the below commands. Make sure to also take this path change into account when upgrading from PostgreSQL < 18 to >= 18.  
-See https://github.com/docker-library/postgres/pull/1259 for more details.
+See <https://github.com/docker-library/postgres/pull/1259> for more details.
 
 ```bash
 sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:18
