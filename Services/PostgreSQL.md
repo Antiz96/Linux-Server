@@ -136,7 +136,7 @@ sudo docker pull postgres:18 # Adapt the tag to the one you're currently using
 ```bash
 sudo docker stop postgres
 sudo docker rm postgres
-sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:15 # Adapt the tag to the one you're currently using
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:18 # Adapt the tag to the one you're currently using
 ```
 
 ### After an update
