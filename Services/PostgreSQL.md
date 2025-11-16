@@ -13,7 +13,7 @@
 ### Creating the directories to store the PostgreSQL data and the PostgreSQL environment variables
 
 *Unless you're okay using the default values, you'll need to specify the database name, database user and database user's password in the docker run command. Needless to say that those information are sensitive... The recommended way to treat sensitive information in a docker run command are [Docker Secrets](https://docs.docker.com/engine/swarm/secrets/) but, unfortunately, Docker Secrets can only be used with [Docker Swarm](https://www.sumologic.com/glossary/docker-swarm/) (which I don't use myself).*  
-*So, in order to avoid typing those information as plain text in the docker run command, I'm going to create my own (kind of) secret files inside the 'env' directory that contains those information. For security reasons, those files will only be viewable and editable by the root account, obviously.*
+*So, in order to avoid typing those information as plain text in the docker run command, I'm going to create my own (kind of) secret files inside the 'env' directory that contains those information. For security reasons, those files will only be readable and editable by the root account, obviously.*
 
 ```bash
 sudo mkdir -p /opt/postgres/{data,env}
@@ -46,7 +46,7 @@ sudo chmod 600 /opt/postgres/env/* && sudo chmod 750 /opt/postgres/env
 ### Pull and run the container
 
 **Warning:**  
-Upgrading postgres from one major version to another isn't a transparent operation
+Upgrading postgres from one major version to another isn't a straightforward operation
 
 New major releases come with structure changes that imply a manual intervention for a seamingless update.  
 Also, you want to make sure the application using your postgres database is compatible with the new major postgres release yet before upgrading.
@@ -55,8 +55,11 @@ As such, I advise you to **not** use the `latest` tag but to point to an explici
 
 See [Upgrade postgres from one major release to another](#upgrade-postgres-from-one-major-release-to-another) for more details.
 
+**Important note:** Since PostgreSQL >= 18, the volume for the databases data is expected to point to `/var/lib/postgresql` within the container (as opposed to `/var/lib/postgresql/data` with < 18). If you're aiming at deploying a container for PostgreSQL < 18, change the mount point accordingly in the below commands. Make sure to also take this path change into account when upgrading from PostgreSQL < 18 to >= 18.  
+See https://github.com/docker-library/postgres/pull/1259 for more details.
+
 ```bash
-sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:15
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:18
 ```
 
 ### Set an automatic backup of the database (optional)
@@ -70,7 +73,7 @@ There's multiple ways to automate that backup process. You can simply put the ab
 
 Personally, I use an Ansible Playbook that does the dump and delete every dump older than 7 days.  
 This Ansible Playbook is launched automatically each day by my Jenkins instance so it performs one dump a day and keep 7 days of dump.  
-You can see that Ansible Playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible/playbooks/roles/dump_db/tasks/main.yml).
+You can see that Ansible Playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible/playbooks/roles/dump_databases/tasks/main.yml).
 
 To restore a dump, you can use the following command:
 
@@ -82,7 +85,7 @@ sudo cat "path_to_the_dump" | sudo docker exec -i postgres psql -U $(sudo cat /o
 
 1 - Stop services using the postgres database, so data are not being written anymore.
 
-2 - Make a proper backup of the current state of the machine running the postgreSQL container (e.g. a snapshot of the VM).
+2 - Make a backup or recovery point of the current state of the machine running the postgreSQL container (e.g. a snapshot of the VM).
 
 3 - Perform a dump of the database:
 
@@ -105,7 +108,7 @@ sudo find /opt/postgres/data -mindepth 1 -delete
 6 - Deploy the new container using the new major release as a tag:
 
 ```bash
-sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:16
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:19
 ```
 
 7 - Restore the dump you created earlier:
@@ -125,7 +128,7 @@ Since we use Docker, the update and upgrade procedure is actually the same as it
 (... to check if there's available updates)
 
 ```bash
-sudo docker pull postgres:15 # Adapt the tag to the one you're currently using
+sudo docker pull postgres:18 # Adapt the tag to the one you're currently using
 ```
 
 ### Apply the update
@@ -133,7 +136,7 @@ sudo docker pull postgres:15 # Adapt the tag to the one you're currently using
 ```bash
 sudo docker stop postgres
 sudo docker rm postgres
-sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql/data --restart=unless-stopped postgres:15 # Adapt the tag to the one you're currently using
+sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:15 # Adapt the tag to the one you're currently using
 ```
 
 ### After an update
