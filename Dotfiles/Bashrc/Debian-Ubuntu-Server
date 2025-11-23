@@ -54,7 +54,7 @@ alias cleancache="sudo apt clean"
 alias cleanorphans="sudo apt autoremove --purge"
 
 # Docker
-alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
+alias dockup="sudo docker pull nickfedor/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nickfedor/watchtower --cleanup --run-once"
 
 # Sudo
 alias sudo="sudo "
