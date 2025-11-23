@@ -2127,6 +2127,7 @@ source = "gitlab"
 host = "gitlab.xfce.org"
 gitlab = "apps/xfdashboard"
 prefix = "xfdashboard-"
+include_regex = "xfdashboard-.*"
 use_max_tag = true
 
 [xfdesktop]
