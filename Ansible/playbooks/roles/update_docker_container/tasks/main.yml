@@ -3,7 +3,7 @@
 
 - name: "Pull watchtower"
   ansible.builtin.shell:
-    cmd: docker pull containrrr/watchtower
+    cmd: docker pull nickfedor/watchtower
   register: pull_watchtower
   changed_when: true
 
@@ -14,7 +14,7 @@
 
 - name: "Update docker containers"
   ansible.builtin.shell:
-    cmd: docker run --privileged --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --porcelain v1 --cleanup --run-once
+    cmd: docker run --privileged --rm -v /var/run/docker.sock:/var/run/docker.sock nickfedor/watchtower --porcelain v1 --cleanup --run-once
   register: update_watchtower
   changed_when: true
 
