@@ -1,7 +1,7 @@
 # Watchtower
 
-~~https://github.com/containrrr/watchtower~~ # Historical repo
-<https://github.com/nickfedor/watchtower> # Maintained fork
+~~<https://github.com/containrrr/watchtower>~~ (historical repo)  
+<https://github.com/nickfedor/watchtower>  (maintained fork)
 
 I update all my Docker containers at once using "watchtower".  
 Watchtower is a containerized (docker) service that will automatically check and apply updates of all your containers.  
