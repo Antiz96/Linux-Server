@@ -1451,6 +1451,14 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[atools-go]
+source = "gitlab"
+host = "gitlab.alpinelinux.org"
+gitlab = "infra/atools-go"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [catfish]
 source = "gitlab"
 host = "gitlab.xfce.org"
