@@ -789,6 +789,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-cross-web]
+source = "github"
+github = "usecross/cross-web"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-dasbus]
 source = "github"
 github = "dasbus-project/dasbus"
@@ -960,6 +967,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [python-starlette]
 source = "github"
 github = "encode/starlette"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[python-strawberry-graphql]
+source = "github"
+github = "strawberry-graphql/strawberry"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
