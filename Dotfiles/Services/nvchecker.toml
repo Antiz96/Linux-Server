@@ -2212,6 +2212,12 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 # Git
 
+[act_runner]
+source = "git"
+git = "https://gitea.com/gitea/act_runner"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [blahaj]
 source = "git"
 git = "https://codeberg.org/GeopJr/BLAHAJ"
