@@ -110,10 +110,9 @@
 
 - name: "Reload nginx (if running)"
   ansible.builtin.shell:
-    cmd: nginx -t && nginx -s reload
+    cmd: systemctl is-active nginx && nginx -t && nginx -s reload
   changed_when: true
   register: reload_nginx
-  when: "'active' in ansible_facts.services.get('nginx.service', {}).state | default('')"
 
 - name: "Show reload nginx output"
   ansible.builtin.debug:
