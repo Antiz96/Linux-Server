@@ -111,8 +111,8 @@
 - name: "Reload nginx (if running)"
   ansible.builtin.shell:
     cmd: systemctl is-active --quiet nginx || exit 99; nginx -t && nginx -s reload
-  changed_when: true
   register: reload_nginx
+  changed_when: reload_nginx.rc == 0
   failed_when: reload_nginx.rc not in [0, 99]
 
 - name: "Show errors when reload nginx (if there are)"
