@@ -60,7 +60,7 @@ asprd01.rc
 dbprd01.rc
 mnprd01.rc
 
-[runners]
+[runner]
 vsprd01.rc
 
 [ssl]

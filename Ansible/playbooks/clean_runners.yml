@@ -1,6 +1,6 @@
 ---
 - name: "Clean runners"
-  hosts: runners
+  hosts: runner
   become: true
   roles:
     - role: "clean_runners"
