@@ -106,7 +106,6 @@
     owner: root
     group: root
     mode: "0600"
-  become: true
   when: key | default(false) | bool
 
 - name: "Reload nginx (if running)"
@@ -119,4 +118,4 @@
 - name: "Show reload nginx output"
   ansible.builtin.debug:
     msg: "{{ reload_nginx.stdout_lines }}"
-  when: reload_nginx is defined and reload_nginx.stdout_lines | length > 0
+  when: reload_nginx.stdout_lines | length > 0
