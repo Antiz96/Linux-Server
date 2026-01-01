@@ -1,0 +1,6 @@
+---
+- name: "Renew self-signed SSL certificate"
+  hosts: ssl
+  become: true
+  roles:
+    - role: "regenerate_ssl_certificate"
