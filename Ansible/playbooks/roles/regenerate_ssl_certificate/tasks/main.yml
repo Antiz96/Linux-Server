@@ -1,0 +1,121 @@
+---
+# tasks file for regenerate_ssl_certificate
+
+- name: "Regenerate private key"
+  ansible.builtin.shell:
+    cmd: openssl genrsa -out /opt/ssl/home-infra.rc.key 4096
+  register: regenerate_key
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show errors when regenerating private key (if there are)"
+  ansible.builtin.debug:
+    msg: "{{ regenerate_key.stderr_lines }}"
+  when: regenerate_key.stderr_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Regenerate CSR"
+  ansible.builtin.shell:
+    cmd: openssl req -new -key /opt/ssl/home-infra.rc.key -out /opt/ssl/home-infra.rc.csr -subj "/C=FR/ST=Seine-Maritime/L=Rouen/O=Home-Infra/OU=DSI/CN=*.home-infra.rc/emailAddress=robincandau@protonmail.com" -addext "subjectAltName=DNS:*.home-infra.rc,DNS:home-infra.rc"
+  register: regenerate_csr
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show errors when regenerating CSR (if there are)"
+  ansible.builtin.debug:
+    msg: "{{ regenerate_csr.stderr_lines }}"
+  when: regenerate_csr.stderr_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Regenerate self-signed certificate"
+  ansible.builtin.shell:
+    cmd: openssl x509 -signkey /opt/ssl/home-infra.rc.key -in /opt/ssl/home-infra.rc.csr -req -days 365 -out /opt/ssl/home-infra.rc.crt
+  register: regenerate_certificate
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show errors when regenerating certificate (if there are)"
+  ansible.builtin.debug:
+    msg: "{{ regenerate_certificate.stderr_lines }}"
+  when: regenerate_certificate.stderr_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Get private key modulus"
+  ansible.builtin.shell:
+    cmd: openssl rsa -modulus -noout -in /opt/ssl/home-infra.rc.key
+  register: key_modulus
+  changed_when: false
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show key modulus"
+  ansible.builtin.debug:
+    msg: "{{ key_modulus.stdout_lines }}"
+  when: key_modulus.stdout_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Get certificate modulus"
+  ansible.builtin.shell:
+    cmd: openssl x509 -modulus -noout -in /opt/ssl/home-infra.rc.crt
+  register: certificate_modulus
+  changed_when: false
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show certificate modulus"
+  ansible.builtin.debug:
+    msg: "{{ certificate_modulus.stdout_lines }}"
+  when: certificate_modulus.stdout_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Get certificate expiration date"
+  ansible.builtin.shell:
+    cmd: openssl x509 -enddate -noout -in /opt/ssl/home-infra.rc.crt
+  register: certificate_exp
+  changed_when: false
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show certificate expiration date output"
+  ansible.builtin.debug:
+    msg: "{{ certificate_exp.stdout_lines }}"
+  when: certificate_exp.stdout_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Copy certificate on hosts"
+  ansible.builtin.copy:
+    src: /opt/ssl/home-infra.rc.crt
+    dest: /opt/ssl/home-infra.rc.crt
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: "Copy key on hosts"
+  ansible.builtin.copy:
+    src: /opt/ssl/home-infra.rc.key
+    dest: /opt/ssl/home-infra.rc.key
+    owner: root
+    group: root
+    mode: "0600"
+  when: key | default(false) | bool
+
+- name: "Reload nginx (if running)"
+  ansible.builtin.shell:
+    cmd: nginx -t && nginx -s reload
+  changed_when: true
+  register: reload_nginx
+  when: "'active' in ansible_facts.services.get('nginx.service', {}).state | default('')"
+
+- name: "Show reload nginx output"
+  ansible.builtin.debug:
+    msg: "{{ reload_nginx.stdout_lines }}"
+  when: reload_nginx.stdout_lines | length > 0

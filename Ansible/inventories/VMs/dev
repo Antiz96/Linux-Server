@@ -8,3 +8,6 @@ asdev02.rc
 # Services
 [docker]
 asdev02.rc
+
+[ssl]
+wsdev02.rc key=true

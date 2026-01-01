@@ -62,3 +62,8 @@ mnprd01.rc
 
 [runners]
 vsprd01.rc
+
+[ssl]
+wsprd01a.rc key=true
+wsprd01b.rc key=true
+vsprd01.rc

@@ -1,2 +1,0 @@
-Renew SSL Certificate
-=========
