@@ -54,7 +54,7 @@
   delegate_to: localhost
   run_once: true
 
-- name: "Show key modulus"
+- name: "Show private key modulus"
   ansible.builtin.debug:
     msg: "{{ key_modulus.stdout_lines }}"
   when: key_modulus.stdout_lines | length > 0
@@ -84,7 +84,7 @@
   delegate_to: localhost
   run_once: true
 
-- name: "Show certificate expiration date output"
+- name: "Show certificate expiration date"
   ansible.builtin.debug:
     msg: "{{ certificate_exp.stdout_lines }}"
   when: certificate_exp.stdout_lines | length > 0
@@ -99,7 +99,7 @@
     group: root
     mode: "0644"
 
-- name: "Copy key on hosts"
+- name: "Copy private key on hosts"
   ansible.builtin.copy:
     src: /opt/ssl/home-infra.rc.key
     dest: /opt/ssl/home-infra.rc.key
