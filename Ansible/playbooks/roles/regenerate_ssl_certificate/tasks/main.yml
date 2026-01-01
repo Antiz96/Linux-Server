@@ -33,7 +33,7 @@
 
 - name: "Regenerate self-signed certificate"
   ansible.builtin.shell:
-    cmd: openssl x509 -signkey /opt/ssl/home-infra.rc.key -in /opt/ssl/home-infra.rc.csr -req -copy_extensions copy -days 365 -out /opt/ssl/home-infra.rc.crt
+    cmd: openssl x509 -signkey /opt/ssl/home-infra.rc.key -in /opt/ssl/home-infra.rc.csr -req -copy_extensions copy -days 400 -out /opt/ssl/home-infra.rc.crt
   register: regenerate_certificate
   changed_when: true
   delegate_to: localhost
