@@ -1686,14 +1686,6 @@ gitlab = "sydbox/sydbox"
 prefix = "v"
 use_max_tag = true
 
-[syd-tui]
-source = "gitlab"
-host = "gitlab.exherbo.org"
-gitlab = "sydbox/sydbox"
-include_regex = "syd-tui-.*"
-prefix = "syd-tui-"
-use_max_tag = true
-
 [thunar]
 source = "gitlab"
 host = "gitlab.xfce.org"
@@ -2265,6 +2257,12 @@ prefix = "release/"
 source = "git"
 git = "https://git.sr.ht/~sircmpwn/scdoc"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[syd-tui]
+source = "git"
+git = "https://gitlab.exherbo.org/sydbox/sydbox.git"
+include_regex = "syd-tui-.*"
+prefix = "syd-tui-"
 
 [zabbix]
 source = "git"
