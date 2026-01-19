@@ -31,7 +31,7 @@ Create the environment file containing the URL for your Arcane server:
 sudoedit /opt/arcane/env/app_url
 ```
 
-> Add the URL for your Arcane server instance (e.g. https://[hostname]:3552)
+> Add the URL for your Arcane server instance (e.g. <https://[hostname]:3552>)
 
 Set secure permissions:
 
