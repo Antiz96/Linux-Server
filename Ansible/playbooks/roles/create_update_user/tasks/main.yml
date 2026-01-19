@@ -1,0 +1,67 @@
+---
+# tasks file for create_update_user
+
+- name: "Fail if the 'username' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'username' variable is empty"
+  when: username is undefined or username | length == 0
+
+- name: "Create user (if it does not exist)"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    state: present
+    create_home: true
+
+- name: "Set (or update) user password"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    password: "{{ user_passwd | password_hash('sha256') }}"
+    update_password: always
+  when: user_passwd is defined and user_passwd | length > 0
+
+- name: "Set (or update) user shell"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    shell: "{{ user_shell }}"
+  when: user_shell is defined and user_shell | length > 0
+
+- name: "Set (or update) user groups - Debian"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    groups: "{{ user_groups_debian }}"
+  when: ansible_facts['distribution'] == "Debian" and (user_groups_debian is defined and user_groups_debian | length > 0)
+
+- name: "Set (or update) user groups - Arch"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    groups: "{{ user_groups_arch }}"
+  when: ansible_facts['distribution'] == "Archlinux" and (user_groups_arch is defined and user_groups_arch | length > 0)
+
+- name: "Set (or update) user groups - Alpine"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    groups: "{{ user_groups_alpine }}"
+  when: ansible_facts['distribution'] == "Alpine" and (user_groups_alpine is defined and user_groups_alpine | length > 0)
+
+- name: "Create '.ssh' directory"
+  ansible.builtin.file:
+    path: "/home/{{ username }}/.ssh/"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0700"
+
+- name: "Create 'authorized_keys' file"
+  ansible.builtin.file:
+    path: "/home/{{ username }}/.ssh/authorized_keys"
+    state: touch
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0600"
+
+- name: "Set (or update) user SSH key"
+  ansible.builtin.shell:
+    cmd: echo "{{ user_pubkey }}" > "/home/{{ username }}/.ssh/authorized_keys"
+  register: set_ssh_key
+  changed_when: true
+  when: user_pubkey is defined and user_pubkey | length > 0
