@@ -196,17 +196,8 @@ sudo docker rm guacamole
 sudo docker run --name guacamole --link guacd:guacd --link mysql:mysql -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD=guacamole_user_password -d --restart unless-stopped -p 8080:8080 guacamole/guacamole
 ```
 
-### After an update
-
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images):
+You can then optionally clean old dangling docker images (to clean up locally stored Docker images and regain some disk space):
 
 ```bash
 sudo docker image prune
-```
-
-Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache):  
-**If you choose to do that, make sure all your containers (guacamole, guacd and mysql) are running ! Otherwise, they will be deleted.**
-
-```bash
-sudo docker system prune
 ```
