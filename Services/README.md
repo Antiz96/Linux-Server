@@ -29,6 +29,8 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [Hedgedoc - Collaborative note taking](https://github.com/Antiz96/Linux-Server/blob/main/Services/Hedgedoc.md)
 - [Glances - Monitoring tool](https://github.com/Antiz96/Linux-Server/blob/main/Services/Glances.md)
 - [Wireguard - VPN](https://github.com/Antiz96/Linux-Server/blob/main/Services/Wireguard.md)
+- [Arcane Server - Web interface to manage Docker](https://github.com/Antiz96/Linux-Server/blob/main/Services/Arcane-Server.md)
+- [Arcane Agent - Web interface to manage Docker](https://github.com/Antiz96/Linux-Server/blob/main/Services/Arcane-Agent.md)
 - [Portainer Server - Web interface to manage Docker](https://github.com/Antiz96/Linux-Server/blob/main/Services/Portainer-Server.md)
 - [Portainer Agent - Web interface to manage Docker](https://github.com/Antiz96/Linux-Server/blob/main/Services/Portainer-Agent.md)
 - [PostgreSQL - Database](https://github.com/Antiz96/Linux-Server/blob/main/Services/PostgreSQL.md)
