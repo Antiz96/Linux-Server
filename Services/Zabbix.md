@@ -149,17 +149,8 @@ sudo docker rm zabbix-web
 sudo docker run --name zabbix-web -p 8080:8080 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) -e ZBX_SERVER_HOST=$(hostname) -e PHP_TZ="Europe/Paris" --restart=unless-stopped -d zabbix/zabbix-web-nginx-pgsql:latest
 ```
 
-### After an update
-
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images):
+You can then optionally clean old dangling docker images (to clean up locally stored Docker images and regain some disk space):
 
 ```bash
 sudo docker image prune
-```
-
-Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache):  
-**If you choose to do that, make sure all your containers are running! Otherwise, they will be deleted**
-
-```bash
-sudo docker system prune
 ```

@@ -97,17 +97,8 @@ Or, if you set a username and password:
 sudo docker run --privileged -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u $(sudo cat /opt/glances/env/user) --password" -v /opt/glances/env/password:/root/.config/glances/$(sudo cat /opt/glances/env/user).pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
-### After an update
-
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images):
+You can then optionally clean old dangling docker images (to clean up locally stored Docker images and regain some disk space):
 
 ```bash
 sudo docker image prune
-```
-
-Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache):  
-**If you choose to do that, make sure all your containers are running! Otherwise, they will be deleted**
-
-```bash
-sudo docker system prune
 ```

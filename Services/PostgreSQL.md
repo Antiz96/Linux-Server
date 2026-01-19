@@ -139,17 +139,8 @@ sudo docker rm postgres
 sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:18 # Adapt the tag to the one you're currently using
 ```
 
-### After an update
-
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images):
+You can then optionally clean old dangling docker images (to clean up locally stored Docker images and regain some disk space):
 
 ```bash
 sudo docker image prune
-```
-
-Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache)  :
-**If you choose to do that, make sure all your containers are running! Otherwise, they will be deleted**
-
-```bash
-sudo docker system prune
 ```

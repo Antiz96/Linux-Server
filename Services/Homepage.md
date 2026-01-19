@@ -55,17 +55,8 @@ sudo docker run -d --name homepage \
   ghcr.io/gethomepage/homepage:latest
 ```
 
-## After an update
-
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images):
+You can then optionally clean old dangling docker images (to clean up locally stored Docker images and regain some disk space):
 
 ```bash
 sudo docker image prune
-```
-
-Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache):  
-**If you choose to do that, make sure all your containers are running! Otherwise, they will be deleted.**  
-
-```bash
-sudo docker system prune
 ```
