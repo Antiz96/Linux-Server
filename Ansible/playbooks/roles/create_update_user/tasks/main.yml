@@ -25,23 +25,23 @@
     shell: "{{ user_shell }}"
   when: user_shell is defined and user_shell | length > 0
 
-- name: "Set (or update) user groups - Debian"
+- name: "Set (or update) user group(s) - Debian"
   ansible.builtin.user:
     name: "{{ username }}"
-    groups: "{{ user_groups_debian }}"
-  when: ansible_facts['distribution'] == "Debian" and (user_groups_debian is defined and user_groups_debian | length > 0)
+    groups: "{{ user_group_debian }}"
+  when: ansible_facts['distribution'] == "Debian" and (user_group_debian is defined and user_group_debian | length > 0)
 
-- name: "Set (or update) user groups - Arch"
+- name: "Set (or update) user group(s) - Arch"
   ansible.builtin.user:
     name: "{{ username }}"
-    groups: "{{ user_groups_arch }}"
-  when: ansible_facts['distribution'] == "Archlinux" and (user_groups_arch is defined and user_groups_arch | length > 0)
+    groups: "{{ user_group_arch }}"
+  when: ansible_facts['distribution'] == "Archlinux" and (user_group_arch is defined and user_group_arch | length > 0)
 
-- name: "Set (or update) user groups - Alpine"
+- name: "Set (or update) user group(s) - Alpine"
   ansible.builtin.user:
     name: "{{ username }}"
-    groups: "{{ user_groups_alpine }}"
-  when: ansible_facts['distribution'] == "Alpine" and (user_groups_alpine is defined and user_groups_alpine | length > 0)
+    groups: "{{ user_group_alpine }}"
+  when: ansible_facts['distribution'] == "Alpine" and (user_group_alpine is defined and user_group_alpine | length > 0)
 
 - name: "Create '.ssh' directory"
   ansible.builtin.file:
