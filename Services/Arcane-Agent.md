@@ -7,11 +7,11 @@
 
 ## Install Docker on my Server (if not done already)
 
-<https://getarcane.app/docs/features/environments>
+<https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md>
 
 ## Installing Arcane agent on Docker
 
-<https://docs.portainer.io/v/ce-2.11/start/install/agent/docker/linux>
+<https://getarcane.app/docs/features/environments>
 
 ### Create directories for env variables and persistent data
 
