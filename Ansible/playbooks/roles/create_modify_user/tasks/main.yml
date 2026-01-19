@@ -6,24 +6,18 @@
     msg: "The 'username' variable is empty"
   when: username is undefined or username | length == 0
 
-- name: "Fail if the 'user_passwd' variable is empty or undefined"
-  ansible.builtin.fail:
-    msg: "The 'user_passwd' variable is empty"
-  when: user_passwd is undefined or user_passwd | length == 0
-
-- name: "Fail if the 'pubkey' variable is empty or undefined"
-  ansible.builtin.fail:
-    msg: "The 'pubkey' variable is empty"
-  when: pubkey is undefined or pubkey | length == 0
-
-- name: "Create (or update) user"
+- name: "Create user"
   ansible.builtin.user:
     name: "{{ username }}"
     state: present
     shell: /bin/bash
     create_home: true
+
+- name: "Update password"
+  ansible.builtin.user:
     password: "{{ user_passwd | password_hash('sha256') }}"
     update_password: always
+  when: user_passwd is defined and user_passwd | length > 0
 
 - name: "Add sudo privileges"
   when: sudo | default(false) | bool
@@ -61,6 +55,13 @@
       changed_when: remove_sudo_arch_alpine.rc == 0
       when: ansible_facts['distribution'] == "Archlinux" or ansible_facts['distribution'] == "Alpine"
 
+- name: "Append group"
+  ansible.builtin.user:
+    name: "{{ username }}"
+    groups: "{{ user_groups }}"
+    append: true
+  when: user_groups is defined and user_groups | length > 0
+
 - name: "Create '.ssh' directory"
   ansible.builtin.file:
     path: "/home/{{ username }}/.ssh/"
@@ -79,6 +80,7 @@
 
 - name: "Update SSH key"
   ansible.builtin.shell:
-    cmd: echo "{{ pubkey }}" > "/home/{{ username }}/.ssh/authorized_keys"
+    cmd: echo "{{ user_pubkey }}" > "/home/{{ username }}/.ssh/authorized_keys"
   register: set_ssh_key
   changed_when: true
+  when: user_pubkey is defined and user_pubkey | length > 0
