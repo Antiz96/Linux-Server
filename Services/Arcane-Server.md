@@ -25,7 +25,7 @@ openssl rand -hex 32 | sudo tee /opt/arcane/env/encryption.key
 openssl rand -hex 32 | sudo tee /opt/arcane/env/jwt_secret.key
 ```
 
-Create the environement file containing the URL for your Arcane server:
+Create the environment file containing the URL for your Arcane server:
 
 ```bash
 sudoedit /opt/arcane/env/app_url

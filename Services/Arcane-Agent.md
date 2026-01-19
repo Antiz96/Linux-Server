@@ -38,7 +38,7 @@ sudoedit /opt/arcane/env/api.key
 
 > Copy the generated API key
 
-Create the environement file containing the URL of your Arcane server:
+Create the environment file containing the URL of your Arcane server:
 
 ```bash
 sudoedit /opt/arcane/env/manager_api_url
