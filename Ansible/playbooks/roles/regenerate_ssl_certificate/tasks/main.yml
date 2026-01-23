@@ -110,7 +110,7 @@
     owner: root
     group: root
     mode: "0600"
-  when: key | default(false) | bool
+  when: key | bool
 
 - name: "Reload nginx (if running)" # noqa: command-instead-of-module
   ansible.builtin.shell:

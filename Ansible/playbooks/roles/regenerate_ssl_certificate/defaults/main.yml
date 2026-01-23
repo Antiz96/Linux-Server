@@ -1,2 +1,4 @@
 ---
 # defaults file for regenerate_ssl_certificate
+
+key: false
