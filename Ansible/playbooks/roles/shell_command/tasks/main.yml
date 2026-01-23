@@ -13,7 +13,8 @@
     - name: "Run command - Debian"
       ansible.builtin.shell:
         cmd: "{{ cmd_debian }}"
-      become: "{{ sudo | bool }}"
+      become: "{{ user is defined and user | length > 0 }}"
+      become_user: "{{ user if (user is defined and user | length > 0) else omit }}"
       register: run_cmd_debian
       changed_when: true
 
@@ -34,7 +35,8 @@
     - name: "Run command - Arch"
       ansible.builtin.shell:
         cmd: "{{ cmd_arch }}"
-      become: "{{ sudo | bool }}"
+      become: "{{ user is defined and user | length > 0 }}"
+      become_user: "{{ user if (user is defined and user | length > 0) else omit }}"
       register: run_cmd_arch
       changed_when: true
 
@@ -55,7 +57,8 @@
     - name: "Run command - Alpine"
       ansible.builtin.shell:
         cmd: "{{ cmd_alpine }}"
-      become: "{{ sudo | bool }}"
+      become: "{{ user is defined and user | length > 0 }}"
+      become_user: "{{ user if (user is defined and user | length > 0) else omit }}"
       register: run_cmd_alpine
       changed_when: true
 
