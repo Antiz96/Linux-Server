@@ -1,0 +1,54 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for nvchecker
+
+- name: "Load vaulted vars"
+  ansible.builtin.include_vars:
+    file: vault.yml
+
+- name: "Deploy nvchecker keyfile"
+  ansible.builtin.template:
+    src: keyfile.toml.j2
+    dest: "{{ keyfile_path }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0600"
+
+- name: "Deploy nvchecker config"
+  ansible.builtin.copy:
+    src: nvchecker.toml
+    dest: "{{ config_path }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0644"
+
+- name: "Run nvchecker"
+  ansible.builtin.shell:
+    cmd: nvchecker
+  changed_when: false
+  register: nvchecker_output
+  ignore_errors: true
+
+- name: "Format nvchecker output"
+  ansible.builtin.shell:
+    cmd: echo -e "{{ (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | join(' \n') }} "
+  register: nvchecker_output_formatted
+  changed_when: false
+  when: (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | length > 0
+
+- name: "Show nvchecker output"
+  ansible.builtin.debug:
+    msg: "{{ nvchecker_output_formatted.stdout_lines }}"
+  when: nvchecker_output_formatted.stdout_lines is defined and nvchecker_output_formatted.stdout_lines | length > 0
+
+- name: "Run nvtake"
+  ansible.builtin.shell:
+    cmd: nvtake --all
+  changed_when: true
+  when: (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | length > 0
+
+- name: "Send confirmation mail"
+  ansible.builtin.shell:
+    cmd: set -o pipefail && echo -e "Subject:NVChecker -  New upstream releases\n\n{{ (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | join('\n') }}" | sendmail {{ email_address }}
+  changed_when: true
+  when: (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | length > 0

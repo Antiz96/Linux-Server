@@ -127,7 +127,6 @@
 - name: "Send confirmation mail"
   ansible.builtin.shell:
     cmd: set -o pipefail && echo -e "Subject:{{ domain_name }} SSL Cert Regenerated\n\nThe {{ domain_name }} wildcard SSL certificate has been regenerated and deployed." | sendmail {{ email_address }}
-  register: confirmation_mail
   changed_when: true
   delegate_to: localhost
   run_once: true
