@@ -6,7 +6,7 @@ Support for Debian, Arch Linux and Alpine Linux.
 
 ## Variables
 
-The following variables can be set at the playbook level or as `--extra-vars` *(at least one of the `cmd_xxx` variables should be defined and not empty)*:
+The following variables can be set at the inventory level, the playbook level or as `--extra-vars` *(at least one of the `cmd_xxx` variables should be defined and not empty)*:
 
 - user: user to run command(s) as (optional, falls back to default Ansible / SSH user if not set).
 - cmd_debian: command(s) to run on Debian hosts.

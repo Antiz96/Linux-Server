@@ -4,6 +4,6 @@ Update <https://antiz.fr> website against latest git state / commit (<https://gi
 
 ## Variables
 
-The following variable should be set at the playbook level or as `--extra-vars`:
+The following variable should be set at the inventory level, the playbook level or as `--extra-vars`:
 
 env: environment to update the `antiz.fr` website on (either `dev` or `prod`).
