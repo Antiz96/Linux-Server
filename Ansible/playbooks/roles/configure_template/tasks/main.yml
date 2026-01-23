@@ -25,19 +25,19 @@
 
 - name: "Update hostname"
   ansible.builtin.hostname:
-    name: "{{ hostname }}.rc"
+    name: "{{ hostname }}{{ domain }}"
 
 - name: "Update hosts file (loopback)"
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: "^127.0.1.1"
-    line: "127.0.1.1\t{{ hostname }}.rc {{ hostname }}"
+    line: "127.0.1.1\t{{ hostname }}{{ domain }} {{ hostname }}"
 
 - name: "Update hosts file (IP)"
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: "^192.168.96.100"
-    line: "{{ ip }}\t{{ hostname }}.rc {{ hostname }}"
+    line: "{{ ip }}\t{{ hostname }}{{ domain }} {{ hostname }}"
 
 - name: "Update IP address - Debian & Alpine"
   ansible.builtin.replace:
@@ -57,7 +57,7 @@
   ansible.builtin.replace:
     path: /etc/zabbix/zabbix_agentd.conf
     regexp: "template.rc"
-    replace: "{{ hostname }}.rc"
+    replace: "{{ hostname }}{{ domain }}"
 
 - name: "Update root password"
   ansible.builtin.user:
@@ -85,8 +85,15 @@
     upgrade: true
   when: ansible_facts['distribution'] == "Alpine"
 
+- name: "Reboot server"
+  ansible.builtin.reboot:
+  async: 1
+  poll: 0
+
 - name: "End message"
   ansible.builtin.debug:
     msg:
-      - "The configuration is over!"
-      - "Reboot the server to apply changes for {{ hostname }} ({{ ip }})"
+      - "Configuration for {{ hostname }} ({{ ip }} is done"
+      - "The server has been rebooted"
+  delegate_to: localhost
+  run_once: true

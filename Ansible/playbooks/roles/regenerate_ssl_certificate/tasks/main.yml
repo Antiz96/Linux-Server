@@ -1,9 +1,13 @@
 ---
 # tasks file for regenerate_ssl_certificate
 
+- name: "Load vaulted vars"
+  ansible.builtin.include_vars:
+    file: vault.yml
+
 - name: "Regenerate private key"
   ansible.builtin.shell:
-    cmd: openssl genrsa -out /opt/ssl/home-infra.rc.key 4096
+    cmd: openssl genrsa -out /opt/ssl/{{ domain_name }}.key 4096
   register: regenerate_key
   changed_when: true
   delegate_to: localhost
@@ -18,7 +22,7 @@
 
 - name: "Regenerate CSR"
   ansible.builtin.shell:
-    cmd: openssl req -new -key /opt/ssl/home-infra.rc.key -out /opt/ssl/home-infra.rc.csr -subj "/C=FR/ST=Seine-Maritime/L=Rouen/O=Home-Infra/OU=DSI/CN=*.home-infra.rc/emailAddress=robincandau@protonmail.com" -addext "subjectAltName=DNS:*.home-infra.rc,DNS:home-infra.rc"
+    cmd: openssl req -new -key /opt/ssl/{{ domain_name }}.key -out /opt/ssl/{{ domain_name }}.csr -subj "/C={{ country }}/ST={{ state }}/L={{ locality }}/O={{ organisation }}/OU={{ organisation_unit }}/CN=*.{{ domain_name }}/emailAddress={{ email_address }}" -addext "subjectAltName=DNS:*.{{ domain_name }},DNS:{{ domain_name }}"
   register: regenerate_csr
   changed_when: true
   delegate_to: localhost
@@ -33,7 +37,7 @@
 
 - name: "Regenerate self-signed certificate"
   ansible.builtin.shell:
-    cmd: openssl x509 -signkey /opt/ssl/home-infra.rc.key -in /opt/ssl/home-infra.rc.csr -req -copy_extensions copy -days 400 -out /opt/ssl/home-infra.rc.crt
+    cmd: openssl x509 -signkey /opt/ssl/{{ domain_name }}.key -in /opt/ssl/{{ domain_name }}.csr -req -copy_extensions copy -days 400 -out /opt/ssl/{{ domain_name }}.crt
   register: regenerate_certificate
   changed_when: true
   delegate_to: localhost
@@ -48,7 +52,7 @@
 
 - name: "Get private key modulus"
   ansible.builtin.shell:
-    cmd: openssl rsa -modulus -noout -in /opt/ssl/home-infra.rc.key
+    cmd: openssl rsa -modulus -noout -in /opt/ssl/{{ domain_name }}.key
   register: key_modulus
   changed_when: false
   delegate_to: localhost
@@ -63,7 +67,7 @@
 
 - name: "Get certificate modulus"
   ansible.builtin.shell:
-    cmd: openssl x509 -modulus -noout -in /opt/ssl/home-infra.rc.crt
+    cmd: openssl x509 -modulus -noout -in /opt/ssl/{{ domain_name }}.crt
   register: certificate_modulus
   changed_when: false
   delegate_to: localhost
@@ -78,7 +82,7 @@
 
 - name: "Get certificate expiration date"
   ansible.builtin.shell:
-    cmd: openssl x509 -enddate -noout -in /opt/ssl/home-infra.rc.crt
+    cmd: openssl x509 -enddate -noout -in /opt/ssl/{{ domain_name }}.crt
   register: certificate_exp
   changed_when: false
   delegate_to: localhost
@@ -93,16 +97,16 @@
 
 - name: "Copy certificate on hosts"
   ansible.builtin.copy:
-    src: /opt/ssl/home-infra.rc.crt
-    dest: /opt/ssl/home-infra.rc.crt
+    src: "/opt/ssl/{{ domain_name }}.crt"
+    dest: "/opt/ssl/{{ domain_name }}.crt"
     owner: root
     group: root
     mode: "0644"
 
 - name: "Copy private key on hosts"
   ansible.builtin.copy:
-    src: /opt/ssl/home-infra.rc.key
-    dest: /opt/ssl/home-infra.rc.key
+    src: "/opt/ssl/{{ domain_name }}.key"
+    dest: "/opt/ssl/{{ domain_name }}.key"
     owner: root
     group: root
     mode: "0600"
@@ -119,3 +123,11 @@
   ansible.builtin.debug:
     msg: "{{ reload_nginx.stderr_lines }}"
   when: reload_nginx.stderr_lines | length > 0
+
+- name: "Send confirmation mail"
+  ansible.builtin.shell:
+    cmd: set -o pipefail && echo -e "Subject:{{ domain_name }} SSL Cert Regenerated\n\nThe {{ domain_name }} wildcard SSL certificate has been regenerated and deployed." | sendmail {{ email_address }}
+  register: confirmation_mail
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
