@@ -16,3 +16,7 @@ The following variables are set in `vars/main.yml`:
 - locality: `Rouen` (locality to fill in the CSR information).
 - organisation: `Home-Infra` (organisation to fill in the CSR information).
 - organisation_unit: `IT` (organisation unit to fill in the CSR information).
+
+The following variable is set in `defaults/main.yml`:
+
+- key: `false` (controls whether the private key should be copied to hosts, expects a boolean `true` or `false` value, defaults to `false`. Set this to `true` per hosts with inventory variables where needed).
