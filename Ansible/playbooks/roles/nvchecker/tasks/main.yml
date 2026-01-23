@@ -39,7 +39,7 @@
 - name: "Show nvchecker output"
   ansible.builtin.debug:
     msg: "{{ nvchecker_output_formatted.stdout_lines }}"
-  when: nvchecker_output_formatted.stdout_lines | length > 0
+  when: nvchecker_output_formatted.stdout_lines is defined and nvchecker_output_formatted.stdout_lines | length > 0
 
 - name: "Run nvtake"
   ansible.builtin.shell:
