@@ -93,7 +93,7 @@
 - name: "End message"
   ansible.builtin.debug:
     msg:
-      - "Configuration for {{ hostname }} ({{ ip }} is done!"
+      - "Configuration for {{ hostname }} ({{ ip }} is done"
       - "The server has been rebooted"
   delegate_to: localhost
   run_once: true
