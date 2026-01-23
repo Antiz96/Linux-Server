@@ -10,4 +10,4 @@
   ansible.builtin.user:
     name: "{{ username }}"
     state: absent
-    remove: true
+    remove: "{{ remove_homedir | bool }}"
