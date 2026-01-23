@@ -6,7 +6,7 @@ Regenerate / renew and deploy my home infrastructure's self-signed wildcard SSL 
 
 The following variable is vaulted and set in `vars/vault.yml`:
 
-- email_address: the email address to fill in the CSR information and to send a deploy confirmation mail to.
+- email_address: the email address to fill in the CSR information and to send a post-deployment confirmation mail to.
 
 The following variables are set in `vars/main.yml`:
 
