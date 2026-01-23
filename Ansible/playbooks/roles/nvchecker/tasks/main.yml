@@ -41,14 +41,14 @@
     msg: "{{ nvchecker_output_formatted.stdout_lines }}"
   when: nvchecker_output_formatted.stdout_lines is defined and nvchecker_output_formatted.stdout_lines | length > 0
 
-- name: "Run nvtake"
+- name: "Send nvchecker output by mail"
   ansible.builtin.shell:
-    cmd: nvtake --all
+    cmd: set -o pipefail && echo -e "Subject:NVChecker -  New upstream releases\n\n{{ (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | join('\n') }}" | sendmail {{ email_address }}
   changed_when: true
   when: (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | length > 0
 
-- name: "Send confirmation mail"
+- name: "Run nvtake"
   ansible.builtin.shell:
-    cmd: set -o pipefail && echo -e "Subject:NVChecker -  New upstream releases\n\n{{ (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | join('\n') }}" | sendmail {{ email_address }}
+    cmd: nvtake --all
   changed_when: true
   when: (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | length > 0
