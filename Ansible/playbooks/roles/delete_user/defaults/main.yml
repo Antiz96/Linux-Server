@@ -1,3 +1,4 @@
 ---
 # defaults file for delete_user
+
 remove_homedir: false
