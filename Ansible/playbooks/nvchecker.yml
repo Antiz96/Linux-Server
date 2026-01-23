@@ -1,0 +1,5 @@
+---
+- name: "Run nvchecker"
+  hosts: amprd01.rc
+  roles:
+    - role: "nvchecker"
