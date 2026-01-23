@@ -1,6 +1,6 @@
 # Update Antiz Website
 
-Update https://antiz.fr website against latest git state / commit (https://github.com/Antiz96/antiz.fr).
+Update https://antiz.fr website against latest git state / commit (<https://github.com/Antiz96/antiz.fr>).
 
 ## Variables
 

@@ -15,4 +15,3 @@ The following variables can be set at the playbook level or as `--extra-vars` *(
 - cmd_debian: command(s) to run on Debian hosts.
 - cmd_arch: command(s) to run on Arch Linux hosts.
 - cmd_alpine: command(s) to run on Alpine Linux hosts.
-
