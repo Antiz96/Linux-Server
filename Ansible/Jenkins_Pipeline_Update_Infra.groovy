@@ -9,7 +9,7 @@ pipeline {
                         job: 'Update_Docker_Containers',
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VMs'),
-                            string(name: 'ENV', value: 'dev')
+                            string(name: 'ENV', value: 'dev'),
                             string(name: 'SERVERS', value: 'all')
                         ],
                         propagate: true,
@@ -29,7 +29,7 @@ pipeline {
                         job: 'Update_Docker_Containers',
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VMs'),
-                            string(name: 'ENV', value: 'prod')
+                            string(name: 'ENV', value: 'prod'),
                             string(name: 'SERVERS', value: 'all')
                         ],
                         propagate: true,
@@ -49,7 +49,7 @@ pipeline {
                         job: 'Update_Docker_Containers',
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VPS'),
-                            string(name: 'ENV', value: 'prod')
+                            string(name: 'ENV', value: 'prod'),
                             string(name: 'SERVERS', value: 'all')
                         ],
                         propagate: true,
@@ -69,7 +69,7 @@ pipeline {
                         job: 'Update_Docker_Containers',
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'Proxmox'),
-                            string(name: 'ENV', value: 'prod')
+                            string(name: 'ENV', value: 'prod'),
                             string(name: 'SERVERS', value: 'all')
                         ],
                         propagate: true,
