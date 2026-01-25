@@ -58,7 +58,7 @@ sudo chmod 600 /opt/arcane/env/* && sudo chmod 750 /opt/arcane/env
 sudo docker run -d --name arcane-agent --restart unless-stopped -e AGENT_MODE=true -e AGENT_TOKEN=$(sudo cat /opt/arcane/env/api.key) -e MANAGER_API_URL=$(sudo cat /opt/arcane/env/manager_api_url) -p 3553:3553 -v /var/run/docker.sock:/var/run/docker.sock -v /opt/arcane/data:/data ghcr.io/getarcaneapp/arcane-headless:latest
 ```
 
-**Note:** If the host server has AppArmor enabled with the [`docker-default` profile](https://docs.docker.com/engine/security/apparmor/) loaded (which is the case by default on Debian and Debian based distributions), you must add the extra `--security-opt apparmor=unconfined` argument to your `docker run` command for the container to be able to access the host's docker socket at `/var/run/docker.sock` (or alternatively, adjust the `docker-default` AppArmor profile to allow UNIX socket access).  
+**Note:** If the host server has AppArmor enabled with the [`docker-default` profile](https://docs.docker.com/engine/security/apparmor/) loaded (which is the case by default on Debian and Debian based distributions), you must add the extra `--security-opt apparmor=unconfined` argument to your `docker run` command for the container to be able to access the host's Docker socket at `/var/run/docker.sock` (or alternatively, create a drop-in AppArmor profile to allow UNIX socket access from the container and load it via `--security-opt apparmor="profile_name"`).  
 Otherwise, `Arcane` will receive a *permission denied* error when attempting to connect to the host's Docker socket, which will cause any Docker-related operations (such as interacting with containers, updating containers, or making API calls) to fail.
 
 ## Update / Upgrade procedure
