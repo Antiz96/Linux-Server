@@ -31,6 +31,83 @@ I basically follow installation steps normally (`setup-alpine`) with the followi
 sed -i "s/http/https/g" /etc/apk/repositories
 ```
 
+### Optional - Switch bootloader to Limine
+
+Alpine uses `GRUB` (if UEFI, `Syslinux` otherwise) as the default bootloader.
+
+I'm personally not a fan of `GRUB` so I'm switching to [Limine](https://pkgs.alpinelinux.org/packages?name=limine&branch=edge&repo=&arch=x86_64&origin=&flagged=&maintainer=) instead. See <https://wiki.archlinux.org/title/Limine> for more details.
+
+Remount ESP on `/boot` (Limine expects the ESP to be mounted in the path the distribution puts the kernel and initramfs file to).
+
+```bash
+sed -i "s|boot/efi|boot|g" # Update fstab
+umount /boot/efi # Umount ESP
+rm -rf /boot/* # Clean up /boot
+mount -a # Remount ESP on /boot
+apk fix --reinstall linux-lts # Reinstall kernel package (to regenerate conf, vmlinuz file and initramfs)
+```
+
+Remove grub packages and leftover config file:
+
+```bash
+apk del grub grub-efi grub-bash-completion
+rm -f /etc/default/grub
+```
+
+Install and configure limine:
+
+```bash
+apk add limine limine-efi-updater efibootmgr
+mkdir -p /boot/EFI/limine
+cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/
+vim /boot/limine.conf
+```
+
+```text
+# Note: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx should be equal to the root partition UUID
+
+timeout: 5
+
+/Alpine Linux
+    protocol: linux
+    path: boot():/vmlinuz-lts
+    cmdline: root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw
+    module_path: boot():/initramfs-lts
+```
+
+Add an entry for limine in NVRAM bootloader:
+
+```bash
+efibootmgr \
+      --create \
+      --disk /dev/sda \
+      --part 1 \
+      --label "Alpine Linux Limine Boot Loader" \
+      --loader '\EFI\limine\BOOTX64.EFI' \
+      --unicode
+```
+
+Setup automated Limine EFI updater:
+
+```bash
+vi /etc/limine/limine-efi-updater.conf
+```
+
+```text
+[...]
+efi_system_partition=/boot # Set path to ESP
+[...]
+destination_path=/EFI/limine # Set path to EFI executable (path created earlier after installing the limine package)
+[...]
+#disable_hook=1 # Comment this line for the hook to run automaticall on limine's update
+```
+
+Run the hook manually once:
+
+```bash
+apk fix limine-efi-updater
+```
+
 ### Optional - Switch to the edge branch and enable testing repo
 
 I personally depends on a few packages that are still currently in the testing repositories.  
