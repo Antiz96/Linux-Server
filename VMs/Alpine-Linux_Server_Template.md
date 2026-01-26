@@ -71,7 +71,7 @@ timeout: 5
 /Alpine Linux
     protocol: linux
     path: boot():/vmlinuz-lts
-    cmdline: root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw
+    cmdline: root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw modules=sd-mod,usb-storage,ext4 rootfstype=ext4
     module_path: boot():/initramfs-lts
 ```
 
