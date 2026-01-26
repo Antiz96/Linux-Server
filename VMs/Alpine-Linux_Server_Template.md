@@ -97,6 +97,8 @@ vi /etc/limine/limine-efi-updater.conf
 [...]
 efi_system_partition=/boot # Set path to ESP
 [...]
+efi_file="BOOTX64.EFI" # Set EFI executable for x86_64
+[...]
 destination_path=/EFI/limine # Set path to EFI executable (path created earlier after installing the limine package)
 [...]
 #disable_hook=1 # Comment this line for the hook to run automatically on limine's update
