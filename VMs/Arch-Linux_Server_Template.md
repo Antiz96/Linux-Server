@@ -5,7 +5,7 @@ It aims to be turned as a Template.
 
 ## Base Install
 
-I basically follow my [Arch-Linux base installation guide](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md) with the following exceptions:
+I basically follow my [Arch-Linux base installation guide](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md) with the following exceptions:
 
 - I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md#partition-scheme)).
 - I use the `linux-lts` kernel (instead of the `linux` one).
@@ -16,7 +16,7 @@ I basically follow my [Arch-Linux base installation guide](https://github.com/An
 
 ## Partition scheme
 
-Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#preparing-the-disk>
+Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#preparing-the-disk>
 
 - Professional context:
 
@@ -31,9 +31,32 @@ Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/B
 > > /var --> 1G  
 > > /var/log --> 4G
 
+### Optional - Install and enable AppArmor
+
+AppArmor is a kernel security module that restricts individual programs' capabilities.
+
+Unlike Debian, Arch Linux does not install or enable AppArmor by default, and it does not maintain an extensive set of extra profiles.  
+Nevertheless, the default profiles provided with AppArmor cover a few programs I commonly use, and some applications I install on my servers (e.g. Docker) include their own profiles. Therefore, enabling AppArmor still provides *some* additional layer of security, which is why I usually install and enable it.
+
+```bash
+pacman -S apparmor # Install AppArmor
+vim /boot/loader/entries/arch.conf # Add AppArmor to the lsm parameter of the kernel cmdline in systemd-boot config
+```
+
+> [...]  
+> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**  
+> [...]
+
+```bash
+systemctl enable apparmor.service # Start AppArmor service automatically on boot
+reboot
+aa-enabled # Verify that AppArmor is running
+aa-status # Check the list of profile and their status
+```
+
 ### Install useful packages
 
-Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages>
+Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages>
 
 ```bash
 pacman -S man bash-completion openssh socat dnsutils wget traceroute rsync zip unzip diffutils plocate htop logrotate pacman-contrib fail2ban python-passlib fastfetch
@@ -147,7 +170,7 @@ vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 
 ### Create and configure the ansible user
 
-Replaces: <https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#user-configuration>
+Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#user-configuration>
 
 ```bash
 useradd -m -u 1000 ansible #Create the ansible user
