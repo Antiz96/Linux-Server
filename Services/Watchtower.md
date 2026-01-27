@@ -35,3 +35,8 @@ Cleaning the dangling docker images can be automatically done by Watchtower itse
 ```bash
 sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nickfedor/watchtower --procelain v1 --cleanup --run-once
 ```
+
+**Note:** If the host server has AppArmor enabled (which is the case by default on Debian), the Docker daemon automatically loads a [`docker-default` AppArmor profile](https://docs.docker.com/engine/security/apparmor/) into containers. You can check if the `docker-default` AppArmor profile is enforced with `aa-status` and if it's loaded in a container with `docker inspect --format='{{.AppArmorProfile}}' "container_name"`.  
+
+This AppArmor profile *may* prevent the watchtower container to interact with the host Docker daemon via the `/var/run/docker.sock` socket (for what it's worth, that was the case on Debian but not on Arch Linux on my side, despite AppArmor and the `docker-default` profile being loaded on both). This causes Watchtower to fail updating containers.  
+To workaround this, you can add the extra `--security-opt apparmor=unconfined` argument to your `docker run` command, so that the container doesn't run with the `docker-default` AppArmor profile loaded. Alternatively, one can create a drop-in AppArmor profile to allow UNIX socket access from the container and load it via `--security-opt apparmor="profile_name"`.  
