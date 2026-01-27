@@ -31,6 +31,23 @@ I basically follow installation steps normally (`setup-alpine`) with the followi
 sed -i "s/http/https/g" /etc/apk/repositories
 ```
 
+### Optional - Switch to the edge branch and enable testing repo
+
+I personally depends on a few packages that are still currently in the testing repositories.  
+As such, I currently switch to the edge branch of the repositories (which basically turns Alpine into a rolling release) and I activate the testing repositories.
+
+```bash
+vi /etc/apk/repositories
+```
+
+> "repo_url"/pub/alpine/**edge**/main  
+> "repo_url"/pub/alpine/**edge**/community  
+> "repo_url"/pub/alpine/**edge/testing**
+
+```bash
+apk update && apk upgrade
+```
+
 ### Optional - Switch bootloader to Limine
 
 Alpine uses `GRUB` (if UEFI, `Syslinux` otherwise) as the default bootloader.
@@ -66,7 +83,7 @@ vim /boot/limine.conf
 ```text
 # Note: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx should be equal to the root partition UUID
 
-timeout: 5
+timeout: 0
 
 /Alpine Linux
     protocol: linux
@@ -110,21 +127,28 @@ Run the hook manually once:
 apk fix limine-efi-updater
 ```
 
-### Optional - Switch to the edge branch and enable testing repo
+### Optional - Install and enable AppArmor
 
-I personally depends on a few packages that are still currently in the testing repositories.  
-As such, I currently switch to the edge branch of the repositories (which basically turns Alpine into a rolling release) and I activate the testing repositories.
+AppArmor is a kernel security module that restricts individual programs' capabilities.
+
+Unlike Debian, Alpine Linux does not install or enable AppArmor by default, and it does not maintain an extensive set of extra profiles.  
+Nevertheless, the default profiles provided with AppArmor cover a few programs I commonly use, and some applications I install on my servers (e.g. Docker) include their own profiles. Therefore, enabling AppArmor still provides *some* additional layer of security, which is why I usually install and enable it.
 
 ```bash
-vi /etc/apk/repositories
+apk add apparmor apparmor-utils apparmor-profiles # Install AppArmor packages
+cat /sys/kernel/security/lsm # Get the list of the linux security modules currently setup
+vim /boot/limine.conf # Add that list to limine.conf (excluding "capability" as it is already automatically included), appending `apparmor` to it
 ```
 
-> "repo_url"/pub/alpine/**edge**/main  
-> "repo_url"/pub/alpine/**edge**/community  
-> "repo_url"/pub/alpine/**edge/testing**
+> [...]  
+> cmdline: root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw quiet modules=sd-mod,usb-storage,ext4 rootfstype=ext4 **lsm=lockdown,landlock,yama,apparmor**  
+> [...]
 
 ```bash
-apk update && apk upgrade
+rc-update add apparmor boot # Start AppArmor service automatically on boot
+reboot
+aa-enabled # Verify that AppArmor is running
+aa-status # Check the list of profile and their status
 ```
 
 ### Install useful packages
