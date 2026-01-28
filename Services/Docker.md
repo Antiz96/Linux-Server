@@ -6,7 +6,7 @@
 
 ```bash
 sudo pacman -S docker
-sudo systemctl enable --now docker containerd
+sudo systemctl enable --now docker
 ```
 
 ## Install Docker on Alpine
@@ -14,9 +14,7 @@ sudo systemctl enable --now docker containerd
 ```bash
 sudo apk add docker
 sudo rc-update add docker
-sudo rc-update add containerd
 sudo rc-service docker start
-sudo rc-service containerd start
 ```
 
 ## Install Docker on Debian
@@ -57,5 +55,5 @@ sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
 ### Start and enable the docker service
 
 ```bash
-sudo systemctl enable --now docker containerd
+sudo systemctl enable --now docker
 ```
