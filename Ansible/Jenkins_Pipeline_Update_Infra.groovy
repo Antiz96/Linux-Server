@@ -10,7 +10,8 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VMs'),
                             string(name: 'ENV', value: 'dev'),
-                            string(name: 'SERVERS', value: 'all')
+                            string(name: 'SERVERS', value: 'all'),
+                            string(name: 'DANGLING', value: 'true')
                         ],
                         propagate: true,
                         wait: true
@@ -30,7 +31,8 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VMs'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all')
+                            string(name: 'SERVERS', value: 'all'),
+                            string(name: 'DANGLING', value: 'true')
                         ],
                         propagate: true,
                         wait: true
@@ -50,7 +52,8 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'VPS'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all')
+                            string(name: 'SERVERS', value: 'all'),
+                            string(name: 'DANGLING', value: 'true')
                         ],
                         propagate: true,
                         wait: true
@@ -70,7 +73,8 @@ pipeline {
                         parameters: [
                             string(name: 'SERVER_TYPE', value: 'Proxmox'),
                             string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all')
+                            string(name: 'SERVERS', value: 'all'),
+                            string(name: 'DANGLING', value: 'true')
                         ],
                         propagate: true,
                         wait: true

@@ -1,24 +1,73 @@
 ---
 # tasks file for update_docker_container
 
-- name: "Pull watchtower"
+- name: "Load vaulted vars"
+  ansible.builtin.include_vars:
+    file: vault.yml
+
+- name: "Pull images" # noqa: command-instead-of-module
   ansible.builtin.shell:
-    cmd: docker pull nickfedor/watchtower
-  register: pull_watchtower
+    cmd: |
+      set -o pipefail
+      curl --silent --insecure '{{ api_url }}/api/environments/{{ env_ids[inventory_hostname] }}/image-updates/check-all' --request POST --header 'Accept: */*' --header 'Content-Type: application/json' --header 'X-Api-Key: {{ api_key }}' --data '{
+        "credentials": [
+          {
+            "enabled": true,
+            "token": "",
+            "url": "",
+            "username": ""
+          }
+        ]
+      }' | jq -r '.data | to_entries[] | "\(.key)=\(.value.hasUpdate)"'
+  register: pull_images
   changed_when: true
+  delegate_to: localhost
 
-- name: "Pull watchtower output"
+- name: "Pull images output"
   ansible.builtin.debug:
-    msg: "{{ pull_watchtower.stdout_lines }}"
-  when: pull_watchtower.stdout_lines | length > 0
+    msg: "{{ pull_images.stdout_lines }}"
+  when: pull_images.stdout_lines | length > 0
+  delegate_to: localhost
 
-- name: "Update docker containers"
+- name: "Update containers" # noqa: command-instead-of-module
   ansible.builtin.shell:
-    cmd: docker run --privileged --security-opt apparmor=unconfined --rm -v /var/run/docker.sock:/var/run/docker.sock nickfedor/watchtower --porcelain v1 --cleanup --run-once
-  register: update_watchtower
+    cmd: |
+      set -o pipefail
+      curl --silent --insecure '{{ api_url }}/api/environments/{{ env_ids[inventory_hostname] }}/updater/run' --request POST --header 'Accept: */*' --header 'Content-Type: application/json' --header 'X-Api-Key: {{ api_key }}' --data '{
+        "forceUpdate": true,
+        "resourceIds": [
+          ""
+        ],
+        "type": ""
+      }' | jq -r '.data.items[] | "\(.resourceName)=\(.status)"'
+  register: update_containers
   changed_when: true
+  delegate_to: localhost
 
-- name: "Update docker containers output"
+- name: "Update containers output" # noqa: command-instead-of-module
   ansible.builtin.debug:
-    msg: "{{ update_watchtower.stdout_lines }}"
-  when: update_watchtower.stdout_lines | length > 0
+    msg: "{{ update_containers.stdout_lines }}"
+  when: update_containers.stdout_lines | length > 0
+  delegate_to: localhost
+
+- name: "Prune old images"
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      curl --silent --insecure '{{ api_url }}/api/environments/{{ env_ids[inventory_hostname] }}/images/prune?dangling={{ 'false' if (dangling | string | lower) == 'false' else 'true' }}' --request POST --header 'Accept: */*' --header 'Content-Type: application/json' --header 'X-Api-Key: {{ api_key }}' --data '{
+        "dangling": {{ 'false' if (dangling | string | lower) == 'false' else 'true' }},
+        "filters": {
+          "propertyName*": [
+            ""
+          ]
+        }
+      }' | jq -r '.data.imagesDeleted[] | select(startswith("sha256:") | not)'
+  register: prune_old_images
+  changed_when: true
+  delegate_to: localhost
+
+- name: "Prune old images output"
+  ansible.builtin.debug:
+    msg: "{{ prune_old_images.stdout_lines }}"
+  when: prune_old_images.stdout_lines | length > 0
+  delegate_to: localhost

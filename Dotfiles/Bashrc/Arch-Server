@@ -59,8 +59,5 @@ alias cleancache="sudo pacman -Sc"
 alias cleanaurcache="paru -Sc"
 alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
 
-# Docker
-alias dockup="sudo docker pull nickfedor/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nickfedor/watchtower --cleanup --run-once"
-
 # Sudo
 alias sudo="sudo "
