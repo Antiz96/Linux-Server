@@ -52,16 +52,16 @@ auto lo
 iface lo inet loopback
 
 auto eth0
-iface eth0 inet manual # Set it to manual and move parameters to the bridge interface 
+iface eth0 inet manual # Set it to manual and move parameters to the bridge interface
 
 auto lxcbr0 # I advise to call it like that as its the name lxc is looking for by default
 iface lxcbr0 inet static
-	address 192.168.96.100 # Those were moved from the initial eth0 config above
-	netmask 255.255.255.0 # This was moved from the initial eth0 config above
-	gateway 192.168.96.254 # This was moved from the initial eth0 config above
-	bridge-ports eth0
-	bridge-stp off
-	bridge-fd 0
+    address 192.168.96.100 # Those were moved from the initial eth0 config above
+    netmask 255.255.255.0 # This was moved from the initial eth0 config above
+    gateway 192.168.96.254 # This was moved from the initial eth0 config above
+    bridge-ports eth0
+    bridge-stp off
+    bridge-fd 0
 ```
 
 ```bash
