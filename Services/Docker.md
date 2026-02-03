@@ -57,3 +57,22 @@ sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
 ```bash
 sudo systemctl enable --now docker
 ```
+
+## Tips and tricks
+
+### Change docker datadir path
+
+Defaults in `/var/lib/docker`.
+
+```bash
+sudo mkdir -p /etc/docker
+sudoedit /etc/docker/daemon.json
+```
+
+```text
+{
+  "data-root": "/path/to/datadir"
+}
+```
+
+Then restart the `docker` service.
