@@ -35,12 +35,12 @@ echo "$(whoami):100000:65536" | sudo tee -a /etc/subuid
 echo "$(whoami):100000:65536" | sudo tee -a /etc/subgid
 ```
 
-Note that containers started in rootless / unpriviledged mode are only accessible / manageable by the user that created them.
+Note that containers started in rootless / unprivileged mode are only accessible / manageable by the user that created them.
 
 ## Create a network bridge
 
 Create a network bridge on your network interface for the containers.  
-Following information are targetted at Alpine and Debian (for Arch Linux, refer to your network manager documentation).
+Following information are targeted at Alpine and Debian (for Arch Linux, refer to your network manager documentation).
 
 ```bash
 sudoedit /etc/network/interfaces
@@ -52,7 +52,7 @@ auto lo
 iface lo inet loopback
 
 auto eth0
-iface eth0 inet manual # Set it to manual and move the prameter to the bridge interface 
+iface eth0 inet manual # Set it to manual and move parameters to the bridge interface 
 
 auto lxcbr0 # I advise to call it like that as its the name lxc is looking for by default
 iface lxcbr0 inet static
