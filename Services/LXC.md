@@ -185,12 +185,18 @@ Backup:
 One can just rsync the container directory with proper options.
 
 ```bash
-rsync -a --numeric-ids \
+sudo rsync -a --numeric-ids \
   --exclude=/rootfs/proc/* \
   --exclude=/rootfs/sys/* \
   --exclude=/rootfs/dev/* \
   /lxc/datadir/mycontainer/ \
   /backup/lxc/mycontainer/
+```
+
+Then to restore, either stop or destroy the container, then:
+
+```bash
+sudo rsync -a --numeric-ids /backup/lxc/mycontainer/ /lxc/datadir/mycontainer/
 ```
 
 ## Tips and tricks
