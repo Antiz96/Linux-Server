@@ -40,7 +40,8 @@ Note that containers started in rootless / unprivileged mode are only accessible
 ## Create a network bridge
 
 Create a network bridge on your network interface for the containers.  
-Following information are targeted at Alpine and Debian (for Arch Linux, refer to your network manager documentation).
+
+### Alpine / Debian
 
 ```bash
 sudoedit /etc/network/interfaces
@@ -62,6 +63,28 @@ iface lxcbr0 inet static
     bridge-ports eth0
     bridge-stp off
     bridge-fd 0
+```
+
+```bash
+sudoedit /etc/lxc/lxc-usernet
+```
+
+```text
+# Replace <username> by your user
+# Replace 15 by the number of network interfaces the given user is allowed to attach to the given bridge
+<username> veth lxcbr0 15
+```
+
+```bash
+sudo reboot
+```
+
+### Arch with NetworkManager
+
+```bash
+sudo nmcli connection add type bridge ifname lxcbr0 con-name lxcbr0 # Create bridge interface
+sudo nmcli connection modify lxcbr0 ipv4.method manual ipv4.addresses 192.168.96.100/24 ipv4.gateway 192.168.96.254 ipv4.dns 192.168.96.1 ipv6.method disabled # Move network conf to bridge interface
+sudo nmcli connection modify Wired\ connection\ 1 connection.master lxcbr0 connection.slave-type bridge # Attach physical NIC to the bridge
 ```
 
 ```bash
