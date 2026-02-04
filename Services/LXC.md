@@ -148,3 +148,21 @@ vim ~/.config/lxc/lxc.conf
 ```text
 lxc.lxcpath = /path/to/datadir # Should be writeable by user
 ```
+
+### Run unprivileged systemd-based distribution containers with Alpine / OpenRC
+
+**NOTE:** The following trick allows to run unprivileged systemd-based distribution containers that still accept cgroups v1 (so basically distributions that still run systemd < v258).  
+As far as I can tell, there's no way yet to run unprivileged system-based distribution containers that require cgroups v2 with OpenRC (so basically distributions that run systemd >= v258).
+
+```bash
+sudo mkdir -p /sys/fs/cgroup/systemd
+sudo mount -t cgroup -o none,name=systemd systemd /sys/fs/cgroup/systemd
+sudo chown 100000:100000 -R /sys/fs/cgroup/systemd/
+```
+
+You can put the above in an OpenRC init script or in your fstab to apply permanently.  
+See the following links for more details:
+
+- <https://wiki.gentoo.org/wiki/LXC#Systemd_containers_on_an_OpenRC_host>
+- <https://j2h2.com/posts/alpine-linux-and-systemd-containers-round-2/>
+- <https://github.com/debops/ansible-lxc/issues/15>
