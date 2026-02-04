@@ -6,6 +6,7 @@
 
 ```bash
 sudo pacman -S podman
+loginctl enable-linger $USER
 ```
 
 ## Install Podman on Alpine
@@ -18,6 +19,7 @@ sudo apk add podman
 
 ```bash
 sudo apt install podman
+loginctl enable-linger $USER
 ```
 
 ## Setup rootless / unprivileged mode on Alpine
