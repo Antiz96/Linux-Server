@@ -158,6 +158,39 @@ To exit a container session, press `ctrl-a` then `q`.
 lxc-destroy <container_name>
 ```
 
+### Snapshot / Clone / Backup
+
+Snapshot:
+
+```bash
+lxc-snapshot -n <container_name> # Take a snapshot of a container
+lxc-snapshot -n <container_name> -c file.txt # Take a snapshot of a container with comments from the content of file.txt
+lxc-snapshot -n <container_name> -L # List snapshots of a container
+lxc-snapshot -n <container_name> -L -C # List snapshots of a container including comments
+lxc-snapshot -n <container_name> -r snap0 # Restore the "snap0" snapshot on a container
+lxc-snapshot -n <container_name> -r snap0 -N <container_name2> # Restore the "snap0" snapshot to a separate new container
+lxc-snapshot -n <container_name> -d snap0 # Delete the "snap0" snapshot of a container
+```
+
+Clone:
+
+```bash
+lxc-copy -n <container_name> -N <container_name2> # Clone a container into a new one
+```
+
+Backup:
+
+One can just rsync the container directory with proper options.
+
+```bash
+rsync -a --numeric-ids \
+  --exclude=/rootfs/proc/* \
+  --exclude=/rootfs/sys/* \
+  --exclude=/rootfs/dev/* \
+  /lxc/datadir/mycontainer/ \
+  /backup/lxc/mycontainer/
+```
+
 ## Tips and tricks
 
 ### Change lxc datadir
