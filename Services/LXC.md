@@ -182,6 +182,47 @@ Despite experimenting and trying potential workarounds I've found here and there
 lxc.apparmor.profile = unconfined
 ```
 
+### Autostart containers at boot
+
+Add the following line to the containers' config you want to autostart at boot:
+
+```text
+lxc.start.auto = 1
+```
+
+Then start / enable the required service:
+
+```bash
+sudo systemctl enable --now lxc-auto.service
+```
+
+For unprivileged containers running as non-root user, create and enable the following user service instead:
+
+```bash
+mkdir -p ~/.config/systemd/user
+vim ~/.config/systemd/user/lxc-autostart.service
+```
+
+```text
+[Unit]
+Description="lxc-autostart for lxc user"
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/lxc-autostart
+ExecStop=/usr/bin/lxc-autostart -s
+RemainAfterExit=1
+
+[Install]
+WantedBy=default.target
+```
+
+```bash
+sudo systemctl daemon-reload
+systemctl --user enable --now lxc-autostart.service
+sudo loginctl enable-linger $USER
+```
+
 ### Run unprivileged systemd-based distribution containers with Alpine / OpenRC
 
 **NOTE:** The following trick allows to run unprivileged systemd-based distribution containers that still accept cgroups v1 (so basically distributions that still run systemd < v258).  
