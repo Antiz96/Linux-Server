@@ -174,6 +174,8 @@ lxc-snapshot -n <container_name> -d snap0 # Delete the "snap0" snapshot of a con
 
 Clone:
 
+Note that, if running AppArmor, you might to run pass `lxc-copy` under complain mode for it to work (`sudo aa-complain lxc-copy`).
+
 ```bash
 lxc-copy -n <container_name> -N <container_name2> # Clone a container into a new one
 ```
