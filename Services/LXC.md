@@ -223,6 +223,21 @@ Despite experimenting and trying potential workarounds I've found here and there
 lxc.apparmor.profile = unconfined
 ```
 
+### Limit containers resources
+
+In containers' config:
+
+```text
+lxc.cgroup2.cpuset.cpus = 0-1 # Limit access to host's core 0 and 1
+lxc.cgroup2.cpu.max = 200000 100000 # Limit CPU quota to the equivalent of two cores (400000 100000 for 4 cores)
+lxc.cgroup2.memory.max = 2G # Limit RAM quote to 2G
+lxc.cgroup2.memory.swap.max = 0 # Restrict usage of host's swap
+```
+
+For what it's worth, I'm personnally only setting `lxc.cgroup2.cpu.max` and `lxc.cgroup2.memory.max`.
+
+Note that (as opposed to a VM) this is just quota limit, not a definition of the "visible" resources. So things like `htop`, `fastfetch` or `free` will still report the full number of CPU and RAM of the host, regardless of the above settings. To get the accurate number of CPU and RAM allowed in a container, run `nproc` and `cat /sys/fs/cgroup/memory.max` instead.
+
 ### Autostart containers at boot
 
 Add the following line to the containers' config you want to autostart at boot:
