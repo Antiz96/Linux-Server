@@ -172,6 +172,16 @@ vim ~/.config/lxc/lxc.conf
 lxc.lxcpath = /path/to/datadir # Should be writeable by user
 ```
 
+### Unprivileged containers and AppArmor
+
+It seems that AppArmor doesn't play really nice with unprivileged containers and is very restrictive, eventually restricting expected actions within unprivileged containers by default, such as starting systemd services and other things (Debian even have [a dedicated page for related issues](https://wiki.debian.org/LXC/SystemdMountsAndAppArmor)).
+
+Despite experimenting and trying potential workarounds I've found here and there, I wasn't able to configure AppArmor to play nice with unprivileged containers (including allowing mounting, nesting, etc...). Debian considers that disabling AppArmor is an acceptable approach for unprivileged containers (see [here](https://wiki.debian.org/LXC/SystemdMountsAndAppArmor#Permissive_AppArmor_profile)), which can be done by adding the following to your containers configuration:
+
+```text
+lxc.apparmor.profile = unconfined
+```
+
 ### Run unprivileged systemd-based distribution containers with Alpine / OpenRC
 
 **NOTE:** The following trick allows to run unprivileged systemd-based distribution containers that still accept cgroups v1 (so basically distributions that still run systemd < v258).  
