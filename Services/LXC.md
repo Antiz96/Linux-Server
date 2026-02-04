@@ -234,7 +234,7 @@ lxc.cgroup2.memory.max = 2G # Limit RAM quote to 2G
 lxc.cgroup2.memory.swap.max = 0 # Restrict usage of host's swap
 ```
 
-For what it's worth, I'm personnally only setting `lxc.cgroup2.cpu.max` and `lxc.cgroup2.memory.max`.
+For what it's worth, I'm personally only setting `lxc.cgroup2.cpu.max` and `lxc.cgroup2.memory.max`.
 
 Note that (as opposed to a VM) this is just quota limit, not a definition of the "visible" resources. So things like `htop`, `fastfetch` or `free` will still report the full number of CPU and RAM of the host, regardless of the above settings. To get the accurate number of CPU and RAM allowed in a container, run `nproc` and `cat /sys/fs/cgroup/memory.max` instead.
 
