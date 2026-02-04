@@ -63,3 +63,13 @@ vim ~/.config/containers/storage.conf
 driver="overlay" # Adapt if needed
 rootless_storage_path="/path/to/datadir" # Should be writeable by the user
 ```
+
+### Containers running as systemd services
+
+This is a pre-requisites to use podman's auto-update feature.
+
+```bash
+sudo pacman -S podlet
+```
+
+
