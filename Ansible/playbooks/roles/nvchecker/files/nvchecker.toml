@@ -782,6 +782,20 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-a2wsgi]
+source = "github"
+github = "abersheeran/a2wsgi"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[python-baize]
+source = "github"
+github = "abersheeran/baize"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-cart]
 source = "github"
 github = "CybercentreCanada/cart"
