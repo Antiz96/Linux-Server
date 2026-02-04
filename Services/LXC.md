@@ -39,7 +39,8 @@ Note that containers started in rootless / unprivileged mode are only accessible
 
 ## Create a network bridge
 
-Create a network bridge on your network interface for the containers.  
+Create a network bridge on the host network interface for the containers to get their own bridged network interface.  
+Containers will automatically get an IP from DHCP at first boot, but can be configured to get their own static IP (either from the LXC config, or from the installed network manager inside the container).
 
 ### Alpine / Debian
 
