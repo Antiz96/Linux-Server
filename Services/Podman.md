@@ -6,7 +6,7 @@
 
 ```bash
 sudo pacman -S podman
-loginctl enable-linger $USER
+loginctl enable-linger
 ```
 
 ## Install Podman on Alpine
@@ -19,7 +19,7 @@ sudo apk add podman
 
 ```bash
 sudo apt install podman
-loginctl enable-linger $USER
+loginctl enable-linger
 ```
 
 ## Setup rootless / unprivileged mode on Alpine
@@ -40,9 +40,9 @@ Note that containers started in rootless mode are only accessible / manageable b
 
 ## Usage
 
-Generally speaking, just replace `docker` by `podman` in commands using your current user (no need for `sudo` or root privileges).
+Generally speaking, just replace `docker` by `podman` in commands with your current user (no need for `sudo` or root privileges).
 
-`podman` also have some extra capabilities / features (such as specific labels, `auto-update`, systemd units supports for containers, etc...).  
+`podman` also have some extra capabilities / features, such as specific labels, `auto-update`, systemd units supports for containers (see [the related chapter](#containers-running-as-systemd-services-and-podman-auto-update), etc...  
 `podman` can also expose an API via a socket (like `Docker`) if needed (not enabled by default).
 
 **Important note:** Contrary to Docker, Podman does not automatically open ports exposed to containers on the firewall. You need to open exposed ports yourself.
@@ -80,13 +80,13 @@ systemctl --user daemon-reload
 systemctl --user start <container_name>.service
 ```
 
-You can now verify if a new image is available for every containers with the `io.containers.autoudpate` label and started with systemd via:
+You can now verify if a new image is available for every containers with the `io.containers.autoudpate` label and started via systemd:
 
 ```bash
 podman auto-update --dry-run
 ```
 
-You can also format the output to only show specific columns (e.g. for scripts):
+You can also format the output to only show specific columns (useful for scripting):
 
 ```bash
 podman auto-update --dry-run --format "{{.Image}} {{.Updated}}"

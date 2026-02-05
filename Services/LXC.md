@@ -31,6 +31,11 @@ mkdir -p ~/.config/lxc
 cp /etc/lxc/default.conf ~/.config/lxc/default.conf
 echo "lxc.idmap = u 0 100000 65536" >> ~/.config/lxc/default.conf
 echo "lxc.idmap = g 0 100000 65536" >> ~/.config/lxc/default.conf
+```
+
+The following should already be done on Arch Linux and Debian, but is needed on Alpine:
+
+```bash
 echo "$(whoami):100000:65536" | sudo tee -a /etc/subuid
 echo "$(whoami):100000:65536" | sudo tee -a /etc/subgid
 ```
