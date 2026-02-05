@@ -275,7 +275,7 @@ WantedBy=default.target
 ```
 
 ```bash
-sudo systemctl daemon-reload
+systemctl --user daemon-reload
 systemctl --user enable --now lxc-autostart.service
 sudo loginctl enable-linger $USER
 ```
