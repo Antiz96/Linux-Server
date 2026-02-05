@@ -1,0 +1,10 @@
+---
+exclude_paths:
+  - '**/test.yml'
+  - '**/meta/main.yml'
+  - '**/.travis.yml'
+
+skip_list:
+  - command-instead-of-shell
+  - yaml[line-length]
+  - var-naming[no-role-prefix]
