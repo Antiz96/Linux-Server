@@ -72,7 +72,7 @@ sudoedit /etc/lxc/lxc-usernet
 
 ```text
 # Replace <username> by your user
-# Replace 15 by the number of network interfaces the given user is allowed to attach to the given bridge
+# Replace 15 by the number of network interfaces that the given user should be allowed to attach to the given bridge
 <username> veth lxcbr0 15
 ```
 
@@ -80,7 +80,7 @@ sudoedit /etc/lxc/lxc-usernet
 sudo reboot
 ```
 
-### Arch with NetworkManager
+### Arch Linux with NetworkManager
 
 ```bash
 sudo nmcli connection add type bridge ifname lxcbr0 con-name lxcbr0 # Create bridge interface
@@ -94,7 +94,7 @@ sudoedit /etc/lxc/lxc-usernet
 
 ```text
 # Replace <username> by your user
-# Replace 15 by the number of network interfaces the given user is allowed to attach to the given bridge
+# Replace 15 by the number of network interfaces that the given user should be allowed to attach to the given bridge
 <username> veth lxcbr0 15
 ```
 
@@ -139,7 +139,7 @@ lxc-stop -n <container_name>
 
 ### Log into a container
 
-Attach current session to the container (necessary to create first user):
+Attach current session to the container (necessary at first boot to create root password):
 
 ```bash
 lxc-attach -n <container_name>
@@ -161,7 +161,7 @@ lxc-destroy <container_name>
 
 ### Snapshot / Clone / Backup
 
-Snapshot:
+- Snapshot
 
 ```bash
 lxc-snapshot -n <container_name> # Take a snapshot of a container
@@ -173,17 +173,17 @@ lxc-snapshot -n <container_name> -r snap0 -N <container_name2> # Restore the "sn
 lxc-snapshot -n <container_name> -d snap0 # Delete the "snap0" snapshot of a container
 ```
 
-Clone:
+- Clone
 
-Note that, if running AppArmor, you might to run pass `lxc-copy` under complain mode for it to work (`sudo aa-complain lxc-copy`).
+Note that, if running AppArmor, you might need to pass `lxc-copy` under complain mode for it to work properly and avoid permissions errors (`sudo aa-complain lxc-copy`).
 
 ```bash
 lxc-copy -n <container_name> -N <container_name2> # Clone a container into a new one
 ```
 
-Backup:
+- Backup
 
-One can just rsync the container directory with proper options.
+One can just rsync the container directory with proper options:
 
 ```bash
 sudo rsync -a --numeric-ids \
@@ -194,7 +194,7 @@ sudo rsync -a --numeric-ids \
   /backup/lxc/mycontainer/
 ```
 
-Then to restore, either stop or destroy the container, then:
+To restore, either stop or destroy the container, then:
 
 ```bash
 sudo rsync -a --numeric-ids /backup/lxc/mycontainer/ /lxc/datadir/mycontainer/
@@ -204,10 +204,10 @@ sudo rsync -a --numeric-ids /backup/lxc/mycontainer/ /lxc/datadir/mycontainer/
 
 ### Change lxc datadir
 
-Defaults in `/var/lib/lxc`.
+Defaults in `.local/share/lxc` (or `/var/lib/lxc` if rootfull).
 
 ```bash
-vim ~/.config/lxc/lxc.conf
+vim ~/.config/lxc/lxc.conf # or /etc/lxc/lxc.conf if rootfull
 ```
 
 ```text
@@ -216,9 +216,9 @@ lxc.lxcpath = /path/to/datadir # Should be writeable by user
 
 ### Unprivileged containers and AppArmor
 
-It seems that AppArmor doesn't play really nice with unprivileged containers and is very restrictive, eventually restricting expected actions within unprivileged containers by default, such as starting systemd services and other things (Debian even have [a dedicated page for related issues](https://wiki.debian.org/LXC/SystemdMountsAndAppArmor)).
+It seems that AppArmor doesn't play really nice with unprivileged LXC containers and is very restrictive for them, eventually preventing expected actions within unprivileged containers by default, such as starting systemd services and other things (Debian even have [a dedicated page for related issues](https://wiki.debian.org/LXC/SystemdMountsAndAppArmor)).
 
-Despite experimenting and trying potential workarounds I've found here and there, I wasn't able to configure AppArmor to play nice with unprivileged containers (including allowing mounting, nesting, etc...). Debian considers that disabling AppArmor is an acceptable approach for unprivileged containers (see [here](https://wiki.debian.org/LXC/SystemdMountsAndAppArmor#Permissive_AppArmor_profile)), which can be done by adding the following to your containers configuration:
+Despite experimenting and trying potential workarounds I've found here and there, I wasn't able to configure AppArmor to play nicely with unprivileged LXC containers (including allowing mounting, nesting, etc...). Debian considers that not loading the AppArmor profile within the container is an acceptable approach for unprivileged LXC containers (see [here](https://wiki.debian.org/LXC/SystemdMountsAndAppArmor#Permissive_AppArmor_profile)), which can be done by adding the following to the containers configuration:
 
 ```text
 lxc.apparmor.profile = unconfined
@@ -237,7 +237,7 @@ lxc.cgroup2.memory.swap.max = 0 # Restrict usage of host's swap
 
 For what it's worth, I'm personally only setting `lxc.cgroup2.cpu.max` and `lxc.cgroup2.memory.max`.
 
-Note that (as opposed to a VM) this is just quota limit, not a definition of the "visible" resources. So things like `htop`, `fastfetch` or `free` will still report the full number of CPU and RAM of the host, regardless of the above settings. To get the accurate number of CPU and RAM allowed in a container, run `nproc` and `cat /sys/fs/cgroup/memory.max` instead.
+Note that (as opposed to a VM) this is just quota limit, not a definition of the "visible" resources within the container. So things like `htop`, `fastfetch` or `free` will still report the full number of CPU and RAM of the host, regardless of the above settings. To get the accurate number of CPU and RAM allowed in a container, run `nproc` and `cat /sys/fs/cgroup/memory.max` instead.
 
 ### Autostart containers at boot
 
@@ -247,7 +247,7 @@ Add the following line to the containers' config you want to autostart at boot:
 lxc.start.auto = 1
 ```
 
-Then start / enable the required service:
+Then start / enable the required service (rootfull):
 
 ```bash
 sudo systemctl enable --now lxc-auto.service
@@ -277,13 +277,13 @@ WantedBy=default.target
 ```bash
 systemctl --user daemon-reload
 systemctl --user enable --now lxc-autostart.service
-sudo loginctl enable-linger $USER
+loginctl enable-linger
 ```
 
 ### Run unprivileged systemd-based distribution containers with Alpine / OpenRC
 
-**NOTE:** The following trick allows to run unprivileged systemd-based distribution containers that still accept cgroups v1 (so basically distributions that still run systemd < v258).  
-As far as I can tell, there's no way yet to run unprivileged system-based distribution containers that require cgroups v2 with OpenRC (so basically distributions that run systemd >= v258).
+**NOTE:** The following trick allows to run unprivileged systemd-based distribution containers that still accept cgroups v1 (basically distributions that still run systemd < v258).  
+As far as I can tell, there's no way yet to run unprivileged system-based distribution containers that require cgroups v2 with OpenRC (basically distributions that run systemd >= v258).
 
 ```bash
 sudo mkdir -p /sys/fs/cgroup/systemd
