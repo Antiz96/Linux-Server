@@ -1,6 +1,6 @@
 ---
 - name: "Configure Template"
-  hosts: all
+  hosts: template.rc
   become: true
   roles:
     - role: "configure_template"
