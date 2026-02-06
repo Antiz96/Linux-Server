@@ -4,7 +4,7 @@
 
 - name: "Check for updates"
   ansible.builtin.shell:
-    cmd: podman auto-update --dry-run --format "{{.Image}} {{.Updated}}"
+    cmd: podman auto-update --dry-run --format "{% raw %}{{.Image}} {{.Updated}}{% endraw %}"
   register: check_updates
   changed_when: false
 
