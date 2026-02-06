@@ -1,0 +1,42 @@
+---
+- name: "Update repos"
+  community.general.apk:
+    update_cache: true
+
+- name: "Get packages to update"
+  ansible.builtin.shell:
+    cmd: apk list --upgradable
+  register: alpine_packages_update
+  changed_when: false
+
+- name: "Show packages list to update"
+  ansible.builtin.debug:
+    msg: "{{ alpine_packages_update.stdout_lines }}"
+  when: alpine_packages_update.stdout_lines | length > 0
+
+- name: "Update servers"
+  community.general.apk:
+    available: true
+    upgrade: true
+
+- name: "Get orphan packages"
+  ansible.builtin.shell:
+    cmd: apk list --orphaned
+  register: alpine_orphan_packages
+  changed_when: false
+
+- name: "Show orphan packages list"
+  ansible.builtin.debug:
+    msg: "{{ alpine_orphan_packages.stdout_lines }}"
+  when: alpine_orphan_packages.stdout_lines | length > 0
+
+- name: "Get apk-new files"
+  ansible.builtin.shell:
+    cmd: update-conf -a -l
+  register: alpine_apk_new_files
+  changed_when: false
+
+- name: "Show apk-new files list"
+  ansible.builtin.debug:
+    msg: "{{ alpine_apk_new_files.stdout_lines }}"
+  when: alpine_apk_new_files.stdout_lines | length > 0
