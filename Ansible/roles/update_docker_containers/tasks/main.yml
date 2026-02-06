@@ -44,7 +44,7 @@
   changed_when: true
   delegate_to: localhost
 
-- name: "Update containers output" # noqa: command-instead-of-module
+- name: "Update containers output"
   ansible.builtin.debug:
     msg: "{{ update_containers.stdout_lines }}"
   when: update_containers.stdout_lines | length > 0
