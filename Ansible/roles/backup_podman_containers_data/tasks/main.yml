@@ -15,7 +15,7 @@
     file_type: directory
   register: list_backup_dirs
 
-- name: "Keep the last {{ backup_retention }} backup directories"
+- name: "Delete old backup directories"
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
