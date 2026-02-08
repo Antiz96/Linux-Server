@@ -1,0 +1,24 @@
+---
+# tasks file for core_system_backup
+
+- name: "Core System Backup"
+  ansible.builtin.shell:
+    cmd: system-backup --create --scheduled
+  register: core_system_backup
+  changed_when: true
+
+- name: "Show output"
+  ansible.builtin.debug:
+    msg: "{{ core_system_backup.stdout_lines }}"
+  when: core_system_backup.stdout_lines | length > 0
+
+- name: "List Core System Backup archives"
+  ansible.builtin.shell:
+    cmd: ls -ltrh /backup/System_Backup
+  register: core_system_backup_list_archives
+  changed_when: false
+
+- name: "Show Core System Backup archives list"
+  ansible.builtin.debug:
+    msg: "{{ core_system_backup_list_archives.stdout_lines }}"
+  when: core_system_backup_list_archives.stdout_lines | length > 0
