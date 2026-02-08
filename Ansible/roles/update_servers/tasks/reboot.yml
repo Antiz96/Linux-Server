@@ -7,6 +7,7 @@
   community.general.lxc_container:
     name: "{{ inventory_hostname }}"
     state: restarted
+  become: false
   when: ansible_connection != "local" and item.group in group_names"
   delegate_to: "{{ item.delegate }}"
   loop:
