@@ -1,0 +1,43 @@
+---
+- name: "Update repos"
+  community.general.pacman:
+    update_cache: true
+
+- name: "Get packages to update"
+  ansible.builtin.shell:
+    cmd: checkupdates
+  ignore_errors: true
+  register: arch_packages_update
+  changed_when: false
+
+- name: "Show packages list to update"
+  ansible.builtin.debug:
+    msg: "{{ arch_packages_update.stdout_lines }}"
+  when: arch_packages_update.stdout_lines | length > 0
+
+- name: "Update servers"
+  community.general.pacman:
+    upgrade: true
+
+- name: "Get orphan packages"
+  ansible.builtin.shell:
+    cmd: pacman -Qtdq
+  ignore_errors: true
+  register: arch_orphan_packages
+  changed_when: false
+
+- name: "Show orphan packages list"
+  ansible.builtin.debug:
+    msg: "{{ arch_orphan_packages.stdout_lines }}"
+  when: arch_orphan_packages.stdout_lines | length > 0
+
+- name: "Get pacnew files"
+  ansible.builtin.shell:
+    cmd: pacdiff -o
+  register: arch_pacnew_files
+  changed_when: false
+
+- name: "Show pacnew files list"
+  ansible.builtin.debug:
+    msg: "{{ arch_pacnew_files.stdout_lines }}"
+  when: arch_pacnew_files.stdout_lines | length > 0

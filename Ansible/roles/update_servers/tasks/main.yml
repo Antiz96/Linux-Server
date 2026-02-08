@@ -1,0 +1,17 @@
+---
+# tasks file for update_servers
+
+- name: "Update servers - Debian"
+  ansible.builtin.include_tasks: debian.yml
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: "Update servers - Arch"
+  ansible.builtin.include_tasks: arch.yml
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: "Update servers - Alpine"
+  ansible.builtin.include_tasks: alpine.yml
+  when: ansible_facts['distribution'] == "Alpine"
+
+- name: "Reboot Servers"
+  ansible.builtin.include_tasks: reboot.yml

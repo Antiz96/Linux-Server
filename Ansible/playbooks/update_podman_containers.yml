@@ -1,0 +1,5 @@
+---
+- name: "Update podman containers"
+  hosts: podman
+  roles:
+    - role: "update_podman_containers"

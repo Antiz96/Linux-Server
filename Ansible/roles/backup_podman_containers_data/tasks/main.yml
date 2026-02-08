@@ -1,0 +1,36 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for backup_podman_containers_data
+
+- name: "Backup podman containers' data via RSYNC"
+  ansible.posix.synchronize:
+    src: "{{ source_dir }}"
+    dest: "{{ backup_base_dir }}{{ ansible_date_time.date }}/"
+    archive: true
+    compress: true
+    rsync_opts:
+      - "--numeric-ids"
+
+- name: "Get backup directories list"
+  ansible.builtin.find:
+    paths: "{{ backup_base_dir }}"
+    file_type: directory
+  register: list_backup_dirs
+
+- name: "Delete old backup directories"
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ (list_backup_dirs.files | sort(attribute='mtime'))[:-backup_retention] }}"
+  when: list_backup_dirs.files | length > backup_retention
+
+- name: "List backup directories"
+  ansible.builtin.shell:
+    cmd: ls -ltrh "{{ backup_base_dir }}"
+  register: ls_backup_dirs
+  changed_when: false
+  
+- name: "Show backup directories"
+  ansible.builtin.debug:
+    msg: "{{ ls_backup_dirs.stdout_lines }}"
+  when: ls_backup_dirs.stdout_lines | length > 0
