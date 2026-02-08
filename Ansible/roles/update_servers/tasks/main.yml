@@ -13,7 +13,5 @@
   ansible.builtin.include_tasks: alpine.yml
   when: ansible_facts['distribution'] == "Alpine"
 
-- name: Reboot
-  ansible.builtin.reboot:
-    test_command: whoami
-  when: ansible_connection != "local"
+- name: "Reboot Servers"
+  ansible.builtin.include_tasks: reboot.yml
