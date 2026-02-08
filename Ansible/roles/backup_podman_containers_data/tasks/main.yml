@@ -8,6 +8,8 @@
     dest: "{{ backup_base_dir }}{{ ansible_date_time.date }}/"
     archive: true
     compress: true
+    rsync_opts:
+      - "--numeric-ids"
 
 - name: "Get backup directories list"
   ansible.builtin.find:
