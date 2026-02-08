@@ -1,0 +1,5 @@
+---
+- name: "Backup podman containers' data on hosts"
+  hosts: podman
+  roles:
+    - role: "backup_podman_containers_data"
