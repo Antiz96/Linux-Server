@@ -1,0 +1,5 @@
+---
+- name: "Backup lxc containers"
+  hosts: bare 
+  roles:
+    - role: "backup_lxc_containers"
