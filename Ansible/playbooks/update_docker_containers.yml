@@ -1,5 +1,5 @@
 ---
-- name: "Update docker containers on hosts"
+- name: "Update docker containers"
   hosts: docker
   become: true
   roles:
