@@ -1,0 +1,153 @@
+---
+# tasks file for template
+
+- name: "Fail if the 'lxc_template' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'lxc_template' variable is empty"
+  when: lxc_template is undefined or lxc_template | length == 0
+  delegate_to: localhost
+
+- name: "Fail if the 'core_server' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'core_server' variable is empty"
+  when: core_server is undefined or core_server | length == 0
+  delegate_to: localhost
+
+- name: "Fail if the 'ip' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'ip' variable is empty"
+  when: ip is undefined or ip | length == 0
+  delegate_to: localhost
+
+- name: "Fail if the 'hostname' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'hostname' variable is empty"
+  when: hostname is undefined or hostname | length == 0
+  delegate_to: localhost
+
+- name: "Fail if the 'root_passwd' variable is empty or undefined"
+  ansible.builtin.fail:
+    msg: "The 'root_passwd' variable is empty"
+  when: root_passwd is undefined or root_passwd | length == 0
+  delegate_to: localhost
+
+- name: "Deploy LXC Template: {{ lxc_template }}"
+  ansible.builtin.shell:
+    cmd: lxc-copy -n "{{ lxc_template }}" -N "{{ hostname }}"
+  become: true
+  become_user: "{{ lxc_user }}"
+  changed_when: true
+  delegate_to: "{{ core_server }}"
+
+- name: "Start LXC container: {{ hostname }}"
+  ansible.builtin.shell:
+    cmd: machinectl shell "{{ lxc_user }}"@ /bin/bash -lc "lxc-start -n {{ hostname }}"
+  changed_when: true
+  delegate_to: "{{ core_server }}"
+
+- name: "Wait for LXC container SSH daemon to be up and running"
+  ansible.builtin.wait_for_connection:
+    timeout: 30
+
+- name: "Gather Ansible facts from LXC container"
+  ansible.builtin.setup:
+
+- name: "Update hostname"
+  ansible.builtin.hostname:
+    name: "{{ hostname }}{{ domain }}"
+
+- name: "Update hosts file (loopback)"
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: "^127.0.1.1"
+    line: "127.0.1.1\t{{ hostname }}{{ domain }} {{ hostname }}"
+
+- name: "Update hosts file (IP)"
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: "^{{ ansible_facts['default_ipv4']['address'] }}"
+    line: "{{ ip }}\t{{ hostname }}{{ domain }} {{ hostname }}"
+
+- name: "Update IP address - Debian & Alpine"
+  ansible.builtin.replace:
+    path: /etc/network/interfaces
+    regexp: "{{ ansible_facts['default_ipv4']['address'] }}"
+    replace: "{{ ip }}"
+  when: ansible_facts['distribution'] == "Debian" or ansible_facts['distribution'] == "Alpine"
+
+- name: "Update IP address - Arch"
+  ansible.builtin.replace:
+    path: /etc/systemd/network/eth0.network
+    regexp: "{{ ansible_facts['default_ipv4']['address'] }}"
+    replace: "{{ ip }}"
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: "Update Zabbix Agent configuration"
+  ansible.builtin.replace:
+    path: /etc/zabbix/zabbix_agentd.conf
+    regexp: "{{ lxc_template }}"
+    replace: "{{ hostname }}{{ domain }}"
+
+- name: "Update root password"
+  ansible.builtin.user:
+    name: root
+    password: "{{ root_passwd | password_hash('sha256') }}"
+    update_password: always
+
+- name: "Update server - Debian"
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: full
+    autoremove: true
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: "Update server - Arch"
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: "Update server - Alpine"
+  community.general.apk:
+    update_cache: true
+    available: true
+    upgrade: true
+  when: ansible_facts['distribution'] == "Alpine"
+
+- name: "Delete /etc/machine-id"
+  ansible.builtin.file:
+    path: /etc/machine-id
+    state: absent
+
+- name: "Find SSH host keys"
+  ansible.builtin.find:
+    paths: /etc/ssh
+    patterns: "ssh_host_*"
+  register: ssh_host_keys
+
+- name: "Delete SSH host keys"
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ ssh_host_keys.files }}"
+
+- name: "Set autostart for LXC container: {{ hostname }}"
+  ansible.builtin.lineinfile:
+    path: "{{ lxc_data_dir }}/{{ hostname }}/config"
+    regexp: '^lxc.start.auto\s*='
+    line: 'lxc.start.auto = 1'
+  become: true
+  become_user: "{{ lxc_user }}"
+  delegate_to: "{{ core_server }}"
+  when: autostart
+
+- name: "Restart LXC container: {{ hostname }}"
+  ansible.builtin.shell:
+    cmd: machinectl shell "{{ lxc_user }}"@ /bin/bash -lc "lxc-stop -n {{ hostname }} && lxc-start -n {{ hostname }}"
+  changed_when: true
+  delegate_to: "{{ core_server }}"
+
+- name: "End message"
+  ansible.builtin.debug:
+    msg: "Deployment of {{ hostname }}{{ domain }} ({{ ip }}) done"
+  delegate_to: localhost

@@ -1,0 +1,6 @@
+---
+- name: "Update Servers"
+  hosts: all
+  become: true
+  roles:
+    - role: "update_servers"

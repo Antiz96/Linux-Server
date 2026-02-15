@@ -73,7 +73,17 @@ sudo docker run -d \
 linuxserver/wireguard
 ```
 
-Personally, I put the the SERVERURL and PEERS parameters inside env files so I don't have to type them in plain text in the docker run command which is a bit more secure. Also it makes them more flexible and easy to change by modifying the file instead of modifying the docker run command directly. Obviously, those files are only viewable and editable by the root account for security reasons.
+**Note:** If running with podman rootless container, you need the additional parameters:
+
+```text
+[...]
+--cap-add="NET_RAW" \
+[...]
+--sysctl="net.ipv4.conf.all.forwarding=1" \
+--sysctl="net.ipv4.ip_forward=1" \
+```
+
+Personally, I put the the SERVERURL, PEERS and PEERDNS parameters inside env files so I don't have to type them in plain text in the docker run command which is a bit more secure. Also it makes them more flexible and easy to change by modifying the file instead of modifying the docker run command directly. Obviously, those files are only viewable and editable by the root account for security reasons.
 
 ```bash
 sudo mkdir /opt/wireguard/env
@@ -92,31 +102,41 @@ sudo vim /opt/wireguard/env/peers
 > peer1,peer2,peer3,etc...
 
 ```bash
+sudo vim /opt/wireguard/env/peerdns
+```
+
+> your_dns_server
+
+```bash
 sudo chmod 600 /opt/wireguard/env/* && sudo chmod 750 /opt/wireguard/env
 ```
 
-This is my personal docker run command for wireguard:
+This is my personal podman run command for wireguard:
 
 ```bash
-sudo docker run -d \
+podman run -d \
 --name=wireguard \
 --cap-add=NET_ADMIN \
 --cap-add=SYS_MODULE \
+--cap-add=NET_RAW \
 -e PUID=$(id -u) \
 -e PGID=$(id -g) \
 -e TZ=Europe/Paris \
--e SERVERURL=$(sudo cat /opt/wireguard/env/server_url) \
+-e SERVERURL=$(cat /opt/podman/volumes/wireguard/env/server_url) \
 -e SERVERPORT=51820 \
--e PEERS=$(sudo cat /opt/wireguard/env/peers) \
--e PEERDNS=192.168.96.1 \
+-e PEERS=$(cat /opt/podman/volumes/wireguard/env/peers) \
+-e PEERDNS=$(cat /opt/podman/volumes/wireguard/env/peerdns) \
 -e INTERNAL_SUBNET=10.10.10.0 \
 -e ALLOWEDIPS=0.0.0.0/0 \
 -p 51820:51820/udp \
--v /opt/wireguard/config:/config \
+-v /opt/podman/volumes/wireguard/config:/config \
 -v /lib/modules:/lib/modules \
 --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+--sysctl="net.ipv4.conf.all.forwarding=1" \
+--sysctl="net.ipv4.ip_forward=1" \
+--label io.containers.autoupdate=registry \
 --restart unless-stopped \
-linuxserver/wireguard
+docker.io/linuxserver/wireguard
 ```
 
 ## Connect your clients to the VPN

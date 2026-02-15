@@ -1,6 +1,6 @@
 ---
 - name: "VPS System Backup"
-  hosts: all
+  hosts: web02.rc
   become: true
   roles:
     - role: "vps_system_backup"

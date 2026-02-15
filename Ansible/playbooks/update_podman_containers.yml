@@ -1,0 +1,7 @@
+---
+- name: "Update podman containers"
+  hosts: podman
+  become: true
+  become_user: service
+  roles:
+    - role: "update_podman_containers"

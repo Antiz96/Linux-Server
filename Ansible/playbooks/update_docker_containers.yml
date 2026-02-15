@@ -1,0 +1,6 @@
+---
+- name: "Update docker containers"
+  hosts: docker
+  become: true
+  roles:
+    - role: "update_docker_containers"

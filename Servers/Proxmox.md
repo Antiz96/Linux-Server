@@ -53,7 +53,7 @@ source ~/.bashrc
 
 ```bash
 sudo apt update && sudo apt full-upgrade && sudo apt autoremove
-sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld plocate htop curl openssl socat chrony wget logrotate fail2ban python3-passlib fastfetch acl
+sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync diffutils firewalld plocate htop curl openssl socat chrony wget logrotate fail2ban python3-passlib fastfetch acl
 sudo systemctl enable --now ssh chrony firewalld logrotate.timer fstrim.timer
 sudo reboot
 ```

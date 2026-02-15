@@ -1,0 +1,5 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for backup_podman_containers_volumes
+
+backup_retention: 3
