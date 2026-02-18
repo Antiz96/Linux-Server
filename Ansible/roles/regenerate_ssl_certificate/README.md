@@ -10,6 +10,7 @@ The following variable is vaulted and set in `vars/vault.yml`:
 
 The following variables are set in `vars/main.yml`:
 
+- days: `400` (number of days until the expiration date of the certificate).
 - domain_name: `home-infra.rc` (domain name / CN to fill in the CSR information).
 - country: `FR` (country to fill in the CSR information).
 - state: `Seine-Maritime` (state to fill in the CSR information).
