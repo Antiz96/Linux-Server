@@ -1,9 +1,0 @@
----
-# vars file for regenerate_ssl_certificate
-
-domain_name: "home-infra.rc"
-country: "FR"
-state: "Seine-Maritime"
-locality: "Rouen"
-organisation: "Home-Infra"
-organisation_unit: "IT"

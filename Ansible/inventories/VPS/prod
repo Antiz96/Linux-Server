@@ -1,7 +1,0 @@
-# Server types
-[ws]
-wsprd02.rc
-
-# Services
-[docker]
-wsprd02.rc

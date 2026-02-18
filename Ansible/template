@@ -1,0 +1,7 @@
+[lxc_template]
+lxc-arch-template-core01.rc
+lxc-arch-template-core02.rc
+lxc-alpine-template-core01.rc
+lxc-alpine-template-core02.rc
+lxc-debian-template-core01.rc
+lxc-debian-template-core02.rc

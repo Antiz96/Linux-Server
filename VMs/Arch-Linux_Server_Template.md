@@ -9,8 +9,9 @@ I basically follow my [Arch-Linux base installation guide](https://github.com/An
 
 - I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md#partition-scheme)).
 - I use the `linux-lts` kernel (instead of the `linux` one).
-- I use a different list of "useful packages to install", more suited for servers (see [Install useful packages](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md#install-useful-packages)).
-- I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md#create-and-configure-the-ansible-user)).
+- I use `systemd-networkd` rather than `network-manager` (see [Setup Networking](#setup-networking).
+- I use a different list of "useful packages to install", more suited for servers (see [Install useful packages](#install-useful-packages)).
+- I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](#create-and-configure-the-ansible-user)).
 
 **Remember to set a password for the root account during the installation process, otherwise you won't be able to log in to the server after reboot!**
 
@@ -31,7 +32,27 @@ Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_in
 > > /var --> 1G  
 > > /var/log --> 4G
 
-### Optional - Install and enable AppArmor
+## Setup Networking
+
+Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#install-and-enable-network-manager>
+
+```bash
+systemctl enable systemd-networkd systemd-resolved
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+vim /etc/systemd/network/enp1s0.network # Adapt the name of the file according to your network card name
+```
+
+> #Adapt parameters as needed  
+> [Match]  
+> Name=enp1s0  
+>  
+> [Network]  
+> Address=192.168.96.100/24  
+> Gateway=192.168.96.254  
+> DNS=192.168.96.1  
+> IPv6AcceptRA=no
+
+## Optional - Install and enable AppArmor
 
 AppArmor is a kernel security module that restricts individual programs' capabilities.
 
@@ -54,24 +75,24 @@ aa-enabled # Verify that AppArmor is running
 aa-status # Check the list of profile and their status
 ```
 
-### Install useful packages
+## Install useful packages
 
 Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages>
 
 ```bash
-pacman -S man bash-completion openssh socat dnsutils wget traceroute rsync zip unzip diffutils plocate htop logrotate pacman-contrib fail2ban python-passlib fastfetch
+pacman -S man bash-completion openssh socat dnsutils wget traceroute rsync diffutils plocate htop logrotate pacman-contrib fail2ban python-passlib fastfetch
 pacman -S --asdeps fakeroot # required for `checkupdates`
 ```
 
-### Configure various things
+## Configure various things
 
-#### Enable services/timers
+### Enable services/timers
 
 ```bash
 systemctl enable --now sshd logrotate.timer
 ```
 
-#### Secure SSH connection
+### Secure SSH connection
 
 ```bash
 vi /etc/ssh/sshd_config
@@ -92,23 +113,24 @@ firewall-cmd --reload #Apply changes
 systemctl restart sshd #Restart the SSH daemon to apply changes
 ```
 
-#### Configure Fail2Ban
+### Configure Fail2Ban
 
 Procedure: <https://github.com/Antiz96/Linux-Server/blob/main/Services/Fail2Ban.md>
 
-#### Install qemu-guest-agent (for proxmox)
+### Install qemu-guest-agent (for proxmox)
 
 ```bash
 pacman -S qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 ```
 
-#### Install and configure Zabbix Agent
+### Install and configure Zabbix Agent
 
 ```bash
 firewall-cmd --add-port=10050/tcp --permanent
 firewall-cmd --reload
 pacman -S zabbix-agent
+chage -E -1 zabbix # Remove eventual auto expiration on the zabbix account to allow it to run sudo (for User Parameters that may require privilege elevation)
 vim /etc/zabbix/zabbix_agentd.conf
 ```
 
@@ -117,7 +139,7 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > ServerActive=hostname_of_zabbix_server  
 > [...]  
-> Hostname=template.rc  
+> Hostname=template  
 > [...]  
 > TLSPSKIdentity=XXXX  
 > [...]  
@@ -156,7 +178,7 @@ vim /etc/sudoers.d/zabbix
 systemctl enable --now zabbix-agent
 ```
 
-#### Configure the inactivity timeout
+### Configure the inactivity timeout
 
 ```bash
 vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
@@ -168,7 +190,7 @@ vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
 > readonly TMOUT  
 > export TMOUT
 
-### Create and configure the ansible user
+## Create and configure the ansible user
 
 Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#user-configuration>
 
@@ -186,12 +208,6 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 ```
 
 > Copy the ansible master server's SSH public key here (ansible@ansible-server)
-
-### Setup static IP Address
-
-```bash
-nmtui
-```
 
 ## Reboot
 
