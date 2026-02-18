@@ -2,221 +2,124 @@ pipeline {
     agent any
 
     stages {
-        stage('Update Docker Containers - VMs - Dev') {
+        stage('Update Podman Containers) {
             steps {
                 script {
                     def result = build(
-                        job: 'Update_Docker_Containers',
+                        job: 'Update_Podman_Containers',
                         parameters: [
-                            string(name: 'SERVER_TYPE', value: 'VMs'),
-                            string(name: 'ENV', value: 'dev'),
-                            string(name: 'SERVERS', value: 'all'),
+                            string(name: 'SERVERS', value: 'podman'),
                             string(name: 'DANGLING', value: 'true')
                         ],
                         propagate: true,
                         wait: true
                     )
                     if (result == 'FAILURE') {
-                        error("Update Docker Containers - VMs - Dev failed. Aborting pipeline.")
+                        error("Update Podman Containers failed. Aborting pipeline.")
                     }
                 }
             }
         }
 
-        stage('Update Docker Containers - VMs - Prod') {
-            steps {
-                script {
-                    def result = build(
-                        job: 'Update_Docker_Containers',
-                        parameters: [
-                            string(name: 'SERVER_TYPE', value: 'VMs'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all'),
-                            string(name: 'DANGLING', value: 'true')
-                        ],
-                        propagate: true,
-                        wait: true
-                    )
-                    if (result == 'FAILURE') {
-                        error("Update Docker Containers - VMs - Prod failed. Aborting pipeline.")
-                    }
-                }
-            }
-        }
-
-        stage('Update Docker Containers - VPS - Prod') {
-            steps {
-                script {
-                    def result = build(
-                        job: 'Update_Docker_Containers',
-                        parameters: [
-                            string(name: 'SERVER_TYPE', value: 'VPS'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all'),
-                            string(name: 'DANGLING', value: 'true')
-                        ],
-                        propagate: true,
-                        wait: true
-                    )
-                    if (result == 'FAILURE') {
-                        error("Update Docker Containers - VPS - Prod failed. Aborting pipeline.")
-                    }
-                }
-            }
-        }
-
-        stage('Update Docker Containers - Proxmox - Prod') {
-            steps {
-                script {
-                    def result = build(
-                        job: 'Update_Docker_Containers',
-                        parameters: [
-                            string(name: 'SERVER_TYPE', value: 'Proxmox'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all'),
-                            string(name: 'DANGLING', value: 'true')
-                        ],
-                        propagate: true,
-                        wait: true
-                    )
-                    if (result == 'FAILURE') {
-                        error("Update Docker Containers - Proxmox - Prod failed. Aborting pipeline.")
-                    }
-                }
-            }
-        }
-
-        stage('Update Servers - VMs - Dev - All') {
+        stage('Update Servers - LXC Core01') {
             steps {
                 script {
                     def result = build(
                         job: 'Update_Servers',
                         parameters: [
-                            string(name: 'SERVER_TYPE', value: 'VMs'),
-                            string(name: 'ENV', value: 'dev'),
-                            string(name: 'SERVERS', value: 'all')
+                            string(name: 'SERVERS', value: 'lxc_core01')
                         ],
                         propagate: true,
                         wait: true
                     )
                     if (result == 'FAILURE') {
-                        error("Update Servers - VMs - Dev - All failed. Aborting pipeline.")
+                        error("Update Servers - Core01 failed. Aborting pipeline.")
                     }
                 }
             }
         }
 
-        stage('Update Servers - VMs - Prod - Pmx01') {
+        stage('Update Servers - LXC Core02') {
             steps {
                 script {
                     def result = build(
                         job: 'Update_Servers',
                         parameters: [
-                            string(name: 'SERVER_TYPE', value: 'VMs'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'pmx01')
+                            string(name: 'SERVERS', value: 'lxc_core02')
                         ],
                         propagate: true,
                         wait: true
                     )
                     if (result == 'FAILURE') {
-                        error("Update Servers - VMs - Prod - Pmx01 failed. Aborting pipeline.")
+                        error("Update Servers - Core02 failed. Aborting pipeline.")
                     }
                 }
             }
         }
 
-        stage('Update Servers - VMs - Prod - Pmx02') {
+        stage('Update Servers - VPS') {
             steps {
                 script {
                     def result = build(
                         job: 'Update_Servers',
                         parameters: [
-                            string(name: 'SERVER_TYPE', value: 'VMs'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'pmx02')
+                            string(name: 'SERVERS', value: 'vps')
                         ],
                         propagate: true,
                         wait: true
                     )
                     if (result == 'FAILURE') {
-                        error("Update Servers - VMs - Prod - Pmx02 failed. Aborting pipeline.")
+                        error("Update Servers - VPS failed. Aborting pipeline.")
                     }
                 }
             }
         }
 
-        stage('Update Servers - VPS - Prod - All') {
+        stage('Update Servers - Rasp') {
             steps {
                 script {
                     def result = build(
                         job: 'Update_Servers',
                         parameters: [
-                            string(name: 'SERVER_TYPE', value: 'VPS'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all')
+                            string(name: 'SERVERS', value: 'rasp')
                         ],
                         propagate: true,
                         wait: true
                     )
                     if (result == 'FAILURE') {
-                        error("Update Servers - VPS - Prod - All failed. Aborting pipeline.")
+                        error("Update Servers - Rasp failed. Aborting pipeline.")
                     }
                 }
             }
         }
 
-        stage('Update Servers - Rasp - Prod - All') {
+        stage('Update Servers - Core02') {
             steps {
                 script {
                     def result = build(
                         job: 'Update_Servers',
                         parameters: [
-                            string(name: 'SERVER_TYPE', value: 'Rasp'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'all')
+                            string(name: 'SERVERS', value: 'core02.rc')
                         ],
                         propagate: true,
                         wait: true
                     )
                     if (result == 'FAILURE') {
-                        error("Update Servers - Rasp - Prod - All failed. Aborting pipeline.")
+                        error("Update Servers - Core02 failed. Aborting pipeline.")
                     }
+		    input("Proceed with Update Servers - Core01?")
                 }
             }
         }
 
-        stage('Update Servers - Proxmox - Prod - Pmx02') {
-            steps {
-                script {
-                    def result = build(
-                        job: 'Update_Servers',
-                        parameters: [
-                            string(name: 'SERVER_TYPE', value: 'Proxmox'),
-                            string(name: 'ENV', value: 'prod'),
-                            string(name: 'SERVERS', value: 'pmx02')
-                        ],
-                        propagate: true,
-                        wait: true
-                    )
-                    if (result == 'FAILURE') {
-                        error("Update Servers - Proxmox - Prod - Pmx02 failed. Aborting pipeline.")
-                    }
-		    input("Proceed with Update Servers - Proxmox - Prod - Pmx01?")
-                }
-            }
-        }
-
-        stage('Update Servers - Proxmox - Prod - Pmx01') {
+        stage('Update Servers - Core01') {
             steps {
                 script {
                     catchError(buildResult: 'FAILURE', stageResult: 'SUCCESS') {
 			build(
                             job: 'Update_Servers',
                             parameters: [
-                                string(name: 'SERVER_TYPE', value: 'Proxmox'),
-                                string(name: 'ENV', value: 'prod'),
-                                string(name: 'SERVERS', value: 'pmx01')
+                                string(name: 'SERVERS', value: 'core01.rc')
                             ],
                             propagate: true,
                             wait: true

@@ -1,0 +1,4 @@
+---
+# vars file for update_servers
+
+lxc_user: "service"

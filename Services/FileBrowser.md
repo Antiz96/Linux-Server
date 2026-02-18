@@ -1,73 +1,63 @@
 # FileBrowser
 
-<https://filebrowser.org/>
+~~<https://filebrowser.org/>~~
 
-## Install Docker on my Server (if not done already)
+I recently switched to the FileBrowser Quantum fork, which bring a few extra features and a polished UI (among other things).
 
-<https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md>
+<https://filebrowserquantum.com/en/>
 
-## Installing FileBrowser on Docker
+## Install Podman on my Server (if not done already)
 
-<https://github.com/filebrowser/filebrowser>
+<https://github.com/Antiz96/Linux-Server/blob/main/Services/Podman.md>
 
-### Create the FileBrowser directory, database & configuration file (with the right permission)
+## Installing FileBrowser on Docker / Podman
+
+<https://filebrowserquantum.com/en/docs/getting-started/docker/>
+
+### Create the data, cache, config diretories & configuration file
 
 ```bash
-sudo mkdir -p /data/FileBrowser/data && sudo chown antiz: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
-sudo touch /data/FileBrowser/{filebrowser.db,settings.json} && sudo chown antiz: /data/FileBrowser/{filebrowser.db,settings.json} && chmod 600 /data/FileBrowser/{filebrowser.db,settings.json}
-vim /data/FileBrowser/settings.json # https://github.com/filebrowser/filebrowser/blob/master/settings.json
+mkdir -p /data/podman/volumes/filebrowser/{data,cache,config} && chmod 700 /data/podman/volumes/filebrowser/{data,cache,config}
+touch /data/podman/volumes/filebrowser/config/config.yaml && chmod 600 /data/podman/volumes/filebrowser/config/config.yaml
+vim /data/podman/volumes/filebrowser/config/config.yaml
 ```
 
 ```text
-{
-  "port": 80,
-  "baseURL": "",
-  "address": "",
-  "log": "stdout",
-  "database": "/database/filebrowser.db",
-  "root": "/srv"
-}
+server:
+  port: 8080 # Port for the server to listen on (inside the container)
+  cacheDir: /home/filebrowser/cache # Path to cache dir (inside the container)
+  sources:
+    - path: /home/filebrowser/data # Path to data dir (inside the container)
+      config:
+        defaultEnabled: true
+
+auth:
+  adminUsername: Antiz # Name of the default admin password
+  adminPassword: "changeit" # Password for the above admin user
+  methods:
+    password:
+      enabled: true # Enable password authentication
+      minLength: 8 # Num of minimum password lenght
+      signup: false # Enable / Disable signup for users
 ```
 
 ### Pull and run the container
 
 ```bash
-sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser:/database -v /data/FileBrowser:/config -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
+podman run -v /data/podman/volumes/filebrowser/config/config.yaml:/home/filebrowser/config.yaml -v /data/podman/volumes/filebrowser/data:/home/filebrowser/data -v /data/podman/volumes/filebrowser/cache:/home/filebrowser/cache -p 8080:8080 --name filebrowser -d --label io.containers.autoupdate=registry --restart="unless-stopped" docker.io/gtstef/filebrowser
 ```
 
 ### Access
 
-You can now access and configure it on this URL (admin:admin):  
+You can now access and configure it on this URL:  
 `http://[HOSTNAME]:8080/`
-
-## Configuration
-
-Global Settings --> Dark Mode  
-User Management --> Change default username and password
 
 ## Update/Upgrade and reinstall procedure
 
-Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.  
-Also, if you did a mapping between a volume stored on a local disk (like I did), all you need to do to reinstall your FileBrowser server is to re-download Docker (if you reinstalled your OS completely) and do the following steps.
+I'm relying on `podman auto-update`.
 
-### Pull the docker image
-
-(... to check if there's an available update)
+Optionally clean old dangling images:
 
 ```bash
-sudo docker pull filebrowser/filebrowser
-```
-
-### Apply the update
-
-```bash
-sudo docker stop filebrowser
-sudo docker rm filebrowser
-sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser:/database -v /data/FileBrowser:/config -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
-```
-
-You can then optionally clean old dangling docker images (to clean up locally stored Docker images and regain some disk space):
-
-```bash
-sudo docker image prune
+podman image prune
 ```
