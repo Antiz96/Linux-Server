@@ -1,0 +1,3 @@
+---
+# defaults file for update_docker_containers
+dangling: "true"

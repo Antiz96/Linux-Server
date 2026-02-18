@@ -154,7 +154,7 @@ aa-status # Check the list of profile and their status
 ### Install useful packages
 
 ```bash
-apk add vim vimdiff man-db sudo bash bash-completion openssh openssh-server-pam socat bind-tools wget traceroute rsync zip unzip diffutils plocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib fastfetch acl
+apk add vim vimdiff man-db sudo bash bash-completion openssh openssh-server-pam socat bind-tools wget traceroute rsync diffutils plocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib fastfetch acl
 ```
 
 ### Configure various things
@@ -272,6 +272,7 @@ firewall-cmd --add-port=10050/tcp --permanent
 firewall-cmd --reload
 echo "readproc:x:30:zabbix" >> /etc/group
 apk add zabbix-agent
+chage -E -1 zabbix # Remove eventual auto expiration on the zabbix account to allow it to run sudo (for User Parameters that may require privilege elevation)
 vim /etc/zabbix/zabbix_agentd.conf
 ```
 
@@ -280,7 +281,7 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > ServerActive=hostname_of_zabbix_server  
 > [...]  
-> Hostname=template.rc  
+> Hostname=template  
 > [...]  
 > TLSPSKIdentity=XXXX  
 > [...]  

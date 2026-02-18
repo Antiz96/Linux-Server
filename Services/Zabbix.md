@@ -111,6 +111,38 @@ Change the "PHP_TZ" env variable's value according to your location/environment.
 sudo docker run --name zabbix-web -p 8080:8080 -e DB_SERVER_HOST=$(sudo cat /opt/zabbix/env/db_host) -e POSTGRES_USER=$(sudo cat /opt/zabbix/env/db_user) -e POSTGRES_PASSWORD=$(sudo cat /opt/zabbix/env/db_password) -e POSTGRES_DB=$(sudo cat /opt/zabbix/env/db_name) -e ZBX_SERVER_HOST=$(hostname) -e PHP_TZ="Europe/Paris" --restart=unless-stopped -d zabbix/zabbix-web-nginx-pgsql:latest
 ```
 
+**Note:** When running with rootless podman + AppArmor, you might face an issue at the start of the container (see `podman logs <container_name>`), preventing the Web server within the container to start properly:
+
+```text
+ERROR: failed to open configuration file '/etc/php84/php-fpm.conf': Permission denied (13)
+failed to load configuration file '/etc/php84/php-fpm.conf'
+ERROR: FPM initialization failed 2026-02-15 19:52:57,836 WARN exited: php-fpm84 (exit status 78; not expected) 2026-02-15 19:52:57,836 WARN exited: php-fpm84 (exit status 78; not expected)
+```
+
+The actual cause of the issue doesn't seem known yet (see <https://github.com/containers/podman/issues/24142>) but, in the mean time, I applied [this workaround](https://github.com/containers/podman/issues/24142#issuecomment-2391888253):
+
+```bash
+sudoedit /etc/apparmor.d/local/php-fpm
+```
+
+```text
+# vim: ft=apparmor
+
+# for Zabbix server in podman container
+/etc/php84/** r,
+/usr/share/zabbix/** r,
+/usr/share/php84/** r,
+/etc/zabbix/** r,
+/tmp/php-fpm.sock rw,
+/tmp/php-fpm.pid rw,
+```
+
+```bash
+sudo systemctl reload apparmor.service
+```
+
+Then restart the container.
+
 ### Access
 
 You can now access Zabbix on this URL:  

@@ -1,0 +1,6 @@
+---
+- name: "Backup podman containers volumes"
+  hosts: podman:!web02.rc
+  become: true
+  roles:
+    - role: "backup_podman_containers_volumes"

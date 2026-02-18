@@ -1,0 +1,7 @@
+---
+- name: "Deploy LXC Template"
+  hosts: lxc_template
+  gather_facts: false
+  become: true
+  roles:
+    - role: "deploy_lxc_template"

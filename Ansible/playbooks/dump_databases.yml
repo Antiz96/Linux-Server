@@ -1,6 +1,6 @@
 ---
 - name: "Create a dump of all databases"
-  hosts: db
+  hosts: core01.rc
   become: true
   roles:
     - role: "dump_databases"

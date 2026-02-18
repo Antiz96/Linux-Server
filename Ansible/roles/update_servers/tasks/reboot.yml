@@ -1,0 +1,20 @@
+---
+- name: "Reboot Bare Metal and VM Servers"
+  ansible.builtin.reboot:
+  when: ansible_connection != "local" and ansible_facts['virtualization_type'] != "lxc" and not reboot_async | bool
+
+- name: "Reboot Bare Metal and VM Servers - Async" # noqa: command-instead-of-module
+  ansible.builtin.shell:
+    cmd: systemctl reboot --when='+5 seconds'
+  changed_when: true
+  when:  ansible_facts['virtualization_type'] != "lxc" and reboot_async | bool
+
+- name: "Restart LXC containers"
+  ansible.builtin.shell:
+    cmd: machinectl shell "{{ lxc_user }}"@ /bin/bash -lc "lxc-stop -n {{ inventory_hostname_short }} && lxc-start -n {{ inventory_hostname_short }}"
+  changed_when: true
+  when: ansible_connection != "local" and item.group in group_names
+  delegate_to: "{{ item.delegate }}"
+  loop:
+    - { group: "lxc_core01", delegate: "core01.rc" }
+    - { group: "lxc_core02", delegate: "core02.rc" }

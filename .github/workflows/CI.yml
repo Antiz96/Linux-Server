@@ -15,13 +15,15 @@ jobs:
         run: actionlint -ignore 'label "CI-CD" is unknown' .github/workflows/CI.yml
 
       - name: Run codespell
-        run: codespell --enable-colors
+        run: codespell --enable-colors -L chage
 
       - name: Run mdl
         run: mdl --style .github/workflows/mdl_style.rb .
 
       - name: Run ansible-lint
-        run: ansible-lint -q --force-color --config-file .github/workflows/ansible-lint.conf --project-dir Ansible/playbooks/
+        run: ansible-lint -q --force-color
+        working-directory: Ansible
 
       - name: Run ansible-inventory
-        run: error=$( { ansible-inventory --list --yaml -i Ansible/inventories/ > /dev/null; } 2>&1 ); [ -n "${error}" ] && echo "${error}" && exit 1 || exit 0
+        run: error=$( { ansible-inventory --list --yaml > /dev/null; } 2>&1 ); [ -n "${error}" ] && echo "${error}" && exit 1 || exit 0
+        working-directory: Ansible
