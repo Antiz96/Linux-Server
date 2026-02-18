@@ -1,0 +1,4 @@
+---
+# vars file for dump_databases
+
+podman_user: "service"

@@ -31,7 +31,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```bash
-dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld plocate curl openssl socat chrony wget fail2ban epel-release && dnf install htop logrotate python3-passlib fastfetch acl
+dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync diffutils firewalld plocate curl openssl socat chrony wget fail2ban epel-release && dnf install htop logrotate python3-passlib fastfetch acl
 ```
 
 ### Configure various things
@@ -106,6 +106,7 @@ systemctl enable --now qemu-guest-agent
 firewall-cmd --add-port=10050/tcp --permanent
 firewall-cmd --reload
 dnf install zabbix-agent
+chage -E -1 zabbix # Remove eventual auto expiration on the zabbix account to allow it to run sudo (for User Parameters that may require privilege elevation)
 vim /etc/zabbix/zabbix_agentd.conf
 ```
 
@@ -114,7 +115,7 @@ vim /etc/zabbix/zabbix_agentd.conf
 > [...]  
 > ServerActive=hostname_of_zabbix_server  
 > [...]  
-> Hostname=template.rc  
+> Hostname=template  
 > [...]  
 > TLSPSKIdentity=XXXX  
 > [...]  

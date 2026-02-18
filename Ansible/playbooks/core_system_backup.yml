@@ -1,0 +1,6 @@
+---
+- name: "Core Servers System Backup"
+  hosts: bare
+  become: true
+  roles:
+    - role: "core_system_backup"

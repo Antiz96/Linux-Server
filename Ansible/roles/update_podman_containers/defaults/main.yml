@@ -1,0 +1,4 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for update_podman_containers
+dangling: true
