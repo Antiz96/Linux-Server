@@ -29,14 +29,14 @@
     cmd: podman image prune -f
   register: prune_old_images
   changed_when: true
-  when: dangling
+  when: dangling | bool
 
 - name: "Prune all unused images"
   ansible.builtin.shell:
     cmd: podman image prune -af
   register: prune_old_images
   changed_when: true
-  when: not dangling
+  when: not dangling | bool
 
 - name: "Prune old images output"
   ansible.builtin.debug:
