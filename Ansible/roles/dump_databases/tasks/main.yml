@@ -3,13 +3,13 @@
 
 - name: "Dump the Zabbix database"
   ansible.builtin.shell:
-    cmd: set -o pipefail && docker exec -t postgres-zabbix pg_dumpall -c -U $(cat /opt/postgres/zabbix/env/user) -l $(cat /opt/postgres/zabbix/env/database) | tee /opt/postgres/zabbix/backup/$(date +%d-%m-%Y).dump
+    cmd: machinectl shell "{{ podman_user }}"@ /bin/bash -lc "set -o pipefail && podman exec -t postgres-zabbix pg_dumpall -c -U $(cat /data/podman/volumes/postgres/zabbix/env/user) -l $(cat /data/podman/volumes/postgres/zabbix/env/database) | tee /data/podman/volumes/postgres/zabbix/backup/$(date +%d-%m-%Y).dump"
   register: dump_zabbix_database
   changed_when: true
 
 - name: "List old dumps of the Zabbix database"
   ansible.builtin.find:
-    paths: /opt/postgres/zabbix/backup
+    paths: /data/podman/volumes/postgres/zabbix/backup
     patterns: '*.dump'
     age: 1w
   register: list_old_dumps_zabbix
