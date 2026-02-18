@@ -6,9 +6,9 @@
     msg: "The 'env' variable should be equal to 'dev' or 'prod'"
   when: env not in ['dev','prod']
 
-- name: "Update antiz.fr website - {{ branch }}"
+- name: "Update antiz.fr website - {{ hostvars[item].branch }}"
   ansible.builtin.shell:
-    cmd: git fetch origin && git checkout origin/{{ branch }} -- public
+    cmd: git fetch origin && git checkout origin/{{ hostvars[item].branch }} -- public
   register: update_antiz_fr
   changed_when: true
   delegate_to: "{{ item }}"
