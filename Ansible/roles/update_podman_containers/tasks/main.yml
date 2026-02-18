@@ -1,0 +1,49 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for update_podman_containers
+
+- name: "Check for updates"
+  ansible.builtin.shell:
+    cmd: podman auto-update --dry-run --format "{% raw %}{{.Image}} {{.Updated}}{% endraw %}"
+  register: check_updates
+  changed_when: false
+
+- name: "Show check result"
+  ansible.builtin.debug:
+    msg: "{{ check_updates.stdout_lines }}"
+  when: check_updates.stdout_lines | length > 0
+
+- name: "Update containers"
+  ansible.builtin.shell:
+    cmd: podman auto-update 
+  register: update_containers
+  changed_when: true
+
+- name: "Update containers output"
+  ansible.builtin.debug:
+    msg: "{{ update_containers.stdout_lines }}"
+  when: update_containers.stdout_lines | length > 0
+
+- name: "Prune dangling images"
+  ansible.builtin.shell:
+    cmd: podman image prune -f
+  register: prune_dangling_images
+  changed_when: true
+  when: dangling | bool
+
+- name: "Prune all unused images"
+  ansible.builtin.shell:
+    cmd: podman image prune -af
+  register: prune_all_unused_images
+  changed_when: true
+  when: not dangling | bool
+
+- name: "Prune dangling images output"
+  ansible.builtin.debug:
+    msg: "{{ prune_dangling_images.stdout_lines }}"
+  when: dangling | bool and prune_dangling_images.stdout_lines | length > 0
+
+- name: "Prune all unused images output"
+  ansible.builtin.debug:
+    msg: "{{ prune_all_unused_images.stdout_lines }}"
+  when: not dangling | bool and prune_all_unused_images.stdout_lines | length > 0
