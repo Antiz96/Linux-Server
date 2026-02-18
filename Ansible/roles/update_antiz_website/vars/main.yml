@@ -1,9 +1,2 @@
 ---
 # vars file for update_antiz_website
-
-deploy_hosts:
-  dev: 
-    - web01a.rc
-    - web01b.rc
-  prod: 
-    - web02.rc

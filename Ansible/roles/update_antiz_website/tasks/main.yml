@@ -1,18 +1,10 @@
 ---
 # tasks file for update_antiz.fr
 
-- name: "Fail if the 'env' variable is erroneous"
-  ansible.builtin.fail:
-    msg: "The 'env' variable should be equal to 'dev' or 'prod'"
-  when: env not in ['dev','prod']
-
 - name: "Update antiz.fr website - {{ env }}"
   ansible.builtin.shell:
-    cmd: git fetch origin && git checkout origin/{{ hostvars[item].branch }} -- public
+    cmd: git fetch origin && git checkout origin/{{ branch }} -- public
   register: update_antiz_fr
   changed_when: true
-  delegate_to: "{{ item }}"
-  loop: "{{ deploy_hosts[env] }}"
-  run_once: true
   args:
     chdir: "/opt/antiz.fr"
