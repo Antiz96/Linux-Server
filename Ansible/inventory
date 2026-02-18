@@ -38,11 +38,3 @@ web02.rc branch=main
 web01a.rc key=true
 web01b.rc key=true
 git01.rc
-
-[lxc_template]
-lxc-arch-template-core01.rc
-lxc-arch-template-core02.rc
-lxc-alpine-template-core01.rc
-lxc-alpine-template-core02.rc
-lxc-debian-template-core01.rc
-lxc-debian-template-core02.rc
