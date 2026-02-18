@@ -30,9 +30,9 @@ core01.rc
 web02.rc
 
 [antiz_fr]
-web01a.rc env=dev
-web01b.rc env=dev
-web02.rc env=prod
+web01a.rc branch=dev
+web01b.rc branch=dev
+web02.rc branch=main
 
 [ssl]
 web01a.rc key=true
