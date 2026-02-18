@@ -139,7 +139,7 @@
   become: true
   become_user: "{{ lxc_user }}"
   delegate_to: "{{ core_server }}"
-  when: autostart
+  when: autostart | bool
 
 - name: "Restart LXC container: {{ hostname }}"
   ansible.builtin.shell:
