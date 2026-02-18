@@ -6,7 +6,10 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 
 - [Ansible - Automation platform](https://github.com/Antiz96/Linux-Server/blob/main/Services/Ansible.md)
 - [Jenkins - Orchestration and continuous integration server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Jenkins.md)
-- [Docker - Container manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md)
+- [Docker - Application Container manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Docker.md)
+- [Podman - (Rootless) Application Container manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Podman.md)
+- [LXC - System Container manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/LXC.md)
+- [Qemu - Virtual Machine manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Qemu.md)
 - [Nginx - Reverse Proxy](https://github.com/Antiz96/Linux-Server/blob/main/Services/Nginx.md)
 - [Kea - DHCP Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Kea.md)
 - [Gitea - Git Server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Gitea.md)

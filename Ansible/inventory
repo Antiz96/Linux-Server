@@ -1,0 +1,50 @@
+# Server types
+[bare]
+core01.rc reboot_async=true
+core02.rc
+
+[vps]
+web02.rc
+
+[rasp]
+rasp01.rc
+
+[lxc_containers:children]
+lxc_core01
+lxc_core02
+
+[lxc_core01]
+auto01.rc ansible_connection=local 
+dns01a.rc
+dhcp01a.rc
+web01a.rc
+runner01.rc
+git01.rc
+
+[lxc_core02]
+dns01b.rc
+dhcp01b.rc
+web01b.rc
+
+# Services
+[lxc]
+core01.rc
+core02.rc
+
+[podman]
+core01.rc
+web02.rc
+
+[qemu]
+core01.rc
+
+# Other
+[antiz_fr]
+web01a.rc branch=dev
+web01b.rc branch=dev
+web02.rc branch=main
+
+[ssl]
+web01a.rc key=true
+web01b.rc key=true
+runner01.rc

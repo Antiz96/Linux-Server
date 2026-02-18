@@ -1,0 +1,132 @@
+---
+# tasks file for regenerate_ssl_certificate
+
+- name: "Load vaulted vars"
+  ansible.builtin.include_vars:
+    file: vault.yml
+
+- name: "Regenerate private key"
+  ansible.builtin.shell:
+    cmd: openssl genrsa -out /opt/ssl/{{ domain_name }}.key 4096
+  register: regenerate_key
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show errors when regenerating private key (if there are)"
+  ansible.builtin.debug:
+    msg: "{{ regenerate_key.stderr_lines }}"
+  when: regenerate_key.stderr_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Regenerate CSR"
+  ansible.builtin.shell:
+    cmd: openssl req -new -key /opt/ssl/{{ domain_name }}.key -out /opt/ssl/{{ domain_name }}.csr -subj "/C={{ country }}/ST={{ state }}/L={{ locality }}/O={{ organisation }}/OU={{ organisation_unit }}/CN=*.{{ domain_name }}/emailAddress={{ email_address }}" -addext "subjectAltName=DNS:*.{{ domain_name }},DNS:{{ domain_name }}"
+  register: regenerate_csr
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show errors when regenerating CSR (if there are)"
+  ansible.builtin.debug:
+    msg: "{{ regenerate_csr.stderr_lines }}"
+  when: regenerate_csr.stderr_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Regenerate self-signed certificate"
+  ansible.builtin.shell:
+    cmd: openssl x509 -signkey /opt/ssl/{{ domain_name }}.key -in /opt/ssl/{{ domain_name }}.csr -req -copy_extensions copy -days {{ days }} -out /opt/ssl/{{ domain_name }}.crt
+  register: regenerate_certificate
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show errors when regenerating certificate (if there are)"
+  ansible.builtin.debug:
+    msg: "{{ regenerate_certificate.stderr_lines }}"
+  when: regenerate_certificate.stderr_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Get private key modulus"
+  ansible.builtin.shell:
+    cmd: openssl rsa -modulus -noout -in /opt/ssl/{{ domain_name }}.key
+  register: key_modulus
+  changed_when: false
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show private key modulus"
+  ansible.builtin.debug:
+    msg: "{{ key_modulus.stdout_lines }}"
+  when: key_modulus.stdout_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Get certificate modulus"
+  ansible.builtin.shell:
+    cmd: openssl x509 -modulus -noout -in /opt/ssl/{{ domain_name }}.crt
+  register: certificate_modulus
+  changed_when: false
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show certificate modulus"
+  ansible.builtin.debug:
+    msg: "{{ certificate_modulus.stdout_lines }}"
+  when: certificate_modulus.stdout_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Get certificate expiration date"
+  ansible.builtin.shell:
+    cmd: openssl x509 -enddate -noout -in /opt/ssl/{{ domain_name }}.crt
+  register: certificate_exp
+  changed_when: false
+  delegate_to: localhost
+  run_once: true
+
+- name: "Show certificate expiration date"
+  ansible.builtin.debug:
+    msg: "{{ certificate_exp.stdout_lines }}"
+  when: certificate_exp.stdout_lines | length > 0
+  delegate_to: localhost
+  run_once: true
+
+- name: "Copy certificate on hosts"
+  ansible.builtin.copy:
+    src: "/opt/ssl/{{ domain_name }}.crt"
+    dest: "/opt/ssl/{{ domain_name }}.crt"
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: "Copy private key on hosts"
+  ansible.builtin.copy:
+    src: "/opt/ssl/{{ domain_name }}.key"
+    dest: "/opt/ssl/{{ domain_name }}.key"
+    owner: root
+    group: root
+    mode: "0600"
+  when: key | bool
+
+- name: "Reload nginx (if running)" # noqa: command-instead-of-module
+  ansible.builtin.shell:
+    cmd: systemctl is-active --quiet nginx || exit 99; nginx -t && nginx -s reload
+  register: reload_nginx
+  changed_when: reload_nginx.rc == 0
+  failed_when: reload_nginx.rc not in [0, 99]
+
+- name: "Show errors when reload nginx (if there are)"
+  ansible.builtin.debug:
+    msg: "{{ reload_nginx.stderr_lines }}"
+  when: reload_nginx.stderr_lines | length > 0
+
+- name: "Send confirmation mail"
+  ansible.builtin.shell:
+    cmd: set -o pipefail && echo -e "Subject:{{ domain_name }} SSL Cert Regenerated\n\nThe {{ domain_name }} wildcard SSL certificate has been regenerated and deployed." | sendmail {{ email_address }}
+  changed_when: true
+  delegate_to: localhost
+  run_once: true
