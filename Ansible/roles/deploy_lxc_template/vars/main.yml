@@ -1,0 +1,7 @@
+---
+# vars file for template
+
+domain: ".rc"
+lxc_data_dir: "/data/lxc"
+lxc_user: "service"
+core_server: "{{ (lxc_template | regex_search('core0[12]')) ~ '.rc' }}"
