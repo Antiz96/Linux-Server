@@ -6,11 +6,11 @@
     cmd: cd /opt/antiz.fr && git fetch origin && git checkout origin/dev -- public
   register: update_antiz_fr_dev
   changed_when: true
-  when: env == "dev"
+  when: branch == "dev"
 
 - name: "Update antiz.fr website - Prod"
   ansible.builtin.shell:
     cmd: cd /opt/antiz.fr && git fetch origin && git checkout origin/main -- public
   register: update_antiz_fr_prd
   changed_when: true
-  when: env == "prod"
+  when: branch == "main"
