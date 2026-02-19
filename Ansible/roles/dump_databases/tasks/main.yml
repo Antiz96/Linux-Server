@@ -3,7 +3,7 @@
 
 - name: "Dump the Zabbix database"
   ansible.builtin.shell:
-    cmd: machinectl shell "{{ podman_user }}"@ /bin/bash -lc "set -o pipefail && podman exec -t postgres-zabbix pg_dumpall -c -U $(cat /data/podman/volumes/postgres/zabbix/env/user) -l $(cat /data/podman/volumes/postgres/zabbix/env/database) | tee /data/podman/volumes/postgres/zabbix/backup/$(date +%d-%m-%Y).dump"
+    cmd: set -o pipefail && machinectl shell "{{ podman_user }}"@ /bin/bash -lc "podman exec -t postgres-zabbix pg_dumpall -c -U $(cat /data/podman/volumes/postgres/zabbix/env/user) -l $(cat /data/podman/volumes/postgres/zabbix/env/database) | tee /data/podman/volumes/postgres/zabbix/backup/$(date +%d-%m-%Y).dump"
   register: dump_zabbix_database
   changed_when: true
 
