@@ -27,18 +27,23 @@
 - name: "Prune dangling images"
   ansible.builtin.shell:
     cmd: podman image prune -f
-  register: prune_old_images
+  register: prune_dangling_images
   changed_when: true
   when: dangling | bool
 
 - name: "Prune all unused images"
   ansible.builtin.shell:
     cmd: podman image prune -af
-  register: prune_old_images
+  register: prune_all_unused_images
   changed_when: true
   when: not dangling | bool
 
-- name: "Prune old images output"
+- name: "Prune dangling images output"
   ansible.builtin.debug:
-    msg: "{{ prune_old_images.stdout_lines }}"
-  when: prune_old_images.stdout_lines | length > 0
+    msg: "{{ prune_dangling_images.stdout_lines }}"
+  when: dangling | bool and prune_dangling_images.stdout_lines | length > 0
+
+- name: "Prune all unused images output"
+  ansible.builtin.debug:
+    msg: "{{ prune_all_unused_images.stdout_lines }}"
+  when: not dangling | bool and prune_all_unused_images.stdout_lines | length > 0
