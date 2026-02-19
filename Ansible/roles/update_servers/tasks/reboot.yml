@@ -7,7 +7,7 @@
   ansible.builtin.shell:
     cmd: machinectl shell "{{ lxc_user }}"@ /bin/bash -lc "lxc-stop -n {{ inventory_hostname_short }} && lxc-start -n {{ inventory_hostname_short }}"
   changed_when: true
-  when: ansible_connection != "local" and item.group in group_names"
+  when: ansible_connection != "local" and item.group in group_names
   delegate_to: "{{ item.delegate }}"
   loop:
     - { group: "lxc_core01", delegate: "core01.rc" }
