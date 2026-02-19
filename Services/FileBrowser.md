@@ -14,7 +14,7 @@ I recently switched to the FileBrowser Quantum fork, which bring a few extra fea
 
 <https://filebrowserquantum.com/en/docs/getting-started/docker/>
 
-### Create the data, cache, config diretories & configuration file
+### Create the data, cache, config directories & configuration file
 
 ```bash
 mkdir -p /data/podman/volumes/filebrowser/{data,cache,config} && chmod 700 /data/podman/volumes/filebrowser/{data,cache,config}
@@ -37,7 +37,7 @@ auth:
   methods:
     password:
       enabled: true # Enable password authentication
-      minLength: 8 # Num of minimum password lenght
+      minLength: 8 # Num of minimum password length
       signup: false # Enable / Disable signup for users
 ```
 

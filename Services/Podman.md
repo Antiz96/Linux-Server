@@ -48,7 +48,7 @@ Generally speaking, just replace `docker` by `podman` in commands with your curr
 **Important notes:**
 
 - Contrary to Docker, Podman does not automatically open ports exposed to containers on the firewall. You need to open exposed ports yourself.
-- Contrary to Docker, Podman (rootless) doesn't expose the host's DNS configuration to containers but instead applies internal and / or default resolvers (see `podman exec -it <container_name> cat /etc/resolv.conf`). You can apply your own DNS if needed via the `--dns` paramter in `podman run` (e.g. `podman run -d --dns 192.168.1.1 [...]`).
+- Contrary to Docker, Podman (rootless) doesn't expose the host's DNS configuration to containers but instead applies internal and / or default resolvers (see `podman exec -it <container_name> cat /etc/resolv.conf`). You can apply your own DNS if needed via the `--dns` parameter in `podman run` (e.g. `podman run -d --dns 192.168.1.1 [...]`).
 
 Refer to the documentation.
 
