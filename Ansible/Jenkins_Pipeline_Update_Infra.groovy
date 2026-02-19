@@ -115,18 +115,19 @@ pipeline {
         stage('Update Servers - Core01') {
             steps {
                 script {
-                    catchError(buildResult: 'FAILURE', stageResult: 'SUCCESS') {
-			build(
-                            job: 'update_servers',
-                            parameters: [
-                                string(name: 'SERVERS', value: 'core01.rc')
-                            ],
-                            propagate: true,
-                            wait: true
-		       )
-		    }
+                    def result = build(
+                        job: 'update_servers',
+                        parameters: [
+                            string(name: 'SERVERS', value: 'core01.rc')
+                        ],
+                        propagate: true,
+                        wait: true
+                    )
+                    if (result == 'FAILURE') {
+                        error("Update Servers - Core01 failed. Aborting pipeline.")
+                    }
                 }
             }
-	}
+        }
     }
 }

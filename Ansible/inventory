@@ -1,5 +1,5 @@
 [bare]
-core01.rc
+core01.rc reboot_async=true
 core02.rc
 
 [vps]
