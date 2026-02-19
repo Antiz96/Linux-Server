@@ -40,7 +40,7 @@ sudo systemctl enable --now gitea
 
 Unlock gitea user (for SSH access):
 
-```
+```bash
 sudo chage -E -1 gitea
 ```
 

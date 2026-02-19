@@ -119,7 +119,7 @@ failed to load configuration file '/etc/php84/php-fpm.conf'
 ERROR: FPM initialization failed 2026-02-15 19:52:57,836 WARN exited: php-fpm84 (exit status 78; not expected) 2026-02-15 19:52:57,836 WARN exited: php-fpm84 (exit status 78; not expected)
 ```
 
-The actual cause of the issue doesn't seem known yet (see https://github.com/containers/podman/issues/24142) but, in the mean time, I applied [this workaround](https://github.com/containers/podman/issues/24142#issuecomment-2391888253):
+The actual cause of the issue doesn't seem known yet (see <https://github.com/containers/podman/issues/24142>) but, in the mean time, I applied [this workaround](https://github.com/containers/podman/issues/24142#issuecomment-2391888253):
 
 ```bash
 sudoedit /etc/apparmor.d/local/php-fpm
