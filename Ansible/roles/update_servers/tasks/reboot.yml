@@ -8,6 +8,7 @@
     cmd: shutdown -r +1
   async: 1
   poll: 0
+  changed_when: true
   when:  ansible_facts['virtualization_type'] != "lxc" and reboot_async | bool
 
 - name: "Restart LXC containers"
