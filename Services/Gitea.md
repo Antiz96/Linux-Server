@@ -38,6 +38,12 @@ sudo firewall-cmd --reload
 sudo systemctl enable --now gitea
 ```
 
+Unlock gitea user (for SSH access):
+
+```
+sudo chage -E -1 gitea
+```
+
 ## Access
 
 You can access Gitea on this URL:
