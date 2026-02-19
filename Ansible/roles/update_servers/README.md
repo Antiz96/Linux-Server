@@ -9,7 +9,7 @@ Support for Debian, Arch Linux and Alpine Linux.
 
 The following variable is set in `defaults/main.yml`:
 
-- reboot_async: `false` (controls whether Ansible should use the "reboot" module or if it should program a reboot in 1 min "asynchrounously", expects a boolean `true` or `false` value, defaults to `false`. Set this to `true` as an inventory variable for the host that runs the Ansible controller node).
+- reboot_async: `false` (controls whether Ansible should use the "reboot" module or if it should program a reboot in 1 min "asynchronously", expects a boolean `true` or `false` value, defaults to `false`. Set this to `true` as an inventory variable for the host that runs the Ansible controller node).
 
 The following variable is defined in `vars/main.yml`:
 
