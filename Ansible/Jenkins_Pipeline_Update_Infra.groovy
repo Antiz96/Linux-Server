@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     def result = build(
-                        job: 'Update_Podman_Containers',
+                        job: 'update_podman_containers',
                         parameters: [
                             string(name: 'SERVERS', value: 'podman'),
                             string(name: 'DANGLING', value: 'true')
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     def result = build(
-                        job: 'Update_Servers',
+                        job: 'update_servers',
                         parameters: [
                             string(name: 'SERVERS', value: 'lxc_core01')
                         ],
@@ -43,7 +43,7 @@ pipeline {
             steps {
                 script {
                     def result = build(
-                        job: 'Update_Servers',
+                        job: 'update_servers',
                         parameters: [
                             string(name: 'SERVERS', value: 'lxc_core02')
                         ],
@@ -61,7 +61,7 @@ pipeline {
             steps {
                 script {
                     def result = build(
-                        job: 'Update_Servers',
+                        job: 'update_servers',
                         parameters: [
                             string(name: 'SERVERS', value: 'vps')
                         ],
@@ -79,7 +79,7 @@ pipeline {
             steps {
                 script {
                     def result = build(
-                        job: 'Update_Servers',
+                        job: 'update_servers',
                         parameters: [
                             string(name: 'SERVERS', value: 'rasp')
                         ],
@@ -97,7 +97,7 @@ pipeline {
             steps {
                 script {
                     def result = build(
-                        job: 'Update_Servers',
+                        job: 'update_servers',
                         parameters: [
                             string(name: 'SERVERS', value: 'core02.rc')
                         ],
@@ -117,7 +117,7 @@ pipeline {
                 script {
                     catchError(buildResult: 'FAILURE', stageResult: 'SUCCESS') {
 			build(
-                            job: 'Update_Servers',
+                            job: 'update_servers',
                             parameters: [
                                 string(name: 'SERVERS', value: 'core01.rc')
                             ],
