@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Update Podman Containers) {
+        stage('Update Podman Containers') {
             steps {
                 script {
                     def result = build(
