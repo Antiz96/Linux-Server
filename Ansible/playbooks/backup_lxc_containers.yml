@@ -1,6 +1,6 @@
 ---
-- name: "Backup lxc containers"
-  hosts: bare 
+- name: "Backup LXC containers"
+  hosts: lxc 
   become: true
   roles:
     - role: "backup_lxc_containers"
