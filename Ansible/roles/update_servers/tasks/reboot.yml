@@ -3,7 +3,7 @@
   ansible.builtin.reboot:
   when: ansible_connection != "local" and ansible_facts['virtualization_type'] != "lxc" and not reboot_async | bool
 
-- name: "Reboot Bare Metal and VM Servers - Async"
+- name: "Reboot Bare Metal and VM Servers - Async" # noqa: command-instead-of-module
   ansible.builtin.shell:
     cmd: systemctl reboot --when='+10 seconds'
   changed_when: true
