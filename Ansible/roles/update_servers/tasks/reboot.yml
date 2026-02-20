@@ -5,7 +5,7 @@
 
 - name: "Reboot Bare Metal and VM Servers - Async" # noqa: command-instead-of-module
   ansible.builtin.shell:
-    cmd: systemctl reboot --when='+10 seconds'
+    cmd: systemctl reboot --when='+5 seconds'
   changed_when: true
   when:  ansible_facts['virtualization_type'] != "lxc" and reboot_async | bool
 
