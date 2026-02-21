@@ -2257,6 +2257,12 @@ prefix = "server-v"
 include_regex = "server-v.*"
 exclude_regex = ".*-rc.*"
 
+[kew]
+source = "git"
+git = "https://codeberg.org/ravachol/kew.git"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [limine]
 source = "git"
 git = "https://codeberg.org/Limine/Limine.git"
