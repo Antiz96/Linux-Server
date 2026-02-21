@@ -2,5 +2,5 @@
 ---
 # vars file for backup_qemu_vms
 
-source_dir: "/data/qemu/vms"
+source_dir: "/data/qemu/vms/"
 backup_base_dir: "/backup/qemu/"
