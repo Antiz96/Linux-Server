@@ -1,0 +1,5 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for backup_qemu_vms
+
+backup_retention: 3
