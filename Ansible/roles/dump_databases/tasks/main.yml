@@ -19,3 +19,14 @@
     path: "{{ item.path }}"
     state: absent
   loop: "{{ list_old_dumps_zabbix.files }}"
+
+- name: "Get Zabbix database dump names and sizes"
+  ansible.builtin.shell:
+    cmd: du -hd1 /data/podman/volumes/postgres/zabbix/backup
+  register: size_zabbix_dump_files
+  changed_when: false
+
+- name: "Show Zabbix database dump files"
+  ansible.builtin.debug:
+    msg: "{{ size_zabbix_dump_files.stdout_lines }}"
+  when: size_zabbix_dump_files.stdout_lines | length > 0
