@@ -12,13 +12,13 @@
     msg: "{{ core_system_backup.stdout_lines }}"
   when: core_system_backup.stdout_lines | length > 0
 
-- name: "List Core System Backup archives"
+- name: "Get backup directories names and sizes"
   ansible.builtin.shell:
-    cmd: ls -ltrh /backup/System_Backup
-  register: core_system_backup_list_archives
+    cmd: du -hd1 /backup/system/
+  register: size_backup_dirs
   changed_when: false
 
-- name: "Show Core System Backup archives list"
+- name: "Show backup directories"
   ansible.builtin.debug:
-    msg: "{{ core_system_backup_list_archives.stdout_lines }}"
-  when: core_system_backup_list_archives.stdout_lines | length > 0
+    msg: "{{ size_backup_dirs.stdout_lines }}"
+  when: size_backup_dirs.stdout_lines | length > 0
