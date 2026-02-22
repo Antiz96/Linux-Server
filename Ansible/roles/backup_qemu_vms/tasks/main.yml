@@ -28,13 +28,13 @@
   loop: "{{ (list_backup_dirs.files | sort(attribute='ctime'))[:-backup_retention] }}"
   when: list_backup_dirs.files | length > backup_retention
 
-- name: "List backup directories"
+- name: "Get backup directories names and sizes"
   ansible.builtin.shell:
-    cmd: ls -ltrh "{{ backup_base_dir }}"
-  register: ls_backup_dirs
+    cmd: du -hd1 "{{ backup_base_dir }}"
+  register: size_backup_dirs
   changed_when: false
 
 - name: "Show backup directories"
   ansible.builtin.debug:
-    msg: "{{ ls_backup_dirs.stdout_lines }}"
-  when: ls_backup_dirs.stdout_lines | length > 0
+    msg: "{{ size_backup_dirs.stdout_lines }}"
+  when: size_backup_dirs.stdout_lines | length > 0
