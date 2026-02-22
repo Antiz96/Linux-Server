@@ -22,7 +22,7 @@
 
 - name: "Get Zabbix database dump names and sizes"
   ansible.builtin.shell:
-    cmd: du -hd1 /data/podman/volumes/postgres/zabbix/backup
+    cmd: du -hd1 /data/podman/volumes/postgres/zabbix/backup/*
   register: size_zabbix_dump_files
   changed_when: false
 
