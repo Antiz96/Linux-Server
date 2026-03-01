@@ -17,17 +17,17 @@ I recently switched to the FileBrowser Quantum fork, which bring a few extra fea
 ### Create the data, cache, config directories & configuration file
 
 ```bash
-mkdir -p /data/podman/volumes/filebrowser/{data,cache,config} && chmod 700 /data/podman/volumes/filebrowser/{data,cache,config}
-touch /data/podman/volumes/filebrowser/config/config.yaml && chmod 600 /data/podman/volumes/filebrowser/config/config.yaml
-vim /data/podman/volumes/filebrowser/config/config.yaml
+mkdir -p /data/podman/volumes/filebrowser/{storage,cache} && chmod 700 /data/podman/volumes/filebrowser/{storage,cache}
+touch /data/podman/volumes/filebrowser/config.yaml && chmod 600 /data/podman/volumes/filebrowser/config.yaml
+vim /data/podman/volumes/filebrowser/config.yaml
 ```
 
 ```text
 server:
   port: 8080 # Port for the server to listen on (inside the container)
-  cacheDir: /home/filebrowser/cache # Path to cache dir (inside the container)
+  cacheDir: /home/filebrowser/data/cache # Path to cache dir (inside the container)
   sources:
-    - path: /home/filebrowser/data # Path to data dir (inside the container)
+    - path: /home/filebrowser/data/storage # Path to data dir (inside the container)
       config:
         defaultEnabled: true
 
@@ -44,7 +44,7 @@ auth:
 ### Pull and run the container
 
 ```bash
-podman run -v /data/podman/volumes/filebrowser/config/config.yaml:/home/filebrowser/config.yaml -v /data/podman/volumes/filebrowser/data:/home/filebrowser/data -v /data/podman/volumes/filebrowser/cache:/home/filebrowser/cache -p 8080:8080 --name filebrowser -d --label io.containers.autoupdate=registry --restart="unless-stopped" docker.io/gtstef/filebrowser
+podman run -v /data/podman/volumes/filebrowser:/home/filebrowser/data -p 8080:8080 --name filebrowser -d --label io.containers.autoupdate=registry --restart="unless-stopped" docker.io/gtstef/filebrowser
 ```
 
 ### Access
