@@ -1,6 +1,6 @@
 ---
 - name: "Backup Qemu VMs"
-  hosts: qemu 
+  hosts: qemu
   become: true
   roles:
     - role: "backup_qemu_vms"

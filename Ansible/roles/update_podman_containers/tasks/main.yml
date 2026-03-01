@@ -1,4 +1,4 @@
-#SPDX-License-Identifier: MIT-0
+# SPDX-License-Identifier: MIT-0
 ---
 # tasks file for update_podman_containers
 
@@ -15,7 +15,7 @@
 
 - name: "Update containers"
   ansible.builtin.shell:
-    cmd: podman auto-update 
+    cmd: podman auto-update
   register: update_containers
   changed_when: true
 

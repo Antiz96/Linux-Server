@@ -7,7 +7,7 @@
   ansible.builtin.shell:
     cmd: systemctl reboot --when='+5 seconds'
   changed_when: true
-  when:  ansible_facts['virtualization_type'] != "lxc" and reboot_async | bool
+  when: ansible_facts['virtualization_type'] != "lxc" and reboot_async | bool
 
 - name: "Restart LXC containers"
   ansible.builtin.shell:
