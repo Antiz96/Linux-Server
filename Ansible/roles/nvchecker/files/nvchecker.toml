@@ -565,6 +565,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[niri]
+source = "github"
+github = "niri-wm/niri"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [nwg-bar]
 source = "github"
 github = "nwg-piotr/nwg-bar"
