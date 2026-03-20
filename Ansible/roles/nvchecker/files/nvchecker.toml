@@ -1355,6 +1355,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[wf-recorder]
+source = "github"
+github = "ammen99/wf-recorder"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [wl-clipboard]
 source = "github"
 github = "bugaevc/wl-clipboard"
