@@ -194,6 +194,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[diffoci]
+source = "github"
+github = "reproducible-containers/diffoci"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [dino]
 source = "github"
 github = "dino/dino"
