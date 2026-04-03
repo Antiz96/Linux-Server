@@ -1348,6 +1348,13 @@ prefix = "vulkan-sdk-"
 use_max_tag = true
 include_regex = 'vulkan-sdk-\d+(\.\d+)*'
 
+[vulkan-profiles]
+source = "github"
+github = "KhronosGroup/vulkan-profiles"
+prefix = "vulkan-sdk-"
+use_max_tag = true
+include_regex = 'vulkan-sdk-\d+(\.\d+)*'
+
 [vulkan-tools]
 source = "github"
 github = "KhronosGroup/vulkan-tools"
