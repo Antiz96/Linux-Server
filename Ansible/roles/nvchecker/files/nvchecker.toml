@@ -1581,13 +1581,13 @@ prefix = "exo-"
 use_max_tag = true
 exclude_regex = '.*pre.*|exo-4\.[12][13579]\.[0-9]+'
 
-[gajim]
-source = "gitlab"
-host = "dev.gajim.org"
-gitlab = "gajim/gajim"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+#[gajim]
+#source = "gitlab"
+#host = "dev.gajim.org"
+#gitlab = "gajim/gajim"
+#prefix = "v"
+#use_max_tag = true
+#exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [gammastep]
 source = "gitlab"
@@ -1727,21 +1727,21 @@ gitlab = "poppler/poppler"
 prefix = "poppler-"
 use_max_tag = true
 
-[python-nbxmpp]
-source = "gitlab"
-host = "dev.gajim.org"
-gitlab = "gajim/python-nbxmpp"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+#[python-nbxmpp]
+#source = "gitlab"
+#host = "dev.gajim.org"
+#gitlab = "gajim/python-nbxmpp"
+#prefix = "v"
+#use_max_tag = true
+#exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[python-omemo-dr]
-source = "gitlab"
-host = "dev.gajim.org"
-gitlab = "gajim/omemo-dr"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+#[python-omemo-dr]
+#source = "gitlab"
+#host = "dev.gajim.org"
+#gitlab = "gajim/omemo-dr"
+#prefix = "v"
+#use_max_tag = true
+#exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [remmina]
 source = "gitlab"
