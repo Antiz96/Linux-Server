@@ -2387,6 +2387,11 @@ url = "https://filezilla-project.org/download.php?type=client"
 regex = '(\d+\.\d+\.\d+)'
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[fzssh]
+source = "regex"
+url = "https://fzssh.filezilla-project.org/download.php"
+regex = 'The latest stable version of fzssh is (\d+\.\d+\.\d+)'
+
 [libfilezilla]
 source = "regex"
 url = "https://lib.filezilla-project.org/download.php"
