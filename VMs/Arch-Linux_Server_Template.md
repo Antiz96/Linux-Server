@@ -52,29 +52,6 @@ vim /etc/systemd/network/enp1s0.network # Adapt the name of the file according t
 > DNS=192.168.96.1  
 > IPv6AcceptRA=no
 
-## Optional - Install and enable AppArmor
-
-AppArmor is a kernel security module that restricts individual programs' capabilities.
-
-Unlike Debian, Arch Linux does not install or enable AppArmor by default, and it does not maintain an extensive set of extra profiles.  
-Nevertheless, the default profiles provided with AppArmor cover a few programs I commonly use, and some applications I install on my servers (e.g. Docker) include their own profiles. Therefore, enabling AppArmor still provides *some* additional layer of security, which is why I usually install and enable it.
-
-```bash
-pacman -S apparmor # Install AppArmor
-vim /boot/loader/entries/arch.conf # Add AppArmor to the lsm parameter of the kernel cmdline in systemd-boot config
-```
-
-> [...]  
-> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**  
-> [...]
-
-```bash
-systemctl enable apparmor.service # Start AppArmor service automatically on boot
-reboot
-aa-enabled # Verify that AppArmor is running
-aa-status # Check the list of profile and their status
-```
-
 ## Install useful packages
 
 Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#log-in-with-the-regular-user-previously-created-and-install-additional-useful-packages>
