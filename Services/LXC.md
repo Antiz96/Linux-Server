@@ -30,8 +30,7 @@ To be able to use rootless / unprivileged LXC containers with your current unpri
 mkdir -p ~/.config/lxc
 cp /etc/lxc/default.conf ~/.config/lxc/default.conf
 echo "lxc.idmap = u 0 100000 65536" >> ~/.config/lxc/default.conf # Update value to match the /etc/subuid entry for your user if needed
-echo "lxc.idmap = g 0 100000 65536" >> ~/.config/lxc/default.conf # Update value to match the /etc/subuid entry for your user if needed
-
+echo "lxc.idmap = g 0 100000 65536" >> ~/.config/lxc/default.conf # Update value to match the /etc/subgid entry for your user if needed
 ```
 
 The following should already be done on Arch Linux and Debian, but is needed on Alpine:
