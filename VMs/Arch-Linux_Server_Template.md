@@ -7,30 +7,12 @@ It aims to be turned as a Template.
 
 I basically follow my [Arch-Linux base installation guide](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md) with the following exceptions:
 
-- I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md#partition-scheme)).
 - I use the `linux-lts` kernel (instead of the `linux` one).
 - I use `systemd-networkd` rather than `network-manager` (see [Setup Networking](#setup-networking)).
 - I use a different list of "useful packages to install", more suited for servers (see [Install useful packages](#install-useful-packages)).
 - I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](#create-and-configure-the-ansible-user)).
 
 **Remember to set a password for the root account during the installation process, otherwise you won't be able to log in to the server after reboot!**
-
-## Partition scheme
-
-Replaces: <https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md#preparing-the-disk>
-
-- Professional context:
-
-> EFI partition mounted on /boot --> 1G - FAT32  
-> Swap partition --> 4G - SWAP  
-> Root partition --> Left free space - XFS - LVM  
-> > / --> 3G  
-> > /home --> 2G  
-> > /tmp --> 2G  
-> > /opt --> 2G  
-> > /usr --> 4G  
-> > /var --> 1G  
-> > /var/log --> 4G
 
 ## Setup Networking
 

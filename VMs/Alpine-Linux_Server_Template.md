@@ -5,25 +5,9 @@ It aims to be turned as a Template.
 
 ## Base Install
 
-I basically follow installation steps normally (`setup-alpine`) with the following exceptions:
+I basically follow the classic installation steps via `setup-alpine` with the following exceptions:
 
-- I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md#partition-scheme)).
 - I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Alpine-Linux_Server_Template.md#create-and-configure-the-ansible-user)).
-
-### Partition scheme
-
-- Professional context:
-
-> EFI partition mounted on /boot --> 1G - FAT32  
-> Swap partition --> 4G - SWAP  
-> Root partition --> Left free space - XFS - LVM  
-> > / --> 3G  
-> > /home --> 2G  
-> > /tmp --> 2G  
-> > /opt --> 2G  
-> > /usr --> 4G  
-> > /var --> 1G  
-> > /var/log --> 4G
 
 ### Switch to https repositories
 

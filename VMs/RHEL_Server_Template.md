@@ -5,28 +5,12 @@ It aims to be turned as a template.
 
 ## Base Install
 
-I basically follow each installation steps normally with the following exceptions:
+I basically follow the classic installation steps from the installer with the following exceptions:
 
-- I use a different partition scheme for professional context (see [Partition scheme](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#partition-scheme))
 - I don't check anything during the **Software selection** step so I get a minimal installation. I install useful packages after the installation instead (see [Install useful packages](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#install-useful-packages))
 - I don't create any user during the installation process. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#create-and-configure-the-ansible-user)).
 
 **Remember to set a password for the root account during the installation process, otherwise you won't be able to log in to the server after reboot!**
-
-### Partition scheme
-
-- Professional context:
-
-> EFI partition mounted on /boot --> 1G - ESP  
-> Swap partition --> 4G - SWAP  
-> Root partition --> Left free space - XFS - LVM  
-> > / --> 3G  
-> > /home --> 2G  
-> > /tmp --> 2G  
-> > /opt --> 2G  
-> > /usr --> 4G  
-> > /var --> 1G  
-> > /var/log --> 4G
 
 ### Install useful packages
 
