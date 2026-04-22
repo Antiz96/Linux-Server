@@ -47,7 +47,6 @@ auth:
 chown -R 166536:166536 /data/podman/volumes/filebrowser # Should match the value in /etc/subuid | /etc/subgid for your user. This is required since filebrowser v1.3.0 if running as an unprivileged user
 ```
 
-
 ### Pull and run the container
 
 Update UID:GID for `--user` if needed.
