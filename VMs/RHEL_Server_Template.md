@@ -8,7 +8,7 @@ It aims to be turned as a template.
 I basically follow the classic installation steps from the installer with the following exceptions:
 
 - I don't check anything during the **Software selection** step so I get a minimal installation. I install useful packages after the installation instead (see [Install useful packages](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#install-useful-packages))
-- I don't create any user during the installation process. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#create-and-configure-the-ansible-user)).
+- I do not create a regular user during the install. Indeed creation / management, is handled post-install by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/RHEL_Server_Template.md#create-and-configure-the-ansible-user)).
 
 **Remember to set a password for the root account during the installation process, otherwise you won't be able to log in to the server after reboot!**
 
