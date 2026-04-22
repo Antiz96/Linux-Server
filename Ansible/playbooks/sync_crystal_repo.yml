@@ -1,6 +1,6 @@
 ---
 - name: "Sync Crystal Repo"
-  hosts: web02.rc
+  hosts: vps01.rc
   become: true
   roles:
     - role: "sync_crystal_repo"

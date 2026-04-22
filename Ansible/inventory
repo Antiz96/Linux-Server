@@ -1,10 +1,10 @@
 # Server types
-[bare]
+[core]
 core01.rc reboot_async=true
 core02.rc
 
 [vps]
-web02.rc
+vps01.rc
 
 [rasp]
 rasp01.rc
@@ -33,7 +33,7 @@ core02.rc
 
 [podman]
 core01.rc
-web02.rc
+vps01.rc
 
 [qemu]
 core01.rc
@@ -42,7 +42,7 @@ core01.rc
 [antiz_fr]
 web01a.rc branch=dev
 web01b.rc branch=dev
-web02.rc branch=main
+vps01.rc branch=main
 
 [ssl]
 web01a.rc key=true
