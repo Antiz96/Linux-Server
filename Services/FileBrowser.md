@@ -17,8 +17,10 @@ I recently switched to the FileBrowser Quantum fork, which bring a few extra fea
 ### Create the data, cache, config directories & configuration file
 
 ```bash
-mkdir -p /data/podman/volumes/filebrowser/{storage,cache} && chmod 700 /data/podman/volumes/filebrowser/{storage,cache}
-touch /data/podman/volumes/filebrowser/config.yaml && chmod 600 /data/podman/volumes/filebrowser/config.yaml
+mkdir -p /data/podman/volumes/filebrowser/{storage,cache}
+chmod 700 /data/podman/volumes/filebrowser/{storage,cache}
+touch /data/podman/volumes/filebrowser/config.yaml
+chmod 600 /data/podman/volumes/filebrowser/config.yaml
 vim /data/podman/volumes/filebrowser/config.yaml
 ```
 
@@ -41,10 +43,16 @@ auth:
       signup: false # Enable / Disable signup for users
 ```
 
+```bash
+chown -R 166536:166536 /data/podman/volumes/filebrowser # Should match the value in /etc/subuid | /etc/subgid for your user. This is required since filebrowser v1.3.0 if running as an unprivileged user
+```
+
 ### Pull and run the container
 
+Update UID:GID for `--user` if needed.
+
 ```bash
-podman run -v /data/podman/volumes/filebrowser:/home/filebrowser/data -p 8080:8080 --name filebrowser -d --label io.containers.autoupdate=registry --restart="unless-stopped" docker.io/gtstef/filebrowser
+podman run -v /data/podman/volumes/filebrowser:/home/filebrowser/data --user 1001:1001 -p 8080:8080 --name filebrowser -d --label io.containers.autoupdate=registry --restart="unless-stopped" docker.io/gtstef/filebrowser
 ```
 
 ### Access
