@@ -7,7 +7,7 @@ It aims to be turned as a Template.
 
 I basically follow the classic installation steps via `setup-alpine` with the following exceptions:
 
-- I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Alpine-Linux_Server_Template.md#create-and-configure-the-ansible-user)).
+- I do not create a regular user during the install. Indeed creation / management, is handled post-install by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Alpine-Linux_Server_Template.md#create-and-configure-the-ansible-user)).
 
 ### Switch to https repositories
 
@@ -17,8 +17,8 @@ sed -i "s/http/https/g" /etc/apk/repositories
 
 ### Optional - Switch to the edge branch and enable testing repo
 
-I personally depends on a few packages that are still currently in the testing repositories.  
-As such, I currently switch to the edge branch of the repositories (which basically turns Alpine into a rolling release) and I activate the testing repositories.
+I personally need a few packages that were only available in the testing repository (not the case anymore).  
+If needed, here's how to switch to the edge branch of the repositories (which basically turns Alpine into a rolling release) and enable the testing repository.
 
 ```bash
 vi /etc/apk/repositories
@@ -138,7 +138,7 @@ aa-status # Check the list of profile and their status
 ### Install useful packages
 
 ```bash
-apk add vim vimdiff man-db sudo bash bash-completion openssh openssh-server-pam socat bind-tools wget traceroute rsync diffutils plocate htop curl logrotate fail2ban fstrim chrony firewalld shadow py3-passlib fastfetch acl
+apk add vim vimdiff man-db sudo bash bash-completion openssh openssh-server-pam socat bind-tools wget traceroute rsync diffutils plocate htop curl logrotate fail2ban fstrim firewalld shadow py3-passlib fastfetch acl
 ```
 
 ### Configure various things
@@ -175,8 +175,6 @@ visudo
 ```bash
 rc-update add sshd
 rc-service sshd start
-rc-update add chronyd
-rc-service chronyd start
 rc-update add firewalld
 rc-service firewalld start
 ```
