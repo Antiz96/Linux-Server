@@ -7,7 +7,7 @@ It aims to be turned as a Template.
 
 I basically follow my [Arch-Linux base installation guide](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Base_installation.md) with the following exceptions:
 
-- I use the `linux-lts` kernel (instead of the `linux` one).
+- I install the `linux-lts` kernel (instead of the `linux` one) and I don't install `linux-firmware` (not necessary on VM) during the `pacstrap` step.
 - I use `systemd-networkd` rather than `network-manager` (see [Setup Networking](#setup-networking)).
 - I use a different list of "useful packages to install", more suited for servers (see [Install useful packages](#install-useful-packages)).
 - I do not create a regular user during the install. Indeed creation / management, is handled post-install by an ansible playbook. I do create an "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](#create-and-configure-the-ansible-user)).
