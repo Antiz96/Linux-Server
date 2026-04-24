@@ -957,6 +957,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-pipcl]
+source = "github"
+github = "ArtifexSoftware/pipcl"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-podman]
 source = "github"
 github = "containers/podman-py"
