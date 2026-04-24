@@ -2374,10 +2374,6 @@ source = "regex"
 url = "https://pkgs.alpinelinux.org/package/edge/main/x86_64/alpine-keys"
 regex = "alpine-keys-([^-]+)-r\\d+\\.log"
 
-[ansible-language-server]
-source = "npm"
-npm = "@ansible/ansible-language-server"
-
 [ddrescue]
 source = "regex"
 url = "https://ftp.gnu.org/gnu/ddrescue/"
