@@ -103,7 +103,7 @@ vim /data/qemu/vms/arch-dev/arch-dev.xml
 **Notes:**
 
 - If you don't intend to connect remotely via the SPICE server (e.g. if you will connect via SSH instead), you should get rid of the `listen='0.0.0.0'` parameter. Also, the `port=XXXX` parameter can be dropped and the `autoport=no` parameter changed to `autoport=yes` to allow SPICE to bind a free port dynamically (because ports have to be unique per VMs). You *could* also drop the `passwd` parameter.
-- Once the guest OS is installed, you can comment or remove the cdrom device from the `<os>` (Boot order) and `<devices>` (ISO) sections, then redefine the VM domain to apply (`virsh undefine arch-dev --keep-nvram && virsh define /data/qemu/vms/arch-dev/arch-dev.xml` to apply.
+- Once the guest OS is installed, you can comment or remove the cdrom device from the `<os>` (Boot order) and `<devices>` (ISO) sections, then redefine the VM domain to apply (`virsh undefine arch-dev --keep-nvram && virsh define /data/qemu/vms/arch-dev/arch-dev.xml`) to apply.
 
 Register the XML file for the VM and start it:
 
