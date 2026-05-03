@@ -30,7 +30,7 @@ curl https://fastly.mirror.pkgbuild.com/iso/2026.02.01/archlinux-2026.02.01-x86_
 
 Create the VM directory and virtual hard drive:
 
-```
+```bash
 mkdir /data/qemu/vms/arch-dev # Create a directory to store the VM files
 qemu-img create -f qcow2 /data/qemu/vms/arch-dev/arch-dev.qcow2 30G # Create a 30G virtual disk for the VM
 cp /usr/share/edk2/x64/OVMF_VARS.4m.fd /data/qemu/vms/arch-dev/OVMF_VARS.4m.fd # Copy pflash drive for UEFI support
@@ -151,19 +151,19 @@ virsh define /path/to/xml
 
 Unregister / delete a VM from libvirt:
 
-   - Simple unregistering:
+- Simple unregistering:
 
 ```bash
 virsh undefine <vm_name>
 ```
 
-   - Unregistering but keeping nvram (useful when you want to unregister VM with UEFI support and register it again to apply changes from the XML config):
+- Unregistering but keeping nvram (useful when you want to unregister VM with UEFI support and register it again to apply changes from the XML config):
 
 ```bash
 virsh undefine <vm_name>
 ```
 
-   - Unregistring and fully deleting all storages, snapshots and metadata of a VM (see man page for virsh undefine for description of every options):
+- Unregistring and fully deleting all storages, snapshots and metadata of a VM (see man page for virsh undefine for description of every options):
 
 ```bash
 virsh undefine <vm_name> \
