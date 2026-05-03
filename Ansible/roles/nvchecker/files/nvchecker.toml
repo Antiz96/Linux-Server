@@ -2403,7 +2403,7 @@ regex = 'The latest stable version of libfilezilla is (\d+\.\d+\.\d+)'
 [postfix]
 source = "regex"
 regex = "postfix-([\\d.]+)\\.tar\\.gz?"
-url = "https://ftp.fu-berlin.de/unix/mail/postfix/official/"
+url = "https://postfix.mirrors.ovh.net/postfix-release/official/"
 
 [spotify]
 source = "apt"
