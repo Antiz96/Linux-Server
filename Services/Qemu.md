@@ -20,18 +20,23 @@ I personally create and manage my VMs as an unprivileged user (for convenience a
 
 ```bash
 mkdir -p /data/qemu/{vms,iso} # Create a directory to store VMs and ISOs
-mkdir /data/qemu/vms/arch-dev # Create a directory to store the VM files
-qemu-img create -f qcow2 /data/qemu/vms/arch-dev/arch-dev.qcow2 30G # Create a 30G virtual disk for the VM
-cp /usr/share/edk2/x64/OVMF_VARS.4m.fd /data/qemu/vms/arch-dev/OVMF_VARS.4m.fd # Copy pflash drive for UEFI support
 ```
 
-Download the ISO (if not done already):
+Download ISO (if not done already):
 
 ```bash
 curl https://fastly.mirror.pkgbuild.com/iso/2026.02.01/archlinux-2026.02.01-x86_64.iso -o /data/qemu/iso/archlinux-2026.02.01-x86_64.iso
 ```
 
-Create the config file for the VM:
+Create the VM directory and virtual hard drive:
+
+```bash
+mkdir /data/qemu/vms/arch-dev # Create a directory to store the VM files
+qemu-img create -f qcow2 /data/qemu/vms/arch-dev/arch-dev.qcow2 30G # Create a 30G virtual disk for the VM
+cp /usr/share/edk2/x64/OVMF_VARS.4m.fd /data/qemu/vms/arch-dev/OVMF_VARS.4m.fd # Copy pflash drive for UEFI support
+```
+
+Create the VM config file:
 
 ```bash
 vim /data/qemu/vms/arch-dev/arch-dev.xml
@@ -97,8 +102,8 @@ vim /data/qemu/vms/arch-dev/arch-dev.xml
 
 **Notes:**
 
-- If you don't intend to connect remotely via the SPICE server (e.g. if you will connect via SSH instead), you should get rid of the `listen='0.0.0.0'` parameter. Also, the `port=XXXX` parameter can be dropped and the `autoport=no` parameter changed to `autoport=no` to allow SPICE to bind a free port dynamically (because ports have to be unique per VMs). You *could* also drop the `passwd`.
-- Once the guest OS is installed, you can remove the cdrom device from the `<boot>` and `<devices>` sections, then run `virsh define /path/to/xml` to apply.
+- If you don't intend to connect remotely via the SPICE server (e.g. if you will connect via SSH instead), you should get rid of the `listen='0.0.0.0'` parameter. Also, the `port=XXXX` parameter can be dropped and the `autoport=no` parameter changed to `autoport=yes` to allow SPICE to bind a free port dynamically (because ports have to be unique per VMs). You *could* also drop the `passwd` parameter.
+- Once the guest OS is installed, you can comment or remove the cdrom device from the `<os>` (Boot order) and `<devices>` (ISO) sections, then redefine the VM domain to apply (`virsh undefine arch-dev --keep-nvram && virsh define /data/qemu/vms/arch-dev/arch-dev.xml`) to apply.
 
 Register the XML file for the VM and start it:
 
@@ -138,7 +143,7 @@ sudo nmtui
 
 ## Basic usage
 
-Register a VM in libvirt from a XML (or apply updates made to the XML):
+Register a VM in libvirt from a XML:
 
 ```bash
 virsh define /path/to/xml
@@ -146,8 +151,28 @@ virsh define /path/to/xml
 
 Unregister / delete a VM from libvirt:
 
+- Simple unregistering:
+
 ```bash
 virsh undefine <vm_name>
+```
+
+- Unregistering but keeping nvram (useful when you want to unregister VM with UEFI support and register it again to apply changes from the XML config):
+
+```bash
+virsh undefine <vm_name>
+```
+
+- Unregistring and fully deleting all storages, snapshots and metadata of a VM (see man page for virsh undefine for description of every options):
+
+```bash
+virsh undefine <vm_name> \
+  --remove-all-storage \
+  --delete-storage-volume-snapshots \
+  --nvram \
+  --managed-save \
+  --snapshots-metadata \
+  --checkpoints-metadata
 ```
 
 List running VMs:
