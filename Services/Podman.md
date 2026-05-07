@@ -66,8 +66,10 @@ vim ~/.config/containers/storage.conf
 ```text
 [storage]
 driver="overlay" # Adapt if needed
-rootless_storage_path="/path/to/datadir" # Should be writeable by the user
+graphroot="/path/to/datadir" # Should be writeable by the user
 ```
+
+Alternatively, set `rootless_storage_path` in `/etc/containers/storage.conf` to set the path for all rootless users.
 
 ### Containers running as systemd services and podman auto-update
 
