@@ -114,15 +114,9 @@
 
 - name: "Reload nginx (if running)" # noqa: command-instead-of-module
   ansible.builtin.shell:
-    cmd: systemctl is-active --quiet nginx || exit 99; nginx -t && nginx -s reload
-  register: reload_nginx
-  changed_when: reload_nginx.rc == 0
-  failed_when: reload_nginx.rc not in [0, 99]
-
-- name: "Show errors when reload nginx (if there are)"
-  ansible.builtin.debug:
-    msg: "{{ reload_nginx.stderr_lines }}"
-  when: reload_nginx.stderr_lines | length > 0
+    cmd: systemctl try-reload-or-restart nginx
+  changed_when: true
+  when: inventory_hostname.startswith('web')
 
 - name: "Send confirmation mail"
   ansible.builtin.shell:
