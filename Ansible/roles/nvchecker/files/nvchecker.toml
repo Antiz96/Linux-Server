@@ -1111,6 +1111,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[repro-env]
+source = "github"
+github = "kpcyrd/repro-env"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [retsnoop]
 source = "github"
 github = "anakryiko/retsnoop"
