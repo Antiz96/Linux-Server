@@ -62,6 +62,23 @@ See <https://github.com/docker-library/postgres/pull/1259> for more details.
 sudo docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=$(sudo cat /opt/postgres/env/user) -e POSTGRES_PASSWORD=$(sudo cat /opt/postgres/env/password) -e POSTGRES_DB=$(sudo cat /opt/postgres/env/database) -v /opt/postgres/data:/var/lib/postgresql --restart=unless-stopped postgres:18
 ```
 
+### Set some configuration optimization (optional)
+
+There are numerous options you can configure to optimize the database performance. My needs are pretty simple so I'm just tuning / increasing a few memory related settings. Values to set will depend on your setup, need and resources.
+
+```bash
+sudoedit /opt/postgres/data/18/docker/postgresql.conf
+```
+
+> shared_buffers = 2GB  
+> effective_cache_size = 6GB  
+> work_mem = 8MB  
+> maintenance_work_mem = 512MB
+
+```bash
+sudo docker restart postgres
+```
+
 ### Set an automatic backup of the database (optional)
 
 ```bash
