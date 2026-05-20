@@ -2369,6 +2369,12 @@ git = "https://gitlab.exherbo.org/sydbox/sydbox.git"
 include_regex = "syd-tui-.*"
 prefix = "syd-tui-"
 
+[tea]
+source = "git"
+git = "https://gitea.com/gitea/tea"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [zabbix]
 source = "git"
 git = "https://git.zabbix.com/scm/zbx/zabbix.git"
