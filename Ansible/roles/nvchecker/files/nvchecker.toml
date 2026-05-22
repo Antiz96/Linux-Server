@@ -1843,13 +1843,6 @@ prefix = "tumbler-"
 use_max_tag = true
 exclude_regex = '.*pre.*|xfce-.*|tumbler-4\.[12][13579]\.[0-9]+'
 
-[tint2]
-source = "gitlab"
-gitlab = "o9000/tint2"
-prefix = "v"
-use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
-
 [unrar-free]
 source = "gitlab"
 gitlab = "bgermann/unrar-free"
