@@ -1097,6 +1097,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[quickjs-ng]
+source = "github"
+github = "quickjs-ng/quickjs"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [rebuild-detector]
 source = "github"
 github = "maximbaz/rebuild-detector"
