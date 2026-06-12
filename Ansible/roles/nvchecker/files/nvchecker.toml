@@ -1593,6 +1593,14 @@ prefix = "catfish-"
 use_max_tag = true
 exclude_regex = 'catfish-4\.[12][13579]\.[0-9]+'
 
+[ccid]
+source = "gitlab"
+host = "salsa.debian.org"
+gitlab = "rousseau/CCID"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [dav1d]
 source = "gitlab"
 host = "code.videolan.org"
@@ -1739,6 +1747,22 @@ gitlab = "apps/parole"
 prefix = "parole-"
 use_max_tag = true
 exclude_regex = '0.*|1.*|parole-4\.[12][13579]\.[0-9]+'
+
+[pcsclite_lib32-pcsclite]
+source = "gitlab"
+host = "salsa.debian.org"
+gitlab = "rousseau/PCSC"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[pcsc-tools]
+source = "gitlab"
+host = "salsa.debian.org"
+gitlab = "rousseau/pcsc-tools"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [pmbootstrap]
 source = "gitlab"
