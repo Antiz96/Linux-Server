@@ -1616,7 +1616,7 @@ host = "dev.gajim.org"
 gitlab = "gajim/gajim"
 prefix = "v"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|win).*"
 
 [gammastep]
 source = "gitlab"
