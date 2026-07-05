@@ -15,7 +15,6 @@
 
 - name: "Install package(s) - Arch"
   community.general.pacman:
-    update_cache: true
     name: "{{ package_arch }}"
     state: present
   when: ansible_facts['distribution'] == "Archlinux" and (package_arch is defined and package_arch | length > 0)

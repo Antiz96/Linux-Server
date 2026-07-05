@@ -1,5 +1,5 @@
 ---
-- name: "Update repos"
+- name: "Update local repo DB"
   community.general.apk:
     update_cache: true
 

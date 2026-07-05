@@ -1,8 +1,4 @@
 ---
-- name: "Update repos"
-  community.general.pacman:
-    update_cache: true
-
 - name: "Get packages to update"
   ansible.builtin.shell:
     cmd: checkupdates
@@ -17,6 +13,7 @@
 
 - name: "Update servers"
   community.general.pacman:
+    update_cache: true
     upgrade: true
 
 - name: "Get orphan packages"

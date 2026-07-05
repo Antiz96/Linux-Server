@@ -1,5 +1,5 @@
 ---
-- name: "Update repos"
+- name: "Update local repo DB"
   ansible.builtin.apt:
     update_cache: true
 
