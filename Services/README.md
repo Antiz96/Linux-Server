@@ -27,6 +27,7 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [Pi-hole - DNS, DHCP and global Ad-Blocking server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Pi-hole.md)
 - [Apache Guacamole - Remote Gateway](https://github.com/Antiz96/Linux-Server/blob/main/Services/Apache-Guacamole.md)
 - [Dashy - Dashboard with widgets support](https://github.com/Antiz96/Linux-Server/blob/main/Services/Dashy.md)
+- [Donectick - Personal / Family tasks and chores manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Donetick.md)
 - [Nextcloud - Personal cloud, file sharing and collaborative platform](https://github.com/Antiz96/Linux-Server/blob/main/Services/Nextcloud.md)
 - [FileBrowser - Personal cloud and file sharing](https://github.com/Antiz96/Linux-Server/blob/main/Services/FileBrowser.md)
 - [Hedgedoc - Collaborative note taking](https://github.com/Antiz96/Linux-Server/blob/main/Services/Hedgedoc.md)
