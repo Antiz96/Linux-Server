@@ -1,4 +1,4 @@
-# FileBrowser
+# Donetick
 
 <https://donetick.com/>
 
