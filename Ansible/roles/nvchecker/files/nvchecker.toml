@@ -516,6 +516,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[lungo]
+source = "github"
+github = "Antiz96/lungo"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [lutris]
 source = "github"
 github = "lutris/lutris"
