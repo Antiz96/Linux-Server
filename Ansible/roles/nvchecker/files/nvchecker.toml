@@ -187,6 +187,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[containerd]
+source = "github"
+github = "containers/containerd"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
+
 [conmon]
 source = "github"
 github = "containers/conmon"
