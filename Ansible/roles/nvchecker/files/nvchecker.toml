@@ -143,7 +143,7 @@ source = "github"
 github = "borgbackup/borg"
 prefix = "v"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|RC).*"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|dev).*"
 
 [capitaine-cursors]
 source = "github"
