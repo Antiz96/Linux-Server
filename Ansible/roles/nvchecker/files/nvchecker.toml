@@ -2461,12 +2461,6 @@ git = "https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[plocate]
-source = "git"
-git = "http://git.sesse.net/plocate"
-prefix = "v"
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
-
 [python-changelog-chug]
 source = "git"
 git = "https://git.sr.ht/~bignose/changelog-chug"
@@ -2526,6 +2520,11 @@ regex = 'The latest stable version of fzssh is (\d+\.\d+\.\d+)'
 source = "regex"
 url = "https://lib.filezilla-project.org/download.php"
 regex = 'The latest stable version of libfilezilla is (\d+\.\d+\.\d+)'
+
+[plocate]
+source = "regex"
+url = "https://plocate.sesse.net"
+regex = 'Download plocate (\d+\.\d+\.\d+)'
 
 [postfix]
 source = "regex"
