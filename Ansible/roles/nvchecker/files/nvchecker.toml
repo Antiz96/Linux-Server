@@ -82,6 +82,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[archlinux-repro]
+source = "github"
+github = "archlinux/archlinux-repro"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [arch-update]
 source = "github"
 github = "Antiz96/arch-update"
@@ -131,10 +138,24 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[borg]
+source = "github"
+github = "borgbackup/borg"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|RC).*"
+
 [capitaine-cursors]
 source = "github"
 github = "keeferrourke/capitaine-cursors"
 prefix = "r"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
+
+[catatonit]
+source = "github"
+github = "openSUSE/catatonit"
+prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
 
@@ -169,6 +190,20 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [containerd]
 source = "github"
 github = "containerd/containerd"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
+
+[conmon]
+source = "github"
+github = "containers/conmon"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
+
+[containers-common]
+source = "github"
+github = "podman-container-tools/container-libs"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -277,6 +312,13 @@ github = "FortAwesome/Font-Awesome"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[fuse-overlayfs]
+source = "github"
+github = "containers/fuse-overlayfs"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
 
 [girara]
 source = "github"
@@ -530,6 +572,20 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[lxc]
+source = "github"
+github = "lxc/lxc"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
+
+[lxcfs]
+source = "github"
+github = "lxc/lxcfs"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
+
 [manora]
 source = "github"
 github = "Antiz96/manora"
@@ -589,6 +645,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [niri]
 source = "github"
 github = "niri-wm/niri"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[nvme-cli]
+source = "github"
+github = "linux-nvme/nvme-cli"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -771,6 +834,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [podlet]
 source = "github"
 github = "containers/podlet"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[podman]
+source = "github"
+github = "podman-container-tools/podman"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -1142,6 +1212,20 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [rofi]
 source = "github"
 github = "davatorium/rofi"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[runc]
+source = "github"
+github = "opencontainers/runc"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[sbctl]
+source = "github"
+github = "foxboron/sbctl"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
@@ -2374,6 +2458,12 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [mmc-utils]
 source = "git"
 git = "https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[plocate]
+source = "git"
+git = "http://git.sesse.net/plocate"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
