@@ -2457,7 +2457,7 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
 [librewolf]
 source = "git"
-git = "https://codeberg.org/librewolf/source.git"
+git = "https://librewolf.dev/librewolf/source.git"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 from_pattern = "(.+)-(.+)"
