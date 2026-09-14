@@ -96,6 +96,11 @@ vim /data/qemu/vms/arch-dev/arch-dev.xml
     <!-- SPICE Server -->
     <graphics type='spice' port='5900' autoport='no' listen='0.0.0.0' passwd='strong_password'/>
 
+    <!-- Clipboard Channel -->
+    <channel type='spicevmc'>
+      <target type='virtio' name='com.redhat.spice.0'/>
+    </channel>
+
   </devices>
 </domain>
 ```
