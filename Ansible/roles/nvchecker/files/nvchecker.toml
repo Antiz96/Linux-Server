@@ -1544,6 +1544,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[xdg-terminal-exec]
+source = "github"
+github = "Vladimir-csp/xdg-terminal-exec"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [xiccd]
 source = "github"
 github = "agalakhov/xiccd"
