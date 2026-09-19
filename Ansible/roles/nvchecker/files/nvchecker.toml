@@ -1838,7 +1838,7 @@ prefix = "parole-"
 use_max_tag = true
 exclude_regex = '0.*|1.*|parole-4\.[12][13579]\.[0-9]+'
 
-[pcsclite_lib32-pcsclite]
+[pcsclite]
 source = "gitlab"
 host = "salsa.debian.org"
 gitlab = "rousseau/PCSC"
