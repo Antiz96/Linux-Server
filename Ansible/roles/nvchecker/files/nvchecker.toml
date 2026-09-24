@@ -1069,6 +1069,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[python-pympress]
+source = "github"
+github = "Cimbali/pympress"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-pymupdf]
 source = "github"
 github = "pymupdf/PyMuPDF"
