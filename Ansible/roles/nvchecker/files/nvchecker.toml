@@ -586,6 +586,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
 
+[mangowm]
+source = "github"
+github = "mangowm/mango"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [manora]
 source = "github"
 github = "Antiz96/manora"
@@ -1233,6 +1240,13 @@ exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 [sbctl]
 source = "github"
 github = "foxboron/sbctl"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[scenefx]
+source = "github"
+github = "wlrfx/scenefx"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
