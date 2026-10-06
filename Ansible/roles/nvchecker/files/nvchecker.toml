@@ -1772,14 +1772,6 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
-[kea]
-source = "gitlab"
-host = "gitlab.isc.org"
-gitlab = "isc-projects/kea"
-prefix = "Kea-"
-use_max_tag = true
-exclude_regex = "stable|Kea-[0-9]+\\.[0-9]?[13579]\\.[0-9]+"
-
 [libdisplay-info_lib32-libdisplay-info]
 source = "gitlab"
 host = "gitlab.freedesktop.org"
@@ -2478,6 +2470,13 @@ source = "git"
 git = "https://gitea.com/gitea/runner"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[kea]
+source = "git"
+git = "https://gitlab.isc.org/isc-projects/kea.git"
+prefix = "Kea-"
+include_regex = "Kea-.*"
+exclude_regex = "Kea-[0-9]+\\.[0-9]?[13579]\\.[0-9]+"
 
 [kew]
 source = "git"
