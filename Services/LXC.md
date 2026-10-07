@@ -286,7 +286,7 @@ lxc.apparmor.profile = unconfined
 
 ### Drop capabilities to avoid failed systemd units at boot in unprivileged containers
 
-Some systemd units requires lxc to drop capibilities to run as expected.
+Some systemd units requires lxc to drop capabilities to run as expected.
 
 For instance, the `sys-kernel-config.mount` and `sys-kernel-debug.mount` units needs the `sys_rawio` capability to be dropped to start properly in an unprivileged environment.
 
