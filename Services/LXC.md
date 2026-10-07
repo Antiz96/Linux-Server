@@ -284,6 +284,22 @@ Despite experimenting and trying potential workarounds I've found here and there
 lxc.apparmor.profile = unconfined
 ```
 
+### Drop capabilities to avoid failed systemd units at boot in unprivileged containers
+
+Some systemd units requires lxc to drop capibilities to run as expected.
+
+For instance, the `sys-kernel-config.mount` and `sys-kernel-debug.mount` units needs the `sys_rawio` capability to be dropped to start properly in an unprivileged environment.
+
+To do so, add the following to the container config:
+
+```text
+lxc.cap.drop = sys_rawio
+```
+
+The `systemd-journald-audit.socket` unit additionally need the `audit_read` capability to be dropped, but this unit is now masked by default (so this is not needed anymore).
+
+See [this article](https://www.enricobassetti.it/2023/05/proxmox-lxc-systemd-and-linux-capabilities/) for details.
+
 ### Limit containers resources
 
 In containers' config:
