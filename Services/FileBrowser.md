@@ -26,15 +26,19 @@ vim /data/podman/volumes/filebrowser/config.yaml
 
 ```text
 server:
-  port: 8080 # Port for the server to listen on (inside the container)
-  cacheDir: /home/filebrowser/data/cache # Path to cache dir (inside the container)
+  cacheDir: "/home/filebrowser/data/cache" # Path to cache dir (inside the container)
   sources:
-    - path: /home/filebrowser/data/storage # Path to data dir (inside the container)
+    - path: "/home/filebrowser/data/storage" # Path to data dir (inside the container)
       config:
         defaultEnabled: true
+  database:
+    path: "/home/filebrowser/data/filebrowser.sqlite" # Path to the database file (inside the container)
+
+http:
+  port: 8080 # Port for the server to listen on (inside the container)
 
 auth:
-  adminUsername: Antiz # Name of the default admin password
+  adminUsername: "Antiz" # Name of the default admin password
   adminPassword: "changeit" # Password for the above admin user
   methods:
     password:
