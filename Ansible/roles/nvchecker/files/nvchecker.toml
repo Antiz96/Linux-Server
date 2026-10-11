@@ -2491,6 +2491,12 @@ git = "https://codeberg.org/ravachol/kew.git"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[kew-data]
+source = "git"
+git = "https://codeberg.org/ravachol/kew-data.git"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [librewolf]
 source = "git"
 git = "https://librewolf.dev/librewolf/source.git"
