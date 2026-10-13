@@ -5,6 +5,7 @@
 - name: "Load vaulted vars"
   ansible.builtin.include_vars:
     file: vault.yml
+  no_log: true
 
 - name: "Deploy nvchecker keyfile"
   ansible.builtin.template:
@@ -13,6 +14,7 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "0600"
+  no_log: true
 
 - name: "Deploy nvchecker config"
   ansible.builtin.copy:
@@ -47,6 +49,7 @@
     cmd: set -o pipefail && echo -e "Subject:NVChecker -  New upstream releases\n\n{{ (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | join('\n') }}" | sendmail {{ email_address }}
   changed_when: true
   when: (nvchecker_output.stdout_lines + nvchecker_output.stderr_lines) | length > 0
+  no_log: true
 
 - name: "Run nvtake"
   ansible.builtin.shell:
