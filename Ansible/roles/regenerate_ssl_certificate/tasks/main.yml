@@ -4,6 +4,7 @@
 - name: "Load vaulted vars"
   ansible.builtin.include_vars:
     file: vault.yml
+  no_log: true
 
 - name: "Regenerate private key"
   ansible.builtin.shell:
@@ -27,6 +28,7 @@
   changed_when: true
   delegate_to: localhost
   run_once: true
+  no_log: true
 
 - name: "Show errors when regenerating CSR (if there are)"
   ansible.builtin.debug:
@@ -124,3 +126,4 @@
   changed_when: true
   delegate_to: localhost
   run_once: true
+  no_log: true
