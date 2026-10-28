@@ -2518,6 +2518,12 @@ git = "https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[pmstream]
+source = "git"
+git = "https://codeberg.org/ravachol/pmstream.git"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [python-changelog-chug]
 source = "git"
 git = "https://git.sr.ht/~bignose/changelog-chug"
