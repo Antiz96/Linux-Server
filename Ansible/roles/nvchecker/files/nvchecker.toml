@@ -460,6 +460,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
+[incrust]
+source = "github"
+github = "Antiz96/incrust"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
 [iotop-c]
 source = "github"
 github = "Tomas-M/iotop"
