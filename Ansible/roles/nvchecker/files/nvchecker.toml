@@ -152,6 +152,13 @@ prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|dev).*"
 
+[buildah]
+source = "github"
+github = "podman-container-tools/buildah"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|dev).*"
+
 [capitaine-cursors]
 source = "github"
 github = "keeferrourke/capitaine-cursors"
@@ -1285,6 +1292,13 @@ github = "google/shaderc"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[skopeo]
+source = "github"
+github = "podman-container-tools/skopeo"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|dev).*"
 
 [spirv-headers]
 source = "github"
