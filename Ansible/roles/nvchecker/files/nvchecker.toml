@@ -388,7 +388,7 @@ source = "github"
 github = "benjamimgois/goverlay"
 prefix = "v"
 use_max_tag = true
-exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc|RC).*"
 
 [grafana-zabbix]
 source = "github"
