@@ -5,6 +5,13 @@ keyfile = "keyfile.toml"
 
 # GitHub
 
+[aardvark-dns]
+source = "github"
+github = "containers/aardvark-dns"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
+
 [actionlint]
 source = "github"
 github = "rhysd/actionlint"
@@ -228,6 +235,13 @@ github = "rpm-software-management/createrepo_c"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[crun]
+source = "github"
+github = "containers/crun"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
 
 [curlie]
 source = "github"
@@ -662,6 +676,13 @@ github = "slackhq/nebula"
 prefix = "v"
 use_max_tag = true
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[netavark]
+source = "github"
+github = "containers/netavark"
+prefix = "v"
+use_max_tag = true
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"
 
 [nfoview]
 source = "github"
@@ -2542,6 +2563,12 @@ to_pattern = "\\1_\\2"
 [mmc-utils]
 source = "git"
 git = "https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
+
+[passt]
+source = "git"
+git = "https://passt.top/passt/"
 prefix = "v"
 exclude_regex = ".*(pre|a|alpha|b|beta|r|rc).*"
 
