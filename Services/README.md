@@ -22,11 +22,12 @@ This is a (non-exhaustive) list of installation and configuration procedures of 
 - [Postfix - Mail Server/SMTP Relay](https://github.com/Antiz96/Linux-Server/blob/main/Services/Postfix.md)
 - [AdguardHome - DNS, DHCP and global Ad-Blocking server](https://github.com/Antiz96/Linux-Server/blob/main/Services/AdguardHome.md)
 
-## Services that run inside a docker container
+## Services that run inside a podman container
 
 - [Pi-hole - DNS, DHCP and global Ad-Blocking server](https://github.com/Antiz96/Linux-Server/blob/main/Services/Pi-hole.md)
 - [Apache Guacamole - Remote Gateway](https://github.com/Antiz96/Linux-Server/blob/main/Services/Apache-Guacamole.md)
 - [Dashy - Dashboard with widgets support](https://github.com/Antiz96/Linux-Server/blob/main/Services/Dashy.md)
+- [Semaphore - Orchestrator for Ansible, Terraform and Bash](https://github.com/Antiz96/Linux-Server/blob/main/Services/Semaphore.md)
 - [Donectick - Tasks and chores manager](https://github.com/Antiz96/Linux-Server/blob/main/Services/Donetick.md)
 - [HomeHub - Family dashboard](https://github.com/Antiz96/Linux-Server/blob/main/Services/HomeHub.md)
 - [Nextcloud - Personal cloud, file sharing and collaborative platform](https://github.com/Antiz96/Linux-Server/blob/main/Services/Nextcloud.md)
