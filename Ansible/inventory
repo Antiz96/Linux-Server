@@ -14,7 +14,6 @@ lxc_core01
 lxc_core02
 
 [lxc_core01]
-auto01.rc ansible_connection=local 
 dns01a.rc
 dhcp01a.rc
 web01a.rc
