@@ -1,5 +1,5 @@
 ---
 - name: "Run nvchecker"
-  hosts: localhost
+  hosts: runner01.rc
   roles:
     - role: "nvchecker"
