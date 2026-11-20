@@ -38,10 +38,12 @@ vps01.rc
 core01.rc
 
 # Other
-[antiz_fr]
-web01a.rc branch=dev
-web01b.rc branch=dev
-vps01.rc branch=main
+[antiz_fr_dev]
+web01a.rc
+web01b.rc
+
+[antiz_fr_prod]
+vps01.rc
 
 [ssl]
 web01a.rc key=true

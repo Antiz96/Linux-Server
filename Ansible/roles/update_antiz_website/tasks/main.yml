@@ -7,4 +7,4 @@
   register: update_antiz_fr
   changed_when: true
   args:
-    chdir: "{{ '/data/antiz.fr' if branch == 'main' else '/opt/antiz.fr' }}"
+    chdir: "{{ repo_dir }}"

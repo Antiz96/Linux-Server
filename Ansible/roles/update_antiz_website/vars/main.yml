@@ -1,2 +1,4 @@
 ---
 # vars file for update_antiz_website
+branch: "{{ 'dev' if env == 'dev' else 'main' if env == 'prod' }}"
+repo_dir: "{{ '/opt/antiz.fr' if env == 'dev' else '/data/antiz.fr' if env == 'prod' }}"
