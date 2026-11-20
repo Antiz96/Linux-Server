@@ -1,6 +1,6 @@
 ---
 - name: "Update the antiz.fr website on web servers"
-  hosts: antiz_fr
+  hosts: "antiz_fr_{{ env | default('invalid') }}"
   become: true
   roles:
     - role: "update_antiz_website"
