@@ -126,15 +126,16 @@ sudoedit /etc/apparmor.d/local/php-fpm
 ```
 
 ```text
-# vim: ft=apparmor
+# Needed to allow Zabbix web in rootless podman container to initialize php-fpm
+# You can see the currently used php version to allow from the logs or from the Dockerfile at https://github.com/zabbix/zabbix-docker/blob/HEAD/Dockerfiles/web-nginx-pgsql/alpine/Dockerfile
 
-# for Zabbix server in podman container
-/etc/php84/** r,
+/etc/php85/** r,
 /usr/share/zabbix/** r,
-/usr/share/php84/** r,
+/usr/share/php85/** r,
 /etc/zabbix/** r,
 /tmp/php-fpm.sock rw,
 /tmp/php-fpm.pid rw,
+/tmp/php-fpm-status.sock rw,
 ```
 
 ```bash
